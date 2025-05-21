@@ -139,6 +139,22 @@ All components follow this consistent size scale:
 | lg   | Large                 | Featured elements, headers       |
 | xl   | Extra Large           | Hero sections, featured content  |
 
+## Component Appearances
+
+Components support different visual styles through the `appearance` prop. This allows for consistent styling that can be switched across the entire application or per component.
+
+| Appearance | Description                                    | Use Cases                            |
+| ---------- | ---------------------------------------------- | ------------------------------------ |
+| standard   | Default style with more gradients and depth    | Modern web apps, consumer interfaces |
+| minimal    | Flatter, simpler style with less visual noise  | Dashboards, enterprise applications  |
+| detailed   | More elaborate styling with additional details | Marketing sites, feature showcases   |
+
+The appearance system works on multiple levels:
+
+1. **Global default**: Set via ThemeProvider's `style` prop
+2. **Per-component**: Override via each component's `appearance` prop
+3. **Implementation**: Each style lives in its own file (e.g., `minimal-styles.ts`, `standard-styles.ts`)
+
 ### Specific Component Sizes
 
 #### Button
@@ -148,7 +164,11 @@ Button component follows the modular structure in `components/ui/button`:
 - **Structure**:
   - `button.tsx`: Core component implementation
   - `types.ts`: Type definitions and interfaces
-  - `styles.ts`: Style generation functions
+  - `styles.ts`: Style delegation to specific style modules
+  - `styles/`: Modular style files:
+    - `common-styles.ts`: Shared style utilities for all appearances
+    - `standard-styles.ts`: Styles for standard appearance
+    - `minimal-styles.ts`: Styles for minimal appearance
   - `index.ts`: Re-exports for easy importing
 
 Button sizes are implemented according to the following specifications:
@@ -214,35 +234,3 @@ Kookie supports three distinct visual styles that affect component aesthetics th
 
 - No shadows: `shadow-none`
 - Simple color transitions: `transition-colors duration-150`
-- Flat design without 3D effects
-- Clean, minimal aesthetic with subtle hover states
-- Reduced visual complexity for dense interfaces
-
-### Standard Style
-
-- Default style for the system
-- Light shadows: `shadow-sm`
-- Balanced transitions: `transition-all duration-150`
-- Modern, clean aesthetic
-- Subtle hover and active states
-- Appropriate for most interfaces and applications
-
-### Detailed Style
-
-- Pronounced shadows: `shadow`
-- Rich transitions: `transition-all duration-200`
-- Visual depth and dimensionality
-- Enhanced interactive states (hover, focus, active)
-- Suitable for featured content and primary interfaces
-
-These styles can be set globally through the theme provider or overridden at the component level when needed. The visual style affects shadows, transitions, and interactive states across components.
-
-## Border Radius
-
-| Token | Tailwind Class | Value    | Usage                                 |
-| ----- | -------------- | -------- | ------------------------------------- |
-| none  | rounded-none   | 0px      | No rounding, sharp corners            |
-| sm    | rounded        | 0.125rem | Subtle rounding                       |
-| md    | rounded-md     | 0.375rem | Standard rounding                     |
-| lg    | rounded-lg     | 0.5rem   | Prominent rounding                    |
-| full  | rounded-full   | 9999px   | Fully round elements (pills, avatars) |

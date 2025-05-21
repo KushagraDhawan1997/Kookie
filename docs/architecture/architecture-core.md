@@ -53,7 +53,7 @@ kookie/
 - **Colors**: Configurable semantic colors (primary, success, warning, danger)
 - **Gray Scale**: Configurable gray palette (slate, gray, zinc, neutral, stone)
 - **Size Scale**: Global size setting (xs, sm, md, lg, xl)
-- **Visual Style**: Design system mode (minimal, modern, classic)
+- **Visual Style**: Design system appearance (minimal, standard, detailed)
 - **Border Radius**: Global radius setting
 
 ### Key Patterns
@@ -78,6 +78,14 @@ kookie/
 - Theme system resolves to actual Tailwind colors
 - Provides consistency while allowing customization
 - Ensures color meaning remains consistent
+
+#### 4. Appearance System Pattern
+
+- Components support multiple visual styles via `appearance` prop
+- Global default appearance set via theme provider
+- Per-component appearance overrides global setting
+- Modular style files for each appearance type
+- Delegated style resolution via style manager
 
 ## Utils and Helpers
 

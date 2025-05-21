@@ -13,7 +13,11 @@ components/
 │   │   ├── index.ts        # Re-exports everything
 │   │   ├── button.tsx      # Main component logic
 │   │   ├── types.ts        # Type definitions
-│   │   └── styles.ts       # Style generation logic
+│   │   ├── styles.ts       # Style delegation logic
+│   │   └── styles/         # Modular style files
+│   │       ├── common-styles.ts    # Shared styling utilities
+│   │       ├── standard-styles.ts  # Standard appearance styles
+│   │       └── minimal-styles.ts   # Minimal appearance styles
 │   ├── text/               # Text component
 │   │   ├── index.ts        # Re-exports everything
 │   │   ├── text.tsx        # Main component logic
@@ -25,7 +29,7 @@ components/
 │   │   ├── types.ts        # Type definitions
 │   │   └── styles.ts       # Style generation logic
 │   └── ...                 # Other UI components
-├── layout/                 # Layout components
+├── demos/                  # Demo components for showcasing
 └── ...                     # Other component types
 ```
 
@@ -36,7 +40,11 @@ Each component follows a modular structure with responsibilities split into sepa
 1. **index.ts**: Re-exports the component and its types for easy importing
 2. **component.tsx**: Contains only the component logic and rendering
 3. **types.ts**: All TypeScript interfaces, types, and enums
-4. **styles.ts**: Style generation functions and style maps
+4. **styles.ts**: Style delegation to appropriate style modules
+5. **styles/**: Modular style files for different appearances:
+   - **common-styles.ts**: Shared styling utilities used across appearances
+   - **standard-styles.ts**: Styles for standard appearance
+   - **minimal-styles.ts**: Styles for minimal appearance
 
 This structure provides several benefits:
 
@@ -44,16 +52,18 @@ This structure provides several benefits:
 - Improved maintainability
 - Smaller, focused files
 - Easier testing of style logic
+- Support for multiple visual styles/appearances
 
 ### Component Design Principles
 
 1. **Theme Integration** - Components consume theme settings via hooks
 2. **Size Inheritance** - Child components inherit size from parents
 3. **Semantic Colors** - Components use semantic color names (primary, success, etc.)
-4. **Consistent API** - Common props like `size`, `color`, `variant` across components
-5. **Explicit Style Maps** - No string interpolation; use predefined style maps for all variants
-6. **Design Token Alignment** - Classes map directly to design token reference
-7. **Accessibility First** - Built on Radix UI primitives where appropriate
+4. **Consistent API** - Common props like `size`, `color`, `variant`, `appearance` across components
+5. **Multiple Appearances** - Components support different visual styles via the `appearance` prop
+6. **Explicit Style Maps** - No string interpolation; use predefined style maps for all variants
+7. **Design Token Alignment** - Classes map directly to design token reference
+8. **Accessibility First** - Built on Radix UI primitives where appropriate
 
 ### Common Component Props
 
@@ -62,6 +72,7 @@ Most components share these common props:
 - `size`: Size variant (`xs`, `sm`, `md`, `lg`, `xl`)
 - `color`: Semantic color or direct Tailwind color
 - `variant`: Component-specific variants (e.g., solid/outline for Button, default/muted for Text)
+- `appearance`: Visual style setting (`standard`, `minimal`) that controls the component's theme
 - `className`: For extending styles
 - `children`: For component content
 
