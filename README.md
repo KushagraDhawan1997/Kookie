@@ -11,6 +11,7 @@ A high-performance component library built on Radix UI primitives, styled with T
 5. **Component inheritance** - Props cascade through the component tree
 6. **Style consistency** - Following the design token reference
 7. **Tailwind integration** - Seamless mapping of semantic colors to Tailwind's built-in colors
+8. **Multiple appearances** - Support for different visual styles via the appearance prop
 
 ## Technology Stack
 
@@ -33,12 +34,30 @@ Kookie UI uses a theme system that maps semantic colors (primary, success, warni
   danger="rose" // Sets the danger color to Tailwind's rose
   gray="slate" // Sets the neutral color to Tailwind's slate
   size="sm" // Default component size
-  style="modern" // Visual style
+  style="standard" // Visual appearance style (standard, minimal, detailed)
   radius="md" // Border radius
 >
   <App />
 </ThemeProvider>
 ```
+
+## Appearance System
+
+Components support multiple visual styles through the `appearance` prop:
+
+```tsx
+// Standard appearance (default)
+<Button>Standard Button</Button>
+
+// Minimal appearance
+<Button appearance="minimal">Minimal Button</Button>
+```
+
+The appearance system provides:
+
+- **Global defaults** via ThemeProvider's `style` prop
+- **Per-component overrides** via the `appearance` prop
+- **Modular style files** for easy maintenance and extension
 
 ## Core Components
 
@@ -79,6 +98,46 @@ Specialized component for h1-h6 headings:
 <Heading as="h2" level="h1">
   Looks like h1, semantically h2
 </Heading>
+```
+
+### Button Component
+
+Flexible button component with multiple variants, colors, and sizes:
+
+```tsx
+// Basic usage
+<Button>Default Button</Button>
+
+// Variants
+<Button variant="solid">Solid Button</Button>
+<Button variant="outline">Outline Button</Button>
+<Button variant="ghost">Ghost Button</Button>
+<Button variant="tinted">Tinted Button</Button>
+<Button variant="link">Link Button</Button>
+
+// Colors (semantic or Tailwind colors)
+<Button color="primary">Primary Button</Button>
+<Button color="success">Success Button</Button>
+<Button color="violet">Violet Button</Button>
+
+// Sizes
+<Button size="xs">Extra Small</Button>
+<Button size="sm">Small</Button>
+<Button size="md">Medium</Button>
+<Button size="lg">Large</Button>
+<Button size="xl">Extra Large</Button>
+
+// Appearances
+<Button appearance="standard">Standard Style</Button>
+<Button appearance="minimal">Minimal Style</Button>
+
+// With icons
+<Button leftIcon={<Icon />}>With Left Icon</Button>
+<Button rightIcon={<Icon />}>With Right Icon</Button>
+
+// States
+<Button isLoading={true}>Loading Button</Button>
+<Button disabled>Disabled Button</Button>
 ```
 
 ## Getting Started
