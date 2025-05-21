@@ -71,11 +71,18 @@ The UI uses a configurable gray scale, with "slate" as the default:
 
 ### Typography Components
 
-Kookie provides two main typography components that implement these tokens:
+Kookie provides two main typography components that implement these tokens. Both follow a modular file structure with separate files for types, styles, and component logic:
 
 #### Text Component
 
-The foundational typography component for general content:
+The foundational typography component for general content, located in `components/ui/text`:
+
+- **Structure**:
+
+  - `text.tsx`: Core component implementation
+  - `types.ts`: Type definitions and interfaces
+  - `styles.ts`: Style generation functions
+  - `index.ts`: Re-exports for easy importing
 
 - **Default element**: `<p>`
 - **Default weight**: `normal` (400)
@@ -85,8 +92,16 @@ The foundational typography component for general content:
 
 #### Heading Component
 
-Specialized component for heading elements with appropriate defaults:
+Specialized component for heading elements with appropriate defaults, located in `components/ui/heading`:
 
+- **Structure**:
+
+  - `heading.tsx`: Core component implementation
+  - `types.ts`: Type definitions and interfaces
+  - `styles.ts`: Style generation functions
+  - `index.ts`: Re-exports for easy importing
+
+- **Relationship to Text**: Reuses style logic from Text component but applies heading-specific defaults and enhancements
 - **Default element**: `<h2>`
 - **Default weights**:
   - h1, h2, h3: `bold` (700)
@@ -127,6 +142,16 @@ All components follow this consistent size scale:
 ### Specific Component Sizes
 
 #### Button
+
+Button component follows the modular structure in `components/ui/button`:
+
+- **Structure**:
+  - `button.tsx`: Core component implementation
+  - `types.ts`: Type definitions and interfaces
+  - `styles.ts`: Style generation functions
+  - `index.ts`: Re-exports for easy importing
+
+Button sizes are implemented according to the following specifications:
 
 | Size | Height | Text Size | Padding X | Gap     | Border Radius |
 | ---- | ------ | --------- | --------- | ------- | ------------- |
@@ -183,29 +208,34 @@ Used for spacing between elements, especially in layout components:
 
 ## Visual Styles
 
-Kookie supports three distinct visual styles that affect component aesthetics:
+Kookie supports three distinct visual styles that affect component aesthetics through the theme system:
 
 ### Minimal Style
 
 - No shadows: `shadow-none`
 - Simple color transitions: `transition-colors duration-150`
 - Flat design without 3D effects
-- Clean, modern aesthetic with simple hover states
+- Clean, minimal aesthetic with subtle hover states
+- Reduced visual complexity for dense interfaces
 
-### Modern Style
+### Standard Style
 
-- Subtle shadows: `shadow-sm`
-- Micro-interactions: `transition-all duration-200`
-- Hover elevation: `hover:-translate-y-0.5`
-- Active press: `active:translate-y-0`
-- Button gradients: `bg-gradient-to-r from-primary-500 to-primary-600`
+- Default style for the system
+- Light shadows: `shadow-sm`
+- Balanced transitions: `transition-all duration-150`
+- Modern, clean aesthetic
+- Subtle hover and active states
+- Appropriate for most interfaces and applications
 
-### Classic Style
+### Detailed Style
 
-- Standard shadows: `shadow`
-- Standard transitions: `transition-all duration-150`
-- Brightness changes: `hover:brightness-105 active:brightness-95`
-- Traditional button appearance
+- Pronounced shadows: `shadow`
+- Rich transitions: `transition-all duration-200`
+- Visual depth and dimensionality
+- Enhanced interactive states (hover, focus, active)
+- Suitable for featured content and primary interfaces
+
+These styles can be set globally through the theme provider or overridden at the component level when needed. The visual style affects shadows, transitions, and interactive states across components.
 
 ## Border Radius
 

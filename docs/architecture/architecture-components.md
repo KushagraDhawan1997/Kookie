@@ -8,13 +8,42 @@ Each component in Kookie UI follows a consistent file structure and implementati
 
 ```
 components/
-├── ui/               # Core UI components
-│   ├── text/         # Text component
-│   ├── button/       # Button component
-│   └── ...           # Other UI components
-├── layout/           # Layout components
-└── ...               # Other component types
+├── ui/                     # Core UI components
+│   ├── button/             # Button component
+│   │   ├── index.ts        # Re-exports everything
+│   │   ├── button.tsx      # Main component logic
+│   │   ├── types.ts        # Type definitions
+│   │   └── styles.ts       # Style generation logic
+│   ├── text/               # Text component
+│   │   ├── index.ts        # Re-exports everything
+│   │   ├── text.tsx        # Main component logic
+│   │   ├── types.ts        # Type definitions
+│   │   └── styles.ts       # Style generation logic
+│   ├── heading/            # Heading component
+│   │   ├── index.ts        # Re-exports everything
+│   │   ├── heading.tsx     # Main component logic
+│   │   ├── types.ts        # Type definitions
+│   │   └── styles.ts       # Style generation logic
+│   └── ...                 # Other UI components
+├── layout/                 # Layout components
+└── ...                     # Other component types
 ```
+
+### Modular Component Structure
+
+Each component follows a modular structure with responsibilities split into separate files:
+
+1. **index.ts**: Re-exports the component and its types for easy importing
+2. **component.tsx**: Contains only the component logic and rendering
+3. **types.ts**: All TypeScript interfaces, types, and enums
+4. **styles.ts**: Style generation functions and style maps
+
+This structure provides several benefits:
+
+- Better separation of concerns
+- Improved maintainability
+- Smaller, focused files
+- Easier testing of style logic
 
 ### Component Design Principles
 
@@ -111,6 +140,7 @@ Components that display or work with data.
 2. **Design Token Reference**: Follow the defined tokens for consistency
 3. **Predefined Style Maps**: Style variations defined in lookup tables, not string interpolation
 4. **Customizable**: All components accept className for extension
+5. **Extracted Style Logic**: Style generation happens in separate files for clarity
 
 ## Accessibility
 

@@ -1,6 +1,8 @@
 "use client";
 
-import { Text, Heading } from "../components/ui/text";
+import { Text } from "../components/ui/text";
+import { Heading } from "../components/ui/heading";
+import { Button } from "../components/ui/button";
 
 export default function Home() {
   return (
@@ -8,9 +10,9 @@ export default function Home() {
       <main className="w-full max-w-3xl">
         {/* Page Header */}
         <Heading as="h1" color="primary" className="mb-2">
-          Kookie Typography
+          Kookie UI Components
         </Heading>
-        <Text className="mb-12">A clean, consistent typography system with semantic components</Text>
+        <Text className="mb-12">A clean, consistent design system with semantic components</Text>
 
         {/* Heading Examples */}
         <div className="mb-16">
@@ -110,6 +112,102 @@ export default function Home() {
           <Text size="xl" className="mb-2">
             Extra large text (xl)
           </Text>
+        </div>
+
+        {/* Button Examples */}
+        <div className="mb-16">
+          <Heading as="h2" className="mb-6">
+            Button Component
+          </Heading>
+
+          {/* Button Variants */}
+          <Heading as="h3" className="mb-3">
+            Button Variants
+          </Heading>
+          <div className="flex flex-wrap gap-4 mb-8">
+            <Button variant="solid">Solid Button</Button>
+            <Button variant="outline">Outline Button</Button>
+            <Button variant="ghost">Ghost Button</Button>
+            <Button variant="link">Link Button</Button>
+            <Button variant="tinted">Tinted Button</Button>
+          </div>
+
+          {/* Semantic Colors */}
+          <Heading as="h3" className="mb-3">
+            Semantic Colors
+          </Heading>
+          <div className="flex flex-wrap gap-4 mb-8">
+            <Button color="primary">Primary</Button>
+            <Button color="success">Success</Button>
+            <Button color="warning">Warning</Button>
+            <Button color="danger">Danger</Button>
+            <Button color="gray">Gray</Button>
+          </div>
+
+          {/* Direct Tailwind Colors */}
+          <Heading as="h3" className="mb-3">
+            Direct Tailwind Colors
+          </Heading>
+          <div className="flex flex-wrap gap-4 mb-8">
+            <Button color="violet">Violet</Button>
+            <Button color="amber">Amber</Button>
+            <Button color="teal">Teal</Button>
+            <Button color="pink">Pink</Button>
+          </div>
+
+          {/* Button Sizes */}
+          <Heading as="h3" className="mb-3">
+            Button Sizes
+          </Heading>
+          <div className="flex items-center flex-wrap gap-4 mb-8">
+            <Button size="xs">Extra Small</Button>
+            <Button size="sm">Small</Button>
+            <Button size="md">Medium</Button>
+            <Button size="lg">Large</Button>
+            <Button size="xl">Extra Large</Button>
+          </div>
+
+          {/* Button Radius */}
+          <Heading as="h3" className="mb-3">
+            Button Radius
+          </Heading>
+          <div className="flex flex-wrap gap-4 mb-8">
+            <Button radius="none">No Radius</Button>
+            <Button radius="sm">Small Radius</Button>
+            <Button radius="md">Medium Radius</Button>
+            <Button radius="lg">Large Radius</Button>
+            <Button radius="full">Full Radius</Button>
+          </div>
+
+          {/* Button States */}
+          <Heading as="h3" className="mb-3">
+            Button States
+          </Heading>
+          <div className="flex flex-wrap gap-4 mb-8">
+            <Button>Default</Button>
+            <Button isLoading>Loading</Button>
+            <Button disabled>Disabled</Button>
+            <Button fullWidth>Full Width Button</Button>
+          </div>
+
+          {/* Button Variants + Colors */}
+          <Heading as="h3" className="mb-3">
+            Variants + Colors
+          </Heading>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <Button variant="outline" color="primary">
+              Primary Outline
+            </Button>
+            <Button variant="ghost" color="success">
+              Success Ghost
+            </Button>
+            <Button variant="link" color="danger">
+              Danger Link
+            </Button>
+            <Button variant="solid" color="warning">
+              Warning Solid
+            </Button>
+          </div>
         </div>
       </main>
     </div>

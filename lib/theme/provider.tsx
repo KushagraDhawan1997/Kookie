@@ -3,7 +3,7 @@
 import React, { createContext, useContext } from "react";
 import { Provider } from "jotai"; // Jotai provider for global state management
 import { useHydrateAtoms } from "jotai/utils"; // Utility to initialize Jotai atoms
-import { colorAtom, grayAtom, sizeAtom, styleAtom, radiusAtom, componentSizeAtom, ThemeColor, ThemeGray, ThemeSize, ThemeStyle } from "./atoms"; // Jotai atoms for theme properties
+import { colorAtom, grayAtom, sizeAtom, styleAtom, radiusAtom, componentSizeAtom, ThemeColor, ThemeGray, ThemeSize, ThemeStyle, ThemeRadius } from "./atoms"; // Jotai atoms for theme properties
 
 // Define default theme color values
 // This constant centralizes the default string values for semantic colors (primary, success, etc.).
@@ -14,6 +14,7 @@ const defaultThemeColorValues = {
   success: "green" as ThemeColor, // Default success color (e.g., for success messages, confirmations)
   warning: "amber" as ThemeColor, // Default warning color (e.g., for warnings, alerts)
   danger: "rose" as ThemeColor, // Default danger color (e.g., for errors, destructive actions)
+  gray: "gray" as ThemeGray, // Default gray color for neutral UI elements
 };
 
 // Additional context for CSS variables and color mapping
@@ -26,6 +27,7 @@ type ThemeContextType = {
     success: ThemeColor;
     warning: ThemeColor;
     danger: ThemeColor;
+    gray: ThemeGray;
   };
 };
 
@@ -52,7 +54,7 @@ interface ThemeProviderProps {
   gray?: ThemeGray; // Optional: Sets the gray scale color (e.g., 'slate', 'gray')
   size?: ThemeSize; // Optional: Sets the base size for theme-aware components (e.g., 'sm', 'md', 'lg')
   style?: ThemeStyle; // Optional: Sets the visual style (e.g., 'modern', 'classic')
-  radius?: "none" | "sm" | "md" | "lg" | "full"; // Optional: Sets the border radius for components
+  radius?: ThemeRadius; // Optional: Sets the border radius for components
 }
 
 /**
@@ -69,9 +71,9 @@ export function ThemeProvider({
   success = defaultThemeColorValues.success,
   warning = defaultThemeColorValues.warning,
   danger = defaultThemeColorValues.danger,
-  gray = "slate",
+  gray = defaultThemeColorValues.gray,
   size = "sm",
-  style = "modern",
+  style = "standard",
   radius = "md",
 }: ThemeProviderProps) {
   // Set up the mapping from semantic color names to their actual (configurable) Tailwind color values.
@@ -81,6 +83,7 @@ export function ThemeProvider({
     success: success, // The success color, taken from props or its default
     warning: warning, // The warning color, taken from props or its default
     danger: danger, // The danger color, taken from props or its default
+    gray: gray, // The gray color, taken from props or its default
   };
 
   // Internal component to handle the hydration (initialization) of Jotai atoms.

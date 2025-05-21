@@ -1,4 +1,2 @@
 export { Text } from "./text";
-export type { TextProps } from "./text";
-export { Heading } from "./heading";
-export type { HeadingProps } from "./heading";
+export type { TextProps, TextSize, ColorProp, TextVariant, FontWeight, TextAlign } from "./types";
