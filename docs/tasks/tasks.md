@@ -26,80 +26,82 @@
    - [x] Create utils directory: `mkdir -p lib/utils`
    - [x] Create class name utility: `lib/utils/cn.ts`
 
-5. **Configure Documentation**
-   - [ ] Set up Nextra (if not already configured)
-   - [ ] Create basic documentation structure
-
 ## Phase 2: Core Components
 
-6. **Text Component**
+5. **Text Component**
 
    - [ ] Create component structure: `mkdir -p components/ui/text`
    - [ ] Implement Text component
-   - [ ] Create documentation: `pages/components/ui/text.mdx`
+   - [ ] Basic inline documentation
 
-7. **Button Component**
+6. **Button Component**
 
    - [ ] Create component structure: `mkdir -p components/ui/button`
    - [ ] Implement Button component
-   - [ ] Create documentation: `pages/components/ui/button.mdx`
+   - [ ] Basic inline documentation
 
-8. **Box & Flex Components**
+7. **Box & Flex Components**
 
    - [ ] Create layout component structure: `mkdir -p components/layout/box components/layout/flex`
    - [ ] Implement Box component
    - [ ] Implement Flex component
-   - [ ] Create documentation for layout components
+   - [ ] Basic inline documentation
 
-9. **Card Component**
+8. **Card Component**
 
    - [ ] Create component structure: `mkdir -p components/ui/card`
    - [ ] Implement Card and subcomponents
-   - [ ] Create documentation: `pages/components/ui/card.mdx`
+   - [ ] Basic inline documentation
 
-10. **Form Components**
-    - [ ] Create Input component
-    - [ ] Create Select component
-    - [ ] Create Checkbox component
-    - [ ] Create documentation for form components
+9. **Form Components**
+   - [ ] Create Input component
+   - [ ] Create Select component
+   - [ ] Create Checkbox component
+   - [ ] Basic inline documentation
 
 ## Phase 3: Advanced Components
 
-11. **Dialog Component**
+10. **Dialog Component**
 
     - [ ] Install Radix Dialog: `npm install @radix-ui/react-dialog@latest`
     - [ ] Implement Dialog component
-    - [ ] Create documentation
+    - [ ] Basic inline documentation
 
-12. **Dropdown Component**
+11. **Dropdown Component**
 
     - [ ] Install Radix Dropdown Menu: `npm install @radix-ui/react-dropdown-menu@latest`
     - [ ] Implement Dropdown component
-    - [ ] Create documentation
+    - [ ] Basic inline documentation
 
-13. **Navigation Components**
+12. **Navigation Components**
     - [ ] Install Radix Tabs: `npm install @radix-ui/react-tabs@latest`
     - [ ] Implement Tabs component
     - [ ] Implement Sidebar component
-    - [ ] Create documentation
+    - [ ] Basic inline documentation
 
 ## Phase 4: Effects & Marketing Components
 
-14. **Effect Components**
+13. **Effect Components**
 
     - [ ] Install React Three Fiber: `npm install three @react-three/fiber @react-three/drei`
     - [ ] Create Beams component
     - [ ] Create Gradient Background component
-    - [ ] Create documentation
+    - [ ] Basic inline documentation
 
-15. **Marketing Components**
+14. **Marketing Components**
     - [ ] Create Hero component
     - [ ] Create Feature Section component
     - [ ] Create Pricing component
     - [ ] Create Bento Grid component
-    - [ ] Create documentation
+    - [ ] Basic inline documentation
 
-## Phase 5: Testing & Refinement
+## Phase 5: Documentation & Testing
+
+15. **Configure Documentation**
+
+    - [ ] Set up Nextra documentation site
+    - [ ] Create comprehensive documentation structure
+    - [ ] Migrate inline documentation to MDX format
 
 16. **Component Testing**
 
