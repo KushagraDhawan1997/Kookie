@@ -1,5 +1,5 @@
 import React from "react";
-import { ThemeColor, ThemeRadius, ThemeSize, SemanticColorKey } from "../../../lib/theme/atoms";
+import { ThemeColor, ThemeRadius, ThemeSize, SemanticColorKey, ThemeStyle } from "../../../lib/theme/atoms";
 
 /**
  * Variant options for the Button component
@@ -50,6 +50,12 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
    * @default based on size or inherited from ThemeProvider
    */
   radius?: ButtonRadius;
+
+  /**
+   * Visual style/appearance of the button
+   * @default inherited from ThemeProvider or "standard"
+   */
+  appearance?: ThemeStyle;
 
   /**
    * Whether the button is in a loading state

@@ -34,7 +34,7 @@ import { getSizeStyles, getPaddingStyles, getGapStyles, getRadiusStyle, getBaseC
  * // With custom radius
  * <Button radius="full">Rounded Button</Button>
  */
-export function Button({ variant = "solid", color = "primary", size, radius, isLoading = false, fullWidth = false, leftIcon, rightIcon, as: Component = "button", className, disabled, children, ...props }: ButtonProps) {
+export function Button({ variant = "solid", color = "primary", size, radius, appearance, isLoading = false, fullWidth = false, leftIcon, rightIcon, as: Component = "button", className, disabled, children, ...props }: ButtonProps) {
   // Get inherited size from component context (if available)
   const [inheritedSize] = useComponentSize();
 
@@ -42,7 +42,10 @@ export function Button({ variant = "solid", color = "primary", size, radius, isL
   const componentSize = size || inheritedSize || "md";
 
   // Get theme information including visual style setting and color mappings
-  const { colorMap, radius: themeRadius, style: themeStyle } = useTheme();
+  const { colorMap, radius: themeRadius, style: defaultThemeStyle } = useTheme();
+
+  // Use the component's appearance prop if provided, otherwise use the one from context
+  const effectiveThemeStyle = appearance || defaultThemeStyle;
 
   // Get size-related styles
   const sizeStyles = getSizeStyles(componentSize);
@@ -76,7 +79,7 @@ export function Button({ variant = "solid", color = "primary", size, radius, isL
     }
 
     // Get variant-specific styles for the resolved color
-    const variantStyles = getVariantStyleClasses(variant as ButtonVariant, resolvedColor, themeStyle);
+    const variantStyles = getVariantStyleClasses(variant as ButtonVariant, resolvedColor, effectiveThemeStyle);
 
     return cn(baseClasses, variantStyles);
   };
