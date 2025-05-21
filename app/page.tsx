@@ -6,11 +6,11 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center min-h-screen p-8">
       <main className="w-full max-w-4xl">
-        <div className="text-center mb-12">
-          <Text as="h1" size="3xl" weight="bold" color="primary" className="mb-4" variant="default">
-            Kookie UI Text Component
+        <div className="mb-12">
+          <Text as="h1" size="3xl" weight="bold" color="gray" className="mb-4" variant="default">
+            Kookie Text Component
           </Text>
-          <Text size="lg" className="mb-6">
+          <Text size="md" className="mb-6">
             A flexible typography system with theme integration
           </Text>
         </div>
@@ -55,13 +55,13 @@ export default function Home() {
             Style Variants
           </Text>
           <div className="space-y-2">
-            <Text variant="default" size="lg">
+            <Text variant="default" size="sm">
               Default variant (stronger color)
             </Text>
-            <Text variant="muted" size="lg">
+            <Text variant="muted" size="sm">
               Muted variant (lighter color)
             </Text>
-            <Text variant="accent" size="lg">
+            <Text variant="accent" size="sm">
               Accent variant (middle ground)
             </Text>
           </div>

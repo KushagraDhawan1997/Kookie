@@ -2,69 +2,78 @@
 
 ## Overview
 
-This document serves as a reference guide for consistent styling across Kookie UI components. Rather than creating a complex token abstraction system, we document the standard Tailwind classes that should be used for different component types and variants.
+This document serves as a reference guide for the design tokens used across the Kookie UI system. Design tokens are the foundational visual properties that ensure consistency throughout the UI.
 
 ## Color System
 
-Kookie UI uses semantic color names that map to Tailwind's built-in colors:
+### Semantic Colors
 
-| Semantic Color | Tailwind Color               |
-| -------------- | ---------------------------- |
-| primary        | blue (default, customizable) |
-| success        | green                        |
-| warning        | amber                        |
-| danger         | red                          |
+| Semantic Name | Default Tailwind Color | Purpose                                          |
+| ------------- | ---------------------- | ------------------------------------------------ |
+| primary       | blue                   | Main actions, branding, key interactive elements |
+| success       | green                  | Success states, confirmations, positive actions  |
+| warning       | amber                  | Warnings, cautions, actions that need attention  |
+| danger        | rose                   | Errors, destructive actions, critical states     |
 
-The mapping is configured in the Tailwind configuration and can be accessed through the theme system:
+### Color Shades & Usage
 
-```tsx
-// Example of using the theme system to get color classes
-import { useTheme } from "../lib/theme/hooks";
-import { cn } from "../lib/utils/cn"; // Ensure cn utility is available
-import { ThemeColor } from "../lib/theme/atoms"; // For ThemeColor type
+Each semantic color uses specific Tailwind shades for different purposes:
 
-// Define a type for the color prop, assuming 'primary' is a semantic color
-type ButtonColor = "primary" | "success" | "warning" | "danger" | ThemeColor;
+| Context           | Shade | Examples                                           |
+| ----------------- | ----- | -------------------------------------------------- |
+| Text (default)    | 700   | Standard text, labels                              |
+| Text (muted)      | 400   | Secondary text, hints, less emphasis               |
+| Text (accent)     | 600   | Emphasized text, but not primary                   |
+| Backgrounds       | 500   | Button backgrounds, indicators                     |
+| Hover States      | 600   | Button hover background                            |
+| Borders           | 500   | Input borders, dividers                            |
+| Light Backgrounds | 50    | Subtle highlights, hover states for ghost variants |
 
-function Button({ color = "primary" }: { color?: ButtonColor }) {
-  const { colorMap } = useTheme();
+### Gray Scale
 
-  // Define a map for button styles based on resolved color
-  // This map should cover all ThemeColor possibilities and desired variants
-  const buttonColorStyles: Record<ThemeColor, string> = {
-    blue: "bg-blue-500 hover:bg-blue-600 text-white",
-    purple: "bg-purple-500 hover:bg-purple-600 text-white",
-    green: "bg-green-500 hover:bg-green-600 text-white",
-    red: "bg-red-500 hover:bg-red-600 text-white",
-    yellow: "bg-yellow-500 hover:bg-yellow-600 text-black", // Example: yellow might need black text
-    orange: "bg-orange-500 hover:bg-orange-600 text-white",
-    pink: "bg-pink-500 hover:bg-pink-600 text-white",
-    indigo: "bg-indigo-500 hover:bg-indigo-600 text-white",
-    violet: "bg-violet-500 hover:bg-violet-600 text-white",
-    cyan: "bg-cyan-500 hover:bg-cyan-600 text-white",
-    teal: "bg-teal-500 hover:bg-teal-600 text-white",
-    emerald: "bg-emerald-500 hover:bg-emerald-600 text-white",
-    amber: "bg-amber-500 hover:bg-amber-600 text-black", // Example: amber might need black text
-    lime: "bg-lime-500 hover:bg-lime-600 text-black", // Example: lime might need black text
-    rose: "bg-rose-500 hover:bg-rose-600 text-white",
-    // Add other ThemeColors as needed, ensure they provide full class strings
-  };
+The UI uses a configurable gray scale, with "slate" as the default:
 
-  // Resolve semantic color to actual ThemeColor, or use direct ThemeColor
-  let actualColor: ThemeColor;
-  if (color === "primary" || color === "success" || color === "warning" || color === "danger") {
-    actualColor = colorMap[color as keyof typeof colorMap];
-  } else {
-    actualColor = color as ThemeColor;
-  }
+| Gray Scale | Usage                     |
+| ---------- | ------------------------- |
+| slate      | Default gray scale        |
+| gray       | Alternative, warmer grays |
+| zinc       | Cooler, neutral grays     |
+| neutral    | True neutral grays        |
+| stone      | Warm, organic grays       |
 
-  const selectedColorStyle = buttonColorStyles[actualColor] || "bg-gray-500 hover:bg-gray-600 text-white"; // Fallback style
+## Typography
 
-  return <button className={cn(selectedColorStyle, "px-4 py-2 rounded")}>Click Me</button>;
-}
-```
+### Font Sizes
 
-## Global Size Scale
+| Token | Tailwind Class | Font Size | Line Height | Usage                       |
+| ----- | -------------- | --------- | ----------- | --------------------------- |
+| xs    | text-xs        | 0.75rem   | 1rem (16px) | Small labels, captions      |
+| sm    | text-sm        | 0.875rem  | 1.25rem     | Secondary text, UI elements |
+| md    | text-base      | 1rem      | 1.5rem      | Body text, default size     |
+| lg    | text-lg        | 1.125rem  | 1.75rem     | Large text, subheadings     |
+| xl    | text-xl        | 1.25rem   | 2rem        | Headings, featured text     |
+| 2xl   | text-2xl       | 1.5rem    | 2.25rem     | Major headings              |
+| 3xl   | text-3xl       | 1.875rem  | 2.5rem      | Hero headings, display text |
+
+### Font Weights
+
+| Token      | Tailwind Class  | Weight | Usage                                 |
+| ---------- | --------------- | ------ | ------------------------------------- |
+| thin       | font-thin       | 100    | Extremely light text, specialized use |
+| extralight | font-extralight | 200    | Very light text, specialized use      |
+| light      | font-light      | 300    | Light text, specialized use           |
+| normal     | font-normal     | 400    | Standard body text                    |
+| medium     | font-medium     | 500    | Slightly emphasized text              |
+| semibold   | font-semibold   | 600    | Headings, important text              |
+| bold       | font-bold       | 700    | Strong emphasis, primary headings     |
+| extrabold  | font-extrabold  | 800    | Very strong emphasis                  |
+| black      | font-black      | 900    | Maximum emphasis, special cases       |
+
+## Component Sizing
+
+### Global Size Scale
+
+All components follow this consistent size scale:
 
 | Size | Description           | Use Cases                        |
 | ---- | --------------------- | -------------------------------- |
@@ -74,220 +83,95 @@ function Button({ color = "primary" }: { color?: ButtonColor }) {
 | lg   | Large                 | Featured elements, headers       |
 | xl   | Extra Large           | Hero sections, featured content  |
 
-## Core Components
+### Specific Component Sizes
 
-### Button
+#### Button
 
-| Size | Height | Text Size | Padding | Gap     | Border Radius |
-| ---- | ------ | --------- | ------- | ------- | ------------- |
-| xs   | h-5    | text-xs   | px-2    | gap-1.5 | rounded       |
-| sm   | h-6    | text-xs   | px-3    | gap-2   | rounded       |
-| md   | h-8    | text-sm   | px-4    | gap-2.5 | rounded-md    |
-| lg   | h-10   | text-sm   | px-5    | gap-3   | rounded-md    |
-| xl   | h-12   | text-base | px-6    | gap-3.5 | rounded-lg    |
+| Size | Height | Text Size | Padding X | Gap     | Border Radius |
+| ---- | ------ | --------- | --------- | ------- | ------------- |
+| xs   | h-5    | text-xs   | px-2      | gap-1.5 | rounded       |
+| sm   | h-6    | text-xs   | px-3      | gap-2   | rounded       |
+| md   | h-8    | text-sm   | px-4      | gap-2.5 | rounded-md    |
+| lg   | h-10   | text-sm   | px-5      | gap-3   | rounded-md    |
+| xl   | h-12   | text-base | px-6      | gap-3.5 | rounded-lg    |
 
-#### Button Variants
+#### Card
 
-| Variant | Primary                                           | Success                                           | Warning                                           |
-| ------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| solid   | bg-primary-500 text-white hover:bg-primary-600    | bg-success-500 text-white hover:bg-success-600    | bg-warning-500 text-white hover:bg-warning-600    |
-| outline | border border-primary-500 text-primary-500        | border border-success-500 text-success-500        | border border-warning-500 text-warning-500        |
-| ghost   | text-primary-500 hover:bg-primary-50              | text-success-500 hover:bg-success-50              | text-warning-500 hover:bg-warning-50              |
-| link    | text-primary-500 underline hover:text-primary-600 | text-success-500 underline hover:text-success-600 | text-warning-500 underline hover:text-warning-600 |
+| Size | Padding | Border Radius | Shadow    |
+| ---- | ------- | ------------- | --------- |
+| xs   | p-2     | rounded       | shadow-sm |
+| sm   | p-3     | rounded       | shadow-sm |
+| md   | p-4     | rounded-md    | shadow    |
+| lg   | p-5     | rounded-md    | shadow    |
+| xl   | p-6     | rounded-lg    | shadow-md |
 
-#### Visual Styles
+#### Input
 
-| Style   | Shadow      | Transition                     | Hover                  | Active               |
-| ------- | ----------- | ------------------------------ | ---------------------- | -------------------- |
-| minimal | shadow-none | transition-colors duration-150 | -                      | -                    |
-| modern  | shadow-sm   | transition-all duration-200    | hover:-translate-y-0.5 | active:translate-y-0 |
-| classic | shadow      | transition-all duration-150    | hover:brightness-105   | active:brightness-95 |
+| Size | Height | Text Size | Padding X | Border Radius |
+| ---- | ------ | --------- | --------- | ------------- |
+| xs   | h-5    | text-xs   | px-2      | rounded       |
+| sm   | h-6    | text-xs   | px-3      | rounded       |
+| md   | h-8    | text-sm   | px-4      | rounded-md    |
+| lg   | h-10   | text-sm   | px-5      | rounded-md    |
+| xl   | h-12   | text-base | px-6      | rounded-lg    |
 
-### Text
+## Spacing
 
-| Size | Font Size | Line Height | Font Weight (Normal) | Font Weight (Medium) | Font Weight (Bold) |
-| ---- | --------- | ----------- | -------------------- | -------------------- | ------------------ |
-| xs   | text-xs   | leading-4   | font-normal          | font-medium          | font-bold          |
-| sm   | text-sm   | leading-5   | font-normal          | font-medium          | font-bold          |
-| md   | text-base | leading-6   | font-normal          | font-medium          | font-bold          |
-| lg   | text-lg   | leading-7   | font-normal          | font-medium          | font-bold          |
-| xl   | text-xl   | leading-8   | font-normal          | font-medium          | font-bold          |
-| 2xl  | text-2xl  | leading-9   | font-normal          | font-medium          | font-bold          |
-| 3xl  | text-3xl  | leading-10  | font-normal          | font-medium          | font-bold          |
+### Gap Scale
 
-#### Text Variants
+Used for spacing between elements, especially in layout components:
 
-| Variant | Description                  | Color Shade  |
-| ------- | ---------------------------- | ------------ |
-| default | Standard text                | 700 (darker) |
-| muted   | Lighter, less prominent text | 400 (light)  |
-| accent  | Slightly emphasized text     | 600 (medium) |
-
-#### Text Color Options
-
-The Text component supports multiple color approaches:
-
-1. **Semantic Colors** (map to theme settings)
-   - primary - Uses primary color from theme (default: blue)
-   - success - Uses success color from theme (green)
-   - warning - Uses warning color from theme (amber)
-   - danger - Uses danger color from theme (red)
-   - gray - Uses gray scale from theme (slate, gray, zinc, etc.)
-2. **Direct Tailwind Colors** (bypass theme mapping)
-
-   - All standard Tailwind colors (blue, indigo, purple, etc.)
-
-3. **Special Values**
-   - current - Inherits text color from parent element
-
-#### Text Component Example
-
-```tsx
-// Basic Text component with variants
-<Text>Default text (gray-900)</Text>
-<Text variant="muted">Muted text (gray-500)</Text>
-<Text variant="accent">Accent text (gray-700)</Text>
-
-// Using semantic colors
-<Text color="primary">Primary text</Text>
-<Text color="success" variant="muted">Muted success text</Text>
-
-// Using direct Tailwind colors
-<Text color="indigo">Indigo text</Text>
-<Text color="rose" variant="accent">Accent rose text</Text>
-
-// Text with size and weight
-<Text size="2xl" weight="bold">Large bold text</Text>
-
-// Text as different HTML elements
-<Text as="h2" size="xl" weight="semibold">Heading</Text>
-<Text as="span" color="current">Inherits color from parent</Text>
-```
-
-### Card
-
-| Size | Padding | Border | Border Radius | Shadow    |
-| ---- | ------- | ------ | ------------- | --------- |
-| xs   | p-2     | border | rounded       | shadow-sm |
-| sm   | p-3     | border | rounded       | shadow-sm |
-| md   | p-4     | border | rounded-md    | shadow    |
-| lg   | p-5     | border | rounded-md    | shadow    |
-| xl   | p-6     | border | rounded-lg    | shadow-md |
-
-## Layout Components
-
-### Spacing/Gap Scale
-
-| Size | Value   | CSS Class |
-| ---- | ------- | --------- |
-| none | 0px     | gap-0     |
-| xs   | 0.25rem | gap-1     |
-| sm   | 0.5rem  | gap-2     |
-| md   | 1rem    | gap-4     |
-| lg   | 1.5rem  | gap-6     |
-| xl   | 2rem    | gap-8     |
-
-### Flex Component
-
-```tsx
-<div
-  className={cn(
-    // Base
-    "flex",
-
-    // Direction
-    direction === "row" && "flex-row",
-    direction === "column" && "flex-col",
-    direction === "row-reverse" && "flex-row-reverse",
-    direction === "column-reverse" && "flex-col-reverse",
-
-    // Alignment
-    align === "start" && "items-start",
-    align === "center" && "items-center",
-    align === "end" && "items-end",
-    align === "stretch" && "items-stretch",
-    align === "baseline" && "items-baseline",
-
-    // Justification
-    justify === "start" && "justify-start",
-    justify === "center" && "justify-center",
-    justify === "end" && "justify-end",
-    justify === "between" && "justify-between",
-    justify === "around" && "justify-around",
-    justify === "evenly" && "justify-evenly",
-
-    // Gap
-    gap === "none" && "gap-0",
-    gap === "xs" && "gap-1",
-    gap === "sm" && "gap-2",
-    gap === "md" && "gap-4",
-    gap === "lg" && "gap-6",
-    gap === "xl" && "gap-8"
-  )}
-/>
-```
+| Token | Value   | Tailwind Class | Usage                               |
+| ----- | ------- | -------------- | ----------------------------------- |
+| none  | 0px     | gap-0          | No spacing                          |
+| xs    | 0.25rem | gap-1          | Minimal spacing, tight UIs          |
+| sm    | 0.5rem  | gap-2          | Default spacing for related items   |
+| md    | 1rem    | gap-4          | Standard spacing for content        |
+| lg    | 1.5rem  | gap-6          | Generous spacing, section divisions |
+| xl    | 2rem    | gap-8          | Maximum spacing, major sections     |
 
 ### Container
 
-| Size | Max Width        | Padding |
-| ---- | ---------------- | ------- |
-| sm   | max-w-screen-sm  | px-4    |
-| md   | max-w-screen-md  | px-6    |
-| lg   | max-w-screen-lg  | px-8    |
-| xl   | max-w-screen-xl  | px-8    |
-| 2xl  | max-w-screen-2xl | px-8    |
+| Size | Max Width        | Padding X | Usage                    |
+| ---- | ---------------- | --------- | ------------------------ |
+| sm   | max-w-screen-sm  | px-4      | Small focused content    |
+| md   | max-w-screen-md  | px-6      | Standard content width   |
+| lg   | max-w-screen-lg  | px-8      | Wide content, dashboards |
+| xl   | max-w-screen-xl  | px-8      | Very wide content        |
+| 2xl  | max-w-screen-2xl | px-8      | Maximum content width    |
 
-## Form Components
+## Visual Styles
 
-### Input
+Kookie supports three distinct visual styles that affect component aesthetics:
 
-| Size | Height | Text Size | Padding | Border | Border Radius |
-| ---- | ------ | --------- | ------- | ------ | ------------- |
-| xs   | h-5    | text-xs   | px-2    | border | rounded       |
-| sm   | h-6    | text-xs   | px-3    | border | rounded       |
-| md   | h-8    | text-sm   | px-4    | border | rounded-md    |
-| lg   | h-10   | text-sm   | px-5    | border | rounded-md    |
-| xl   | h-12   | text-base | px-6    | border | rounded-lg    |
-
-## Navigation Components
-
-### Sidebar
-
-| Size | Width (Expanded) | Width (Collapsed) | Item Padding | Item Height |
-| ---- | ---------------- | ----------------- | ------------ | ----------- |
-| xs   | w-48             | w-12              | px-2 py-1    | h-8         |
-| sm   | w-56             | w-14              | px-3 py-1.5  | h-9         |
-| md   | w-64             | w-16              | px-4 py-2    | h-10        |
-| lg   | w-72             | w-18              | px-4 py-2.5  | h-11        |
-| xl   | w-80             | w-20              | px-5 py-3    | h-12        |
-
-## Visual Effects
-
-### Style: Modern
-
-For components using the "modern" style:
-
-- Subtle shadows: `shadow-sm`
-- Micro-interactions: `transition-all duration-200`
-- Hover state with slight lift: `hover:-translate-y-0.5`
-- Active state with press down: `active:translate-y-0`
-- For solid variant buttons: Add subtle gradient `bg-gradient-to-r from-primary-500 to-primary-600`
-
-### Style: Minimal
-
-For components using the "minimal" style:
+### Minimal Style
 
 - No shadows: `shadow-none`
 - Simple color transitions: `transition-colors duration-150`
-- Flat design: Avoid 3D effects or gradients
-- Subtle hover states: Color changes only, no movement
+- Flat design without 3D effects
+- Clean, modern aesthetic with simple hover states
 
-### Style: Classic
+### Modern Style
 
-For components using the "classic" style:
+- Subtle shadows: `shadow-sm`
+- Micro-interactions: `transition-all duration-200`
+- Hover elevation: `hover:-translate-y-0.5`
+- Active press: `active:translate-y-0`
+- Button gradients: `bg-gradient-to-r from-primary-500 to-primary-600`
+
+### Classic Style
 
 - Standard shadows: `shadow`
 - Standard transitions: `transition-all duration-150`
-- Hover brightening: `hover:brightness-105`
-- Active darkening: `active:brightness-95`
-- Traditional button look: Avoid gradients or fancy effects
+- Brightness changes: `hover:brightness-105 active:brightness-95`
+- Traditional button appearance
+
+## Border Radius
+
+| Token | Tailwind Class | Value    | Usage                                 |
+| ----- | -------------- | -------- | ------------------------------------- |
+| none  | rounded-none   | 0px      | No rounding, sharp corners            |
+| sm    | rounded        | 0.125rem | Subtle rounding                       |
+| md    | rounded-md     | 0.375rem | Standard rounding                     |
+| lg    | rounded-lg     | 0.5rem   | Prominent rounding                    |
+| full  | rounded-full   | 9999px   | Fully round elements (pills, avatars) |
