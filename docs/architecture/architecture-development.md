@@ -30,12 +30,12 @@ If Nextra isn't already set up, configure it:
 
 ```js
 // next.config.js
-const withNextra = require('nextra')({
-  theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.jsx'
-})
+const withNextra = require("nextra")({
+  theme: "nextra-theme-docs",
+  themeConfig: "./theme.config.jsx",
+});
 
-module.exports = withNextra()
+module.exports = withNextra();
 ```
 
 ```jsx
@@ -43,10 +43,10 @@ module.exports = withNextra()
 export default {
   logo: <span>Kookie UI</span>,
   project: {
-    link: 'https://github.com/yourusername/kookie',
+    link: "https://github.com/yourusername/kookie",
   },
   // Other Nextra configuration
-}
+};
 ```
 
 ## Development Process Overview
@@ -54,7 +54,7 @@ export default {
 Starting with the existing Next.js project, the development will follow these key steps:
 
 1. **Theme System First**: Implement the theme system with Jotai
-2. **Documentation Structure**: Set up the Nextra documentation structure 
+2. **Documentation Structure**: Set up the Nextra documentation structure
 3. **Component Development**: Build components one by one, documenting as we go
 
 ## Component Development Workflow
@@ -114,9 +114,17 @@ touch lib/theme/hooks.ts
 ```
 
 Example implementation outline:
-- `atoms.ts` - Define Jotai atoms for theme state
-- `provider.tsx` - Create ThemeProvider component
-- `hooks.ts` - Create custom hooks for accessing theme
+
+- `atoms.ts` - Define Jotai atoms for theme state using Tailwind's standard color names
+- `provider.tsx` - Create ThemeProvider component with ThemeContext for color mapping
+- `hooks.ts` - Create custom hooks for accessing theme and generating Tailwind color classes
+
+Approach:
+
+- Map semantic colors (primary, success, etc.) to Tailwind's built-in colors
+- The primary color is configurable, defaulting to 'blue'
+- Components use the provided color utilities rather than hardcoding colors
+- The theme system integrates directly with Tailwind's configuration
 
 ### 3. Set Up Utilities
 
@@ -153,6 +161,7 @@ touch pages/components/ui/text.mdx
 Develop components in this order, from foundational to advanced:
 
 1. **Core UI Components**
+
    - Text
    - Button
    - Input
@@ -162,23 +171,27 @@ Develop components in this order, from foundational to advanced:
    - Dialog
 
 2. **Layout Components**
+
    - Box
    - Flex
    - Grid
    - Container
 
 3. **Navigation Components**
+
    - Tabs
    - Navbar
    - Sidebar
    - Breadcrumbs
 
 4. **Data Components**
+
    - Table
    - List
    - Pagination
 
 5. **Effect Components**
+
    - Beams
    - Gradient backgrounds
    - Animated lists
@@ -195,11 +208,13 @@ Develop components in this order, from foundational to advanced:
 ### Coding Standards
 
 1. **TypeScript**
+
    - Use strict mode
    - Always define proper interfaces and types
    - Use JSDoc comments for clarity
 
 2. **Component Structure**
+
    - Clear prop interfaces
    - Default prop values
    - Proper TypeScript generics for extensibility
@@ -229,7 +244,7 @@ kookie/                    # Existing Next.js project
 │
 ├── lib/                   # Utilities and shared code
 │   ├── theme/             # Theme system
-│   │   ├── atoms.ts       # Theme Jotai atoms 
+│   │   ├── atoms.ts       # Theme Jotai atoms
 │   │   ├── provider.tsx   # Theme provider
 │   │   └── hooks.ts       # Theme hooks
 │   │
