@@ -81,6 +81,7 @@ The foundational typography component for general content:
 - **Default weight**: `normal` (400)
 - **Default color**: gray (based on theme's gray scale)
 - **Default size**: `md` (or inherited from parent)
+- **Size scale**: Uses standard font sizes (xs → text-xs, sm → text-sm, etc.)
 
 #### Heading Component
 
@@ -89,13 +90,21 @@ Specialized component for heading elements with appropriate defaults:
 - **Default element**: `<h2>`
 - **Default weight**: `semibold` (600)
 - **Default color**: gray (based on theme's gray scale)
-- **Default sizes**: Automatically mapped by heading level
-  - h1: 3xl
-  - h2: 2xl
-  - h3: xl
-  - h4: lg
-  - h5: md
-  - h6: sm
+- **Enhanced size scale**: Each size is mapped to a larger text size
+  - xs → text-sm (one step larger than Text xs)
+  - sm → text-base (one step larger than Text sm)
+  - md → text-lg (one step larger than Text md)
+  - lg → text-xl (one step larger than Text lg)
+  - xl → text-2xl (one step larger than Text xl)
+  - 2xl → text-3xl (one step larger than Text 2xl)
+  - 3xl → text-4xl (one step larger than Text 3xl)
+- **Default sizes by heading level**:
+  - h1: 3xl (renders as text-4xl)
+  - h2: 2xl (renders as text-3xl)
+  - h3: xl (renders as text-2xl)
+  - h4: lg (renders as text-xl)
+  - h5: md (renders as text-lg)
+  - h6: sm (renders as text-base)
 - **Additional features**: tracking-tight by default, level-based sizing
 
 ## Component Sizing

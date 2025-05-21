@@ -20,34 +20,34 @@ export default function Home() {
           </Heading>
 
           <Heading as="h1" size="3xl" className="mb-2">
-            H1 Heading (size="3xl")
+            H1 Heading (size="3xl" → text-4xl)
           </Heading>
-          <Text className="mb-6">Default size for h1 is 3xl, semibold weight</Text>
+          <Text className="mb-6">Default size for h1 is 3xl, renders as text-4xl</Text>
 
           <Heading as="h2" size="2xl" className="mb-2">
-            H2 Heading (size="2xl")
+            H2 Heading (size="2xl" → text-3xl)
           </Heading>
-          <Text className="mb-6">Default size for h2 is 2xl, semibold weight</Text>
+          <Text className="mb-6">Default size for h2 is 2xl, renders as text-3xl</Text>
 
           <Heading as="h3" size="xl" className="mb-2">
-            H3 Heading (size="xl")
+            H3 Heading (size="xl" → text-2xl)
           </Heading>
-          <Text className="mb-6">Default size for h3 is xl, semibold weight</Text>
+          <Text className="mb-6">Default size for h3 is xl, renders as text-2xl</Text>
 
           <Heading as="h4" size="lg" className="mb-2">
-            H4 Heading (size="lg")
+            H4 Heading (size="lg" → text-xl)
           </Heading>
-          <Text className="mb-6">Default size for h4 is lg, semibold weight</Text>
+          <Text className="mb-6">Default size for h4 is lg, renders as text-xl</Text>
 
           <Heading as="h5" size="md" className="mb-2">
-            H5 Heading (size="md")
+            H5 Heading (size="md" → text-lg)
           </Heading>
-          <Text className="mb-6">Default size for h5 is md, semibold weight</Text>
+          <Text className="mb-6">Default size for h5 is md, renders as text-lg</Text>
 
           <Heading as="h6" size="sm" className="mb-2">
-            H6 Heading (size="sm")
+            H6 Heading (size="sm" → text-base)
           </Heading>
-          <Text className="mb-6">Default size for h6 is sm, semibold weight</Text>
+          <Text className="mb-6">Default size for h6 is sm, renders as text-base</Text>
         </section>
 
         {/* Text Variants */}

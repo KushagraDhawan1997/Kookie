@@ -47,8 +47,18 @@ export interface HeadingProps extends Omit<TextProps, "as"> {
  * - Specialized for h1-h6 elements
  * - Default weight of semibold
  * - Maintains theme integration
- * - Consistent typography scales based on design tokens
+ * - Enhanced size scale (one step larger than Text component)
  * - Configurable HTML heading level
+ * - Separation of semantic level from visual styling
+ *
+ * The heading component uses a larger size scale than the Text component:
+ * - xs → text-sm (was text-xs in Text)
+ * - sm → text-base (was text-sm in Text)
+ * - md → text-lg (was text-base in Text)
+ * - lg → text-xl (was text-lg in Text)
+ * - xl → text-2xl (was text-xl in Text)
+ * - 2xl → text-3xl (was text-2xl in Text)
+ * - 3xl → text-4xl (was text-3xl in Text)
  *
  * @example
  * // Basic usage
@@ -142,17 +152,17 @@ export function Heading({ children, size, weight = "semibold", color = "gray", v
   };
 
   // -------------------------------------------------------------------------
-  // Size styles - Map component size to the typography scale from our design token reference
+  // Size styles - Enhanced for headings with larger sizes than regular text
   // -------------------------------------------------------------------------
-  const sizeStyles = {
-    // Size mapping based on design token reference
-    xs: "text-xs leading-4", // Extra small: 12px font, 16px line height
-    sm: "text-sm leading-5", // Small: 14px font, 20px line height
-    md: "text-base leading-6", // Medium (default): 16px font, 24px line height
-    lg: "text-lg leading-7", // Large: 18px font, 28px line height
-    xl: "text-xl leading-8", // Extra large: 20px font, 32px line height
-    "2xl": "text-2xl leading-9", // 2X large: 24px font, 36px line height
-    "3xl": "text-3xl leading-10", // 3X large: 30px font, 40px line height
+  const headingSizeStyles = {
+    // Size mapping for headings - larger than text component equivalents
+    xs: "text-sm leading-5", // Heading xs → text-sm (was text-xs)
+    sm: "text-base leading-6", // Heading sm → text-base (was text-sm)
+    md: "text-lg leading-7", // Heading md → text-lg (was text-base)
+    lg: "text-xl leading-8", // Heading lg → text-xl (was text-lg)
+    xl: "text-2xl leading-9", // Heading xl → text-2xl (was text-xl)
+    "2xl": "text-3xl leading-10", // Heading 2xl → text-3xl (was text-2xl)
+    "3xl": "text-4xl leading-[2.75rem]", // Heading 3xl → text-4xl (was text-3xl)
   }[resolvedSize || "lg"]; // Default to large if no size is provided
 
   // -------------------------------------------------------------------------
@@ -235,7 +245,7 @@ export function Heading({ children, size, weight = "semibold", color = "gray", v
     <Component
       className={cn(
         // Merge all computed style classes
-        sizeStyles, // Typography scale (size, line height)
+        headingSizeStyles, // Typography scale (size, line height)
         weightStyles, // Font weight
         refinedStyles, // Additional refined typographic styles
         colorStyles, // Text color
