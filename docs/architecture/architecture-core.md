@@ -170,12 +170,9 @@ export function useTheme() {
     setSize,
     setStyle,
     setRadius,
-
-    // Helper to get a Tailwind color class
-    getTwColorClass: (prefix, semantic, shade) => {
-      const actualColor = colorMap[semantic];
-      return `${prefix}-${actualColor}-${shade}`;
-    },
+    // The getTwColorClass helper has been removed.
+    // For Tailwind v4, ensure all class names are complete and static in your components.
+    // Use maps to resolve dynamic values to full class strings if necessary.
   };
 }
 

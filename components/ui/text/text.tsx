@@ -133,7 +133,62 @@ export function Text({ children, size, weight = "normal", color = "gray", varian
   const componentSize = size || inheritedSize;
 
   // Access theme settings including gray scale and color mappings
-  const { getTwColorClass, gray: grayScale } = useTheme();
+  const { gray: grayScale, colorMap } = useTheme();
+
+  // ------------------------------------------------------------------------ -
+  // Style Maps for Tailwind v4 compatibility
+  // ------------------------------------------------------------------------ -
+
+  const fontWeightStylesMap = {
+    thin: "font-thin",
+    extralight: "font-extralight",
+    light: "font-light",
+    normal: "font-normal",
+    medium: "font-medium",
+    semibold: "font-semibold",
+    bold: "font-bold",
+    extrabold: "font-extrabold",
+    black: "font-black",
+  };
+
+  const textAlignStylesMap = {
+    left: "text-left",
+    center: "text-center",
+    right: "text-right",
+    justify: "text-justify",
+  };
+
+  // Covers common Tailwind gray scales. Ensure this aligns with your theme's possible grayScale values.
+  const grayTextColorStyles: Record<string, Record<"default" | "muted" | "accent", string>> = {
+    slate: { default: "text-slate-900", muted: "text-slate-500", accent: "text-slate-700" },
+    gray: { default: "text-gray-900", muted: "text-gray-500", accent: "text-gray-700" },
+    zinc: { default: "text-zinc-900", muted: "text-zinc-500", accent: "text-zinc-700" },
+    neutral: { default: "text-neutral-900", muted: "text-neutral-500", accent: "text-neutral-700" },
+    stone: { default: "text-stone-900", muted: "text-stone-500", accent: "text-stone-700" },
+  };
+
+  // Covers common Tailwind colors. This map should be comprehensive for all supported ThemeColor values.
+  const directTextColorStyles: Record<string, Record<"default" | "muted" | "accent", string>> = {
+    // Example:
+    red: { default: "text-red-700", muted: "text-red-400", accent: "text-red-600" },
+    orange: { default: "text-orange-700", muted: "text-orange-400", accent: "text-orange-600" },
+    amber: { default: "text-amber-700", muted: "text-amber-400", accent: "text-amber-600" },
+    yellow: { default: "text-yellow-700", muted: "text-yellow-400", accent: "text-yellow-600" },
+    lime: { default: "text-lime-700", muted: "text-lime-400", accent: "text-lime-600" },
+    green: { default: "text-green-700", muted: "text-green-400", accent: "text-green-600" },
+    emerald: { default: "text-emerald-700", muted: "text-emerald-400", accent: "text-emerald-600" },
+    teal: { default: "text-teal-700", muted: "text-teal-400", accent: "text-teal-600" },
+    cyan: { default: "text-cyan-700", muted: "text-cyan-400", accent: "text-cyan-600" },
+    sky: { default: "text-sky-700", muted: "text-sky-400", accent: "text-sky-600" },
+    blue: { default: "text-blue-700", muted: "text-blue-400", accent: "text-blue-600" },
+    indigo: { default: "text-indigo-700", muted: "text-indigo-400", accent: "text-indigo-600" },
+    violet: { default: "text-violet-700", muted: "text-violet-400", accent: "text-violet-600" },
+    purple: { default: "text-purple-700", muted: "text-purple-400", accent: "text-purple-600" },
+    fuchsia: { default: "text-fuchsia-700", muted: "text-fuchsia-400", accent: "text-fuchsia-600" },
+    pink: { default: "text-pink-700", muted: "text-pink-400", accent: "text-pink-600" },
+    rose: { default: "text-rose-700", muted: "text-rose-400", accent: "text-rose-600" },
+    // Add other ThemeColors your project uses
+  };
 
   // -------------------------------------------------------------------------
   // Size styles - Map component size to the typography scale from our design token reference
@@ -152,7 +207,7 @@ export function Text({ children, size, weight = "normal", color = "gray", varian
   // -------------------------------------------------------------------------
   // Font weight styles - Direct mapping to Tailwind's font-{weight} classes
   // -------------------------------------------------------------------------
-  const weightStyles = `font-${weight}`;
+  const weightStyles = fontWeightStylesMap[weight];
 
   // -------------------------------------------------------------------------
   // Color styles - With support for both semantic and direct Tailwind colors
@@ -181,26 +236,46 @@ export function Text({ children, size, weight = "normal", color = "gray", varian
   let colorStyles;
 
   if (color === "gray") {
-    // Gray is special - it uses the configured gray scale from the theme (slate, gray, zinc, etc.)
-    colorStyles =
-      variant === "default"
-        ? `text-${grayScale}-900` // Default gray uses darker 900 shade for better readability
-        : variant === "muted"
-        ? `text-${grayScale}-500` // Muted gray uses middle 500 shade
-        : variant === "accent"
-        ? `text-${grayScale}-700` // Accent gray uses 700 shade
-        : `text-${grayScale}-900`; // Fallback to 900
+    // Gray is special - it uses the configured gray scale from the theme
+    const stylesForScale = grayTextColorStyles[grayScale as keyof typeof grayTextColorStyles];
+    if (stylesForScale) {
+      colorStyles = stylesForScale[variant as "default" | "muted" | "accent"] || stylesForScale.default;
+    } else {
+      // Fallback if grayScale from theme is not in grayTextColorStyles
+      colorStyles = grayTextColorStyles.gray.default; // Default to 'text-gray-900'
+    }
   } else if (color === "current") {
     // 'current' inherits text color from parent element
     colorStyles = "text-current";
   } else if (isSemanticColor) {
     // For semantic colors (primary, success, warning, danger)
-    // Use the theme's getTwColorClass helper to map semantic colors to actual Tailwind colors
-    colorStyles = getTwColorClass("text", color as "primary" | "success" | "warning" | "danger", getShadeForVariant(variant));
+    // Resolve the semantic color to the actual ThemeColor using colorMap
+    const actualColor = colorMap[color as keyof typeof colorMap];
+    if (actualColor) {
+      const stylesForColor = directTextColorStyles[actualColor as keyof typeof directTextColorStyles];
+      if (stylesForColor) {
+        colorStyles = stylesForColor[variant as "default" | "muted" | "accent"] || stylesForColor.default;
+      } else {
+        // Fallback if the resolved actualColor is not in directTextColorStyles (should not happen if maps are synced)
+        console.warn(`Text component: No direct styles found for resolved semantic color '${actualColor}' from '${color}'.`);
+        colorStyles = "text-black"; // Default to black
+      }
+    } else {
+      // Fallback if the semantic color is not in colorMap (e.g. "gray" or "current" handled above, or an unknown semantic color)
+      console.warn(`Text component: Unknown semantic color '${color}'.`);
+      colorStyles = "text-black"; // Default to black
+    }
   } else {
     // Direct Tailwind color (blue, indigo, rose, etc.)
-    // Apply the color directly without going through the theme mapping
-    colorStyles = `text-${color}-${getShadeForVariant(variant)}`;
+    const selectedColorKey = color as keyof typeof directTextColorStyles;
+    const stylesForColor = directTextColorStyles[selectedColorKey];
+    if (stylesForColor) {
+      colorStyles = stylesForColor[variant as "default" | "muted" | "accent"] || stylesForColor.default;
+    } else {
+      // Fallback for unmapped direct colors. Consider logging a warning.
+      // For safety, defaulting to black. Ensure directTextColorStyles is comprehensive.
+      colorStyles = "text-black";
+    }
   }
 
   // -------------------------------------------------------------------------
@@ -208,7 +283,7 @@ export function Text({ children, size, weight = "normal", color = "gray", varian
   // -------------------------------------------------------------------------
 
   // Text alignment - Maps directly to Tailwind's text-{align} utilities
-  const alignStyles = align ? `text-${align}` : "";
+  const alignStyles = align ? textAlignStylesMap[align] : "";
 
   // Truncation - Applies Tailwind's truncate utility for text overflow with ellipsis
   const truncateStyles = truncate ? "truncate" : "";

@@ -27,10 +27,6 @@ export function useTheme() {
     setSize,
     setStyle,
     setRadius,
-    getTwColorClass: (prefix: string, semantic: keyof typeof colorMap, shade: number) => {
-      const actualColor = colorMap[semantic];
-      return `${prefix}-${actualColor}-${shade}`;
-    },
   };
 }
 

@@ -20,11 +20,47 @@ The mapping is configured in the Tailwind configuration and can be accessed thro
 ```tsx
 // Example of using the theme system to get color classes
 import { useTheme } from "../lib/theme/hooks";
+import { cn } from "../lib/utils/cn"; // Ensure cn utility is available
+import { ThemeColor } from "../lib/theme/atoms"; // For ThemeColor type
 
-function Button({ color = "primary" }) {
-  const { getTwColorClass } = useTheme();
+// Define a type for the color prop, assuming 'primary' is a semantic color
+type ButtonColor = "primary" | "success" | "warning" | "danger" | ThemeColor;
 
-  return <button className={cn(getTwColorClass("bg", color, 500), getTwColorClass("hover:bg", color, 600))}>Click Me</button>;
+function Button({ color = "primary" }: { color?: ButtonColor }) {
+  const { colorMap } = useTheme();
+
+  // Define a map for button styles based on resolved color
+  // This map should cover all ThemeColor possibilities and desired variants
+  const buttonColorStyles: Record<ThemeColor, string> = {
+    blue: "bg-blue-500 hover:bg-blue-600 text-white",
+    purple: "bg-purple-500 hover:bg-purple-600 text-white",
+    green: "bg-green-500 hover:bg-green-600 text-white",
+    red: "bg-red-500 hover:bg-red-600 text-white",
+    yellow: "bg-yellow-500 hover:bg-yellow-600 text-black", // Example: yellow might need black text
+    orange: "bg-orange-500 hover:bg-orange-600 text-white",
+    pink: "bg-pink-500 hover:bg-pink-600 text-white",
+    indigo: "bg-indigo-500 hover:bg-indigo-600 text-white",
+    violet: "bg-violet-500 hover:bg-violet-600 text-white",
+    cyan: "bg-cyan-500 hover:bg-cyan-600 text-white",
+    teal: "bg-teal-500 hover:bg-teal-600 text-white",
+    emerald: "bg-emerald-500 hover:bg-emerald-600 text-white",
+    amber: "bg-amber-500 hover:bg-amber-600 text-black", // Example: amber might need black text
+    lime: "bg-lime-500 hover:bg-lime-600 text-black", // Example: lime might need black text
+    rose: "bg-rose-500 hover:bg-rose-600 text-white",
+    // Add other ThemeColors as needed, ensure they provide full class strings
+  };
+
+  // Resolve semantic color to actual ThemeColor, or use direct ThemeColor
+  let actualColor: ThemeColor;
+  if (color === "primary" || color === "success" || color === "warning" || color === "danger") {
+    actualColor = colorMap[color as keyof typeof colorMap];
+  } else {
+    actualColor = color as ThemeColor;
+  }
+
+  const selectedColorStyle = buttonColorStyles[actualColor] || "bg-gray-500 hover:bg-gray-600 text-white"; // Fallback style
+
+  return <button className={cn(selectedColorStyle, "px-4 py-2 rounded")}>Click Me</button>;
 }
 ```
 
