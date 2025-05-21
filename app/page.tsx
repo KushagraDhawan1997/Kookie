@@ -1,103 +1,211 @@
-import Image from "next/image";
+"use client";
+
+import { Text } from "../components/ui/text";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex flex-col items-center min-h-screen p-8">
+      <main className="w-full max-w-4xl">
+        <div className="text-center mb-12">
+          <Text as="h1" size="3xl" weight="bold" color="primary" className="mb-4">
+            Kookie UI Text Component
+          </Text>
+          <Text size="lg" className="mb-6">
+            A flexible typography system with theme integration
+          </Text>
         </div>
+
+        {/* Size Variants */}
+        <section className="mb-12 border p-6 rounded-md">
+          <Text as="h2" size="xl" weight="semibold" className="mb-4 pb-2 border-b">
+            Size Variants
+          </Text>
+          <div className="space-y-4">
+            <Text size="xs">Text size: xs (extra small)</Text>
+            <Text size="sm">Text size: sm (small)</Text>
+            <Text size="md">Text size: md (medium - default)</Text>
+            <Text size="lg">Text size: lg (large)</Text>
+            <Text size="xl">Text size: xl (extra large)</Text>
+            <Text size="2xl">Text size: 2xl (2x large)</Text>
+            <Text size="3xl">Text size: 3xl (3x large)</Text>
+          </div>
+        </section>
+
+        {/* Weight Variants */}
+        <section className="mb-12 border p-6 rounded-md">
+          <Text as="h2" size="xl" weight="semibold" className="mb-4 pb-2 border-b">
+            Font Weight Variants
+          </Text>
+          <div className="space-y-4">
+            <Text weight="thin">Font weight: thin</Text>
+            <Text weight="extralight">Font weight: extralight</Text>
+            <Text weight="light">Font weight: light</Text>
+            <Text weight="normal">Font weight: normal (default)</Text>
+            <Text weight="medium">Font weight: medium</Text>
+            <Text weight="semibold">Font weight: semibold</Text>
+            <Text weight="bold">Font weight: bold</Text>
+            <Text weight="extrabold">Font weight: extrabold</Text>
+            <Text weight="black">Font weight: black</Text>
+          </div>
+        </section>
+
+        {/* Style Variants */}
+        <section className="mb-12 border p-6 rounded-md">
+          <Text as="h2" size="xl" weight="semibold" className="mb-4 pb-2 border-b">
+            Style Variants
+          </Text>
+          <div className="space-y-4">
+            <Text variant="default" size="lg">
+              Default variant (stronger color)
+            </Text>
+            <Text variant="muted" size="lg">
+              Muted variant (lighter color)
+            </Text>
+            <Text variant="accent" size="lg">
+              Accent variant (middle ground)
+            </Text>
+          </div>
+        </section>
+
+        {/* Semantic Colors */}
+        <section className="mb-12 border p-6 rounded-md">
+          <Text as="h2" size="xl" weight="semibold" className="mb-4 pb-2 border-b">
+            Semantic Colors
+          </Text>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Text color="primary">Primary color</Text>
+            <Text color="primary" variant="muted">
+              Primary color (muted)
+            </Text>
+            <Text color="success">Success color</Text>
+            <Text color="success" variant="muted">
+              Success color (muted)
+            </Text>
+            <Text color="warning">Warning color</Text>
+            <Text color="warning" variant="muted">
+              Warning color (muted)
+            </Text>
+            <Text color="danger">Danger color</Text>
+            <Text color="danger" variant="muted">
+              Danger color (muted)
+            </Text>
+            <Text color="gray">Gray color (default)</Text>
+            <Text color="gray" variant="muted">
+              Gray color (muted)
+            </Text>
+          </div>
+        </section>
+
+        {/* Direct Tailwind Colors */}
+        <section className="mb-12 border p-6 rounded-md">
+          <Text as="h2" size="xl" weight="semibold" className="mb-4 pb-2 border-b">
+            Direct Tailwind Colors
+          </Text>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Text color="blue">blue</Text>
+            <Text color="indigo">indigo</Text>
+            <Text color="purple">purple</Text>
+            <Text color="pink">pink</Text>
+            <Text color="rose">rose</Text>
+            <Text color="red">red</Text>
+            <Text color="orange">orange</Text>
+            <Text color="amber">amber</Text>
+            <Text color="yellow">yellow</Text>
+            <Text color="lime">lime</Text>
+            <Text color="green">green</Text>
+            <Text color="emerald">emerald</Text>
+            <Text color="teal">teal</Text>
+            <Text color="cyan">cyan</Text>
+          </div>
+        </section>
+
+        {/* Text Alignment */}
+        <section className="mb-12 border p-6 rounded-md">
+          <Text as="h2" size="xl" weight="semibold" className="mb-4 pb-2 border-b">
+            Text Alignment
+          </Text>
+          <div className="space-y-4 w-full">
+            <Text align="left" className="border-b pb-2">
+              Left aligned text (default)
+            </Text>
+            <Text align="center" className="border-b pb-2">
+              Center aligned text
+            </Text>
+            <Text align="right" className="border-b pb-2">
+              Right aligned text
+            </Text>
+            <Text align="justify" className="border-b pb-2">
+              Justified text with longer content to demonstrate. This text should stretch across the container and be justified on both sides to create an even text block appearance when there is enough content.
+            </Text>
+          </div>
+        </section>
+
+        {/* HTML Elements */}
+        <section className="mb-12 border p-6 rounded-md">
+          <Text as="h2" size="xl" weight="semibold" className="mb-4 pb-2 border-b">
+            HTML Element Types
+          </Text>
+          <div className="space-y-4">
+            <Text as="p">Paragraph (p) - default</Text>
+            <Text as="h1" size="xl">
+              Heading 1 (h1)
+            </Text>
+            <Text as="h2" size="lg">
+              Heading 2 (h2)
+            </Text>
+            <Text as="h3">Heading 3 (h3)</Text>
+            <Text as="span" className="border p-1">
+              Inline span element
+            </Text>
+          </div>
+        </section>
+
+        {/* Truncation */}
+        <section className="mb-12 border p-6 rounded-md">
+          <Text as="h2" size="xl" weight="semibold" className="mb-4 pb-2 border-b">
+            Text Truncation
+          </Text>
+          <div className="space-y-4">
+            <Text>Normal text that will wrap to the next line when it reaches the end of its container and continue on the next line.</Text>
+            <div className="max-w-sm">
+              <Text truncate>Truncated text with ellipsis that will not wrap and instead will be cut off with an ellipsis (...) when it reaches the end of its container.</Text>
+            </div>
+          </div>
+        </section>
+
+        {/* Usage in Code */}
+        <section className="mb-12 border p-6 rounded-md">
+          <Text as="h2" size="xl" weight="semibold" className="mb-4 pb-2 border-b">
+            Usage Example
+          </Text>
+          <div className="bg-slate-50 p-4 rounded-md">
+            <Text as="div" size="sm" className="font-mono whitespace-pre">
+              {`import { Text } from "kookie/ui/text";
+
+// Basic usage
+<Text>Default text</Text>
+
+// With semantic color and size
+<Text color="primary" size="lg">Primary large text</Text>
+
+// With variant
+<Text variant="muted">Muted text</Text>
+
+// With direct Tailwind color
+<Text color="indigo" variant="accent">Accent indigo text</Text>
+
+// As a heading with weight
+<Text as="h2" size="2xl" weight="bold">Section Heading</Text>
+
+// With alignment
+<Text align="center">Centered text</Text>
+
+// With truncation
+<Text truncate>Text that truncates with ellipsis...</Text>`}
+            </Text>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }

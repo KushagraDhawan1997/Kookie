@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { cn } from "../../../lib/utils/cn";
 import { useComponentSize } from "../../../lib/theme/hooks";

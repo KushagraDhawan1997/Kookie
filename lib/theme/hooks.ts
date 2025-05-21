@@ -1,3 +1,5 @@
+"use client";
+
 import { useAtom, useAtomValue } from "jotai";
 import { colorAtom, grayAtom, sizeAtom, styleAtom, radiusAtom, componentSizeAtom, ThemeSize, ThemeColor } from "./atoms";
 import { useThemeContext } from "./provider";
