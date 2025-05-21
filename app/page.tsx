@@ -20,50 +20,45 @@ export default function Home() {
           </Heading>
 
           <Heading as="h3" className="mb-4">
-            Automatic Heading Sizes
+            Automatic Heading Sizes & Weights
           </Heading>
           <Heading as="h1" className="mb-2">
-            H1 Heading (automatically uses size="3xl" → text-4xl)
+            H1 Heading (size="3xl", bold by default)
           </Heading>
-          <Text className="mb-4">No size prop needed - automatically sized based on heading level</Text>
+          <Text className="mb-4">No size or weight props needed - automatically sized and weighted</Text>
 
           <Heading as="h2" className="mb-2">
-            H2 Heading (automatically uses size="2xl" → text-3xl)
+            H2 Heading (size="2xl", bold by default)
           </Heading>
-          <Text className="mb-4">No size prop needed - automatically sized based on heading level</Text>
+          <Text className="mb-4">No size or weight props needed - automatically sized and weighted</Text>
 
           <Heading as="h3" className="mb-2">
-            H3 Heading (automatically uses size="xl" → text-2xl)
+            H3 Heading (size="xl", bold by default)
           </Heading>
-          <Text className="mb-4">No size prop needed - automatically sized based on heading level</Text>
+          <Text className="mb-4">No size or weight props needed - automatically sized and weighted</Text>
 
           <Heading as="h4" className="mb-2">
-            H4 Heading (automatically uses size="lg" → text-xl)
+            H4 Heading (size="lg", semibold by default)
           </Heading>
-          <Text className="mb-4">No size prop needed - automatically sized based on heading level</Text>
+          <Text className="mb-4">No size or weight props needed - automatically sized and weighted</Text>
 
           <Heading as="h5" className="mb-2">
-            H5 Heading (automatically uses size="md" → text-lg)
+            H5 Heading (size="md", semibold by default)
           </Heading>
-          <Text className="mb-4">No size prop needed - automatically sized based on heading level</Text>
+          <Text className="mb-4">No size or weight props needed - automatically sized and weighted</Text>
 
           <Heading as="h6" className="mb-2">
-            H6 Heading (automatically uses size="sm" → text-base)
+            H6 Heading (size="sm", semibold by default)
           </Heading>
-          <Text className="mb-6">No size prop needed - automatically sized based on heading level</Text>
+          <Text className="mb-6">No size or weight props needed - automatically sized and weighted</Text>
 
           <Heading as="h3" className="mb-4">
-            With Explicit Size Props
+            With Explicit Weight Props
           </Heading>
-          <Heading as="h1" size="3xl" className="mb-2">
-            H1 Heading with explicit size="3xl"
+          <Heading as="h1" weight="normal" className="mb-2">
+            H1 Heading with explicit weight="normal"
           </Heading>
-          <Text className="mb-4">Same as automatic sizing for h1</Text>
-
-          <Heading as="h2" size="xl" className="mb-2">
-            H2 Heading with explicit size="xl"
-          </Heading>
-          <Text className="mb-4">Overrides the default size="2xl" for h2</Text>
+          <Text className="mb-4">Overrides the default bold weight for h1</Text>
         </section>
 
         {/* Text Variants */}

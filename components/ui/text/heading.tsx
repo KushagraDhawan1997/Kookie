@@ -45,7 +45,9 @@ export interface HeadingProps extends Omit<TextProps, "as"> {
  *
  * Features:
  * - Specialized for h1-h6 elements
- * - Default weight of semibold
+ * - Heading-level based weights:
+ *   - h1, h2, h3: bold (700) by default
+ *   - h4, h5, h6: semibold (600) by default
  * - Automatic sizing based on heading level (no need to specify size prop)
  * - Maintains theme integration
  * - Enhanced size scale (one step larger than Text component)
@@ -70,18 +72,18 @@ export interface HeadingProps extends Omit<TextProps, "as"> {
  * - 3xl → text-4xl (was text-3xl in Text)
  *
  * @example
- * // Basic usage with automatic sizing
+ * // Basic usage with automatic sizing and weight
  * <Heading as="h1">Page Title</Heading>
  *
  * @example
- * // With explicit size (overriding automatic size)
- * <Heading as="h1" size="xl">Smaller Page Title</Heading>
+ * // With explicit weight (overriding automatic weight)
+ * <Heading as="h1" weight="medium">Medium Weight Page Title</Heading>
  *
  * @example
  * // With semantic level different from visual style
  * <Heading as="h2" level="h1">Visually h1, semantically h2</Heading>
  */
-export function Heading({ children, size, weight = "semibold", color = "gray", variant = "default", as: Component = "h2", level, align, truncate = false, refinedTypography = true, className, ...props }: HeadingProps) {
+export function Heading({ children, size, weight, color = "gray", variant = "default", as: Component = "h2", level, align, truncate = false, refinedTypography = true, className, ...props }: HeadingProps) {
   // Get inherited size from component context (if available)
   const [inheritedSize] = useComponentSize();
 
@@ -98,10 +100,16 @@ export function Heading({ children, size, weight = "semibold", color = "gray", v
     h6: "sm",
   };
 
+  // Default weights based on heading level: h1-h3 are bold, h4-h6 are semibold
+  const defaultWeight = ["h1", "h2", "h3"].includes(effectiveLevel) ? "bold" : "semibold";
+
   // First use explicit size if provided,
   // then use heading level mapping (for automatic sizing),
   // finally fall back to inherited size if neither is available
   const resolvedSize = size || defaultSizeMap[effectiveLevel] || inheritedSize;
+
+  // Use explicitly provided weight or the default weight based on heading level
+  const resolvedWeight = weight || defaultWeight;
 
   // Access theme settings including gray scale and color mappings
   const { gray: grayScale, colorMap } = useTheme();
@@ -176,7 +184,7 @@ export function Heading({ children, size, weight = "semibold", color = "gray", v
   // -------------------------------------------------------------------------
   // Font weight styles - Direct mapping to Tailwind's font-{weight} classes
   // -------------------------------------------------------------------------
-  const weightStyles = fontWeightStylesMap[weight];
+  const weightStyles = fontWeightStylesMap[resolvedWeight];
 
   // -------------------------------------------------------------------------
   // Refined Typography (for headings)

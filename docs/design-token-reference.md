@@ -88,7 +88,9 @@ The foundational typography component for general content:
 Specialized component for heading elements with appropriate defaults:
 
 - **Default element**: `<h2>`
-- **Default weight**: `semibold` (600)
+- **Default weights**:
+  - h1, h2, h3: `bold` (700)
+  - h4, h5, h6: `semibold` (600)
 - **Default color**: gray (based on theme's gray scale)
 - **Automatic sizing**: Sizes are automatically applied based on heading level (no need to specify size prop)
 - **Enhanced size scale**: Each size is mapped to a larger text size
