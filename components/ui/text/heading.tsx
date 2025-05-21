@@ -46,12 +46,21 @@ export interface HeadingProps extends Omit<TextProps, "as"> {
  * Features:
  * - Specialized for h1-h6 elements
  * - Default weight of semibold
+ * - Automatic sizing based on heading level (no need to specify size prop)
  * - Maintains theme integration
  * - Enhanced size scale (one step larger than Text component)
  * - Configurable HTML heading level
  * - Separation of semantic level from visual styling
  *
- * The heading component uses a larger size scale than the Text component:
+ * Automatic size mapping (by heading level):
+ * - h1 → size="3xl" → text-4xl
+ * - h2 → size="2xl" → text-3xl
+ * - h3 → size="xl" → text-2xl
+ * - h4 → size="lg" → text-xl
+ * - h5 → size="md" → text-lg
+ * - h6 → size="sm" → text-base
+ *
+ * Size scale enhancement:
  * - xs → text-sm (was text-xs in Text)
  * - sm → text-base (was text-sm in Text)
  * - md → text-lg (was text-base in Text)
@@ -61,12 +70,12 @@ export interface HeadingProps extends Omit<TextProps, "as"> {
  * - 3xl → text-4xl (was text-3xl in Text)
  *
  * @example
- * // Basic usage
- * <Heading>Section Title</Heading>
+ * // Basic usage with automatic sizing
+ * <Heading as="h1">Page Title</Heading>
  *
  * @example
- * // With specific level
- * <Heading as="h1" size="xl">Page Title</Heading>
+ * // With explicit size (overriding automatic size)
+ * <Heading as="h1" size="xl">Smaller Page Title</Heading>
  *
  * @example
  * // With semantic level different from visual style
@@ -75,9 +84,6 @@ export interface HeadingProps extends Omit<TextProps, "as"> {
 export function Heading({ children, size, weight = "semibold", color = "gray", variant = "default", as: Component = "h2", level, align, truncate = false, refinedTypography = true, className, ...props }: HeadingProps) {
   // Get inherited size from component context (if available)
   const [inheritedSize] = useComponentSize();
-
-  // Determine the final size to use (explicit size prop or inherited size)
-  const componentSize = size || inheritedSize;
 
   // Determine the effective heading level for styling
   const effectiveLevel = level || Component;
@@ -92,8 +98,10 @@ export function Heading({ children, size, weight = "semibold", color = "gray", v
     h6: "sm",
   };
 
-  // Use explicit size, or a default based on heading level
-  const resolvedSize = componentSize || defaultSizeMap[effectiveLevel];
+  // First use explicit size if provided,
+  // then use heading level mapping (for automatic sizing),
+  // finally fall back to inherited size if neither is available
+  const resolvedSize = size || defaultSizeMap[effectiveLevel] || inheritedSize;
 
   // Access theme settings including gray scale and color mappings
   const { gray: grayScale, colorMap } = useTheme();

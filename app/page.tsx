@@ -19,35 +19,51 @@ export default function Home() {
             Typography Hierarchy
           </Heading>
 
+          <Heading as="h3" className="mb-4">
+            Automatic Heading Sizes
+          </Heading>
+          <Heading as="h1" className="mb-2">
+            H1 Heading (automatically uses size="3xl" → text-4xl)
+          </Heading>
+          <Text className="mb-4">No size prop needed - automatically sized based on heading level</Text>
+
+          <Heading as="h2" className="mb-2">
+            H2 Heading (automatically uses size="2xl" → text-3xl)
+          </Heading>
+          <Text className="mb-4">No size prop needed - automatically sized based on heading level</Text>
+
+          <Heading as="h3" className="mb-2">
+            H3 Heading (automatically uses size="xl" → text-2xl)
+          </Heading>
+          <Text className="mb-4">No size prop needed - automatically sized based on heading level</Text>
+
+          <Heading as="h4" className="mb-2">
+            H4 Heading (automatically uses size="lg" → text-xl)
+          </Heading>
+          <Text className="mb-4">No size prop needed - automatically sized based on heading level</Text>
+
+          <Heading as="h5" className="mb-2">
+            H5 Heading (automatically uses size="md" → text-lg)
+          </Heading>
+          <Text className="mb-4">No size prop needed - automatically sized based on heading level</Text>
+
+          <Heading as="h6" className="mb-2">
+            H6 Heading (automatically uses size="sm" → text-base)
+          </Heading>
+          <Text className="mb-6">No size prop needed - automatically sized based on heading level</Text>
+
+          <Heading as="h3" className="mb-4">
+            With Explicit Size Props
+          </Heading>
           <Heading as="h1" size="3xl" className="mb-2">
-            H1 Heading (size="3xl" → text-4xl)
+            H1 Heading with explicit size="3xl"
           </Heading>
-          <Text className="mb-6">Default size for h1 is 3xl, renders as text-4xl</Text>
+          <Text className="mb-4">Same as automatic sizing for h1</Text>
 
-          <Heading as="h2" size="2xl" className="mb-2">
-            H2 Heading (size="2xl" → text-3xl)
+          <Heading as="h2" size="xl" className="mb-2">
+            H2 Heading with explicit size="xl"
           </Heading>
-          <Text className="mb-6">Default size for h2 is 2xl, renders as text-3xl</Text>
-
-          <Heading as="h3" size="xl" className="mb-2">
-            H3 Heading (size="xl" → text-2xl)
-          </Heading>
-          <Text className="mb-6">Default size for h3 is xl, renders as text-2xl</Text>
-
-          <Heading as="h4" size="lg" className="mb-2">
-            H4 Heading (size="lg" → text-xl)
-          </Heading>
-          <Text className="mb-6">Default size for h4 is lg, renders as text-xl</Text>
-
-          <Heading as="h5" size="md" className="mb-2">
-            H5 Heading (size="md" → text-lg)
-          </Heading>
-          <Text className="mb-6">Default size for h5 is md, renders as text-lg</Text>
-
-          <Heading as="h6" size="sm" className="mb-2">
-            H6 Heading (size="sm" → text-base)
-          </Heading>
-          <Text className="mb-6">Default size for h6 is sm, renders as text-base</Text>
+          <Text className="mb-4">Overrides the default size="2xl" for h2</Text>
         </section>
 
         {/* Text Variants */}
