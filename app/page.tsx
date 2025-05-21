@@ -5,158 +5,94 @@ import { Text, Heading } from "../components/ui/text";
 export default function Home() {
   return (
     <div className="flex flex-col items-center min-h-screen p-8">
-      <main className="w-full max-w-4xl">
-        <Heading as="h1" size="3xl" color="primary" className="mb-4">
-          Kookie Typography System
+      <main className="w-full max-w-3xl">
+        {/* Page Header */}
+        <Heading as="h1" color="primary" className="mb-2">
+          Kookie Typography
         </Heading>
-        <Text size="lg" className="mb-10">
-          A cohesive typography system with semantic components for different content types
-        </Text>
+        <Text className="mb-12">A clean, consistent typography system with semantic components</Text>
 
-        {/* Typography Hierarchy */}
-        <section className="mb-10">
-          <Heading as="h2" className="mb-6">
-            Typography Hierarchy
+        {/* Heading Examples */}
+        <div className="mb-16">
+          <Heading as="h1" className="mb-3">
+            Heading 1
+          </Heading>
+          <Heading as="h2" className="mb-3">
+            Heading 2
+          </Heading>
+          <Heading as="h3" className="mb-3">
+            Heading 3
+          </Heading>
+          <Heading as="h4" className="mb-3">
+            Heading 4
+          </Heading>
+          <Heading as="h5" className="mb-3">
+            Heading 5
+          </Heading>
+          <Heading as="h6" className="mb-8">
+            Heading 6
           </Heading>
 
-          <Heading as="h3" className="mb-4">
-            Automatic Heading Sizes & Weights
-          </Heading>
-          <Heading as="h1" className="mb-2">
-            H1 Heading (size="3xl", bold by default)
-          </Heading>
-          <Text className="mb-4">No size or weight props needed - automatically sized and weighted</Text>
-
-          <Heading as="h2" className="mb-2">
-            H2 Heading (size="2xl", bold by default)
-          </Heading>
-          <Text className="mb-4">No size or weight props needed - automatically sized and weighted</Text>
-
-          <Heading as="h3" className="mb-2">
-            H3 Heading (size="xl", bold by default)
-          </Heading>
-          <Text className="mb-4">No size or weight props needed - automatically sized and weighted</Text>
-
-          <Heading as="h4" className="mb-2">
-            H4 Heading (size="lg", semibold by default)
-          </Heading>
-          <Text className="mb-4">No size or weight props needed - automatically sized and weighted</Text>
-
-          <Heading as="h5" className="mb-2">
-            H5 Heading (size="md", semibold by default)
-          </Heading>
-          <Text className="mb-4">No size or weight props needed - automatically sized and weighted</Text>
-
-          <Heading as="h6" className="mb-2">
-            H6 Heading (size="sm", semibold by default)
-          </Heading>
-          <Text className="mb-6">No size or weight props needed - automatically sized and weighted</Text>
-
-          <Heading as="h3" className="mb-4">
-            With Explicit Weight Props
-          </Heading>
-          <Heading as="h1" weight="normal" className="mb-2">
-            H1 Heading with explicit weight="normal"
-          </Heading>
-          <Text className="mb-4">Overrides the default bold weight for h1</Text>
-        </section>
+          <Text variant="muted" className="mb-2">
+            Headings 1-3 use bold weight by default
+          </Text>
+          <Text variant="muted">Headings 4-6 use semibold weight by default</Text>
+        </div>
 
         {/* Text Variants */}
-        <section className="mb-10">
+        <div className="mb-16">
           <Heading as="h2" className="mb-6">
             Text Variants
           </Heading>
 
-          <Text className="mb-2">Default text for standard content.</Text>
-          <Text variant="muted" className="mb-2">
-            Muted text for less emphasis.
+          <Text className="mb-3">This is default text. It uses the theme's gray scale at a stronger shade.</Text>
+          <Text variant="muted" className="mb-3">
+            This is muted text. It uses a lighter shade for secondary information.
           </Text>
-          <Text variant="accent" className="mb-6">
-            Accent text for subtle emphasis.
+          <Text variant="accent" className="mb-3">
+            This is accent text. It uses a middle-ground shade for mild emphasis.
           </Text>
-        </section>
+        </div>
 
         {/* Semantic Colors */}
-        <section className="mb-10">
+        <div className="mb-16">
           <Heading as="h2" className="mb-6">
             Semantic Colors
           </Heading>
 
-          <Heading as="h3" color="primary" className="mb-2">
-            Primary Color
-          </Heading>
-          <Text color="primary" className="mb-4">
-            Primary colored text for brand elements.
+          <Text color="primary" className="mb-3">
+            Primary color text for brand elements
           </Text>
-
-          <Heading as="h3" color="success" className="mb-2">
-            Success Color
-          </Heading>
-          <Text color="success" className="mb-4">
-            Success colored text for positive states.
+          <Text color="success" className="mb-3">
+            Success color text for positive states
           </Text>
-
-          <Heading as="h3" color="warning" className="mb-2">
-            Warning Color
-          </Heading>
-          <Text color="warning" className="mb-4">
-            Warning colored text for cautionary states.
+          <Text color="warning" className="mb-3">
+            Warning color text for cautionary states
           </Text>
-
-          <Heading as="h3" color="danger" className="mb-2">
-            Danger Color
-          </Heading>
-          <Text color="danger" className="mb-4">
-            Danger colored text for error states.
+          <Text color="danger" className="mb-3">
+            Danger color text for error states
           </Text>
-        </section>
+        </div>
 
-        {/* Font Weights */}
-        <section className="mb-10">
+        {/* Text Utilities */}
+        <div className="mb-16">
           <Heading as="h2" className="mb-6">
+            Text Utilities
+          </Heading>
+
+          <Heading as="h3" className="mb-3">
             Font Weights
           </Heading>
+          <div className="grid grid-cols-2 gap-3 mb-6">
+            <Text weight="light">Light text</Text>
+            <Text weight="normal">Normal text</Text>
+            <Text weight="medium">Medium text</Text>
+            <Text weight="semibold">Semibold text</Text>
+            <Text weight="bold">Bold text</Text>
+            <Text weight="extrabold">Extrabold text</Text>
+          </div>
 
-          <Text weight="light" className="mb-2">
-            Light (300) for subtle, elegant text
-          </Text>
-          <Text weight="normal" className="mb-2">
-            Normal (400) for standard body text
-          </Text>
-          <Text weight="medium" className="mb-2">
-            Medium (500) for slightly emphasized text
-          </Text>
-          <Text weight="semibold" className="mb-2">
-            Semibold (600) for heading text
-          </Text>
-          <Text weight="bold" className="mb-2">
-            Bold (700) for strong emphasis
-          </Text>
-          <Text weight="extrabold" className="mb-2">
-            Extrabold (800) for very strong emphasis
-          </Text>
-        </section>
-
-        {/* Advanced Examples */}
-        <section className="mb-10">
-          <Heading as="h2" className="mb-6">
-            Advanced Examples
-          </Heading>
-
-          <Heading as="h3" className="mb-4">
-            Semantic vs. Visual
-          </Heading>
-          <Heading as="h2" level="h4" className="mb-2">
-            This is semantically an H2 but styled as H4 (size="lg")
-          </Heading>
-          <Text className="mb-2">The HTML element is h2 for SEO, but visually appears as h4.</Text>
-
-          <Heading as="h4" level="h1" className="mb-2">
-            This is semantically an H4 but styled as H1 (size="3xl")
-          </Heading>
-          <Text className="mb-6">The HTML element is h4 for document hierarchy, but visually appears as h1.</Text>
-
-          <Heading as="h3" className="mb-4">
+          <Heading as="h3" className="mb-3">
             Text Sizes
           </Heading>
           <Text size="xs" className="mb-2">
@@ -166,7 +102,7 @@ export default function Home() {
             Small text (sm)
           </Text>
           <Text size="md" className="mb-2">
-            Medium text (md) - default
+            Medium text (md - default)
           </Text>
           <Text size="lg" className="mb-2">
             Large text (lg)
@@ -174,7 +110,7 @@ export default function Home() {
           <Text size="xl" className="mb-2">
             Extra large text (xl)
           </Text>
-        </section>
+        </div>
       </main>
     </div>
   );
