@@ -1,19 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { ThemeProvider } from "../lib/theme/provider";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+import { ThemeProvider } from "../lib/theme/provider";
 
 export const metadata: Metadata = {
-  title: "Kookie UI",
-  description: "A high-performance component library for Next.js",
-  icons: {
-    icon: "/favicon.ico",
-  },
+  title: "Kookie",
+  description: "A Kookie app",
 };
 
 export default function RootLayout({
@@ -22,8 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased`}>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body>
         <ThemeProvider color="blue" gray="slate" size="sm" style="modern" radius="md">
           {children}
         </ThemeProvider>

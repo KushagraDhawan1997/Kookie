@@ -65,7 +65,7 @@ export interface TextProps extends React.HTMLAttributes<HTMLElement> {
    *
    * @default 'p'
    */
-  as?: "p" | "span" | "div" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  as?: "p" | "span" | "div" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "a";
 
   /**
    * Text alignment.
@@ -91,6 +91,12 @@ export interface TextProps extends React.HTMLAttributes<HTMLElement> {
    * The content to render inside the text component.
    */
   children?: React.ReactNode;
+
+  /**
+   * Optional: Apply more refined typography for certain semantic elements like headings.
+   * @default false
+   */
+  refinedTypography?: boolean;
 }
 
 /**
@@ -124,7 +130,7 @@ export interface TextProps extends React.HTMLAttributes<HTMLElement> {
  * // As a heading
  * <Text as="h2" size="2xl" weight="bold">Section Heading</Text>
  */
-export function Text({ children, size, weight = "normal", color = "gray", variant = "default", as: Component = "p", align, truncate = false, className, ...props }: TextProps) {
+export function Text({ children, size, weight = "normal", color = "gray", variant = "default", as: Component = "p", align, truncate = false, refinedTypography = false, className, ...props }: TextProps) {
   // Get inherited size from component context (if available)
   const [inheritedSize] = useComponentSize();
 
@@ -208,6 +214,20 @@ export function Text({ children, size, weight = "normal", color = "gray", varian
   // Font weight styles - Direct mapping to Tailwind's font-{weight} classes
   // -------------------------------------------------------------------------
   const weightStyles = fontWeightStylesMap[weight];
+
+  // -------------------------------------------------------------------------
+  // Refined Typography (e.g., for headings)
+  // -------------------------------------------------------------------------
+  let refinedStyles = "";
+  if (refinedTypography) {
+    if (Component === "h1" || Component === "h2" || Component === "h3") {
+      // Larger headings often benefit from tighter letter spacing
+      refinedStyles = "tracking-tight";
+    }
+    // Add more refined typography rules here as needed
+    // For example, specific line heights for headings if they differ from sizeStyles defaults:
+    // if (Component === "h1") refinedStyles = cn(refinedStyles, "leading-tight");
+  }
 
   // -------------------------------------------------------------------------
   // Color styles - With support for both semantic and direct Tailwind colors
@@ -297,6 +317,7 @@ export function Text({ children, size, weight = "normal", color = "gray", varian
         // Merge all computed style classes
         sizeStyles, // Typography scale (size, line height)
         weightStyles, // Font weight
+        refinedStyles, // Additional refined typographic styles
         colorStyles, // Text color
         alignStyles, // Text alignment
         truncateStyles, // Truncation
