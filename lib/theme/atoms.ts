@@ -1,7 +1,7 @@
 import { atom } from "jotai";
 
 // Use standard Tailwind color names
-export type ThemeColor = "blue" | "purple" | "green" | "red" | "yellow" | "orange" | "pink" | "indigo" | "violet" | "cyan" | "teal" | "emerald" | "amber" | "lime" | "rose";
+export type ThemeColor = "blue" | "purple" | "green" | "red" | "yellow" | "orange" | "pink" | "indigo" | "violet" | "cyan" | "teal" | "emerald" | "amber" | "lime" | "rose" | "slate" | "gray" | "zinc" | "neutral" | "stone";
 export type ThemeGray = "slate" | "gray" | "zinc" | "neutral" | "stone";
 export type ThemeSize = "xs" | "sm" | "md" | "lg" | "xl";
 export type ThemeStyle = "minimal" | "standard" | "detailed";
