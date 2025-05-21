@@ -69,6 +69,35 @@ The UI uses a configurable gray scale, with "slate" as the default:
 | extrabold  | font-extrabold  | 800    | Very strong emphasis                  |
 | black      | font-black      | 900    | Maximum emphasis, special cases       |
 
+### Typography Components
+
+Kookie provides two main typography components that implement these tokens:
+
+#### Text Component
+
+The foundational typography component for general content:
+
+- **Default element**: `<p>`
+- **Default weight**: `normal` (400)
+- **Default color**: gray (based on theme's gray scale)
+- **Default size**: `md` (or inherited from parent)
+
+#### Heading Component
+
+Specialized component for heading elements with appropriate defaults:
+
+- **Default element**: `<h2>`
+- **Default weight**: `semibold` (600)
+- **Default color**: gray (based on theme's gray scale)
+- **Default sizes**: Automatically mapped by heading level
+  - h1: 3xl
+  - h2: 2xl
+  - h3: xl
+  - h4: lg
+  - h5: md
+  - h6: sm
+- **Additional features**: tracking-tight by default, level-based sizing
+
 ## Component Sizing
 
 ### Global Size Scale

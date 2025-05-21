@@ -28,6 +28,9 @@ Kookie UI uses a theme system that maps semantic colors (primary, success, warni
 // Theme can be customized at the app level
 <ThemeProvider
   color="indigo" // Sets the primary color to Tailwind's indigo
+  success="emerald" // Sets the success color to Tailwind's emerald
+  warning="amber" // Sets the warning color to Tailwind's amber
+  danger="rose" // Sets the danger color to Tailwind's rose
   gray="slate" // Sets the neutral color to Tailwind's slate
   size="sm" // Default component size
   style="modern" // Visual style
@@ -35,6 +38,47 @@ Kookie UI uses a theme system that maps semantic colors (primary, success, warni
 >
   <App />
 </ThemeProvider>
+```
+
+## Core Components
+
+### Typography System
+
+Kookie provides two main typography components:
+
+#### Text Component
+
+The foundational text component for general content:
+
+```tsx
+// Basic usage
+<Text>Default paragraph text</Text>
+
+// With semantic color and styling
+<Text color="primary" size="lg" weight="medium">
+  Primary colored text
+</Text>
+
+// Variants
+<Text variant="muted">Muted text for less emphasis</Text>
+<Text variant="accent">Accented text for subtle emphasis</Text>
+```
+
+#### Heading Component
+
+Specialized component for h1-h6 headings:
+
+```tsx
+// Basic usage
+<Heading>Default h2 heading</Heading>
+
+// Specific heading level
+<Heading as="h1">Primary page heading</Heading>
+
+// Visual styling different from semantic level
+<Heading as="h2" level="h1">
+  Looks like h1, semantically h2
+</Heading>
 ```
 
 ## Getting Started

@@ -1,6 +1,6 @@
 "use client";
 
-import { Text } from "../components/ui/text";
+import { Text, Heading } from "../components/ui/text";
 
 export default function Home() {
   return (
@@ -64,6 +64,52 @@ export default function Home() {
             <Text variant="accent" size="sm">
               Accent variant (middle ground)
             </Text>
+          </div>
+        </section>
+
+        {/* Heading Component Demo */}
+        <section className="mb-12 pt-8 border-t border-gray-200">
+          <Heading as="h1" className="mb-8">
+            Heading Component Demo
+          </Heading>
+
+          <div className="space-y-8">
+            <div>
+              <Heading as="h1">This is an H1 Heading</Heading>
+              <Text variant="muted">Default size based on h1 (3xl), semibold weight</Text>
+            </div>
+
+            <div>
+              <Heading as="h2">This is an H2 Heading</Heading>
+              <Text variant="muted">Default size based on h2 (2xl), semibold weight</Text>
+            </div>
+
+            <div>
+              <Heading as="h3">This is an H3 Heading</Heading>
+              <Text variant="muted">Default size based on h3 (xl), semibold weight</Text>
+            </div>
+
+            <div>
+              <Heading as="h4">This is an H4 Heading</Heading>
+              <Text variant="muted">Default size based on h4 (lg), semibold weight</Text>
+            </div>
+
+            <div>
+              <Heading as="h5">This is an H5 Heading</Heading>
+              <Text variant="muted">Default size based on h5 (md), semibold weight</Text>
+            </div>
+
+            <div>
+              <Heading as="h6">This is an H6 Heading</Heading>
+              <Text variant="muted">Default size based on h6 (sm), semibold weight</Text>
+            </div>
+
+            <div>
+              <Heading as="h2" level="h1" color="primary">
+                Semantic H2, styled as H1, with primary color
+              </Heading>
+              <Text variant="muted">Using the level prop to style differently from the HTML element</Text>
+            </div>
           </div>
         </section>
       </main>

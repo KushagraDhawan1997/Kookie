@@ -59,9 +59,35 @@ Components use size inheritance to maintain consistency:
 
 Core interface elements that users interact with directly.
 
-- **Examples**: Button, Text, Input, Card, Dialog
+- **Examples**: Button, Text, Heading, Input, Card, Dialog
 - **Features**: Theme integration, size inheritance, focus management
 - **Patterns**: Compound components for complex UI like Dialog, Card
+
+#### Typography Components
+
+The Text and Heading components form the foundation of the typography system:
+
+- **Text Component**: Base typography component with high flexibility
+
+  - Renders as any HTML element (`p`, `span`, `div`, etc.)
+  - Full control over weight, size, color, and alignment
+  - Used for body text, labels, and general content
+
+- **Heading Component**: Specialized for heading content
+  - Extension of Text component patterns with heading-specific defaults
+  - Renders as heading elements (`h1`-`h6`)
+  - Default weight of `semibold`
+  - Automatic size mapping based on heading level
+  - Added `level` prop to separate semantic level from visual styling
+
+##### Component Relationship Pattern
+
+The Text and Heading relationship demonstrates the pattern for specialized components:
+
+1. **Shared Logic**: Both use the same color resolution and size inheritance patterns
+2. **Specialized Defaults**: Heading changes defaults to match heading semantics
+3. **Extended API**: Heading adds additional props (like `level`) for specific needs
+4. **Code Reuse**: Style maps and utility functions reused across components
 
 ### 2. Layout Components
 
