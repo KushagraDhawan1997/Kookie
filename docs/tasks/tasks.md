@@ -30,9 +30,9 @@
 
 5. **Text Component**
 
-   - [ ] Create component structure: `mkdir -p components/ui/text`
-   - [ ] Implement Text component
-   - [ ] Basic inline documentation
+   - [x] Create component structure: `mkdir -p components/ui/text`
+   - [x] Implement Text component
+   - [x] Basic inline documentation
 
 6. **Button Component**
 

@@ -79,6 +79,55 @@ function Button({ color = "primary" }) {
 | 2xl  | text-2xl  | leading-9   | font-normal          | font-medium          | font-bold          |
 | 3xl  | text-3xl  | leading-10  | font-normal          | font-medium          | font-bold          |
 
+#### Text Variants
+
+| Variant | Description                  | Color Shade  |
+| ------- | ---------------------------- | ------------ |
+| default | Standard text                | 700 (darker) |
+| muted   | Lighter, less prominent text | 400 (light)  |
+| accent  | Slightly emphasized text     | 600 (medium) |
+
+#### Text Color Options
+
+The Text component supports multiple color approaches:
+
+1. **Semantic Colors** (map to theme settings)
+   - primary - Uses primary color from theme (default: blue)
+   - success - Uses success color from theme (green)
+   - warning - Uses warning color from theme (amber)
+   - danger - Uses danger color from theme (red)
+   - gray - Uses gray scale from theme (slate, gray, zinc, etc.)
+2. **Direct Tailwind Colors** (bypass theme mapping)
+
+   - All standard Tailwind colors (blue, indigo, purple, etc.)
+
+3. **Special Values**
+   - current - Inherits text color from parent element
+
+#### Text Component Example
+
+```tsx
+// Basic Text component with variants
+<Text>Default text (gray-900)</Text>
+<Text variant="muted">Muted text (gray-500)</Text>
+<Text variant="accent">Accent text (gray-700)</Text>
+
+// Using semantic colors
+<Text color="primary">Primary text</Text>
+<Text color="success" variant="muted">Muted success text</Text>
+
+// Using direct Tailwind colors
+<Text color="indigo">Indigo text</Text>
+<Text color="rose" variant="accent">Accent rose text</Text>
+
+// Text with size and weight
+<Text size="2xl" weight="bold">Large bold text</Text>
+
+// Text as different HTML elements
+<Text as="h2" size="xl" weight="semibold">Heading</Text>
+<Text as="span" color="current">Inherits color from parent</Text>
+```
+
 ### Card
 
 | Size | Padding | Border | Border Radius | Shadow    |
