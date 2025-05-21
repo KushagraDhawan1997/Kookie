@@ -42,7 +42,7 @@ export function Button({ variant = "solid", color = "primary", size, radius, isL
   const componentSize = size || inheritedSize || "md";
 
   // Get theme information including visual style setting and color mappings
-  const { colorMap, radius: themeRadius } = useTheme();
+  const { colorMap, radius: themeRadius, style: themeStyle } = useTheme();
 
   // Get size-related styles
   const sizeStyles = getSizeStyles(componentSize);
@@ -76,7 +76,7 @@ export function Button({ variant = "solid", color = "primary", size, radius, isL
     }
 
     // Get variant-specific styles for the resolved color
-    const variantStyles = getVariantStyleClasses(variant as ButtonVariant, resolvedColor);
+    const variantStyles = getVariantStyleClasses(variant as ButtonVariant, resolvedColor, themeStyle);
 
     return cn(baseClasses, variantStyles);
   };
