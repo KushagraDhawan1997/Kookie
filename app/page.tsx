@@ -20,669 +20,424 @@ export default function Home() {
             Button Variants
           </Heading>
 
-          {/* Extra Large (XL) Button Size */}
-          <div className="mb-12">
-            <Heading as="h3" size="md" className="mb-4 pb-2 border-b">
-              Size XL
-            </Heading>
-            <div className="flex flex-col gap-8">
-              {/* Solid Variant - XL */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Solid
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <Button variant="solid" color="primary" size="xl">
-                      Standard
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
+          {/* Button Matrix */}
+          <div className="mb-12 overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr>
+                  <th className="p-4 text-left"></th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium" color="primary">
+                      Primary
                     </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="solid" color="primary" size="xl" appearance="minimal">
-                      Minimal
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
+                  </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium" color="blue">
+                      Blue
                     </Text>
-                  </div>
-                </div>
-              </div>
-
-              {/* Tinted Variant - XL */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Tinted
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <Button variant="tinted" color="primary" size="xl">
-                      Standard
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
+                  </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium" color="gray">
+                      Gray
                     </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="tinted" color="primary" size="xl" appearance="minimal">
-                      Minimal
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
-
-              {/* Outline Variant - XL */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Outline
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <Button variant="outline" color="primary" size="xl">
-                      Standard
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="outline" color="primary" size="xl" appearance="minimal">
-                      Minimal
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
-
-              {/* Ghost Variant - XL */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Ghost
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <Button variant="ghost" color="primary" size="xl">
-                      Standard
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="ghost" color="primary" size="xl" appearance="minimal">
-                      Minimal
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
-
-              {/* Link Variant - XL */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Link
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <Button variant="link" color="primary" size="xl">
-                      Standard
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="link" color="primary" size="xl" appearance="minimal">
-                      Minimal
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Large (LG) Button Size */}
-          <div className="mb-12">
-            <Heading as="h3" size="md" className="mb-4 pb-2 border-b">
-              Size LG
-            </Heading>
-            <div className="flex flex-col gap-8">
-              {/* Solid Variant - LG */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Solid
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <Button variant="solid" color="primary" size="lg">
-                      Standard
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="solid" color="primary" size="lg" appearance="minimal">
-                      Minimal
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
-
-              {/* Tinted Variant - LG */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Tinted
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <Button variant="tinted" color="primary" size="lg">
-                      Standard
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="tinted" color="primary" size="lg" appearance="minimal">
-                      Minimal
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
-
-              {/* Outline Variant - LG */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Outline
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <Button variant="outline" color="primary" size="lg">
-                      Standard
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="outline" color="primary" size="lg" appearance="minimal">
-                      Minimal
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
-
-              {/* Ghost Variant - LG */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Ghost
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <Button variant="ghost" color="primary" size="lg">
-                      Standard
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="ghost" color="primary" size="lg" appearance="minimal">
-                      Minimal
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
-
-              {/* Link Variant - LG */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Link
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <Button variant="link" color="primary" size="lg">
-                      Standard
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="link" color="primary" size="lg" appearance="minimal">
-                      Minimal
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Medium (MD) Button Size */}
-          <div className="mb-12">
-            <Heading as="h3" size="md" className="mb-4 pb-2 border-b">
-              Size MD
-            </Heading>
-            <div className="flex flex-col gap-8">
-              {/* Solid Variant - MD */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Solid
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
+                  </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium">Disabled</Text>
+                  </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium">Loading</Text>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* Solid Variant */}
+                <tr>
+                  <td className="p-4">
+                    <Text weight="medium">Solid</Text>
+                  </td>
+                  <td className="p-4 text-center">
                     <Button variant="solid" color="primary" size="md">
-                      Standard
+                      Next
                     </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="solid" color="primary" size="md" appearance="minimal">
-                      Minimal
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="solid" color="blue" size="md">
+                      Next
                     </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="solid" color="gray" size="md">
+                      Next
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="solid" color="primary" size="md" disabled>
+                      Next
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="solid" color="primary" size="md" isLoading>
+                      Next
+                    </Button>
+                  </td>
+                </tr>
 
-              {/* Tinted Variant - MD */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Tinted
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
+                {/* Tinted Variant */}
+                <tr className="bg-gray-50">
+                  <td className="p-4">
+                    <Text weight="medium">Tinted</Text>
+                  </td>
+                  <td className="p-4 text-center">
                     <Button variant="tinted" color="primary" size="md">
-                      Standard
+                      Next
                     </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="tinted" color="primary" size="md" appearance="minimal">
-                      Minimal
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="tinted" color="blue" size="md">
+                      Next
                     </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="tinted" color="gray" size="md">
+                      Next
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="tinted" color="primary" size="md" disabled>
+                      Next
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="tinted" color="primary" size="md" isLoading>
+                      Next
+                    </Button>
+                  </td>
+                </tr>
 
-              {/* Outline Variant - MD */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Outline
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
+                {/* Outline Variant */}
+                <tr>
+                  <td className="p-4">
+                    <Text weight="medium">Outline</Text>
+                  </td>
+                  <td className="p-4 text-center">
                     <Button variant="outline" color="primary" size="md">
-                      Standard
+                      Next
                     </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="outline" color="primary" size="md" appearance="minimal">
-                      Minimal
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="outline" color="blue" size="md">
+                      Next
                     </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="outline" color="gray" size="md">
+                      Next
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="outline" color="primary" size="md" disabled>
+                      Next
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="outline" color="primary" size="md" isLoading>
+                      Next
+                    </Button>
+                  </td>
+                </tr>
 
-              {/* Ghost Variant - MD */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Ghost
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
+                {/* Ghost Variant */}
+                <tr className="bg-gray-50">
+                  <td className="p-4">
+                    <Text weight="medium">Ghost</Text>
+                  </td>
+                  <td className="p-4 text-center">
                     <Button variant="ghost" color="primary" size="md">
-                      Standard
+                      Next
                     </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="ghost" color="primary" size="md" appearance="minimal">
-                      Minimal
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="ghost" color="blue" size="md">
+                      Next
                     </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="ghost" color="gray" size="md">
+                      Next
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="ghost" color="primary" size="md" disabled>
+                      Next
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="ghost" color="primary" size="md" isLoading>
+                      Next
+                    </Button>
+                  </td>
+                </tr>
 
-              {/* Link Variant - MD */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Link
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
+                {/* Link Variant */}
+                <tr>
+                  <td className="p-4">
+                    <Text weight="medium">Link</Text>
+                  </td>
+                  <td className="p-4 text-center">
                     <Button variant="link" color="primary" size="md">
-                      Standard
+                      Next
                     </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="link" color="primary" size="md" appearance="minimal">
-                      Minimal
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="link" color="blue" size="md">
+                      Next
                     </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="link" color="gray" size="md">
+                      Next
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="link" color="primary" size="md" disabled>
+                      Next
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="link" color="primary" size="md" isLoading>
+                      Next
+                    </Button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
-          {/* Small (SM) Button Size */}
-          <div className="mb-12">
-            <Heading as="h3" size="md" className="mb-4 pb-2 border-b">
-              Size SM
-            </Heading>
-            <div className="flex flex-col gap-8">
-              {/* Solid Variant - SM */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Solid
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <Button variant="solid" color="primary" size="sm">
-                      Standard
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
+          {/* Button Appearances Matrix */}
+          <Heading as="h3" size="md" className="mb-4 mt-12">
+            Button Appearances
+          </Heading>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr>
+                  <th className="p-4 text-left"></th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium" color="primary">
+                      Primary
                     </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="solid" color="primary" size="sm" appearance="minimal">
-                      Minimal
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
+                  </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium" color="blue">
+                      Blue
                     </Text>
-                  </div>
-                </div>
-              </div>
+                  </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium" color="gray">
+                      Gray
+                    </Text>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* Standard Appearance */}
+                <tr>
+                  <td className="p-4">
+                    <Text weight="medium">Standard</Text>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="solid" color="primary" size="md" appearance="standard">
+                      Next
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="solid" color="blue" size="md" appearance="standard">
+                      Next
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="solid" color="gray" size="md" appearance="standard">
+                      Next
+                    </Button>
+                  </td>
+                </tr>
 
-              {/* Tinted Variant - SM */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Tinted
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <Button variant="tinted" color="primary" size="sm">
-                      Standard
+                {/* Minimal Appearance */}
+                <tr className="bg-gray-50">
+                  <td className="p-4">
+                    <Text weight="medium">Minimal</Text>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="solid" color="primary" size="md" appearance="minimal">
+                      Next
                     </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="tinted" color="primary" size="sm" appearance="minimal">
-                      Minimal
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="solid" color="blue" size="md" appearance="minimal">
+                      Next
                     </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
-
-              {/* Outline Variant - SM */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Outline
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <Button variant="outline" color="primary" size="sm">
-                      Standard
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="solid" color="gray" size="md" appearance="minimal">
+                      Next
                     </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="outline" color="primary" size="sm" appearance="minimal">
-                      Minimal
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
-
-              {/* Ghost Variant - SM */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Ghost
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <Button variant="ghost" color="primary" size="sm">
-                      Standard
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="ghost" color="primary" size="sm" appearance="minimal">
-                      Minimal
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
-
-              {/* Link Variant - SM */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Link
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <Button variant="link" color="primary" size="sm">
-                      Standard
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="link" color="primary" size="sm" appearance="minimal">
-                      Minimal
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
-          {/* Extra Small (XS) Button Size */}
-          <div className="mb-12">
-            <Heading as="h3" size="md" className="mb-4 pb-2 border-b">
-              Size XS
-            </Heading>
-            <div className="flex flex-col gap-8">
-              {/* Solid Variant - XS */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Solid
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
+          {/* Button Sizes Matrix */}
+          <Heading as="h3" size="md" className="mb-4 mt-12">
+            Button Sizes
+          </Heading>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr>
+                  <th className="p-4 text-left"></th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium">Solid</Text>
+                  </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium">Outline</Text>
+                  </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium">Ghost</Text>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* XS Size */}
+                <tr>
+                  <td className="p-4">
+                    <Text weight="medium">XS</Text>
+                  </td>
+                  <td className="p-4 text-center">
                     <Button variant="solid" color="primary" size="xs">
-                      Standard
+                      Next
                     </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="solid" color="primary" size="xs" appearance="minimal">
-                      Minimal
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
-
-              {/* Tinted Variant - XS */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Tinted
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <Button variant="tinted" color="primary" size="xs">
-                      Standard
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="tinted" color="primary" size="xs" appearance="minimal">
-                      Minimal
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
-
-              {/* Outline Variant - XS */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Outline
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
+                  </td>
+                  <td className="p-4 text-center">
                     <Button variant="outline" color="primary" size="xs">
-                      Standard
+                      Next
                     </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="outline" color="primary" size="xs" appearance="minimal">
-                      Minimal
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
-
-              {/* Ghost Variant - XS */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Ghost
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
+                  </td>
+                  <td className="p-4 text-center">
                     <Button variant="ghost" color="primary" size="xs">
-                      Standard
+                      Next
                     </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="ghost" color="primary" size="xs" appearance="minimal">
-                      Minimal
-                    </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
+                  </td>
+                </tr>
 
-              {/* Link Variant - XS */}
-              <div>
-                <Heading as="h4" size="sm" className="mb-3">
-                  Link
-                </Heading>
-                <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <Button variant="link" color="primary" size="xs">
-                      Standard
+                {/* SM Size */}
+                <tr className="bg-gray-50">
+                  <td className="p-4">
+                    <Text weight="medium">SM</Text>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="solid" color="primary" size="sm">
+                      Next
                     </Button>
-                    <Text size="xs" className="mt-2">
-                      Standard
-                    </Text>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Button variant="link" color="primary" size="xs" appearance="minimal">
-                      Minimal
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="outline" color="primary" size="sm">
+                      Next
                     </Button>
-                    <Text size="xs" className="mt-2">
-                      Minimal
-                    </Text>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="ghost" color="primary" size="sm">
+                      Next
+                    </Button>
+                  </td>
+                </tr>
+
+                {/* MD Size */}
+                <tr>
+                  <td className="p-4">
+                    <Text weight="medium">MD</Text>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="solid" color="primary" size="md">
+                      Next
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="outline" color="primary" size="md">
+                      Next
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="ghost" color="primary" size="md">
+                      Next
+                    </Button>
+                  </td>
+                </tr>
+
+                {/* LG Size */}
+                <tr className="bg-gray-50">
+                  <td className="p-4">
+                    <Text weight="medium">LG</Text>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="solid" color="primary" size="lg">
+                      Next
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="outline" color="primary" size="lg">
+                      Next
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="ghost" color="primary" size="lg">
+                      Next
+                    </Button>
+                  </td>
+                </tr>
+
+                {/* XL Size */}
+                <tr>
+                  <td className="p-4">
+                    <Text weight="medium">XL</Text>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="solid" color="primary" size="xl">
+                      Next
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="outline" color="primary" size="xl">
+                      Next
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="ghost" color="primary" size="xl">
+                      Next
+                    </Button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          {/* Button with Icons */}
+          <Heading as="h3" size="md" className="mb-4 mt-12">
+            Button with Icons
+          </Heading>
+          <div className="flex flex-wrap gap-4 items-center">
+            <Button variant="solid" color="primary" leftIcon={<span>→</span>}>
+              With Left Icon
+            </Button>
+            <Button variant="solid" color="primary" rightIcon={<span>→</span>}>
+              With Right Icon
+            </Button>
+            <Button variant="outline" color="primary" leftIcon={<span>→</span>}>
+              With Left Icon
+            </Button>
+            <Button variant="outline" color="primary" rightIcon={<span>→</span>}>
+              With Right Icon
+            </Button>
           </div>
         </section>
 
