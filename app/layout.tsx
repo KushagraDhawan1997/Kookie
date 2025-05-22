@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body>
-        <ThemeProvider color="blue" gray="slate" radius="full" size="sm" style="detailed">
+        <ThemeProvider color="indigo" gray="slate" radius="lg" size="sm" style="detailed">
           {children}
         </ThemeProvider>
       </body>

@@ -47,6 +47,8 @@
    - [x] Add multiple appearances (standard and minimal)
    - [x] Implement modular style system with separate files
    - [x] Basic inline documentation
+   - [ ] Review button styling across all variants and sizes
+   - [ ] Fix transition issue with outline variant for standard style
 
 8. **Box & Flex Components**
 

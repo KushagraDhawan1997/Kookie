@@ -8,7 +8,7 @@ import { Heading } from "../components/ui/heading";
 export default function Home() {
   return (
     <div className="p-8 bg-white min-h-screen">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         <Heading as="h1" color="primary" className="mb-2">
           Kookie UI Components
         </Heading>
@@ -17,195 +17,95 @@ export default function Home() {
         {/* Button Demo */}
         <section className="mb-16">
           <Heading as="h2" className="mb-6">
-            Button Variants
+            Button Component
           </Heading>
 
-          {/* Button Matrix */}
-          <div className="mb-12 overflow-x-auto">
+          {/* XS Size Buttons */}
+          <Heading as="h3" size="md" className="mb-4 mt-8">
+            Extra Small (XS) Buttons
+          </Heading>
+          <div className="mb-8 overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
                 <tr>
                   <th className="p-4 text-left"></th>
                   <th className="p-4 text-center">
-                    <Text weight="medium" color="primary">
-                      Primary
-                    </Text>
+                    <Text weight="medium">Solid</Text>
                   </th>
                   <th className="p-4 text-center">
-                    <Text weight="medium" color="blue">
-                      Blue
-                    </Text>
+                    <Text weight="medium">Tinted</Text>
                   </th>
                   <th className="p-4 text-center">
-                    <Text weight="medium" color="gray">
-                      Gray
-                    </Text>
+                    <Text weight="medium">Outline</Text>
                   </th>
                   <th className="p-4 text-center">
-                    <Text weight="medium">Disabled</Text>
+                    <Text weight="medium">Ghost</Text>
                   </th>
                   <th className="p-4 text-center">
-                    <Text weight="medium">Loading</Text>
+                    <Text weight="medium">Link</Text>
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {/* Solid Variant */}
+                {/* Standard Appearance */}
                 <tr>
                   <td className="p-4">
-                    <Text weight="medium">Solid</Text>
+                    <Text weight="medium">Standard</Text>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="solid" color="primary" size="md">
-                      Next
+                    <Button variant="solid" color="primary" size="xs" appearance="standard">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="solid" color="blue" size="md">
-                      Next
+                    <Button variant="tinted" color="primary" size="xs" appearance="standard">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="solid" color="gray" size="md">
-                      Next
+                    <Button variant="outline" color="primary" size="xs" appearance="standard">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="solid" color="primary" size="md" disabled>
-                      Next
+                    <Button variant="ghost" color="primary" size="xs" appearance="standard">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="solid" color="primary" size="md" isLoading>
-                      Next
-                    </Button>
-                  </td>
-                </tr>
-
-                {/* Tinted Variant */}
-                <tr className="bg-gray-50">
-                  <td className="p-4">
-                    <Text weight="medium">Tinted</Text>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="tinted" color="primary" size="md">
-                      Next
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="tinted" color="blue" size="md">
-                      Next
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="tinted" color="gray" size="md">
-                      Next
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="tinted" color="primary" size="md" disabled>
-                      Next
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="tinted" color="primary" size="md" isLoading>
-                      Next
+                    <Button variant="link" color="primary" size="xs" appearance="standard">
+                      Button
                     </Button>
                   </td>
                 </tr>
-
-                {/* Outline Variant */}
+                {/* Minimal Appearance */}
                 <tr>
                   <td className="p-4">
-                    <Text weight="medium">Outline</Text>
+                    <Text weight="medium">Minimal</Text>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="outline" color="primary" size="md">
-                      Next
+                    <Button variant="solid" color="primary" size="xs" appearance="minimal">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="outline" color="blue" size="md">
-                      Next
+                    <Button variant="tinted" color="primary" size="xs" appearance="minimal">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="outline" color="gray" size="md">
-                      Next
+                    <Button variant="outline" color="primary" size="xs" appearance="minimal">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="outline" color="primary" size="md" disabled>
-                      Next
+                    <Button variant="ghost" color="primary" size="xs" appearance="minimal">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="outline" color="primary" size="md" isLoading>
-                      Next
-                    </Button>
-                  </td>
-                </tr>
-
-                {/* Ghost Variant */}
-                <tr className="bg-gray-50">
-                  <td className="p-4">
-                    <Text weight="medium">Ghost</Text>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="ghost" color="primary" size="md">
-                      Next
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="ghost" color="blue" size="md">
-                      Next
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="ghost" color="gray" size="md">
-                      Next
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="ghost" color="primary" size="md" disabled>
-                      Next
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="ghost" color="primary" size="md" isLoading>
-                      Next
-                    </Button>
-                  </td>
-                </tr>
-
-                {/* Link Variant */}
-                <tr>
-                  <td className="p-4">
-                    <Text weight="medium">Link</Text>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="link" color="primary" size="md">
-                      Next
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="link" color="blue" size="md">
-                      Next
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="link" color="gray" size="md">
-                      Next
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="link" color="primary" size="md" disabled>
-                      Next
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="link" color="primary" size="md" isLoading>
-                      Next
+                    <Button variant="link" color="primary" size="xs" appearance="minimal">
+                      Button
                     </Button>
                   </td>
                 </tr>
@@ -213,29 +113,122 @@ export default function Home() {
             </table>
           </div>
 
-          {/* Button Appearances Matrix */}
-          <Heading as="h3" size="md" className="mb-4 mt-12">
-            Button Appearances
+          {/* SM Size Buttons */}
+          <Heading as="h3" size="md" className="mb-4 mt-8">
+            Small (SM) Buttons
           </Heading>
-          <div className="overflow-x-auto">
+          <div className="mb-8 overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
                 <tr>
                   <th className="p-4 text-left"></th>
                   <th className="p-4 text-center">
-                    <Text weight="medium" color="primary">
-                      Primary
-                    </Text>
+                    <Text weight="medium">Solid</Text>
                   </th>
                   <th className="p-4 text-center">
-                    <Text weight="medium" color="blue">
-                      Blue
-                    </Text>
+                    <Text weight="medium">Tinted</Text>
                   </th>
                   <th className="p-4 text-center">
-                    <Text weight="medium" color="gray">
-                      Gray
-                    </Text>
+                    <Text weight="medium">Outline</Text>
+                  </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium">Ghost</Text>
+                  </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium">Link</Text>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* Standard Appearance */}
+                <tr>
+                  <td className="p-4">
+                    <Text weight="medium">Standard</Text>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="solid" color="primary" size="sm" appearance="standard">
+                      Button
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="tinted" color="primary" size="sm" appearance="standard">
+                      Button
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="outline" color="primary" size="sm" appearance="standard">
+                      Button
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="ghost" color="primary" size="sm" appearance="standard">
+                      Button
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="link" color="primary" size="sm" appearance="standard">
+                      Button
+                    </Button>
+                  </td>
+                </tr>
+                {/* Minimal Appearance */}
+                <tr>
+                  <td className="p-4">
+                    <Text weight="medium">Minimal</Text>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="solid" color="primary" size="sm" appearance="minimal">
+                      Button
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="tinted" color="primary" size="sm" appearance="minimal">
+                      Button
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="outline" color="primary" size="sm" appearance="minimal">
+                      Button
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="ghost" color="primary" size="sm" appearance="minimal">
+                      Button
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="link" color="primary" size="sm" appearance="minimal">
+                      Button
+                    </Button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          {/* MD Size Buttons */}
+          <Heading as="h3" size="md" className="mb-4 mt-8">
+            Medium (MD) Buttons
+          </Heading>
+          <div className="mb-8 overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr>
+                  <th className="p-4 text-left"></th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium">Solid</Text>
+                  </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium">Tinted</Text>
+                  </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium">Outline</Text>
+                  </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium">Ghost</Text>
+                  </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium">Link</Text>
                   </th>
                 </tr>
               </thead>
@@ -247,39 +240,58 @@ export default function Home() {
                   </td>
                   <td className="p-4 text-center">
                     <Button variant="solid" color="primary" size="md" appearance="standard">
-                      Next
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="solid" color="blue" size="md" appearance="standard">
-                      Next
+                    <Button variant="tinted" color="primary" size="md" appearance="standard">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="solid" color="gray" size="md" appearance="standard">
-                      Next
+                    <Button variant="outline" color="primary" size="md" appearance="standard">
+                      Button
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="ghost" color="primary" size="md" appearance="standard">
+                      Button
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="link" color="primary" size="md" appearance="standard">
+                      Button
                     </Button>
                   </td>
                 </tr>
-
                 {/* Minimal Appearance */}
-                <tr className="bg-gray-50">
+                <tr>
                   <td className="p-4">
                     <Text weight="medium">Minimal</Text>
                   </td>
                   <td className="p-4 text-center">
                     <Button variant="solid" color="primary" size="md" appearance="minimal">
-                      Next
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="solid" color="blue" size="md" appearance="minimal">
-                      Next
+                    <Button variant="tinted" color="primary" size="md" appearance="minimal">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="solid" color="gray" size="md" appearance="minimal">
-                      Next
+                    <Button variant="outline" color="primary" size="md" appearance="minimal">
+                      Button
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="ghost" color="primary" size="md" appearance="minimal">
+                      Button
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="link" color="primary" size="md" appearance="minimal">
+                      Button
                     </Button>
                   </td>
                 </tr>
@@ -287,11 +299,11 @@ export default function Home() {
             </table>
           </div>
 
-          {/* Button Sizes Matrix */}
-          <Heading as="h3" size="md" className="mb-4 mt-12">
-            Button Sizes
+          {/* LG Size Buttons */}
+          <Heading as="h3" size="md" className="mb-4 mt-8">
+            Large (LG) Buttons
           </Heading>
-          <div className="overflow-x-auto">
+          <div className="mb-8 overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
                 <tr>
@@ -300,120 +312,172 @@ export default function Home() {
                     <Text weight="medium">Solid</Text>
                   </th>
                   <th className="p-4 text-center">
+                    <Text weight="medium">Tinted</Text>
+                  </th>
+                  <th className="p-4 text-center">
                     <Text weight="medium">Outline</Text>
                   </th>
                   <th className="p-4 text-center">
                     <Text weight="medium">Ghost</Text>
                   </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium">Link</Text>
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                {/* XS Size */}
+                {/* Standard Appearance */}
                 <tr>
                   <td className="p-4">
-                    <Text weight="medium">XS</Text>
+                    <Text weight="medium">Standard</Text>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="solid" color="primary" size="xs">
-                      Next
+                    <Button variant="solid" color="primary" size="lg" appearance="standard">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="outline" color="primary" size="xs">
-                      Next
+                    <Button variant="tinted" color="primary" size="lg" appearance="standard">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="ghost" color="primary" size="xs">
-                      Next
-                    </Button>
-                  </td>
-                </tr>
-
-                {/* SM Size */}
-                <tr className="bg-gray-50">
-                  <td className="p-4">
-                    <Text weight="medium">SM</Text>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="solid" color="primary" size="sm">
-                      Next
+                    <Button variant="outline" color="primary" size="lg" appearance="standard">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="outline" color="primary" size="sm">
-                      Next
+                    <Button variant="ghost" color="primary" size="lg" appearance="standard">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="ghost" color="primary" size="sm">
-                      Next
+                    <Button variant="link" color="primary" size="lg" appearance="standard">
+                      Button
                     </Button>
                   </td>
                 </tr>
-
-                {/* MD Size */}
+                {/* Minimal Appearance */}
                 <tr>
                   <td className="p-4">
-                    <Text weight="medium">MD</Text>
+                    <Text weight="medium">Minimal</Text>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="solid" color="primary" size="md">
-                      Next
+                    <Button variant="solid" color="primary" size="lg" appearance="minimal">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="outline" color="primary" size="md">
-                      Next
+                    <Button variant="tinted" color="primary" size="lg" appearance="minimal">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="ghost" color="primary" size="md">
-                      Next
-                    </Button>
-                  </td>
-                </tr>
-
-                {/* LG Size */}
-                <tr className="bg-gray-50">
-                  <td className="p-4">
-                    <Text weight="medium">LG</Text>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="solid" color="primary" size="lg">
-                      Next
+                    <Button variant="outline" color="primary" size="lg" appearance="minimal">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="outline" color="primary" size="lg">
-                      Next
+                    <Button variant="ghost" color="primary" size="lg" appearance="minimal">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="ghost" color="primary" size="lg">
-                      Next
+                    <Button variant="link" color="primary" size="lg" appearance="minimal">
+                      Button
                     </Button>
                   </td>
                 </tr>
+              </tbody>
+            </table>
+          </div>
 
-                {/* XL Size */}
+          {/* XL Size Buttons */}
+          <Heading as="h3" size="md" className="mb-4 mt-8">
+            Extra Large (XL) Buttons
+          </Heading>
+          <div className="mb-8 overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr>
+                  <th className="p-4 text-left"></th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium">Solid</Text>
+                  </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium">Tinted</Text>
+                  </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium">Outline</Text>
+                  </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium">Ghost</Text>
+                  </th>
+                  <th className="p-4 text-center">
+                    <Text weight="medium">Link</Text>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* Standard Appearance */}
                 <tr>
                   <td className="p-4">
-                    <Text weight="medium">XL</Text>
+                    <Text weight="medium">Standard</Text>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="solid" color="primary" size="xl">
-                      Next
+                    <Button variant="solid" color="primary" size="xl" appearance="standard">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="outline" color="primary" size="xl">
-                      Next
+                    <Button variant="tinted" color="primary" size="xl" appearance="standard">
+                      Button
                     </Button>
                   </td>
                   <td className="p-4 text-center">
-                    <Button variant="ghost" color="primary" size="xl">
-                      Next
+                    <Button variant="outline" color="primary" size="xl" appearance="standard">
+                      Button
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="ghost" color="primary" size="xl" appearance="standard">
+                      Button
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="link" color="primary" size="xl" appearance="standard">
+                      Button
+                    </Button>
+                  </td>
+                </tr>
+                {/* Minimal Appearance */}
+                <tr>
+                  <td className="p-4">
+                    <Text weight="medium">Minimal</Text>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="solid" color="primary" size="xl" appearance="minimal">
+                      Button
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="tinted" color="primary" size="xl" appearance="minimal">
+                      Button
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="outline" color="primary" size="xl" appearance="minimal">
+                      Button
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="ghost" color="primary" size="xl" appearance="minimal">
+                      Button
+                    </Button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <Button variant="link" color="primary" size="xl" appearance="minimal">
+                      Button
                     </Button>
                   </td>
                 </tr>
@@ -422,7 +486,7 @@ export default function Home() {
           </div>
 
           {/* Button with Icons */}
-          <Heading as="h3" size="md" className="mb-4 mt-12">
+          <Heading as="h3" size="md" className="mb-4 mt-8">
             Button with Icons
           </Heading>
           <div className="flex flex-wrap gap-4 items-center">

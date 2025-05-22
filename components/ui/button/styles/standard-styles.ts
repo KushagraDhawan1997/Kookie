@@ -109,49 +109,49 @@ export const tintedColorStyles: Record<string, string> = {
  */
 export const outlineColorStyles: Record<string, string> = {
   // Red shades - BRIGHTER
-  red: "border border-red-300/70 text-red-600 hover:border-red-400/80 hover:bg-gradient-to-br hover:from-red-50 hover:to-red-100 active:from-red-100 active:to-red-200 transition-all duration-250",
+  red: "border border-red-300/70 text-red-600 hover:border-red-400/80 hover:bg-gradient-to-br hover:from-red-50 hover:to-red-100 active:from-red-100 active:to-red-200 transition-colors duration-250",
   // Orange shades - BRIGHTER
-  orange: "border border-orange-300/70 text-orange-600 hover:border-orange-400/80 hover:bg-gradient-to-br hover:from-orange-50 hover:to-orange-100 active:from-orange-100 active:to-orange-200 transition-all duration-250",
+  orange: "border border-orange-300/70 text-orange-600 hover:border-orange-400/80 hover:bg-gradient-to-br hover:from-orange-50 hover:to-orange-100 active:from-orange-100 active:to-orange-200 transition-colors duration-250",
   // Amber shades - BRIGHTER
-  amber: "border border-amber-300/70 text-amber-600 hover:border-amber-400/80 hover:bg-gradient-to-br hover:from-amber-50 hover:to-amber-100 active:from-amber-100 active:to-amber-200 transition-all duration-250",
+  amber: "border border-amber-300/70 text-amber-600 hover:border-amber-400/80 hover:bg-gradient-to-br hover:from-amber-50 hover:to-amber-100 active:from-amber-100 active:to-amber-200 transition-colors duration-250",
   // Yellow shades - BRIGHTER
-  yellow: "border border-yellow-300/70 text-yellow-600 hover:border-yellow-400/80 hover:bg-gradient-to-br hover:from-yellow-50 hover:to-yellow-100 active:from-yellow-100 active:to-yellow-200 transition-all duration-250",
+  yellow: "border border-yellow-300/70 text-yellow-600 hover:border-yellow-400/80 hover:bg-gradient-to-br hover:from-yellow-50 hover:to-yellow-100 active:from-yellow-100 active:to-yellow-200 transition-colors duration-250",
   // Lime shades - BRIGHTER
-  lime: "border border-lime-300/70 text-lime-600 hover:border-lime-400/80 hover:bg-gradient-to-br hover:from-lime-50 hover:to-lime-100 active:from-lime-100 active:to-lime-200 transition-all duration-250",
+  lime: "border border-lime-300/70 text-lime-600 hover:border-lime-400/80 hover:bg-gradient-to-br hover:from-lime-50 hover:to-lime-100 active:from-lime-100 active:to-lime-200 transition-colors duration-250",
   // Green shades - BRIGHTER
-  green: "border border-green-300/70 text-green-600 hover:border-green-400/80 hover:bg-gradient-to-br hover:from-green-50 hover:to-green-100 active:from-green-100 active:to-green-200 transition-all duration-250",
+  green: "border border-green-300/70 text-green-600 hover:border-green-400/80 hover:bg-gradient-to-br hover:from-green-50 hover:to-green-100 active:from-green-100 active:to-green-200 transition-colors duration-250",
   // Emerald shades - BRIGHTER
-  emerald: "border border-emerald-300/70 text-emerald-600 hover:border-emerald-400/80 hover:bg-gradient-to-br hover:from-emerald-50 hover:to-emerald-100 active:from-emerald-100 active:to-emerald-200 transition-all duration-250",
+  emerald: "border border-emerald-300/70 text-emerald-600 hover:border-emerald-400/80 hover:bg-gradient-to-br hover:from-emerald-50 hover:to-emerald-100 active:from-emerald-100 active:to-emerald-200 transition-colors duration-250",
   // Teal shades - BRIGHTER
-  teal: "border border-teal-300/70 text-teal-600 hover:border-teal-400/80 hover:bg-gradient-to-br hover:from-teal-50 hover:to-teal-100 active:from-teal-100 active:to-teal-200 transition-all duration-250",
+  teal: "border border-teal-300/70 text-teal-600 hover:border-teal-400/80 hover:bg-gradient-to-br hover:from-teal-50 hover:to-teal-100 active:from-teal-100 active:to-teal-200 transition-colors duration-250",
   // Cyan shades - BRIGHTER
-  cyan: "border border-cyan-300/70 text-cyan-600 hover:border-cyan-400/80 hover:bg-gradient-to-br hover:from-cyan-50 hover:to-cyan-100 active:from-cyan-100 active:to-cyan-200 transition-all duration-250",
+  cyan: "border border-cyan-300/70 text-cyan-600 hover:border-cyan-400/80 hover:bg-gradient-to-br hover:from-cyan-50 hover:to-cyan-100 active:from-cyan-100 active:to-cyan-200 transition-colors duration-250",
   // Sky shades - BRIGHTER
-  sky: "border border-sky-300/70 text-sky-600 hover:border-sky-400/80 hover:bg-gradient-to-br hover:from-sky-50 hover:to-sky-100 active:from-sky-100 active:to-sky-200 transition-all duration-250",
+  sky: "border border-sky-300/70 text-sky-600 hover:border-sky-400/80 hover:bg-gradient-to-br hover:from-sky-50 hover:to-sky-100 active:from-sky-100 active:to-sky-200 transition-colors duration-250",
   // Blue shades - BRIGHTER
-  blue: "border border-blue-300/70 text-blue-600 hover:border-blue-400/80 hover:bg-gradient-to-br hover:from-blue-50 hover:to-blue-100 active:from-blue-100 active:to-blue-200 transition-all duration-250",
+  blue: "border border-blue-300/70 text-blue-600 hover:border-blue-400/80 hover:bg-gradient-to-br hover:from-blue-50 hover:to-blue-100 active:from-blue-100 active:to-blue-200 transition-colors duration-250",
   // Indigo shades - BRIGHTER
-  indigo: "border border-indigo-300/70 text-indigo-600 hover:border-indigo-400/80 hover:bg-gradient-to-br hover:from-indigo-50 hover:to-indigo-100 active:from-indigo-100 active:to-indigo-200 transition-all duration-250",
+  indigo: "border border-indigo-300/70 text-indigo-600 hover:border-indigo-400/80 hover:bg-gradient-to-br hover:from-indigo-50 hover:to-indigo-100 active:from-indigo-100 active:to-indigo-200 transition-colors duration-250",
   // Violet shades - BRIGHTER
-  violet: "border border-violet-300/70 text-violet-600 hover:border-violet-400/80 hover:bg-gradient-to-br hover:from-violet-50 hover:to-violet-100 active:from-violet-100 active:to-violet-200 transition-all duration-250",
+  violet: "border border-violet-300/70 text-violet-600 hover:border-violet-400/80 hover:bg-gradient-to-br hover:from-violet-50 hover:to-violet-100 active:from-violet-100 active:to-violet-200 transition-colors duration-250",
   // Purple shades - BRIGHTER
-  purple: "border border-purple-300/70 text-purple-600 hover:border-purple-400/80 hover:bg-gradient-to-br hover:from-purple-50 hover:to-purple-100 active:from-purple-100 active:to-purple-200 transition-all duration-250",
+  purple: "border border-purple-300/70 text-purple-600 hover:border-purple-400/80 hover:bg-gradient-to-br hover:from-purple-50 hover:to-purple-100 active:from-purple-100 active:to-purple-200 transition-colors duration-250",
   // Fuchsia shades - BRIGHTER
-  fuchsia: "border border-fuchsia-300/70 text-fuchsia-600 hover:border-fuchsia-400/80 hover:bg-gradient-to-br hover:from-fuchsia-50 hover:to-fuchsia-100 active:from-fuchsia-100 active:to-fuchsia-200 transition-all duration-250",
+  fuchsia: "border border-fuchsia-300/70 text-fuchsia-600 hover:border-fuchsia-400/80 hover:bg-gradient-to-br hover:from-fuchsia-50 hover:to-fuchsia-100 active:from-fuchsia-100 active:to-fuchsia-200 transition-colors duration-250",
   // Pink shades - BRIGHTER
-  pink: "border border-pink-300/70 text-pink-600 hover:border-pink-400/80 hover:bg-gradient-to-br hover:from-pink-50 hover:to-pink-100 active:from-pink-100 active:to-pink-200 transition-all duration-250",
+  pink: "border border-pink-300/70 text-pink-600 hover:border-pink-400/80 hover:bg-gradient-to-br hover:from-pink-50 hover:to-pink-100 active:from-pink-100 active:to-pink-200 transition-colors duration-250",
   // Rose shades - BRIGHTER
-  rose: "border border-rose-300/70 text-rose-600 hover:border-rose-400/80 hover:bg-gradient-to-br hover:from-rose-50 hover:to-rose-100 active:from-rose-100 active:to-rose-200 transition-all duration-250",
+  rose: "border border-rose-300/70 text-rose-600 hover:border-rose-400/80 hover:bg-gradient-to-br hover:from-rose-50 hover:to-rose-100 active:from-rose-100 active:to-rose-200 transition-colors duration-250",
   // Gray shades - DARKER
-  gray: "border border-gray-500/70 text-gray-800 hover:border-gray-600/80 hover:bg-gradient-to-br hover:from-gray-50 hover:to-gray-100 active:from-gray-100 active:to-gray-200 transition-all duration-250",
+  gray: "border border-gray-500/70 text-gray-800 hover:border-gray-600/80 hover:bg-gradient-to-br hover:from-gray-50 hover:to-gray-100 active:from-gray-100 active:to-gray-200 transition-colors duration-250",
   // Slate shades - DARKER
-  slate: "border border-slate-500/70 text-slate-800 hover:border-slate-600/80 hover:bg-gradient-to-br hover:from-slate-50 hover:to-slate-100 active:from-slate-100 active:to-slate-200 transition-all duration-250",
+  slate: "border border-slate-500/70 text-slate-800 hover:border-slate-600/80 hover:bg-gradient-to-br hover:from-slate-50 hover:to-slate-100 active:from-slate-100 active:to-slate-200 transition-colors duration-250",
   // Zinc shades - DARKER
-  zinc: "border border-zinc-500/70 text-zinc-800 hover:border-zinc-600/80 hover:bg-gradient-to-br hover:from-zinc-50 hover:to-zinc-100 active:from-zinc-100 active:to-zinc-200 transition-all duration-250",
+  zinc: "border border-zinc-500/70 text-zinc-800 hover:border-zinc-600/80 hover:bg-gradient-to-br hover:from-zinc-50 hover:to-zinc-100 active:from-zinc-100 active:to-zinc-200 transition-colors duration-250",
   // Neutral shades - DARKER
-  neutral: "border border-neutral-500/70 text-neutral-800 hover:border-neutral-600/80 hover:bg-gradient-to-br hover:from-neutral-50 hover:to-neutral-100 active:from-neutral-100 active:to-neutral-200 transition-all duration-250",
+  neutral: "border border-neutral-500/70 text-neutral-800 hover:border-neutral-600/80 hover:bg-gradient-to-br hover:from-neutral-50 hover:to-neutral-100 active:from-neutral-100 active:to-neutral-200 transition-colors duration-250",
   // Stone shades - DARKER
-  stone: "border border-stone-500/70 text-stone-800 hover:border-stone-600/80 hover:bg-gradient-to-br hover:from-stone-50 hover:to-stone-100 active:from-stone-100 active:to-stone-200 transition-all duration-250",
+  stone: "border border-stone-500/70 text-stone-800 hover:border-stone-600/80 hover:bg-gradient-to-br hover:from-stone-50 hover:to-stone-100 active:from-stone-100 active:to-stone-200 transition-colors duration-250",
 };
 
 /**
