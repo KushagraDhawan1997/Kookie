@@ -52,40 +52,58 @@ export const getGapStyles = (componentSize: ThemeSize): string => {
 };
 
 /**
- * Get border radius style based on component size and theme
+ * Size-sensitive radius matrix that maps component size and radius setting
+ * to appropriate Tailwind classes. This ensures consistent visual appearance
+ * across different component sizes.
  */
-export const getRadiusStyle = (componentSize: ThemeSize, radius?: ThemeRadius, themeRadius?: ThemeRadius): string => {
-  // Map from radius size to Tailwind class
-  const radiusClasses = {
+const radiusMatrix = {
+  xs: {
+    none: "rounded-none",
+    sm: "rounded-none",
+    md: "rounded-sm",
+    lg: "rounded-sm",
+    full: "rounded-full",
+  },
+  sm: {
     none: "rounded-none",
     sm: "rounded-sm",
-    base: "rounded",
+    md: "rounded-sm",
+    lg: "rounded-md",
+    full: "rounded-full",
+  },
+  md: {
+    none: "rounded-none",
+    sm: "rounded-sm",
+    md: "rounded-md",
+    lg: "rounded-md",
+    full: "rounded-full",
+  },
+  lg: {
+    none: "rounded-none",
+    sm: "rounded-sm",
     md: "rounded-md",
     lg: "rounded-lg",
-    xl: "rounded-xl",
     full: "rounded-full",
-  };
-
-  // First priority: explicit radius prop
-  if (radius) {
-    return radiusClasses[radius] || radiusClasses.md;
-  }
-
-  // Second priority: theme radius
-  if (themeRadius) {
-    return radiusClasses[themeRadius] || radiusClasses.md;
-  }
-
-  // Third priority: size-based radius with more dramatic styles
-  const sizeBasedRadius = {
-    xs: "rounded",
+  },
+  xl: {
+    none: "rounded-none",
     sm: "rounded-md",
     md: "rounded-lg",
     lg: "rounded-xl",
-    xl: "rounded-xl",
-  }[componentSize];
+    full: "rounded-full",
+  },
+};
 
-  return sizeBasedRadius;
+/**
+ * Get border radius style based on component size and theme
+ * Uses a size-sensitive matrix to ensure visual consistency
+ */
+export const getRadiusStyle = (componentSize: ThemeSize, radius?: ThemeRadius, themeRadius?: ThemeRadius): string => {
+  // Determine the effective radius (explicit prop, theme setting, or default)
+  const effectiveRadius = radius || themeRadius || "md";
+
+  // Look up the appropriate radius class from the matrix
+  return radiusMatrix[componentSize][effectiveRadius];
 };
 
 /**

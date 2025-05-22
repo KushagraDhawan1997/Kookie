@@ -234,3 +234,27 @@ Kookie supports three distinct visual styles that affect component aesthetics th
 
 - No shadows: `shadow-none`
 - Simple color transitions: `transition-colors duration-150`
+
+## Border Radius System
+
+Kookie uses a size-sensitive border radius system that ensures consistent visual roundness across components of different sizes. Rather than applying the same border radius to all components regardless of size, the system scales radius values based on component dimensions.
+
+### Button Radius Scaling
+
+The Button component uses a size-sensitive radius matrix that maps theme radius values to appropriate Tailwind classes based on the button's size:
+
+| ThemeRadius | xs Button      | sm Button      | md Button      | lg Button      | xl Button      |
+| ----------- | -------------- | -------------- | -------------- | -------------- | -------------- |
+| none        | `rounded-none` | `rounded-none` | `rounded-none` | `rounded-none` | `rounded-none` |
+| sm          | `rounded-none` | `rounded-sm`   | `rounded-sm`   | `rounded-sm`   | `rounded-md`   |
+| md          | `rounded-sm`   | `rounded-sm`   | `rounded-md`   | `rounded-md`   | `rounded-lg`   |
+| lg          | `rounded-sm`   | `rounded-md`   | `rounded-md`   | `rounded-lg`   | `rounded-xl`   |
+| full        | `rounded-full` | `rounded-full` | `rounded-full` | `rounded-full` | `rounded-full` |
+
+This approach ensures that:
+
+1. Smaller buttons don't look disproportionately round with larger radius values
+2. Larger buttons have appropriately larger radius values to maintain design harmony
+3. The visual rounding effect is consistent across different button sizes
+
+When setting a global radius in ThemeProvider (`style="lg"`), each component applies appropriate size-sensitive adjustments to maintain visual harmony.

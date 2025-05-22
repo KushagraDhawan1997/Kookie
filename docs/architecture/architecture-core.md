@@ -87,6 +87,14 @@ kookie/
 - Modular style files for each appearance type
 - Delegated style resolution via style manager
 
+#### 5. Size-Sensitive Radius Pattern
+
+- Border radius adapts based on component size
+- Ensures visual consistency across different sized components
+- Uses predefined radius matrices for predictable rounding
+- Smaller components get proportionally smaller radius values
+- Maintains visual harmony when the same radius setting is used on different sized elements
+
 ## Utils and Helpers
 
 ### Class Name Merging
