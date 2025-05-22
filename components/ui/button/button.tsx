@@ -6,7 +6,7 @@ import { useComponentSize } from "../../../lib/theme/hooks";
 import { useTheme } from "../../../lib/theme/hooks";
 import { SemanticColorKey } from "../../../lib/theme/atoms";
 import { ButtonProps, ButtonVariant } from "./types";
-import { getSizeStyles, getPaddingStyles, getGapStyles, getRadiusStyle, getBaseClasses, getVariantStyleClasses } from "./styles";
+import { getSizeStyles, getPaddingStyles, getGapStyles, getRadiusStyle, getBaseClasses, getVariantStyleClasses, getTextAlignmentStyles } from "./styles";
 
 /**
  * Button component
@@ -53,6 +53,9 @@ export function Button({ variant = "solid", color = "primary", size, radius, app
   const gapStyles = getGapStyles(componentSize);
   const radiusStyles = getRadiusStyle(componentSize, radius, themeRadius);
 
+  // Get text alignment styles for ghost/link buttons
+  const textAlignmentStyles = getTextAlignmentStyles(variant as ButtonVariant, componentSize);
+
   // -------------------------------------------------------------------------
   // Generate the complete class names based on variant, color, and visual style
   // -------------------------------------------------------------------------
@@ -81,7 +84,7 @@ export function Button({ variant = "solid", color = "primary", size, radius, app
     // Get variant-specific styles for the resolved color
     const variantStyles = getVariantStyleClasses(variant as ButtonVariant, resolvedColor, effectiveThemeStyle);
 
-    return cn(baseClasses, variantStyles);
+    return cn(baseClasses, variantStyles, textAlignmentStyles);
   };
 
   // Generate the button's complete class names

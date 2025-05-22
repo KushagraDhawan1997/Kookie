@@ -1,5 +1,6 @@
 import { cn } from "../../../../lib/utils/cn";
 import { ThemeRadius, ThemeSize } from "../../../../lib/theme/atoms";
+import { ButtonVariant } from "../types";
 
 // -----------------------------------------------------------------------------
 // Size-based styles
@@ -85,6 +86,28 @@ export const getRadiusStyle = (componentSize: ThemeSize, radius?: ThemeRadius, t
   }[componentSize];
 
   return sizeBasedRadius;
+};
+
+/**
+ * Get negative margin styles for ghost and link buttons to make them behave more like text
+ * This creates optical alignment with siblings while preserving hover/active states
+ */
+export const getTextAlignmentStyles = (variant: ButtonVariant, componentSize: ThemeSize): string => {
+  // Only apply to ghost and link variants
+  if (variant !== "ghost" && variant !== "link") {
+    return "";
+  }
+
+  // Size-based negative margins that match the corresponding padding
+  const negativeMarginStyles = {
+    xs: "-mx-2",
+    sm: "-mx-3",
+    md: "-mx-4",
+    lg: "-mx-5",
+    xl: "-mx-6",
+  };
+
+  return negativeMarginStyles[componentSize];
 };
 
 // -----------------------------------------------------------------------------
