@@ -3,7 +3,7 @@
 import React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { useTheme } from "@/components/providers/theme-provider";
-import { TextProps } from "./text-types";
+import { TextProps, textPropDefs } from "./text.props";
 import { marginPropDefs, MarginProps } from "@/components/props/margin.props";
 import { processResponsiveStyles } from "@/components/helpers/extract-props";
 import "./text.css";

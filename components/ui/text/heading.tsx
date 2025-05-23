@@ -3,14 +3,14 @@
 import React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { useTheme } from "@/components/providers/theme-provider";
-import { HeadingProps, HeadingVariant } from "./heading-types";
+import { HeadingProps, headingPropDefs } from "./heading.props";
 import { marginPropDefs, MarginProps } from "@/components/props/margin.props";
 import { processResponsiveStyles } from "@/components/helpers/extract-props";
 import "./heading.css";
 
 const headingDefaults = {
   as: "h1" as const,
-  variant: "default" as HeadingVariant,
+  variant: "default" as const,
   size: 6,
   weight: "bold" as const,
   truncate: false,

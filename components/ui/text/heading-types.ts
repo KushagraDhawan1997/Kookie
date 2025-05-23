@@ -1,4 +1,14 @@
-import { TypographySize, BaseTypographyProps, HeadingAs } from "./typography-types";
+import { SemanticColorKey, ThemeColor } from "../../providers/theme-types";
+
+/**
+ * Available heading size options using a numeric scale (1-12)
+ */
+export type HeadingSize = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+
+/**
+ * HTML element types for Heading (h1-h6 only)
+ */
+export type HeadingAs = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 /**
  * Heading variant options for different emphasis levels
@@ -9,10 +19,6 @@ import { TypographySize, BaseTypographyProps, HeadingAs } from "./typography-typ
 export type HeadingVariant = "default" | "muted" | "accent";
 
 /**
- * Props interface for the Heading component
- * Extends BaseTypographyProps with Heading-specific props
+ * Color options for heading
  */
-export interface HeadingProps extends BaseTypographyProps {
-  as?: HeadingAs;
-  variant?: HeadingVariant;
-}
+export type HeadingColor = SemanticColorKey | ThemeColor | "inherit";

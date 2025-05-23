@@ -2,10 +2,12 @@
 
 import React from "react";
 import { Text } from "../text/text";
-import { TypographySize } from "../text/text-types";
 import { useTheme } from "@/components/providers/theme-provider";
+import { ButtonSize } from "./button-types";
+import { ButtonProps, buttonPropDefs } from "./button.props";
+import { marginPropDefs, MarginProps } from "@/components/props/margin.props";
+import { processResponsiveStyles } from "@/components/helpers/extract-props";
 import "./button.css";
-import { ButtonSize, ButtonVariant, ButtonColor, ButtonProps } from "./button-types";
 
 /**
  * Maps button sizes to typography sizes (non-linear for visual hierarchy):
@@ -21,10 +23,10 @@ import { ButtonSize, ButtonVariant, ButtonColor, ButtonProps } from "./button-ty
  * - Sizes 3 and 4 use a medium text size for better legibility
  * - Sizes 5 and 6 use the largest text size for hero/marketing buttons
  */
-const sizeMap: Record<ButtonSize, TypographySize> = { 1: 1, 2: 1, 3: 2, 4: 2, 5: 2, 6: 3 };
+const sizeMap: Record<ButtonSize, 1 | 2 | 3> = { 1: 1, 2: 1, 3: 2, 4: 2, 5: 2, 6: 3 };
 
 const buttonDefaults = {
-  variant: "solid" as ButtonVariant,
+  variant: "solid" as const,
   asChild: false,
   className: "",
 } as const;
@@ -34,6 +36,24 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ size, 
   const finalSize = size ?? themeSize;
   const finalRoundness = roundness ?? themeRoundness;
   const finalColor = color ?? themeColor;
+
+  // Process margin styles
+  const marginStyles: Record<string, any> = {};
+
+  // Apply margin styles for each margin prop
+  Object.entries(marginPropDefs).forEach(([key, propDef]) => {
+    const propName = key as keyof MarginProps;
+    const propValue = props[propName];
+
+    if (propValue !== undefined) {
+      const style = processResponsiveStyles(propValue, (val) => propDef.mapToStyle!(val));
+      if (style) {
+        Object.assign(marginStyles, style);
+      }
+      // Remove processed margin props
+      delete (props as any)[propName];
+    }
+  });
 
   const Component = asChild ? "span" : "button";
   const classes = ["button-root", `button-size-${finalSize}`, className].filter(Boolean).join(" ");
@@ -47,6 +67,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ size, 
       "data-primary-color": finalColor,
       "data-roundness": finalRoundness,
       ...props,
+      style: {
+        ...marginStyles,
+        ...props.style,
+      },
     },
     <Text as="span" size={sizeMap[finalSize]} color="inherit" weight="medium">
       {children}
