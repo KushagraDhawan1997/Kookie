@@ -1,5 +1,5 @@
 import { PropDef, Responsive } from "../helpers/component-props";
-import { SpaceToken, getSpaceTokenValue } from "../types/tokens";
+import { SpaceToken, getSpaceTokenValue } from "../../styles/tokens/tokens";
 
 /**
  * Margin prop types

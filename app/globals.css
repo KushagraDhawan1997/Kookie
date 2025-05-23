@@ -46,16 +46,20 @@
 /* Import token CSS files */
 @import "../styles/tokens/spacing.css";
 @import "../styles/tokens/dimensions.css";
-@import "../styles/tokens/typography.css";
+@import "../styles/typography.css";
 @import "../styles/color.css";
 @import "../styles/tokens/roundness.css";
+
+/* Import utility CSS files */
+@import "../styles/utils/gap-utils.css";
+@import "../styles/utils/flex-utils.css";
+@import "../styles/utils/grid-utils.css";
 
 /* Import component CSS files */
 @import "../components/ui/text/text.css";
 @import "../components/ui/box/box.css";
 @import "../components/ui/flex/flex.css";
 @import "../components/ui/grid/grid.css";
-@import "../components/ui/layout/layout.css";
 
 * {
   /* outline: 1px dashed var(--gray-5); */
