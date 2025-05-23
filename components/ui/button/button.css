@@ -14,7 +14,21 @@
  * - This allows for both global and per-button roundness control, using only CSS.
  */
 
-/* Base button styles */
+/*
+========================================
+ Kookie Button Component Styles
+========================================
+
+- This file defines all button variants and color mappings for the Kookie design system.
+- Each variant (solid, tinted, outline, ghost, link, modern) is grouped and clearly commented.
+- Each color block within a variant is labeled for clarity.
+- All tokens are semantic and use Radix color variables.
+*/
+
+/* ----------------------------------------
+   BASE BUTTON STYLES & SIZE VARIANTS
+---------------------------------------- */
+
 .button-root {
   display: inline-flex;
   align-items: center;
@@ -24,7 +38,7 @@
   outline: none;
   cursor: pointer;
   gap: var(--size-2);
-  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
 /* Size variants using dimension tokens */
@@ -59,10 +73,88 @@
   border-radius: calc(var(--radius-2xl) * var(--theme-radius-factor, 1));
 }
 
-/* Solid variant - Maximum emphasis
- * Uses scale-12 for strongest contrast
- * Gray specifically uses darkest shade for prominence
- */
+/* =========================
+   MODERN VARIANT (Gradient + Alpha Overlays)
+   ========================= */
+
+/* --- Modern: Primary (default) --- */
+[data-variant="modern"][data-primary-color] {
+  background: linear-gradient(to bottom right, var(--primary-9), var(--primary-11));
+  color: var(--primary-1);
+  border: 1px solid var(--primary-8);
+  box-shadow: var(--shadow-xl);
+}
+[data-variant="modern"][data-primary-color]:hover {
+  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--primary-a9);
+}
+[data-variant="modern"][data-primary-color]:active {
+  box-shadow: var(--shadow-md), inset 0 0 0 100px var(--primary-a11);
+}
+
+/* --- Modern: Gray --- */
+[data-variant="modern"][data-primary-color="gray"] {
+  background: linear-gradient(to bottom right, var(--gray-10), var(--gray-12));
+  color: var(--gray-1);
+  border: 1px solid var(--gray-8);
+  box-shadow: var(--shadow-lg);
+}
+[data-variant="modern"][data-primary-color="gray"]:hover {
+  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--gray-a9);
+}
+[data-variant="modern"][data-primary-color="gray"]:active {
+  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--gray-a11);
+}
+
+/* --- Modern: Error --- */
+[data-variant="modern"][data-primary-color="error"] {
+  background: linear-gradient(to bottom right, var(--error-9), var(--error-11));
+  color: var(--error-1);
+  border: 1px solid var(--error-10);
+  box-shadow: var(--shadow-lg);
+}
+[data-variant="modern"][data-primary-color="error"]:hover {
+  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--error-a9);
+}
+[data-variant="modern"][data-primary-color="error"]:active {
+  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--error-a11);
+}
+
+/* --- Modern: Success --- */
+[data-variant="modern"][data-primary-color="success"] {
+  background: linear-gradient(to bottom right, var(--success-9), var(--success-11));
+  color: var(--success-1);
+  border: 1px solid var(--success-10);
+  box-shadow: var(--shadow-lg);
+}
+[data-variant="modern"][data-primary-color="success"]:hover {
+  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--success-a9);
+}
+[data-variant="modern"][data-primary-color="success"]:active {
+  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--success-a11);
+}
+
+/* --- Modern: Warning --- */
+[data-variant="modern"][data-primary-color="warning"] {
+  background: linear-gradient(to bottom right, var(--warning-9), var(--warning-10));
+  color: var(--warning-1);
+  border: 1px solid var(--warning-10);
+  box-shadow: var(--shadow-lg);
+}
+[data-variant="modern"][data-primary-color="warning"]:hover {
+  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--warning-a9);
+}
+[data-variant="modern"][data-primary-color="warning"]:active {
+  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--warning-a10);
+}
+
+/*
+========================================
+ SOLID VARIANT
+ - Maximum emphasis, filled background
+========================================
+*/
+
+/* --- Solid: Primary (default) --- */
 [data-variant="solid"][data-primary-color] {
   background-color: var(--primary-9);
   color: var(--primary-1);
@@ -74,21 +166,19 @@
   background-color: var(--primary-11);
 }
 
-/* Special case: When primary maps to gray, use gray's special styles */
-[data-primary-color="gray"] [data-variant="solid"][data-primary-color="primary"],
+/* --- Solid: Gray --- */
 [data-variant="solid"][data-primary-color="gray"] {
   background-color: var(--gray-12);
   color: var(--gray-1);
 }
-[data-primary-color="gray"] [data-variant="solid"][data-primary-color="primary"]:hover,
 [data-variant="solid"][data-primary-color="gray"]:hover {
-  background-color: var(--gray-12);
+  background-color: var(--gray-11);
 }
-[data-primary-color="gray"] [data-variant="solid"][data-primary-color="primary"]:active,
 [data-variant="solid"][data-primary-color="gray"]:active {
-  background-color: var(--gray-12);
+  background-color: var(--gray-10);
 }
 
+/* --- Solid: Error --- */
 [data-variant="solid"][data-primary-color="error"] {
   background-color: var(--error-9);
   color: var(--error-1);
@@ -100,6 +190,7 @@
   background-color: var(--error-11);
 }
 
+/* --- Solid: Success --- */
 [data-variant="solid"][data-primary-color="success"] {
   background-color: var(--success-9);
   color: var(--success-1);
@@ -111,6 +202,7 @@
   background-color: var(--success-11);
 }
 
+/* --- Solid: Warning --- */
 [data-variant="solid"][data-primary-color="warning"] {
   background-color: var(--warning-9);
   color: var(--warning-1);
@@ -122,10 +214,14 @@
   background-color: var(--warning-11);
 }
 
-/* Tinted variant - Secondary emphasis
- * Uses scale-3 background with scale-12 text
- * Hover/active states progress through scale-4/5
- */
+/*
+========================================
+ TINTED VARIANT
+ - Subtle background, strong text
+========================================
+*/
+
+/* --- Tinted: Primary (default) --- */
 [data-variant="tinted"][data-primary-color] {
   background-color: var(--primary-3);
   color: var(--primary-12);
@@ -137,6 +233,7 @@
   background-color: var(--primary-5);
 }
 
+/* --- Tinted: Gray --- */
 [data-variant="tinted"][data-primary-color="gray"] {
   background-color: var(--gray-3);
   color: var(--gray-12);
@@ -148,6 +245,7 @@
   background-color: var(--gray-5);
 }
 
+/* --- Tinted: Error --- */
 [data-variant="tinted"][data-primary-color="error"] {
   background-color: var(--error-3);
   color: var(--error-12);
@@ -159,6 +257,7 @@
   background-color: var(--error-5);
 }
 
+/* --- Tinted: Success --- */
 [data-variant="tinted"][data-primary-color="success"] {
   background-color: var(--success-3);
   color: var(--success-12);
@@ -170,6 +269,7 @@
   background-color: var(--success-5);
 }
 
+/* --- Tinted: Warning --- */
 [data-variant="tinted"][data-primary-color="warning"] {
   background-color: var(--warning-3);
   color: var(--warning-12);
@@ -181,10 +281,14 @@
   background-color: var(--warning-5);
 }
 
-/* Outline variant - Optional actions
- * Uses scale-5 border with transparent background
- * Matches tinted hover states (scale-3/4) for consistency
- */
+/*
+========================================
+ OUTLINE VARIANT
+ - Transparent background, colored border
+========================================
+*/
+
+/* --- Outline: Primary (default) --- */
 [data-variant="outline"][data-primary-color] {
   border: 1px solid var(--primary-5);
   color: var(--primary-12);
@@ -198,6 +302,7 @@
   background-color: var(--primary-4);
 }
 
+/* --- Outline: Gray --- */
 [data-variant="outline"][data-primary-color="gray"] {
   border: 1px solid var(--gray-5);
   color: var(--gray-12);
@@ -211,6 +316,7 @@
   background-color: var(--gray-4);
 }
 
+/* --- Outline: Error --- */
 [data-variant="outline"][data-primary-color="error"] {
   border: 1px solid var(--error-5);
   color: var(--error-12);
@@ -224,6 +330,7 @@
   background-color: var(--error-4);
 }
 
+/* --- Outline: Success --- */
 [data-variant="outline"][data-primary-color="success"] {
   border: 1px solid var(--success-5);
   color: var(--success-12);
@@ -237,6 +344,7 @@
   background-color: var(--success-4);
 }
 
+/* --- Outline: Warning --- */
 [data-variant="outline"][data-primary-color="warning"] {
   border: 1px solid var(--warning-5);
   color: var(--warning-12);
@@ -250,10 +358,14 @@
   background-color: var(--warning-4);
 }
 
-/* Ghost variant - Toolbar actions
- * No background/border, just text color
- * Matches tinted hover states for consistency
- */
+/*
+========================================
+ GHOST VARIANT
+ - No background, colored text
+========================================
+*/
+
+/* --- Ghost: Primary (default) --- */
 [data-variant="ghost"][data-primary-color] {
   color: var(--primary-12);
   background-color: transparent;
@@ -265,6 +377,7 @@
   background-color: var(--primary-4);
 }
 
+/* --- Ghost: Gray --- */
 [data-variant="ghost"][data-primary-color="gray"] {
   color: var(--gray-12);
   background-color: transparent;
@@ -276,6 +389,7 @@
   background-color: var(--gray-4);
 }
 
+/* --- Ghost: Error --- */
 [data-variant="ghost"][data-primary-color="error"] {
   color: var(--error-12);
   background-color: transparent;
@@ -287,6 +401,7 @@
   background-color: var(--error-4);
 }
 
+/* --- Ghost: Success --- */
 [data-variant="ghost"][data-primary-color="success"] {
   color: var(--success-12);
   background-color: transparent;
@@ -298,6 +413,7 @@
   background-color: var(--success-4);
 }
 
+/* --- Ghost: Warning --- */
 [data-variant="ghost"][data-primary-color="warning"] {
   color: var(--warning-12);
   background-color: transparent;
@@ -309,15 +425,18 @@
   background-color: var(--warning-4);
 }
 
-/* Link variant - Inline text actions
- * Uses underline for hover state
- * Maintains consistent text color with other variants
- */
+/*
+========================================
+ LINK VARIANT
+ - Inline, underlined on hover
+========================================
+*/
+
+/* --- Link: Primary (default) --- */
 [data-variant="link"][data-primary-color] {
   padding: 0;
   height: auto;
 }
-
 [data-variant="link"][data-primary-color]:hover {
   color: var(--primary-12);
   text-decoration: underline;
@@ -326,6 +445,7 @@
   color: var(--primary-12);
 }
 
+/* --- Link: Gray --- */
 [data-variant="link"][data-primary-color="gray"] {
   color: var(--gray-12);
   background-color: transparent;
@@ -338,6 +458,7 @@
   color: var(--gray-12);
 }
 
+/* --- Link: Error --- */
 [data-variant="link"][data-primary-color="error"] {
   color: var(--error-12);
   background-color: transparent;
@@ -350,6 +471,7 @@
   color: var(--error-12);
 }
 
+/* --- Link: Success --- */
 [data-variant="link"][data-primary-color="success"] {
   color: var(--success-12);
   background-color: transparent;
@@ -362,6 +484,7 @@
   color: var(--success-12);
 }
 
+/* --- Link: Warning --- */
 [data-variant="link"][data-primary-color="warning"] {
   color: var(--warning-12);
   background-color: transparent;

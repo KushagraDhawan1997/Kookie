@@ -45,7 +45,7 @@ export default function RootLayout({
         }}
       >
         <JotaiProvider>
-          <ThemeProvider primary="gray" gray="sage" error="red" success="green" warning="amber" roundness="sm" size={2}>
+          <ThemeProvider primary="blue" gray="sage" error="red" success="green" warning="amber" roundness="md" size={2}>
             {children}
           </ThemeProvider>
         </JotaiProvider>

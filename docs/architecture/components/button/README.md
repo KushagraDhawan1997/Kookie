@@ -1,5 +1,7 @@
 # Button Component
 
+The Button component is a versatile UI element that supports multiple variants, colors, sizes, and modern styling with gradients and shadows.
+
 ## Usage
 
 ```tsx
@@ -13,25 +15,32 @@ import { Button } from "@/components/ui/button";
 
 // Optional action
 <Button variant="outline">Learn More</Button>
+
+// Modern gradient style
+<Button variant="modern">Get Started</Button>
 ```
 
 ## API
 
 ```tsx
-interface ButtonProps {
-  variant?: "solid" | "tinted" | "outline" | "ghost" | "link";
-  color?: "primary" | "gray" | "error" | "success" | "warning";
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "modern" | "solid" | "tinted" | "outline" | "ghost" | "link";
+  color?: SemanticColorKey | ThemeColor;
   size?: 1 | 2 | 3 | 4 | 5 | 6;
+  roundness?: ThemeRoundness;
   asChild?: boolean;
+  children?: React.ReactNode;
+  className?: string;
 }
 ```
 
 ## Design Decisions
 
-- Gray variant uses scale-12 for maximum emphasis in UI hierarchies
-- Non-solid variants use scale-12 text for better contrast
-- Hover states unified across subtle variants (scale-3 → scale-4)
-- Border weight reduced to 1px for refinement
+- **Modern variant**: Uses gradients with drop shadows and smooth alpha overlays on hover/active
+- **Consistent transitions**: All interactive states use 0.25s ease transitions
+- **Semantic colors**: Uses theme-based color variables for consistency
+- **Alpha overlays**: Hover/active states use semantic alpha variables (e.g., `--primary-a9`, `--primary-a11`)
+- **Drop shadows**: Modern variant includes `--shadow-xl` by default, transitions to `--shadow-lg` on hover and `--shadow-md` on active
 
 ## Size System
 
@@ -43,24 +52,54 @@ Button sizes combine physical dimensions with carefully mapped typography:
 | 2 (sm)      | 24px   | 1         | Compact UIs, tight spaces   |
 | 3 (md)      | 32px   | 2         | Default size, most contexts |
 | 4 (lg)      | 40px   | 2         | Large CTAs, forms           |
-| 5 (xl)      | 48px   | 3         | Hero sections, marketing    |
+| 5 (xl)      | 48px   | 2         | Hero sections, marketing    |
 | 6 (2xl)     | 64px   | 3         | Prominent hero/marketing    |
 
 The text size mapping is intentionally non-linear to maintain visual hierarchy and readability:
 
 - Sizes 1 and 2 use the smallest text for compact UIs
 - Sizes 3 and 4 use a medium text size for better legibility
-- Sizes 5 and 6 use the largest text size for hero/marketing buttons
+- Sizes 5 and 6 use larger text sizes for hero/marketing buttons
 
 ## Variants
 
-| Variant | Use Case          | Styling                      |
-| ------- | ----------------- | ---------------------------- |
-| Solid   | Primary actions   | Dark bg (12), light text     |
-| Tinted  | Secondary actions | Light bg (3), dark text (12) |
-| Outline | Optional actions  | Border (5), dark text (12)   |
-| Ghost   | Toolbar actions   | Dark text (12) only          |
-| Link    | Inline actions    | Dark text (12), underline    |
+| Variant | Use Case          | Styling                                  |
+| ------- | ----------------- | ---------------------------------------- |
+| Modern  | Premium actions   | Gradient bg, drop shadow, alpha overlays |
+| Solid   | Primary actions   | Solid bg (scale-9), light text           |
+| Tinted  | Secondary actions | Light bg (scale-3), dark text (scale-12) |
+| Outline | Optional actions  | Border (scale-5), dark text (scale-12)   |
+| Ghost   | Toolbar actions   | Dark text (scale-12) only                |
+| Link    | Inline actions    | Dark text (scale-12), underline on hover |
+
+## Color System
+
+The button supports semantic colors that map to your theme:
+
+- **Primary**: Main brand color (customizable via ThemeProvider)
+- **Gray**: Neutral color for secondary actions
+- **Error**: For destructive actions
+- **Success**: For positive confirmations
+- **Warning**: For cautionary actions
+
+Colors are set via the theme provider and use semantic CSS variables:
+
+```tsx
+<ThemeProvider primary="blue" gray="sage" error="red" success="green" warning="amber">
+  <Button color="primary">Primary</Button>
+  <Button color="error">Delete</Button>
+  <Button color="success">Confirm</Button>
+</ThemeProvider>
+```
+
+## Modern Variant Details
+
+The modern variant provides a premium appearance with:
+
+- **Gradient backgrounds**: `linear-gradient(to bottom right, var(--color-9), var(--color-11))`
+- **Drop shadows**: Scales from `--shadow-xl` (default) → `--shadow-lg` (hover) → `--shadow-md` (active)
+- **Alpha overlays**: Smooth transitions using `box-shadow: inset` with alpha variables
+- **Smooth transitions**: All effects use 0.25s ease transitions
 
 ## Examples
 
@@ -68,6 +107,7 @@ The text size mapping is intentionally non-linear to maintain visual hierarchy a
 
 ```tsx
 <Flex gap={4}>
+  <Button variant="modern">Get Started</Button>
   <Button>Save</Button>
   <Button variant="tinted">Preview</Button>
   <Button variant="outline">Cancel</Button>
@@ -81,6 +121,17 @@ The text size mapping is intentionally non-linear to maintain visual hierarchy a
   <Button variant="ghost">Copy</Button>
   <Button variant="ghost">Paste</Button>
   <Button variant="ghost">Delete</Button>
+</Flex>
+```
+
+### Color Variations
+
+```tsx
+<Flex gap={4}>
+  <Button color="primary">Primary</Button>
+  <Button color="error">Delete</Button>
+  <Button color="success">Confirm</Button>
+  <Button color="warning">Warning</Button>
 </Flex>
 ```
 

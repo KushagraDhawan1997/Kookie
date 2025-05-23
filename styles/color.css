@@ -270,38 +270,6 @@
   --error-a10: var(--red-a10);
   --error-a11: var(--red-a11);
   --error-a12: var(--red-a12);
-  --background: var(--red-1);
-  --foreground: var(--red-12);
-}
-
-/* SUCCESS */
-[data-success-color="green"] {
-  --success-1: var(--green-1);
-  --success-2: var(--green-2);
-  --success-3: var(--green-3);
-  --success-4: var(--green-4);
-  --success-5: var(--green-5);
-  --success-6: var(--green-6);
-  --success-7: var(--green-7);
-  --success-8: var(--green-8);
-  --success-9: var(--green-9);
-  --success-10: var(--green-10);
-  --success-11: var(--green-11);
-  --success-12: var(--green-12);
-  --success-a1: var(--green-a1);
-  --success-a2: var(--green-a2);
-  --success-a3: var(--green-a3);
-  --success-a4: var(--green-a4);
-  --success-a5: var(--green-a5);
-  --success-a6: var(--green-a6);
-  --success-a7: var(--green-a7);
-  --success-a8: var(--green-a8);
-  --success-a9: var(--green-a9);
-  --success-a10: var(--green-a10);
-  --success-a11: var(--green-a11);
-  --success-a12: var(--green-a12);
-  --background: var(--green-1);
-  --foreground: var(--green-12);
 }
 
 /* WARNING */
@@ -330,6 +298,32 @@
   --warning-a10: var(--amber-a10);
   --warning-a11: var(--amber-a11);
   --warning-a12: var(--amber-a12);
-  --background: var(--amber-1);
-  --foreground: var(--amber-12);
+}
+
+/* SUCCESS */
+[data-success-color="green"] {
+  --success-1: var(--green-1);
+  --success-2: var(--green-2);
+  --success-3: var(--green-3);
+  --success-4: var(--green-4);
+  --success-5: var(--green-5);
+  --success-6: var(--green-6);
+  --success-7: var(--green-7);
+  --success-8: var(--green-8);
+  --success-9: var(--green-9);
+  --success-10: var(--green-10);
+  --success-11: var(--green-11);
+  --success-12: var(--green-12);
+  --success-a1: var(--green-a1);
+  --success-a2: var(--green-a2);
+  --success-a3: var(--green-a3);
+  --success-a4: var(--green-a4);
+  --success-a5: var(--green-a5);
+  --success-a6: var(--green-a6);
+  --success-a7: var(--green-a7);
+  --success-a8: var(--green-a8);
+  --success-a9: var(--green-a9);
+  --success-a10: var(--green-a10);
+  --success-a11: var(--green-a11);
+  --success-a12: var(--green-a12);
 }

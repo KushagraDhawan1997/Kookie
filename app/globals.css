@@ -1,25 +1,47 @@
 @import "tailwindcss";
+/* Radix UI Colors */
+
+/* Blue */
 @import "@radix-ui/colors/blue.css";
-@import "@radix-ui/colors/blue-dark.css";
-@import "@radix-ui/colors/green.css";
-@import "@radix-ui/colors/green-dark.css";
-@import "@radix-ui/colors/red.css";
-@import "@radix-ui/colors/red-dark.css";
-@import "@radix-ui/colors/amber.css";
-@import "@radix-ui/colors/amber-dark.css";
-@import "@radix-ui/colors/purple.css";
-@import "@radix-ui/colors/purple-dark.css";
-@import "@radix-ui/colors/sage.css";
-@import "@radix-ui/colors/sage-dark.css";
-@import "@radix-ui/colors/slate.css";
-@import "@radix-ui/colors/slate-dark.css";
 @import "@radix-ui/colors/blue-alpha.css";
+@import "@radix-ui/colors/blue-dark.css";
+@import "@radix-ui/colors/blue-dark-alpha.css";
+
+/* Green */
+@import "@radix-ui/colors/green.css";
 @import "@radix-ui/colors/green-alpha.css";
+@import "@radix-ui/colors/green-dark.css";
+@import "@radix-ui/colors/green-dark-alpha.css";
+
+/* Red */
+@import "@radix-ui/colors/red.css";
 @import "@radix-ui/colors/red-alpha.css";
+@import "@radix-ui/colors/red-dark.css";
+@import "@radix-ui/colors/red-dark-alpha.css";
+
+/* Amber */
+@import "@radix-ui/colors/amber.css";
 @import "@radix-ui/colors/amber-alpha.css";
+@import "@radix-ui/colors/amber-dark.css";
+@import "@radix-ui/colors/amber-dark-alpha.css";
+
+/* Purple */
+@import "@radix-ui/colors/purple.css";
 @import "@radix-ui/colors/purple-alpha.css";
+@import "@radix-ui/colors/purple-dark.css";
+@import "@radix-ui/colors/purple-dark-alpha.css";
+
+/* Sage */
+@import "@radix-ui/colors/sage.css";
 @import "@radix-ui/colors/sage-alpha.css";
+@import "@radix-ui/colors/sage-dark.css";
+@import "@radix-ui/colors/sage-dark-alpha.css";
+
+/* Slate */
+@import "@radix-ui/colors/slate.css";
 @import "@radix-ui/colors/slate-alpha.css";
+@import "@radix-ui/colors/slate-dark.css";
+@import "@radix-ui/colors/slate-dark-alpha.css";
 
 /* Import token CSS files */
 @import "../styles/tokens/spacing.css";
@@ -42,16 +64,6 @@
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-:root {
-  --background: var(--gray-1);
-  --foreground: var(--gray-12);
-}
-
-.dark {
-  --background: var(--gray-1);
-  --foreground: var(--gray-12);
 }
 
 body {

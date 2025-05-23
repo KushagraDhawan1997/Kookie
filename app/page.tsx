@@ -29,12 +29,12 @@ export default function Page() {
   const typographyTokens = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as TypographySize[];
 
   return (
-    <Box p={5} width="full" maxWidth="4xl" m="auto">
-      <Flex direction="column" gap={12}>
+    <Box p={5} width="full" maxWidth="4xl" mx="auto" my={24}>
+      <Flex direction="column" gap={24}>
         {/* Header */}
         <Flex direction="column" gap={2}>
-          <Text as="h1" size={10 as TypographySize} weight="bold">
-            Kookie Design System
+          <Text as="h1" size={12 as TypographySize} weight="bold">
+            Kookie
           </Text>
           <Text size={4 as TypographySize}>Token-based spacing, dimensions, and typography for consistent interfaces</Text>
         </Flex>
@@ -55,6 +55,7 @@ export default function Page() {
               <Button variant="outline">Button</Button>
               <Button variant="ghost">Button</Button>
               <Button variant="link">Button</Button>
+              <Button variant="modern">Button</Button>
             </Grid>
           </Flex>
 
@@ -74,6 +75,7 @@ export default function Page() {
                 <Button variant="outline">Button</Button>
                 <Button variant="ghost">Button</Button>
                 <Button variant="link">Button</Button>
+                <Button variant="modern">Button</Button>
               </Flex>
               {/* Gray */}
               <Flex gap={4} wrap="wrap">
@@ -88,6 +90,9 @@ export default function Page() {
                   Button
                 </Button>
                 <Button color="gray" variant="link">
+                  Button
+                </Button>
+                <Button color="gray" variant="modern">
                   Button
                 </Button>
               </Flex>
@@ -106,6 +111,9 @@ export default function Page() {
                 <Button color="error" variant="link">
                   Button
                 </Button>
+                <Button color="error" variant="modern">
+                  Button
+                </Button>
               </Flex>
               {/* Success */}
               <Flex gap={4} wrap="wrap">
@@ -122,6 +130,9 @@ export default function Page() {
                 <Button color="success" variant="link">
                   Button
                 </Button>
+                <Button color="success" variant="modern">
+                  Button
+                </Button>
               </Flex>
               {/* Warning */}
               <Flex gap={4} wrap="wrap">
@@ -136,6 +147,9 @@ export default function Page() {
                   Button
                 </Button>
                 <Button color="warning" variant="link">
+                  Button
+                </Button>
+                <Button color="warning" variant="modern">
                   Button
                 </Button>
               </Flex>
@@ -171,11 +185,11 @@ export default function Page() {
             <Text as="div" variant="muted">
               See all button sizes across all variants.
             </Text>
-            <Grid justifyItems="start" justify="start" columns="120px repeat(5, 1fr)" gap={2}>
+            <Grid justifyItems="start" justify="start" columns="120px repeat(6, 1fr)" gap={2}>
               {[1, 2, 3, 4, 5, 6].map((size) => (
                 <React.Fragment key={size}>
                   <Text size={2} weight="semibold" style={{ display: "flex", alignItems: "center" }}>{`Size ${size}`}</Text>
-                  {["solid", "tinted", "outline", "ghost", "link"].map((variant) => (
+                  {["modern", "solid", "tinted", "outline", "ghost", "link"].map((variant) => (
                     <Button key={variant} size={size as any} variant={variant as any}>
                       Button
                     </Button>
@@ -194,6 +208,7 @@ export default function Page() {
               Hover over buttons to see their interactive states.
             </Text>
             <Flex gap={4} wrap="wrap">
+              <Button variant="modern">Button</Button>
               <Button>Button</Button>
               <Button variant="tinted">Button</Button>
               <Button variant="outline">Button</Button>
