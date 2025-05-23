@@ -1,0 +1,50 @@
+/**
+ * Typography Token System
+ * 
+ * Defines a 12-point typography scale using Tailwind CSS variables.
+ * Each size includes font-size, line-height, and letter-spacing.
+ */
+
+:root {
+  /* Font Size Scale (1-12) */
+  --font-size-1: var(--text-xs);
+  --font-size-2: var(--text-sm);
+  --font-size-3: var(--text-base);
+  --font-size-4: var(--text-lg);
+  --font-size-5: var(--text-xl);
+  --font-size-6: var(--text-2xl);
+  --font-size-7: var(--text-3xl);
+  --font-size-8: var(--text-4xl);
+  --font-size-9: var(--text-5xl);
+  --font-size-10: var(--text-6xl);
+  --font-size-11: var(--text-7xl);
+  --font-size-12: var(--text-8xl);
+
+  /* Line Height Scale (1-12) */
+  --line-height-1: var(--text-xs--line-height);
+  --line-height-2: var(--text-sm--line-height);
+  --line-height-3: var(--text-base--line-height);
+  --line-height-4: var(--text-lg--line-height);
+  --line-height-5: var(--text-xl--line-height);
+  --line-height-6: var(--text-2xl--line-height);
+  --line-height-7: var(--text-3xl--line-height);
+  --line-height-8: var(--text-4xl--line-height);
+  --line-height-9: var(--leading-tight);
+  --line-height-10: var(--leading-snug);
+  --line-height-11: var(--leading-normal);
+  --line-height-12: var(--leading-relaxed);
+
+  /* Letter Spacing Scale (1-12) */
+  --letter-spacing-1: var(--tracking-tighter);
+  --letter-spacing-2: var(--tracking-tight);
+  --letter-spacing-3: var(--tracking-normal);
+  --letter-spacing-4: var(--tracking-normal);
+  --letter-spacing-5: var(--tracking-normal);
+  --letter-spacing-6: var(--tracking-normal);
+  --letter-spacing-7: var(--tracking-wide);
+  --letter-spacing-8: var(--tracking-wide);
+  --letter-spacing-9: var(--tracking-wider);
+  --letter-spacing-10: var(--tracking-wider);
+  --letter-spacing-11: var(--tracking-widest);
+  --letter-spacing-12: var(--tracking-widest);
+}

@@ -1,0 +1,375 @@
+/**
+ * Button Component Styles
+ * 
+ * Design system choices:
+ * - Solid variant uses scale-12 for maximum emphasis
+ * - Non-solid variants use scale-12 for text color
+ * - Hover states use scale-3 backgrounds for consistency
+ * - Active states use scale-4 for subtle feedback
+ * - Border colors use scale-5, moving to scale-6 on hover
+ *
+ * Roundness system:
+ * - Border-radius is calculated as: border-radius: calc(var(--radius-*) * var(--theme-radius-factor, 1));
+ * - The roundness factor is set by the closest data-roundness attribute (theme or local).
+ * - This allows for both global and per-button roundness control, using only CSS.
+ */
+
+/* Base button styles */
+.button-root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  gap: var(--size-2);
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+/* Size variants using dimension tokens */
+.button-size-1 {
+  height: var(--size-4); /* Smallest */
+  padding: 0 var(--size-2);
+  border-radius: calc(var(--radius-sm) * var(--theme-radius-factor, 1));
+}
+.button-size-2 {
+  height: var(--size-6);
+  padding: 0 var(--size-3);
+  border-radius: calc(var(--radius-md) * var(--theme-radius-factor, 1));
+}
+.button-size-3 {
+  height: var(--size-8);
+  padding: 0 var(--size-4);
+  border-radius: calc(var(--radius-lg) * var(--theme-radius-factor, 1));
+}
+.button-size-4 {
+  height: var(--size-10);
+  padding: 0 var(--size-5);
+  border-radius: calc(var(--radius-lg) * var(--theme-radius-factor, 1));
+}
+.button-size-5 {
+  height: var(--size-12);
+  padding: 0 var(--size-6);
+  border-radius: calc(var(--radius-xl) * var(--theme-radius-factor, 1));
+}
+.button-size-6 {
+  height: var(--size-16); /* Largest */
+  padding: 0 var(--size-7);
+  border-radius: calc(var(--radius-2xl) * var(--theme-radius-factor, 1));
+}
+
+/* Solid variant - Maximum emphasis
+ * Uses scale-12 for strongest contrast
+ * Gray specifically uses darkest shade for prominence
+ */
+[data-variant="solid"][data-primary-color] {
+  background-color: var(--primary-9);
+  color: var(--primary-1);
+}
+[data-variant="solid"][data-primary-color]:hover {
+  background-color: var(--primary-10);
+}
+[data-variant="solid"][data-primary-color]:active {
+  background-color: var(--primary-11);
+}
+
+/* Special case: When primary maps to gray, use gray's special styles */
+[data-primary-color="gray"] [data-variant="solid"][data-primary-color="primary"],
+[data-variant="solid"][data-primary-color="gray"] {
+  background-color: var(--gray-12);
+  color: var(--gray-1);
+}
+[data-primary-color="gray"] [data-variant="solid"][data-primary-color="primary"]:hover,
+[data-variant="solid"][data-primary-color="gray"]:hover {
+  background-color: var(--gray-12);
+}
+[data-primary-color="gray"] [data-variant="solid"][data-primary-color="primary"]:active,
+[data-variant="solid"][data-primary-color="gray"]:active {
+  background-color: var(--gray-12);
+}
+
+[data-variant="solid"][data-primary-color="error"] {
+  background-color: var(--error-9);
+  color: var(--error-1);
+}
+[data-variant="solid"][data-primary-color="error"]:hover {
+  background-color: var(--error-10);
+}
+[data-variant="solid"][data-primary-color="error"]:active {
+  background-color: var(--error-11);
+}
+
+[data-variant="solid"][data-primary-color="success"] {
+  background-color: var(--success-9);
+  color: var(--success-1);
+}
+[data-variant="solid"][data-primary-color="success"]:hover {
+  background-color: var(--success-10);
+}
+[data-variant="solid"][data-primary-color="success"]:active {
+  background-color: var(--success-11);
+}
+
+[data-variant="solid"][data-primary-color="warning"] {
+  background-color: var(--warning-9);
+  color: var(--warning-1);
+}
+[data-variant="solid"][data-primary-color="warning"]:hover {
+  background-color: var(--warning-10);
+}
+[data-variant="solid"][data-primary-color="warning"]:active {
+  background-color: var(--warning-11);
+}
+
+/* Tinted variant - Secondary emphasis
+ * Uses scale-3 background with scale-12 text
+ * Hover/active states progress through scale-4/5
+ */
+[data-variant="tinted"][data-primary-color] {
+  background-color: var(--primary-3);
+  color: var(--primary-12);
+}
+[data-variant="tinted"][data-primary-color]:hover {
+  background-color: var(--primary-4);
+}
+[data-variant="tinted"][data-primary-color]:active {
+  background-color: var(--primary-5);
+}
+
+[data-variant="tinted"][data-primary-color="gray"] {
+  background-color: var(--gray-3);
+  color: var(--gray-12);
+}
+[data-variant="tinted"][data-primary-color="gray"]:hover {
+  background-color: var(--gray-4);
+}
+[data-variant="tinted"][data-primary-color="gray"]:active {
+  background-color: var(--gray-5);
+}
+
+[data-variant="tinted"][data-primary-color="error"] {
+  background-color: var(--error-3);
+  color: var(--error-12);
+}
+[data-variant="tinted"][data-primary-color="error"]:hover {
+  background-color: var(--error-4);
+}
+[data-variant="tinted"][data-primary-color="error"]:active {
+  background-color: var(--error-5);
+}
+
+[data-variant="tinted"][data-primary-color="success"] {
+  background-color: var(--success-3);
+  color: var(--success-12);
+}
+[data-variant="tinted"][data-primary-color="success"]:hover {
+  background-color: var(--success-4);
+}
+[data-variant="tinted"][data-primary-color="success"]:active {
+  background-color: var(--success-5);
+}
+
+[data-variant="tinted"][data-primary-color="warning"] {
+  background-color: var(--warning-3);
+  color: var(--warning-12);
+}
+[data-variant="tinted"][data-primary-color="warning"]:hover {
+  background-color: var(--warning-4);
+}
+[data-variant="tinted"][data-primary-color="warning"]:active {
+  background-color: var(--warning-5);
+}
+
+/* Outline variant - Optional actions
+ * Uses scale-5 border with transparent background
+ * Matches tinted hover states (scale-3/4) for consistency
+ */
+[data-variant="outline"][data-primary-color] {
+  border: 1px solid var(--primary-5);
+  color: var(--primary-12);
+  background-color: transparent;
+}
+[data-variant="outline"][data-primary-color]:hover {
+  background-color: var(--primary-3);
+  border-color: var(--primary-6);
+}
+[data-variant="outline"][data-primary-color]:active {
+  background-color: var(--primary-4);
+}
+
+[data-variant="outline"][data-primary-color="gray"] {
+  border: 1px solid var(--gray-5);
+  color: var(--gray-12);
+  background-color: transparent;
+}
+[data-variant="outline"][data-primary-color="gray"]:hover {
+  background-color: var(--gray-3);
+  border-color: var(--gray-6);
+}
+[data-variant="outline"][data-primary-color="gray"]:active {
+  background-color: var(--gray-4);
+}
+
+[data-variant="outline"][data-primary-color="error"] {
+  border: 1px solid var(--error-5);
+  color: var(--error-12);
+  background-color: transparent;
+}
+[data-variant="outline"][data-primary-color="error"]:hover {
+  background-color: var(--error-3);
+  border-color: var(--error-6);
+}
+[data-variant="outline"][data-primary-color="error"]:active {
+  background-color: var(--error-4);
+}
+
+[data-variant="outline"][data-primary-color="success"] {
+  border: 1px solid var(--success-5);
+  color: var(--success-12);
+  background-color: transparent;
+}
+[data-variant="outline"][data-primary-color="success"]:hover {
+  background-color: var(--success-3);
+  border-color: var(--success-6);
+}
+[data-variant="outline"][data-primary-color="success"]:active {
+  background-color: var(--success-4);
+}
+
+[data-variant="outline"][data-primary-color="warning"] {
+  border: 1px solid var(--warning-5);
+  color: var(--warning-12);
+  background-color: transparent;
+}
+[data-variant="outline"][data-primary-color="warning"]:hover {
+  background-color: var(--warning-3);
+  border-color: var(--warning-6);
+}
+[data-variant="outline"][data-primary-color="warning"]:active {
+  background-color: var(--warning-4);
+}
+
+/* Ghost variant - Toolbar actions
+ * No background/border, just text color
+ * Matches tinted hover states for consistency
+ */
+[data-variant="ghost"][data-primary-color] {
+  color: var(--primary-12);
+  background-color: transparent;
+}
+[data-variant="ghost"][data-primary-color]:hover {
+  background-color: var(--primary-3);
+}
+[data-variant="ghost"][data-primary-color]:active {
+  background-color: var(--primary-4);
+}
+
+[data-variant="ghost"][data-primary-color="gray"] {
+  color: var(--gray-12);
+  background-color: transparent;
+}
+[data-variant="ghost"][data-primary-color="gray"]:hover {
+  background-color: var(--gray-3);
+}
+[data-variant="ghost"][data-primary-color="gray"]:active {
+  background-color: var(--gray-4);
+}
+
+[data-variant="ghost"][data-primary-color="error"] {
+  color: var(--error-12);
+  background-color: transparent;
+}
+[data-variant="ghost"][data-primary-color="error"]:hover {
+  background-color: var(--error-3);
+}
+[data-variant="ghost"][data-primary-color="error"]:active {
+  background-color: var(--error-4);
+}
+
+[data-variant="ghost"][data-primary-color="success"] {
+  color: var(--success-12);
+  background-color: transparent;
+}
+[data-variant="ghost"][data-primary-color="success"]:hover {
+  background-color: var(--success-3);
+}
+[data-variant="ghost"][data-primary-color="success"]:active {
+  background-color: var(--success-4);
+}
+
+[data-variant="ghost"][data-primary-color="warning"] {
+  color: var(--warning-12);
+  background-color: transparent;
+}
+[data-variant="ghost"][data-primary-color="warning"]:hover {
+  background-color: var(--warning-3);
+}
+[data-variant="ghost"][data-primary-color="warning"]:active {
+  background-color: var(--warning-4);
+}
+
+/* Link variant - Inline text actions
+ * Uses underline for hover state
+ * Maintains consistent text color with other variants
+ */
+[data-variant="link"][data-primary-color] {
+  padding: 0;
+  height: auto;
+}
+
+[data-variant="link"][data-primary-color]:hover {
+  color: var(--primary-12);
+  text-decoration: underline;
+}
+[data-variant="link"][data-primary-color]:active {
+  color: var(--primary-12);
+}
+
+[data-variant="link"][data-primary-color="gray"] {
+  color: var(--gray-12);
+  background-color: transparent;
+}
+[data-variant="link"][data-primary-color="gray"]:hover {
+  color: var(--gray-12);
+  text-decoration: underline;
+}
+[data-variant="link"][data-primary-color="gray"]:active {
+  color: var(--gray-12);
+}
+
+[data-variant="link"][data-primary-color="error"] {
+  color: var(--error-12);
+  background-color: transparent;
+}
+[data-variant="link"][data-primary-color="error"]:hover {
+  color: var(--error-12);
+  text-decoration: underline;
+}
+[data-variant="link"][data-primary-color="error"]:active {
+  color: var(--error-12);
+}
+
+[data-variant="link"][data-primary-color="success"] {
+  color: var(--success-12);
+  background-color: transparent;
+}
+[data-variant="link"][data-primary-color="success"]:hover {
+  color: var(--success-12);
+  text-decoration: underline;
+}
+[data-variant="link"][data-primary-color="success"]:active {
+  color: var(--success-12);
+}
+
+[data-variant="link"][data-primary-color="warning"] {
+  color: var(--warning-12);
+  background-color: transparent;
+}
+[data-variant="link"][data-primary-color="warning"]:hover {
+  color: var(--warning-12);
+  text-decoration: underline;
+}
+[data-variant="link"][data-primary-color="warning"]:active {
+  color: var(--warning-12);
+}

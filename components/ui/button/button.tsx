@@ -1,110 +1,57 @@
 "use client";
 
 import React from "react";
-import { cn } from "../../../lib/utils/cn";
-import { useComponentSize } from "../../../lib/theme/hooks";
-import { useTheme } from "../../../lib/theme/hooks";
-import { SemanticColorKey } from "../../../lib/theme/atoms";
-import { ButtonProps, ButtonVariant } from "./types";
-import { getSizeStyles, getPaddingStyles, getGapStyles, getRadiusStyle, getBaseClasses, getVariantStyleClasses, getTextAlignmentStyles } from "./styles";
+import { Text } from "../text/text";
+import { TypographySize } from "../text/text-types";
+import { useTheme } from "@/components/providers/theme-provider";
+import "./button.css";
+import { ButtonSize, ButtonVariant, ButtonColor, ButtonProps } from "./button-types";
 
 /**
- * Button component
+ * Maps button sizes to typography sizes (non-linear for visual hierarchy):
+ * Button size 1 (16px) → Text size 1
+ * Button size 2 (24px) → Text size 1
+ * Button size 3 (32px) → Text size 2
+ * Button size 4 (40px) → Text size 2
+ * Button size 5 (48px) → Text size 3
+ * Button size 6 (64px) → Text size 3
  *
- * A flexible button component that supports different variants, colors, and sizes.
- * Automatically integrates with the theme's color system and visual style settings.
- *
- * @example
- * // Basic solid primary button
- * <Button>Click me</Button>
- *
- * @example
- * // Outline warning button
- * <Button variant="outline" color="warning">Warning</Button>
- *
- * @example
- * // Large ghost danger button with left icon
- * <Button variant="ghost" color="danger" size="lg" leftIcon={<TrashIcon />}>Delete</Button>
- *
- * @example
- * // Using direct Tailwind color
- * <Button color="violet">Violet Button</Button>
- *
- * @example
- * // With custom radius
- * <Button radius="full">Rounded Button</Button>
+ * This mapping is intentionally non-linear to maintain visual hierarchy and readability:
+ * - Sizes 1 and 2 use the smallest text for compact UIs
+ * - Sizes 3 and 4 use a medium text size for better legibility
+ * - Sizes 5 and 6 use the largest text size for hero/marketing buttons
  */
-export function Button({ variant = "solid", color = "primary", size, radius, appearance, isLoading = false, fullWidth = false, leftIcon, rightIcon, as: Component = "button", className, disabled, children, ...props }: ButtonProps) {
-  // Get inherited size from component context (if available)
-  const [inheritedSize] = useComponentSize();
+const sizeMap: Record<ButtonSize, TypographySize> = { 1: 1, 2: 1, 3: 2, 4: 2, 5: 2, 6: 3 };
 
-  // Use explicitly set size, or inherited size, or default to md
-  const componentSize = size || inheritedSize || "md";
+const buttonDefaults = {
+  variant: "solid" as ButtonVariant,
+  asChild: false,
+  className: "",
+} as const;
 
-  // Get theme information including visual style setting and color mappings
-  const { colorMap, radius: themeRadius, style: defaultThemeStyle } = useTheme();
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ size, variant = buttonDefaults.variant, color, roundness, asChild = buttonDefaults.asChild, className = buttonDefaults.className, children, ...props }, ref) => {
+  const { size: themeSize, roundness: themeRoundness, color: themeColor } = useTheme();
+  const finalSize = size ?? themeSize;
+  const finalRoundness = roundness ?? themeRoundness;
+  const finalColor = color ?? themeColor;
 
-  // Use the component's appearance prop if provided, otherwise use the one from context
-  const effectiveThemeStyle = appearance || defaultThemeStyle;
+  const Component = asChild ? "span" : "button";
+  const classes = ["button-root", `button-size-${finalSize}`, className].filter(Boolean).join(" ");
 
-  // Get size-related styles
-  const sizeStyles = getSizeStyles(componentSize);
-  const paddingStyles = getPaddingStyles(componentSize);
-  const gapStyles = getGapStyles(componentSize);
-  const radiusStyles = getRadiusStyle(componentSize, radius, themeRadius);
-
-  // Get text alignment styles for ghost/link buttons
-  const textAlignmentStyles = getTextAlignmentStyles(variant as ButtonVariant, componentSize);
-
-  // -------------------------------------------------------------------------
-  // Generate the complete class names based on variant, color, and visual style
-  // -------------------------------------------------------------------------
-  const generateButtonClasses = () => {
-    // Base button styles
-    const baseClasses = getBaseClasses(fullWidth, sizeStyles, paddingStyles, gapStyles, radiusStyles);
-
-    // If the button is in loading state, apply loading styles
-    if (isLoading) {
-      return cn(baseClasses, "opacity-80 cursor-wait");
-    }
-
-    // Check if we're using a semantic color or a direct Tailwind color
-    const isSemanticColor = Object.keys(colorMap).includes(color);
-
-    // Resolve color to the actual Tailwind color name
-    let resolvedColor: string;
-    if (isSemanticColor) {
-      // For semantic colors, look up in the theme's color map
-      resolvedColor = colorMap[color as SemanticColorKey] || "gray";
-    } else {
-      // For direct Tailwind colors, use as-is
-      resolvedColor = color as string;
-    }
-
-    // Get variant-specific styles for the resolved color
-    const variantStyles = getVariantStyleClasses(variant as ButtonVariant, resolvedColor, effectiveThemeStyle);
-
-    return cn(baseClasses, variantStyles, textAlignmentStyles);
-  };
-
-  // Generate the button's complete class names
-  const buttonClasses = generateButtonClasses();
-
-  return (
-    <Component className={cn(buttonClasses, className)} disabled={disabled || isLoading} {...props}>
-      {leftIcon && <span className="inline-flex self-center">{leftIcon}</span>}
-      {isLoading ? (
-        <span className="inline-flex items-center">
-          <svg className="animate-spin -ml-1 mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-          </svg>
-          <span>{children}</span>
-        </span>
-      ) : (
-        <span>{children}</span>
-      )}
-      {rightIcon && <span className="inline-flex self-center">{rightIcon}</span>}
-    </Component>
+  return React.createElement(
+    Component,
+    {
+      ref,
+      className: classes,
+      "data-variant": variant,
+      "data-primary-color": finalColor,
+      "data-roundness": finalRoundness,
+      ...props,
+    },
+    <Text as="span" size={sizeMap[finalSize]} color="inherit" weight="medium">
+      {children}
+    </Text>
   );
-}
+});
+
+Button.displayName = "Button";

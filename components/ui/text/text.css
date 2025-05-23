@@ -1,0 +1,168 @@
+/* Text component styling using data attributes */
+
+/* Color variants based on data attributes */
+/* Semantic colors */
+[data-variant="default"] {
+  color: var(--gray-12);
+}
+[data-variant="muted"] {
+  color: var(--gray-10);
+}
+[data-variant="accent"] {
+  color: var(--gray-11);
+}
+
+/* If data-primary-color is present, use primary tokens */
+[data-primary-color][data-variant="default"] {
+  color: var(--primary-12);
+}
+[data-primary-color][data-variant="muted"] {
+  color: var(--primary-10);
+}
+[data-primary-color][data-variant="accent"] {
+  color: var(--primary-11);
+}
+
+/* Text size classes - refined for sophisticated UX */
+.text-size-1 {
+  font-size: var(--font-size-1); /* Extra small, good for captions/metadata */
+  line-height: var(--leading-normal); /* 1.5, was loose */
+  letter-spacing: var(--tracking-wide);
+}
+.text-size-2 {
+  font-size: var(--font-size-2); /* Small */
+  line-height: var(--leading-normal); /* 1.5, was relaxed */
+  letter-spacing: var(--tracking-normal);
+}
+.text-size-3 {
+  font-size: var(--font-size-3); /* Base, standard body */
+  line-height: var(--leading-relaxed); /* 1.625, good for readability */
+  letter-spacing: var(--tracking-normal);
+}
+.text-size-4 {
+  font-size: var(--font-size-4); /* Large, body or sub-emphasis */
+  line-height: var(--leading-relaxed);
+  letter-spacing: var(--tracking-normal);
+}
+.text-size-5 {
+  font-size: var(--font-size-5); /* Extra large */
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
+}
+.text-size-6 {
+  font-size: var(--font-size-6); /* 2xl, often used as subheadings */
+  line-height: var(--leading-snug); /* 1.375 */
+  letter-spacing: var(--tracking-tight);
+}
+.text-size-7 {
+  font-size: var(--font-size-7); /* 3xl */
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+}
+.text-size-8 {
+  font-size: var(--font-size-8); /* 4xl, display-like */
+  line-height: var(--leading-tight); /* 1.25 */
+  letter-spacing: var(--tracking-tighter);
+}
+.text-size-9 {
+  font-size: var(--font-size-9); /* 5xl, display */
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tighter);
+}
+.text-size-10 {
+  font-size: var(--font-size-10); /* 6xl, large display */
+  line-height: 1.2; /* Custom tight for display */
+  letter-spacing: var(--tracking-tighter);
+}
+.text-size-11 {
+  font-size: var(--font-size-11); /* 7xl, very large display */
+  line-height: 1.15; /* Custom very tight for display */
+  letter-spacing: var(--tracking-tighter);
+}
+.text-size-12 {
+  font-size: var(--font-size-12); /* 8xl, largest display */
+  line-height: 1.1; /* Custom extremely tight for display */
+  letter-spacing: var(--tracking-tighter);
+}
+
+/* Font weight styling */
+[data-weight="thin"] {
+  font-weight: 100;
+}
+
+[data-weight="extralight"] {
+  font-weight: 200;
+}
+
+[data-weight="light"] {
+  font-weight: 300;
+}
+
+[data-weight="normal"] {
+  font-weight: 400;
+}
+
+[data-weight="medium"] {
+  font-weight: 500;
+}
+
+[data-weight="semibold"] {
+  font-weight: 600;
+}
+
+[data-weight="bold"] {
+  font-weight: 700;
+}
+
+[data-weight="extrabold"] {
+  font-weight: 800;
+}
+
+[data-weight="black"] {
+  font-weight: 900;
+}
+
+/* Text alignment styling */
+[data-align="left"] {
+  text-align: left;
+}
+
+[data-align="center"] {
+  text-align: center;
+}
+
+[data-align="right"] {
+  text-align: right;
+}
+
+[data-align="justify"] {
+  text-align: justify;
+}
+
+/* Text truncation */
+[data-truncate="true"] {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Text wrap control */
+[data-wrap="nowrap"] {
+  white-space: nowrap;
+}
+
+[data-wrap="pre"] {
+  white-space: pre;
+}
+
+[data-wrap="pre-wrap"] {
+  white-space: pre-wrap;
+}
+
+[data-wrap="pre-line"] {
+  white-space: pre-line;
+}
+
+[data-color="inherit"] {
+  color: inherit !important;
+}

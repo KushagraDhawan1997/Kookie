@@ -1,58 +1,126 @@
 "use client";
 
 import React from "react";
-import { useComponentSize } from "../../../lib/theme/hooks";
-import { useTheme } from "../../../lib/theme/hooks";
-import { TextProps, TextVariant, FontWeight, TextAlign } from "./types";
-import { getTextClasses } from "./styles";
+import { Slot } from "@radix-ui/react-slot";
+import { useTheme } from "@/components/providers/theme-provider";
+import { TextProps } from "./text-types";
+import { marginPropDefs, MarginProps } from "@/components/props/margin.props";
+import { processResponsiveStyles } from "@/components/helpers/extract-props";
+import "./text.css";
+
+const textDefaults = {
+  as: "span" as const,
+  variant: "default" as const,
+  size: 3,
+  weight: "normal" as const,
+  truncate: false,
+  className: "",
+  asChild: false,
+} as const;
 
 /**
  * Text component
  *
- * The foundational typography component for the Kookie UI design system.
- * Handles text styling with theme integration, responsive sizing, and
- * semantic color options.
- *
- * Features:
- * - Size inheritance from parent components
- * - Semantic and direct color options
- * - Consistent typography scales based on design tokens
- * - Configurable HTML element rendering
- * - Font weight and alignment options
- * - Truncation support
+ * A polymorphic text component that supports different HTML elements,
+ * sizes, weights, colors, and other text styling options. Uses CSS
+ * custom properties and data attributes for styling.
  *
  * @example
+ * ```tsx
  * // Basic usage
  * <Text>Default text</Text>
  *
- * @example
- * // With semantic color and size
- * <Text color="primary" size="lg">Primary large text</Text>
+ * // With styling options
+ * <Text
+ *   as="h2"
+ *   size={5}
+ *   weight="semibold"
+ *   color="primary"
+ *   variant="accent"
+ *   align="center"
+ * >
+ *   Styled heading
+ * </Text>
  *
- * @example
- * // With direct Tailwind color and variant
- * <Text color="indigo" variant="muted">Muted indigo text</Text>
+ * // Truncated text
+ * <Text truncate className="max-w-xs">
+ *   This is a very long text that will be truncated...
+ * </Text>
  *
- * @example
- * // As a heading
- * <Text as="h2" size="2xl" weight="bold">Section Heading</Text>
+ * // Using asChild to apply text styles to another component
+ * <Text asChild size={4} color="primary">
+ *   <a href="/somewhere">This link has text styling</a>
+ * </Text>
+ *
+ * // With margin props
+ * <Text mb={4} mt={2}>Text with margin</Text>
+ * ```
+ *
+ * @param {TextProps} props - Component props
+ * @returns {JSX.Element} Text component
  */
-export function Text({ children, size, weight = "normal", color = "gray", variant = "default", as: Component = "p", align, truncate = false, refinedTypography = false, className, ...props }: TextProps) {
-  // Get inherited size from component context (if available)
-  const [inheritedSize] = useComponentSize();
+export const Text = React.forwardRef<HTMLElement, TextProps>(
+  (
+    {
+      as = textDefaults.as,
+      color,
+      variant = textDefaults.variant,
+      size = textDefaults.size,
+      weight = textDefaults.weight,
+      align,
+      truncate = textDefaults.truncate,
+      className = textDefaults.className,
+      children,
+      asChild = textDefaults.asChild,
+      ...props
+    },
+    ref
+  ) => {
+    // Initialize theme context to ensure theme variables are available
+    useTheme();
 
-  // Determine the final size to use (explicit size prop or inherited size)
-  const componentSize = size || inheritedSize;
+    // Combine classes based on props
+    const classes = [`text-size-${size}`, truncate && "truncate", className].filter(Boolean).join(" ");
 
-  // Access theme settings including gray scale and color mappings
-  const { gray: grayScale, colorMap } = useTheme();
+    // Process margin styles
+    const marginStyles: Record<string, any> = {};
 
-  // Generate the component's classes
-  const textClasses = getTextClasses(componentSize, weight as FontWeight, color, variant as TextVariant, align as TextAlign, truncate, refinedTypography, grayScale, colorMap, className);
+    // Apply margin styles for each margin prop
+    Object.entries(marginPropDefs).forEach(([key, propDef]) => {
+      const propName = key as keyof MarginProps;
+      const propValue = props[propName];
 
-  return (
-    <Component className={textClasses} {...props}>
-      {children}
-    </Component>
-  );
-}
+      if (propValue !== undefined) {
+        const style = processResponsiveStyles(propValue, (val) => propDef.mapToStyle!(val));
+        if (style) {
+          Object.assign(marginStyles, style);
+        }
+        // Remove processed margin props
+        delete (props as any)[propName];
+      }
+    });
+
+    // Use Slot or the specified element
+    const Component = asChild ? Slot : as;
+
+    // Combine component props with style
+    const componentProps = {
+      ref,
+      className: classes,
+      ...(color && { [color === "inherit" ? "data-color" : "data-primary-color"]: color }),
+      "data-variant": variant,
+      "data-weight": weight,
+      ...(align && { "data-align": align }),
+      ...props,
+      style: {
+        ...marginStyles,
+        ...props.style,
+      },
+    };
+
+    // Render the component using createElement to avoid type issues
+    return React.createElement(Component, componentProps, children);
+  }
+);
+
+Text.displayName = "Text";

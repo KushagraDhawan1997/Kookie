@@ -1,620 +1,439 @@
 "use client";
 
+import { Text } from "@/components/ui/text/text";
+import { Box } from "@/components/ui/box";
+import { Flex } from "@/components/ui/flex";
+import { Grid } from "@/components/ui/grid";
+import { TypographySize } from "@/components/ui/text/typography-types";
+import { Heading } from "@/components/ui/text/heading";
+import { Button } from "@/components/ui/button/button";
 import React from "react";
-import { Button } from "../components/ui/button/button";
-import { Text } from "../components/ui/text";
-import { Heading } from "../components/ui/heading";
 
-export default function Home() {
+/**
+ * Kookie Design System Demo
+ *
+ * This page showcases the token-based design system,
+ * demonstrating spacing tokens, dimension tokens, typography tokens and responsive layouts.
+ *
+ * @returns {JSX.Element} Design system demo page
+ */
+export default function Page() {
+  // Spacing tokens to demonstrate
+  const spacingTokens = [1, 2, 3, 4, 5, 6, 8, 10, 12];
+
+  // Dimension tokens to demonstrate
+  const namedSizeTokens = ["xs", "sm", "md", "lg", "xl", "2xl"];
+  const numericSizeTokens = [4, 8, 16, 24, 32, 48, 64];
+
+  // Typography tokens to demonstrate
+  const typographyTokens = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as TypographySize[];
+
   return (
-    <div className="p-8 bg-white min-h-screen">
-      <div className="max-w-3xl mx-auto">
-        <Heading as="h1" color="primary" className="mb-2">
-          Kookie UI Components
-        </Heading>
-        <Text className="mb-12">A clean, consistent design system with semantic components</Text>
+    <Box p={5} width="full" maxWidth="4xl" m="auto">
+      <Flex direction="column" gap={12}>
+        {/* Header */}
+        <Flex direction="column" gap={2}>
+          <Text as="h1" size={10 as TypographySize} weight="bold">
+            Kookie Design System
+          </Text>
+          <Text size={4 as TypographySize}>Token-based spacing, dimensions, and typography for consistent interfaces</Text>
+        </Flex>
 
-        {/* Button Demo */}
-        <section className="mb-16">
-          <Heading as="h2" className="mb-6">
-            Button Component
-          </Heading>
-
-          {/* XS Size Buttons */}
-          <Heading as="h3" size="md" className="mb-4 mt-8">
-            Extra Small (XS) Buttons
-          </Heading>
-          <div className="mb-8 overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr>
-                  <th className="p-4 text-left"></th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Solid</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Tinted</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Outline</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Ghost</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Link</Text>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* Standard Appearance */}
-                <tr>
-                  <td className="p-4">
-                    <Text weight="medium">Standard</Text>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="solid" color="primary" size="xs" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="tinted" color="primary" size="xs" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="outline" color="primary" size="xs" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="ghost" color="primary" size="xs" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="link" color="primary" size="xs" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                </tr>
-                {/* Minimal Appearance */}
-                <tr>
-                  <td className="p-4">
-                    <Text weight="medium">Minimal</Text>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="solid" color="primary" size="xs" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="tinted" color="primary" size="xs" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="outline" color="primary" size="xs" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="ghost" color="primary" size="xs" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="link" color="primary" size="xs" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          {/* SM Size Buttons */}
-          <Heading as="h3" size="md" className="mb-4 mt-8">
-            Small (SM) Buttons
-          </Heading>
-          <div className="mb-8 overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr>
-                  <th className="p-4 text-left"></th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Solid</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Tinted</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Outline</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Ghost</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Link</Text>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* Standard Appearance */}
-                <tr>
-                  <td className="p-4">
-                    <Text weight="medium">Standard</Text>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="solid" color="primary" size="sm" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="tinted" color="primary" size="sm" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="outline" color="primary" size="sm" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="ghost" color="primary" size="sm" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="link" color="primary" size="sm" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                </tr>
-                {/* Minimal Appearance */}
-                <tr>
-                  <td className="p-4">
-                    <Text weight="medium">Minimal</Text>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="solid" color="primary" size="sm" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="tinted" color="primary" size="sm" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="outline" color="primary" size="sm" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="ghost" color="primary" size="sm" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="link" color="primary" size="sm" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          {/* MD Size Buttons */}
-          <Heading as="h3" size="md" className="mb-4 mt-8">
-            Medium (MD) Buttons
-          </Heading>
-          <div className="mb-8 overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr>
-                  <th className="p-4 text-left"></th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Solid</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Tinted</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Outline</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Ghost</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Link</Text>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* Standard Appearance */}
-                <tr>
-                  <td className="p-4">
-                    <Text weight="medium">Standard</Text>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="solid" color="primary" size="md" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="tinted" color="primary" size="md" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="outline" color="primary" size="md" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="ghost" color="primary" size="md" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="link" color="primary" size="md" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                </tr>
-                {/* Minimal Appearance */}
-                <tr>
-                  <td className="p-4">
-                    <Text weight="medium">Minimal</Text>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="solid" color="primary" size="md" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="tinted" color="primary" size="md" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="outline" color="primary" size="md" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="ghost" color="primary" size="md" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="link" color="primary" size="md" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          {/* LG Size Buttons */}
-          <Heading as="h3" size="md" className="mb-4 mt-8">
-            Large (LG) Buttons
-          </Heading>
-          <div className="mb-8 overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr>
-                  <th className="p-4 text-left"></th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Solid</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Tinted</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Outline</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Ghost</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Link</Text>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* Standard Appearance */}
-                <tr>
-                  <td className="p-4">
-                    <Text weight="medium">Standard</Text>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="solid" color="primary" size="lg" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="tinted" color="primary" size="lg" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="outline" color="primary" size="lg" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="ghost" color="primary" size="lg" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="link" color="primary" size="lg" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                </tr>
-                {/* Minimal Appearance */}
-                <tr>
-                  <td className="p-4">
-                    <Text weight="medium">Minimal</Text>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="solid" color="primary" size="lg" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="tinted" color="primary" size="lg" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="outline" color="primary" size="lg" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="ghost" color="primary" size="lg" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="link" color="primary" size="lg" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          {/* XL Size Buttons */}
-          <Heading as="h3" size="md" className="mb-4 mt-8">
-            Extra Large (XL) Buttons
-          </Heading>
-          <div className="mb-8 overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr>
-                  <th className="p-4 text-left"></th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Solid</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Tinted</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Outline</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Ghost</Text>
-                  </th>
-                  <th className="p-4 text-center">
-                    <Text weight="medium">Link</Text>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* Standard Appearance */}
-                <tr>
-                  <td className="p-4">
-                    <Text weight="medium">Standard</Text>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="solid" color="primary" size="xl" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="tinted" color="primary" size="xl" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="outline" color="primary" size="xl" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="ghost" color="primary" size="xl" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="link" color="primary" size="xl" appearance="standard">
-                      Button
-                    </Button>
-                  </td>
-                </tr>
-                {/* Minimal Appearance */}
-                <tr>
-                  <td className="p-4">
-                    <Text weight="medium">Minimal</Text>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="solid" color="primary" size="xl" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="tinted" color="primary" size="xl" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="outline" color="primary" size="xl" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="ghost" color="primary" size="xl" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                  <td className="p-4 text-center">
-                    <Button variant="link" color="primary" size="xl" appearance="minimal">
-                      Button
-                    </Button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          {/* Button with Icons */}
-          <Heading as="h3" size="md" className="mb-4 mt-8">
-            Button with Icons
-          </Heading>
-          <div className="flex flex-wrap gap-4 items-center">
-            <Button variant="solid" color="primary" leftIcon={<span>→</span>}>
-              With Left Icon
-            </Button>
-            <Button variant="solid" color="primary" rightIcon={<span>→</span>}>
-              With Right Icon
-            </Button>
-            <Button variant="outline" color="primary" leftIcon={<span>→</span>}>
-              With Left Icon
-            </Button>
-            <Button variant="outline" color="primary" rightIcon={<span>→</span>}>
-              With Right Icon
-            </Button>
-          </div>
-        </section>
-
-        {/* Typography Demo */}
-        <section className="mb-16">
-          <Heading as="h2" className="mb-6">
-            Typography
-          </Heading>
-
-          {/* Heading Examples */}
-          <div className="bg-white p-6 rounded-lg mb-8">
-            <Heading as="h3" size="sm" className="mb-4">
-              Headings
-            </Heading>
-            <Heading as="h1" className="mb-3">
-              Heading 1
-            </Heading>
-            <Heading as="h2" className="mb-3">
-              Heading 2
-            </Heading>
-            <Heading as="h3" className="mb-3">
-              Heading 3
-            </Heading>
-            <Heading as="h4" className="mb-3">
-              Heading 4
-            </Heading>
-            <Heading as="h5" className="mb-3">
-              Heading 5
-            </Heading>
-            <Heading as="h6" className="mb-3">
-              Heading 6
-            </Heading>
-
-            <Text variant="muted" className="mt-4 mb-2">
-              Headings 1-3 use bold weight by default
+        {/* BUTTON DEMO SECTION */}
+        <Flex direction="column" gap={16}>
+          {/* Variants Demo */}
+          <Flex direction="column" gap={4}>
+            <Text as="h2" size={6} weight="semibold">
+              Button Variants
             </Text>
-            <Text variant="muted">Headings 4-6 use semibold weight by default</Text>
-          </div>
+            <Text as="div" variant="muted">
+              A comprehensive showcase of button variants.
+            </Text>
+            <Grid gap={4} columns="repeat(auto-fill, minmax(120px, 1fr))">
+              <Button>Button</Button>
+              <Button variant="tinted">Button</Button>
+              <Button variant="outline">Button</Button>
+              <Button variant="ghost">Button</Button>
+              <Button variant="link">Button</Button>
+            </Grid>
+          </Flex>
 
-          {/* Text Variants */}
-          <div className="bg-white p-6 rounded-lg mb-8">
-            <Heading as="h3" size="sm" className="mb-4">
-              Text Variants
+          {/* Colors Demo */}
+          <Flex direction="column" gap={4}>
+            <Text as="h2" size={6} weight="semibold">
+              Color Variations
+            </Text>
+            <Text as="div" variant="muted">
+              Explore all color options for each button variant.
+            </Text>
+            <Grid gap={8}>
+              {/* Primary */}
+              <Flex gap={4} wrap="wrap">
+                <Button>Button</Button>
+                <Button variant="tinted">Button</Button>
+                <Button variant="outline">Button</Button>
+                <Button variant="ghost">Button</Button>
+                <Button variant="link">Button</Button>
+              </Flex>
+              {/* Gray */}
+              <Flex gap={4} wrap="wrap">
+                <Button color="gray">Button</Button>
+                <Button color="gray" variant="tinted">
+                  Button
+                </Button>
+                <Button color="gray" variant="outline">
+                  Button
+                </Button>
+                <Button color="gray" variant="ghost">
+                  Button
+                </Button>
+                <Button color="gray" variant="link">
+                  Button
+                </Button>
+              </Flex>
+              {/* Error */}
+              <Flex gap={4} wrap="wrap">
+                <Button color="error">Button</Button>
+                <Button color="error" variant="tinted">
+                  Button
+                </Button>
+                <Button color="error" variant="outline">
+                  Button
+                </Button>
+                <Button color="error" variant="ghost">
+                  Button
+                </Button>
+                <Button color="error" variant="link">
+                  Button
+                </Button>
+              </Flex>
+              {/* Success */}
+              <Flex gap={4} wrap="wrap">
+                <Button color="success">Button</Button>
+                <Button color="success" variant="tinted">
+                  Button
+                </Button>
+                <Button color="success" variant="outline">
+                  Button
+                </Button>
+                <Button color="success" variant="ghost">
+                  Button
+                </Button>
+                <Button color="success" variant="link">
+                  Button
+                </Button>
+              </Flex>
+              {/* Warning */}
+              <Flex gap={4} wrap="wrap">
+                <Button color="warning">Button</Button>
+                <Button color="warning" variant="tinted">
+                  Button
+                </Button>
+                <Button color="warning" variant="outline">
+                  Button
+                </Button>
+                <Button color="warning" variant="ghost">
+                  Button
+                </Button>
+                <Button color="warning" variant="link">
+                  Button
+                </Button>
+              </Flex>
+            </Grid>
+          </Flex>
+
+          {/* Roundness Demo */}
+          <Flex direction="column" gap={4}>
+            <Text as="h2" size={6} weight="semibold">
+              Roundness Variations
+            </Text>
+            <Text as="div" variant="muted">
+              Compare all roundness options for each button size.
+            </Text>
+            <Flex gap={6} align="start" wrap="wrap">
+              {[1, 2, 3, 4, 5, 6].map((size) => (
+                <Flex key={`size-col-${size}`} direction="column" align="center" gap={2}>
+                  {["sm", "md", "lg", "xl"].map((roundness) => (
+                    <Button key={`size${size}-roundness${roundness}`} size={size as any} roundness={roundness as any}>
+                      Button
+                    </Button>
+                  ))}
+                </Flex>
+              ))}
+            </Flex>
+          </Flex>
+
+          {/* Size Variations Demo */}
+          <Flex direction="column" gap={4}>
+            <Text as="h2" size={6} weight="semibold">
+              Size Variations
+            </Text>
+            <Text as="div" variant="muted">
+              See all button sizes across all variants.
+            </Text>
+            <Grid justifyItems="start" justify="start" columns="120px repeat(5, 1fr)" gap={2}>
+              {[1, 2, 3, 4, 5, 6].map((size) => (
+                <React.Fragment key={size}>
+                  <Text size={2} weight="semibold" style={{ display: "flex", alignItems: "center" }}>{`Size ${size}`}</Text>
+                  {["solid", "tinted", "outline", "ghost", "link"].map((variant) => (
+                    <Button key={variant} size={size as any} variant={variant as any}>
+                      Button
+                    </Button>
+                  ))}
+                </React.Fragment>
+              ))}
+            </Grid>
+          </Flex>
+
+          {/* Interactive States Demo */}
+          <Flex direction="column" gap={4}>
+            <Text as="h2" size={6} weight="semibold">
+              Interactive States
+            </Text>
+            <Text as="div" variant="muted">
+              Hover over buttons to see their interactive states.
+            </Text>
+            <Flex gap={4} wrap="wrap">
+              <Button>Button</Button>
+              <Button variant="tinted">Button</Button>
+              <Button variant="outline">Button</Button>
+              <Button variant="ghost">Button</Button>
+              <Button variant="link">Button</Button>
+            </Flex>
+          </Flex>
+        </Flex>
+
+        {/* SECTION: Typography Tokens */}
+        <Flex direction="column" gap={4}>
+          <Flex direction="column" gap={4}>
+            <Text as="h2" size={6 as TypographySize} weight="semibold">
+              Typography Tokens
+            </Text>
+            <Text as="div" variant="muted">
+              Typography tokens provide a consistent scale for text sizes and spacing.
+            </Text>
+          </Flex>
+          <Divider />
+          <Flex direction="column" gap={5}>
+            {typographyTokens.map((token) => (
+              <Box key={token} p={4}>
+                <Flex direction="column" gap={4}>
+                  <Text weight="semibold" size={2 as TypographySize} variant="muted">
+                    Text Size {token}
+                  </Text>
+                  <Text as="div" size={token}>
+                    The quick brown fox jumped.
+                  </Text>
+                  <Text as="div" size={1 as TypographySize} variant="muted">
+                    {`size={${token}}`} – Font size: var(--font-size-${token})
+                  </Text>
+                </Flex>
+              </Box>
+            ))}
+          </Flex>
+        </Flex>
+
+        <Divider />
+
+        {/* SECTION: Spacing Tokens */}
+        <Flex direction="column" gap={4}>
+          <Flex direction="column" gap={4}>
+            <Text as="h2" size={6 as TypographySize} weight="semibold">
+              Spacing Tokens
+            </Text>
+            <Text as="div" variant="muted">
+              Spacing tokens provide a consistent scale for padding, margins and layout spacing.
+            </Text>
+          </Flex>
+          <Divider />
+          <Grid gap={5} columns="repeat(auto-fill, minmax(250px, 1fr))">
+            {spacingTokens.map((token) => (
+              <Box key={token} p={4}>
+                <Flex direction="column" gap={3}>
+                  <Text weight="semibold">Space {token}</Text>
+                  <Box style={{ padding: `var(--space-${token})`, outline: "1px dashed var(--gray-5)" }}>
+                    <Box style={{ height: "24px", width: "100%" }} />
+                  </Box>
+                  <Text as="div" size={2 as TypographySize} variant="muted">{`--space-${token}`}</Text>
+                </Flex>
+              </Box>
+            ))}
+          </Grid>
+        </Flex>
+
+        <Divider />
+
+        {/* SECTION: Dimension Tokens */}
+        <Flex direction="column" gap={4}>
+          <Flex direction="column" gap={4}>
+            <Text as="h2" size={6 as TypographySize} weight="semibold">
+              Dimension Tokens
+            </Text>
+            <Text as="div" variant="muted">
+              Dimension tokens provide consistent sizing for UI elements.
+            </Text>
+          </Flex>
+          <Divider />
+          <Flex direction="column" gap={6}>
+            <Flex direction="column" gap={4}>
+              <Text as="h3" size={5 as TypographySize} weight="medium">
+                Named Size Tokens
+              </Text>
+              <Flex direction="column" gap={4}>
+                {namedSizeTokens.map((token) => (
+                  <Flex key={token} align="center" gap={4}>
+                    <Box width="20" style={{ flexShrink: 0 }}>
+                      <Text weight="semibold">{token}:</Text>
+                    </Box>
+                    <Box style={{ width: `var(--size-${token})`, maxWidth: "100%", height: "24px" }} />
+                    <Text as="div" size={2 as TypographySize} variant="muted">{`--size-${token}`}</Text>
+                  </Flex>
+                ))}
+              </Flex>
+            </Flex>
+            <Flex direction="column" gap={4}>
+              <Text as="h3" size={5 as TypographySize} weight="medium">
+                Numeric Size Tokens
+              </Text>
+              <Divider />
+              <Grid gap={4} columns="repeat(auto-fill, minmax(200px, 1fr))">
+                {numericSizeTokens.map((token) => (
+                  <Box key={token} p={3}>
+                    <Flex direction="column" gap={2}>
+                      <Text weight="semibold">Size {token}</Text>
+                      <Box style={{ width: `var(--size-${token})`, maxWidth: "100%", height: "24px" }} />
+                      <Text as="div" size={2 as TypographySize} variant="muted">{`--size-${token}`}</Text>
+                    </Flex>
+                  </Box>
+                ))}
+              </Grid>
+            </Flex>
+          </Flex>
+        </Flex>
+
+        <Divider />
+
+        {/* SECTION: Responsive Design */}
+        <Flex direction="column" gap={4}>
+          <Flex direction="column" gap={4}>
+            <Text as="h2" size={6 as TypographySize} weight="semibold">
+              Responsive Design
+            </Text>
+            <Text variant="muted">Token-based responsive layouts adapt to different screen sizes.</Text>
+          </Flex>
+          <Divider />
+          <Box p={{ base: 3, md: 5, lg: 6 }} width={{ base: "full", md: "lg", lg: "xl" }}>
+            <Flex direction={{ base: "column", md: "row" }} gap={{ base: 4, md: 6 }} align={{ base: "stretch", md: "center" }}>
+              <Box style={{ height: "80px", flexShrink: 0, width: "160px" }} />
+              <Flex direction="column" gap={3}>
+                <Text weight="semibold" color="primary">
+                  Responsive Component
+                </Text>
+                <Text>This component uses responsive token values for padding, width, and layout. Try resizing your browser window to see how it adapts.</Text>
+              </Flex>
+            </Flex>
+          </Box>
+        </Flex>
+
+        <Divider />
+
+        {/* SECTION: Token vs Raw Values */}
+        <Flex direction="column" gap={4}>
+          <Flex direction="column" gap={4}>
+            <Text as="h2" size={6 as TypographySize} weight="semibold">
+              Token vs Raw Values
+            </Text>
+            <Text variant="muted">The system supports both token values and raw CSS values.</Text>
+          </Flex>
+          <Divider />
+          <Flex gap={6} wrap="wrap">
+            <Box p={4} style={{ width: "320px" }}>
+              <Flex direction="column" gap={2}>
+                <Text weight="semibold" color="success">
+                  Token Values
+                </Text>
+                <Text as="div" size={2 as TypographySize} variant="muted">{`<Text size={4}>Text with token</Text>`}</Text>
+              </Flex>
+            </Box>
+            <Box p={4} style={{ width: "320px" }}>
+              <Flex direction="column" gap={2}>
+                <Text weight="semibold" color="error">
+                  Raw CSS Values
+                </Text>
+                <Text as="div" size={2 as TypographySize} variant="muted">{`<Text style={{ fontSize: "20px" }}>Text with raw CSS</Text>`}</Text>
+              </Flex>
+            </Box>
+          </Flex>
+        </Flex>
+
+        <Divider />
+
+        {/* SECTION: Margin Props */}
+        <Flex direction="column" gap={4}>
+          <Flex direction="column" gap={4}>
+            <Text as="h2" size={6 as TypographySize} weight="semibold">
+              Margin Props
+            </Text>
+            <Text variant="muted">Components support direct margin props for convenient spacing control, similar to Radix UI.</Text>
+          </Flex>
+          <Divider />
+          <Flex direction="column" gap={6}>
+            <Text as="div" style={{ padding: "var(--space-2)" }}>
+              This text has mt=4 and mb=4 margin props
+            </Text>
+            <Text as="div" style={{ padding: "var(--space-2)" }}>
+              This text has my=6 margin prop (top and bottom)
+            </Text>
+            <Text as="div" style={{ width: "fit-content", padding: "var(--space-2)" }}>
+              This text has mx=8 margin prop (left and right)
+            </Text>
+            <Text as="div" style={{ width: "fit-content", padding: "var(--space-2)" }}>
+              This text has m=3 margin all around
+            </Text>
+            <Flex align="center" gap={5}>
+              <Text style={{ padding: "var(--space-2)" }}>mr=5</Text>
+              <Text style={{ padding: "var(--space-2)" }}>ml=5</Text>
+            </Flex>
+            <Text as="div" size={2 as TypographySize} variant="muted">
+              All components accepting MarginProps can use m, mx, my, mt, mr, mb, ml props with token values
+            </Text>
+          </Flex>
+        </Flex>
+
+        <Divider />
+
+        {/* SECTION: Heading Tokens */}
+        <Flex direction="column" gap={4}>
+          <Flex direction="column" gap={4}>
+            <Heading as="h2" size={6 as TypographySize} weight="extrabold">
+              Heading Tokens
             </Heading>
-
-            <Text className="mb-3">This is default text. It uses the theme's gray scale at a stronger shade.</Text>
-            <Text variant="muted" className="mb-3">
-              This is muted text. It uses a lighter shade for secondary information.
-            </Text>
-            <Text variant="accent" className="mb-3">
-              This is accent text. It uses a middle-ground shade for mild emphasis.
-            </Text>
-          </div>
-
-          {/* Semantic Colors */}
-          <div className="bg-white p-6 rounded-lg mb-8">
-            <Heading as="h3" size="sm" className="mb-4">
-              Semantic Colors
-            </Heading>
-
-            <Text color="primary" className="mb-3">
-              Primary color text for brand elements
-            </Text>
-            <Text color="success" className="mb-3">
-              Success color text for positive states
-            </Text>
-            <Text color="warning" className="mb-3">
-              Warning color text for cautionary states
-            </Text>
-            <Text color="danger" className="mb-3">
-              Danger color text for error states
-            </Text>
-          </div>
-
-          {/* Text Utilities */}
-          <div className="bg-white p-6 rounded-lg">
-            <Heading as="h3" size="sm" className="mb-4">
-              Text Utilities
-            </Heading>
-
-            <Heading as="h4" size="xs" className="mb-3">
-              Font Weights
-            </Heading>
-            <div className="grid grid-cols-2 gap-3 mb-6">
-              <Text weight="light">Light text</Text>
-              <Text weight="normal">Normal text</Text>
-              <Text weight="medium">Medium text</Text>
-              <Text weight="semibold">Semibold text</Text>
-              <Text weight="bold">Bold text</Text>
-              <Text weight="extrabold">Extrabold text</Text>
-            </div>
-
-            <Heading as="h4" size="xs" className="mb-3">
-              Text Sizes
-            </Heading>
-            <Text size="xs" className="mb-2">
-              Extra small text (xs)
-            </Text>
-            <Text size="sm" className="mb-2">
-              Small text (sm)
-            </Text>
-            <Text size="md" className="mb-2">
-              Medium text (md - default)
-            </Text>
-            <Text size="lg" className="mb-2">
-              Large text (lg)
-            </Text>
-            <Text size="xl" className="mb-2">
-              Extra large text (xl)
-            </Text>
-          </div>
-        </section>
-      </div>
-    </div>
+            <Text variant="muted">The Heading component uses a separate, larger scale and stronger defaults than Text. Only h1-h6 are allowed.</Text>
+          </Flex>
+          <Divider />
+          <Flex direction="column" gap={5}>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((token) => (
+              <Box key={token} p={4}>
+                <Flex direction="column" gap={4}>
+                  <Text weight="semibold" size={2 as TypographySize} variant="muted">
+                    Heading Size {token}
+                  </Text>
+                  <Heading size={token as TypographySize} weight="semibold">
+                    The quick brown fox jumped.
+                  </Heading>
+                  <Text size={1 as TypographySize} variant="muted">
+                    {`size={${token}}`} – Font size: heading-size-{token}
+                  </Text>
+                </Flex>
+              </Box>
+            ))}
+          </Flex>
+        </Flex>
+      </Flex>
+    </Box>
   );
+}
+
+function Divider() {
+  return <div style={{ borderBottom: "1px solid var(--gray-4)" }} />;
 }
