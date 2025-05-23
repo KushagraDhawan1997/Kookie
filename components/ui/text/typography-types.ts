@@ -1,6 +1,6 @@
 import { SemanticColorKey } from "@/components/providers/theme-types";
 import { ThemeColor } from "@/components/providers/theme-types";
-import { MarginProps } from "@/components/props/margin.props";
+import { MarginProps } from "@/components/shared/margin.props";
 
 /**
  * Available text/heading size options using a numeric scale (1-12)

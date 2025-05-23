@@ -1,8 +1,8 @@
 import { PropDef, Responsive } from "../../helpers/component-props";
-import { LayoutProps } from "../../props/layout.props";
-import { FlexChildProps } from "../../props/flex-child.props";
-import { GridChildProps } from "../../props/grid-child.props";
-import { MarginProps } from "../../props/margin.props";
+import { LayoutProps } from "./layout.props";
+import { FlexChildProps } from "./flex-child.props";
+import { GridChildProps } from "./grid-child.props";
+import { MarginProps } from "../../shared/margin.props";
 
 /**
  * Display options for Box component

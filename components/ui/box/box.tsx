@@ -4,10 +4,10 @@ import React from "react";
 import classNames from "classnames";
 import { BoxProps, boxPropDefs } from "./box.props";
 import { extractProps } from "../../helpers/extract-props";
-import { layoutPropDefs } from "../../props/layout.props";
-import { marginPropDefs } from "../../props/margin.props";
-import { flexChildPropDefs } from "../../props/flex-child.props";
-import { gridChildPropDefs } from "../../props/grid-child.props";
+import { layoutPropDefs } from "./layout.props";
+import { marginPropDefs } from "../../shared/margin.props";
+import { flexChildPropDefs } from "./flex-child.props";
+import { gridChildPropDefs } from "./grid-child.props";
 
 /**
  * Box component

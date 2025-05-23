@@ -5,7 +5,7 @@ import { Text } from "../text/text";
 import { useTheme } from "@/components/providers/theme-provider";
 import { ButtonSize } from "./button-types";
 import { ButtonProps, buttonPropDefs } from "./button.props";
-import { marginPropDefs, MarginProps } from "@/components/props/margin.props";
+import { marginPropDefs, MarginProps } from "@/components/shared/margin.props";
 import { processResponsiveStyles } from "@/components/helpers/extract-props";
 import "./button.css";
 

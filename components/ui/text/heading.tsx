@@ -4,7 +4,7 @@ import React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { useTheme } from "@/components/providers/theme-provider";
 import { HeadingProps, headingPropDefs } from "./heading.props";
-import { marginPropDefs, MarginProps } from "@/components/props/margin.props";
+import { marginPropDefs, MarginProps } from "@/components/shared/margin.props";
 import { processResponsiveStyles } from "@/components/helpers/extract-props";
 import "./heading.css";
 

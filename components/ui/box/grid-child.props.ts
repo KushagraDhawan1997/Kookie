@@ -1,4 +1,4 @@
-import { PropDef, Responsive } from "../helpers/component-props";
+import { PropDef, Responsive } from "../../helpers/component-props";
 
 /**
  * Grid child prop types

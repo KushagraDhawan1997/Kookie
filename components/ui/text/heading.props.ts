@@ -1,5 +1,5 @@
 import { PropDef } from "../../helpers/component-props";
-import { MarginProps } from "../../props/margin.props";
+import { MarginProps } from "../../shared/margin.props";
 import { HeadingSize, HeadingAs, HeadingVariant, HeadingColor } from "./heading-types";
 
 /**

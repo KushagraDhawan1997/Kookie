@@ -1,5 +1,5 @@
 import { PropDef, Responsive } from "../../helpers/component-props";
-import { MarginProps } from "../../props/margin.props";
+import { MarginProps } from "../../shared/margin.props";
 import { SemanticColorKey, ThemeColor } from "../../providers/theme-types";
 
 /**

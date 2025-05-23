@@ -1,5 +1,5 @@
-import { PropDef, Responsive } from "../helpers/component-props";
-import { DimensionToken, getDimensionTokenValue } from "../../styles/tokens/tokens";
+import { PropDef, Responsive } from "../../helpers/component-props";
+import { DimensionToken, getDimensionTokenValue } from "../../../styles/tokens/tokens";
 
 /**
  * Flex child prop types

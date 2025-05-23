@@ -1,5 +1,5 @@
-import { PropDef, Responsive } from "../helpers/component-props";
-import { SpaceToken, DimensionToken, getSpaceTokenValue, getDimensionTokenValue } from "../../styles/tokens/tokens";
+import { PropDef, Responsive } from "../../helpers/component-props";
+import { SpaceToken, DimensionToken, getSpaceTokenValue, getDimensionTokenValue } from "../../../styles/tokens/tokens";
 
 /**
  * Position options for positioning elements
