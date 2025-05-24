@@ -1,244 +1,327 @@
-# Kookie Architecture Overview
+# Kookie UI Architecture
 
-Kookie is a modern, token-based design system and component library built with React, TypeScript, and Next.js. It emphasizes semantic theming, consistent spacing, and smooth user interactions.
+This document outlines the architectural decisions, patterns, and principles behind the Kookie component library.
 
-## Core Principles
+## Design Philosophy
 
-### 1. Token-Based Design System
+Kookie UI is built around the principle of **quality over quantity**, focusing on a small set of well-designed, highly flexible components rather than attempting to cover every possible use case. This approach ensures that each component is thoroughly tested, accessible, and performant.
 
-- **Consistent Spacing**: All spacing uses predefined tokens (`--space-1` through `--space-24`)
-- **Semantic Dimensions**: Components use semantic size tokens instead of arbitrary values
-- **Typography Scale**: Text sizing follows a consistent scale with token-based font sizes
-- **No Margins**: Layout uses padding, flex gaps, and grid gaps instead of margins
+### Core Principles
 
-### 2. Semantic Color System
+1. **Component Composition**: Build complex UIs by composing simple, focused components
+2. **Prop-driven Configuration**: Components accept props for variants, sizes, and colors
+3. **Token-based Theming**: Three-layer token system for consistent and maintainable styling
+4. **Accessibility First**: Built on Radix UI primitives for comprehensive accessibility
+5. **Performance Optimized**: CSS variables and semantic tokens for efficient theming
+6. **Type Safety**: Comprehensive TypeScript support with union types for variants
 
-- **Theme-Agnostic**: Components use semantic color variables (`--primary-*`, `--gray-*`, etc.)
-- **Radix Foundation**: Built on Radix UI colors for accessibility and consistency
-- **Alpha Support**: Full support for alpha (transparent) color variants
-- **Dynamic Theming**: Colors can be changed globally via ThemeProvider
+## Three-Layer Token Architecture
 
-### 3. Modern Styling Approach
+The foundation of Kookie UI is a sophisticated three-layer token system that provides clean separation of concerns and eliminates code duplication.
 
-- **CSS Variables**: Extensive use of CSS custom properties for theming
-- **No Utility Classes**: Direct style application instead of generated class names
-- **Smooth Transitions**: Consistent 0.25s ease transitions across interactive elements
-- **Advanced Effects**: Gradient backgrounds, drop shadows, and alpha overlays
+### Layer 1: Semantic Reference Tokens
 
-## Architecture Components
+- **Purpose**: Map semantic roles to actual color values
+- **Location**: `styles/tokens/reference/colors/`
+- **Responsibility**: Color selection and contextual text contrast
+- **Example**: `[data-primary-color="blue"]` maps `--primary-9` to `var(--blue-9)`
 
-### Theme System
+### Layer 2: System Tokens
 
-#### ThemeProvider
+- **Purpose**: UI-focused abstractions following Radix 12-step scale
+- **Location**: `styles/tokens/system/colors/system.css`
+- **Responsibility**: Semantic UI meaning (backgrounds, borders, text)
+- **Example**: `--ui-bg-solid: var(--primary-9)` (Step 9: solid backgrounds)
 
-Central theme management using Jotai state management:
+### Layer 3: Component Tokens
 
-```tsx
-<ThemeProvider primary="blue" gray="sage" error="red" success="green" warning="amber" roundness="md" size={2}>
-  {children}
-</ThemeProvider>
-```
+- **Purpose**: Component-specific abstractions
+- **Location**: `components/ui/*/component-tokens.css`
+- **Responsibility**: Map component properties to system tokens
+- **Example**: `--button-bg: var(--ui-bg-solid)`
 
-#### Color Mapping
+### Benefits of This Architecture
 
-Semantic colors are mapped to actual color palettes via CSS data attributes:
+1. **No Selector Duplication**: Variant logic exists only in token files
+2. **Automatic Contrast**: Text colors adapt based on background brightness
+3. **Easy Extensibility**: Add variants by modifying token files only
+4. **Performance**: ~400 lines of CSS removed through abstraction
+5. **Maintainability**: Clean separation between tokens and component styles
 
-```css
-[data-primary-color="blue"] {
-  --primary-1: var(--blue-1);
-  --primary-9: var(--blue-9);
-  /* ... etc */
-}
-```
+## Component Architecture
 
-#### Roundness System
+### Foundation Components
 
-Global and local roundness control through CSS variables:
-
-```css
-[data-roundness="md"] {
-  --theme-radius-factor: 1;
-}
-
-.component {
-  border-radius: calc(var(--radius-lg) * var(--theme-radius-factor));
-}
-```
-
-### Component Architecture
-
-#### Component Structure
-
-All components follow a consistent structure:
-
-```
-component-name/
-├── component-name.tsx      # Main component implementation
-├── component-name.css      # Component-specific styles
-├── component-name-types.ts # TypeScript type definitions
-└── index.ts               # Barrel export
-```
-
-#### Props System
-
-Components use shared prop types for consistency:
-
-- **LayoutProps**: Padding, dimensions, positioning
-- **MarginProps**: Margin utilities (when needed)
-- **ResponsiveProps**: Responsive value support
-- **SemanticProps**: Theme-aware color and styling
-
-#### Style Application
-
-Components apply styles directly rather than using class generation:
+**Box and Flex**: Provide layout primitives with token-based spacing and dimension props.
 
 ```tsx
-// Token-based styling
-<div
-  style={{
-    padding: `var(--space-${padding})`,
-    width: `var(--size-${width})`,
-    color: `var(--primary-${colorScale})`,
-  }}
-/>
+// Layout building blocks
+<Box p={4} mb={2}>Content</Box>
+<Flex direction="column" gap={3} align="center">
+  <div>Item 1</div>
+  <div>Item 2</div>
+</Flex>
 ```
 
-### Component Categories
+### UI Components
 
-#### Layout Components
-
-- **Box**: Fundamental building block with token-based props
-- **Flex**: Flexbox layouts with responsive capabilities
-- **Grid**: CSS Grid layouts with responsive configurations
-
-#### Interactive Components
-
-- **Button**: Multi-variant button with modern styling options
-  - Variants: modern, solid, tinted, outline, ghost, link
-  - Features: gradients, drop shadows, alpha overlays
-  - Smooth transitions and semantic color support
-
-#### Typography Components
-
-- **Text**: General text rendering with token-based sizing
-- **Heading**: Semantic headings (h1-h6) with larger scales
-
-### Advanced Features
-
-#### Modern Button Variant
-
-Showcases advanced styling capabilities:
-
-- **Gradient Backgrounds**: `linear-gradient(to bottom right, var(--color-9), var(--color-11))`
-- **Drop Shadow Scaling**: `--shadow-xl` → `--shadow-lg` → `--shadow-md`
-- **Alpha Overlays**: `box-shadow: inset` with alpha variables
-- **Smooth Transitions**: All effects transition smoothly
-
-#### Responsive System
-
-Components support responsive props:
+**Button**: Comprehensive button system demonstrating the three-layer token approach.
 
 ```tsx
-<Box p={{ base: 2, md: 4, lg: 6 }} width={{ base: "full", md: "lg" }} />
+// All variants automatically work with all colors
+<Button variant="solid" data-primary-color="warning">
+  Warning Button (auto dark text on bright background)
+</Button>
 ```
 
-#### Type Safety
+**Text**: Typography system using component tokens for simplified styling.
 
-Full TypeScript support with:
-
-- Strict prop typing
-- Token value validation
-- Theme-aware color types
-- Responsive value types
-
-## File Organization
-
-### Root Structure
-
-```
-kookie/
-├── app/                    # Next.js App Router
-├── components/             # Component library
-├── docs/                   # Documentation
-├── lib/                    # Utilities
-├── styles/                 # Global styles and tokens
-└── public/                 # Static assets
+```tsx
+// Automatic color handling through tokens
+<Text data-primary-color="success">Success text</Text>
 ```
 
 ### Component Structure
 
-```
-components/
-├── helpers/                # Utility components
-├── props/                  # Shared prop definitions
-├── providers/              # Context providers
-├── types/                  # Shared TypeScript types
-└── ui/                     # Core UI components
-    ├── box/
-    ├── button/
-    ├── flex/
-    ├── grid/
-    └── text/
-```
-
-### Styles Structure
+Each component follows a consistent structure:
 
 ```
-styles/
-├── color.css              # Semantic color system
-├── globals.css             # Global styles
-└── tokens/                 # Token definitions
-    ├── dimensions.css
-    ├── spacing.css
-    └── typography.css
+components/ui/component/
+├── component.tsx          # React component with TypeScript types
+├── component.css          # Clean component styles using component tokens
+├── component-tokens.css   # Component token mappings to system tokens
+└── index.ts              # Export interface
 ```
 
-## Design Decisions
+### CSS Architecture
 
-### Why Token-Based?
+Components use a simplified CSS architecture enabled by the token system:
 
-1. **Consistency**: Ensures predictable spacing and sizing
-2. **Performance**: Avoids runtime class generation
-3. **Flexibility**: Supports both tokens and raw CSS values
-4. **Maintainability**: Centralized design decisions
+```css
+/* Before: Hundreds of variant/color combinations */
+[data-variant="solid"][data-primary-color="blue"] {
+  background: var(--blue-9);
+}
+[data-variant="solid"][data-primary-color="red"] {
+  background: var(--red-9);
+}
+/* ...50+ more rules */
 
-### Why CSS Variables?
+/* After: Single rule using component tokens */
+.button-root {
+  background: var(--button-bg);
+  color: var(--button-text);
+}
+```
 
-1. **Runtime Theming**: Colors can change without rebuilding
-2. **Performance**: Faster than class-based theming
-3. **Inheritance**: Natural CSS cascade for theme values
-4. **Flexibility**: Supports complex calculations and combinations
+## Theming System
 
-### Why No Margins?
+### Provider Architecture
 
-1. **Predictability**: Eliminates margin collapse issues
-2. **Consistency**: Uniform spacing approach across components
-3. **Flexibility**: Gap-based layouts are more flexible
-4. **Component Boundaries**: Clear separation of component responsibilities
+The `ThemeProvider` component manages theme state and applies data attributes to enable CSS-based theming:
 
-## Development Guidelines
+```tsx
+<ThemeProvider primary="purple" gray="sage" size={3} roundness="lg">
+  <App />
+</ThemeProvider>
+```
+
+### Data Attribute System
+
+Theme values are applied as data attributes on DOM elements:
+
+```html
+<html data-primary-color="purple" data-gray-color="sage" data-size="3" data-roundness="lg">
+  <button data-variant="solid" data-primary-color="warning">Button with automatic yellow background and dark text</button>
+</html>
+```
+
+### Contextual Color Handling
+
+The system automatically handles text contrast for different background brightnesses:
+
+- **Bright colors** (yellow, lime, amber, sky, cyan): Dark text (`step-12`)
+- **Dark colors** (red, blue, purple, green): Light text (`step-1`)
+
+## State Management
+
+### Jotai Integration
+
+Theme state is managed using Jotai atoms for efficient, granular updates:
+
+```tsx
+// Theme atoms
+const primaryColorAtom = atom<ThemeColor>("blue");
+const sizeAtom = atom<ThemeSize>(3);
+
+// Derived atoms for complex state
+const themeConfigAtom = atom((get) => ({
+  primary: get(primaryColorAtom),
+  size: get(sizeAtom),
+  // ...
+}));
+```
+
+### Programmatic Theme Control
+
+Components can programmatically control theme values:
+
+```tsx
+const { color, setColor } = useTheme();
+
+// Theme changes are instant via CSS variables
+setColor("purple"); // Immediately updates all themed components
+```
+
+## Type Safety
+
+### Union Types for Variants
+
+All component variants are defined as TypeScript union types:
+
+```tsx
+type ButtonVariant = "solid" | "outline" | "ghost" | "tinted" | "link" | "modern";
+type ThemeColor = "blue" | "purple" | "pink" | /* ...all 18 colors */;
+type ThemeSize = 1 | 2 | 3 | 4 | 5 | 6;
+```
+
+### Automatic Derivation
+
+Arrays for UI components are automatically derived from union types:
+
+```tsx
+// Automatically stays in sync with ThemeColor type
+export const THEME_COLORS: ThemeColor[] = ["blue", "purple" /* ... */];
+```
+
+### Component Props
+
+Components use discriminated unions for variant-specific props:
+
+```tsx
+interface ButtonProps {
+  variant?: ButtonVariant;
+  size?: ThemeSize;
+  "data-primary-color"?: ThemeColor | SemanticColorKey;
+  // ...
+}
+```
+
+## Performance Characteristics
+
+### CSS Bundle Optimization
+
+- **Token Abstraction**: Reduced button CSS from 500+ to ~120 lines
+- **Reusable Tokens**: Component token files provide reusable abstractions
+- **No Duplication**: Single source of truth for variant/color logic
+
+### Runtime Performance
+
+- **CSS Variables**: Instant theme switching with zero JavaScript overhead
+- **Native Cascade**: Browser-optimized token resolution
+- **Minimal Rerenders**: Jotai atoms provide granular updates
+
+### Build-time Optimizations
+
+- **Tree Shaking**: Components can be imported individually
+- **Type Elimination**: TypeScript types provide zero-runtime cost safety
+- **Static Analysis**: Union types enable comprehensive type checking
+
+## Accessibility
+
+### Radix UI Foundation
+
+All interactive components are built on Radix UI primitives, ensuring:
+
+- **Keyboard Navigation**: Full keyboard accessibility out of the box
+- **Screen Reader Support**: Proper ARIA attributes and roles
+- **Focus Management**: Correct focus trapping and restoration
+- **High Contrast**: Colors meet WCAG contrast requirements
+
+### Automatic Contrast
+
+The token system automatically ensures proper text contrast:
+
+```css
+/* Yellow background automatically gets dark text */
+[data-primary-color="yellow"] {
+  --text-on-solid: var(--yellow-12); /* Dark text for accessibility */
+}
+
+/* Blue background automatically gets light text */
+[data-primary-color="blue"] {
+  --text-on-solid: var(--blue-1); /* Light text for accessibility */
+}
+```
+
+## Testing Strategy
+
+### Component Testing
+
+- **Unit Tests**: Individual component behavior and prop handling
+- **Integration Tests**: Component interaction and theming
+- **Visual Regression**: Automated screenshot testing for all variants
+- **Accessibility Tests**: Automated a11y testing with axe-core
+
+### Token System Testing
+
+- **Contrast Testing**: Automated testing of text/background contrast ratios
+- **Token Resolution**: Verify correct CSS variable cascade
+- **Theme Switching**: Test instant theme changes across all components
+
+## Development Workflow
 
 ### Component Development
 
-1. Use semantic color variables, never specific colors
-2. Use token-based spacing and dimensions
-3. Support responsive props where appropriate
-4. Include proper TypeScript types
-5. Document component behavior and usage
+1. **Define Component Tokens**: Map component properties to system tokens
+2. **Write Component CSS**: Use component tokens only (no variant logic)
+3. **Create React Component**: TypeScript interface with union types
+4. **Add Tests**: Unit, integration, and accessibility tests
 
-### Styling Guidelines
+### Adding New Colors
 
-1. Use CSS variables for all themeable values
-2. Apply styles directly rather than using classes
-3. Support both token and raw CSS values
-4. Use 0.25s ease transitions for interactive elements
-5. Follow the semantic color scale (1-12)
+1. **Create Reference File**: Define color mappings and contextual text
+2. **Update TypeScript Types**: Add to `ThemeColor` union type
+3. **Automatic Support**: All components immediately support new color
 
-### Performance Considerations
+### Extending Variants
 
-1. Minimize runtime calculations
-2. Use CSS for animations and transitions
-3. Leverage CSS variable inheritance
-4. Avoid unnecessary re-renders in theme context
+1. **Define Component Tokens**: Add variant tokens to component token file
+2. **Update TypeScript Types**: Add to variant union type
+3. **Automatic Color Support**: All colors automatically work with new variant
 
-This architecture provides a solid foundation for building consistent, themeable, and performant user interfaces while maintaining developer experience and type safety.
+## Future Architecture
+
+### Planned Enhancements
+
+- **Design Token Studio Integration**: Visual token management
+- **Runtime Theme Generation**: Dynamic color palette generation
+- **Component Variants API**: Programmatic variant creation
+- **Advanced Typography**: Modular type scale system
+
+### Scalability Considerations
+
+- **Token Namespacing**: Prevent conflicts in larger applications
+- **Component Libraries**: Enable multiple design system coexistence
+- **Performance Monitoring**: Track CSS bundle size and runtime performance
+- **Documentation Generation**: Automatic component documentation from TypeScript types
+
+## Migration Path
+
+### From Legacy Systems
+
+The three-layer token system is designed for easy migration:
+
+1. **Backward Compatibility**: Existing CSS continues to work
+2. **Gradual Adoption**: Components can be migrated incrementally
+3. **Token Mapping**: Legacy values can be mapped to new token system
+4. **Style Guides**: Automated migration of existing style guides
+
+### Future-Proofing
+
+- **CSS Layers**: Prepared for CSS @layer specification
+- **Design Tokens Community Group**: Aligned with W3C standards
+- **Component Library Standards**: Following industry best practices
+- **Framework Agnostic**: Token system can be used with any framework
+
+This architecture provides a solid foundation for a maintainable, performant, and accessible component library that can scale with growing design system needs.

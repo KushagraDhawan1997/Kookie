@@ -1,13 +1,13 @@
 # Kookie UI
 
-A high-performance component library built on Radix UI primitives, styled with CSS tokens, and implemented with Next.js. It focuses on quality over quantity, with consistent styling and comprehensive theming capabilities.
+A high-performance component library built on Radix UI primitives, styled with a sophisticated three-layer token system, and implemented with Next.js. It focuses on quality over quantity, with consistent styling and comprehensive theming capabilities.
 
 ## Core Principles
 
 1. **Quality over quantity** - Fewer, high-quality components rather than many mediocre ones
 2. **Built on Radix Primitives** - Leveraging accessibility and functionality
 3. **Context independence** - Components work anywhere, not tied to specific use cases
-4. **Performance-first** - CSS variables and semantic tokens for theming
+4. **Performance-first** - Three-layer token system for optimal theming performance
 5. **Component inheritance** - Props cascade through the component tree
 6. **Style consistency** - Following the design token reference
 7. **Configuration-driven** - Single source of truth for theme options
@@ -17,14 +17,76 @@ A high-performance component library built on Radix UI primitives, styled with C
 
 - **Framework**: Next.js
 - **Component Primitives**: Radix UI
-- **Styling**: CSS variables with Radix color tokens
+- **Styling**: Three-layer token system (Reference → System → Component)
+- **Color System**: Radix 12-step color scales with contextual text tokens
 - **State Management**: Jotai
 - **Type Safety**: TypeScript with union types
 - **Documentation**: Nextra (planned)
 
+## Token System Architecture
+
+Kookie UI implements a sophisticated three-layer token architecture inspired by design system best practices:
+
+### Layer 1: Semantic Reference Tokens
+
+Maps semantic color roles to actual Radix colors:
+
+```css
+/* Primary colors (orange, yellow, blue, etc.) */
+--primary-1 through --primary-12
+--primary-a1 through --primary-a12
+
+/* Semantic colors */
+--warning-1 through --warning-12
+--success-1 through --success-12
+--error-1 through --error-12
+```
+
+### Layer 2: System Tokens
+
+UI-focused abstractions that map to specific Radix scale steps:
+
+```css
+/* Backgrounds */
+--ui-bg-app: var(--primary-1)           /* Step 1: App backgrounds */
+--ui-bg-component: var(--primary-3)     /* Step 3: Component backgrounds */
+--ui-bg-solid: var(--primary-9)         /* Step 9: Solid backgrounds */
+
+/* Borders */
+--ui-border-subtle: var(--primary-6)    /* Step 6: Subtle borders */
+--ui-border-interactive: var(--primary-7) /* Step 7: Interactive borders */
+--ui-border-strong: var(--primary-8)    /* Step 8: Strong borders */
+
+/* Text */
+--text-high-contrast: var(--primary-12) /* Step 12: High contrast text */
+--text-on-solid: var(--primary-1)       /* Contextual text on solid backgrounds */
+--text-on-tinted: var(--primary-12)     /* Contextual text on tinted backgrounds */
+```
+
+### Layer 3: Component Tokens
+
+Component-specific tokens that map to system tokens:
+
+```css
+/* Button tokens */
+--button-bg: var(--ui-bg-solid)
+--button-text: var(--text-on-solid)
+--button-border: var(--ui-border-strong)
+
+/* Text tokens */
+--text-color: var(--text-high-contrast)
+```
+
+### Contextual Text Handling
+
+The system automatically adapts text colors based on background brightness:
+
+- **Bright colors** (yellow, lime, amber, sky, cyan): Use dark text (`step-12`)
+- **Dark colors** (red, blue, purple, etc.): Use light text (`step-1`)
+
 ## Theme System
 
-Kookie UI features a comprehensive theme system with 18 colors, 5 gray variants, and semantic color mappings. The system is built on Radix UI colors for accessibility and consistency.
+Kookie UI features a comprehensive theme system with 18 colors, 5 gray variants, and semantic color mappings. All colors automatically support proper text contrast.
 
 ### Available Colors
 
@@ -94,7 +156,7 @@ Features:
 - All 18 colors with semantic groupings
 - Error, success, warning color controls
 - Size and roundness adjustment
-- Real-time preview
+- Real-time preview with proper text contrast
 - Floating top-right position
 
 ## Core Components
@@ -122,15 +184,21 @@ import { Box, Flex } from "@/components/ui";
 
 #### Text Component
 
+Uses component tokens for simplified styling:
+
 ```tsx
 import { Text } from "@/components/ui/text";
 
-// Basic usage
+// Basic usage - automatically uses --text-color token
 <Text>Default paragraph text</Text>
 
 // Sizing and styling
 <Text size={2} weight="medium">Medium weight text</Text>
 <Text size={4} weight="bold">Large bold text</Text>
+
+// Color variants use semantic tokens
+<Text data-primary-color="success">Success colored text</Text>
+<Text data-primary-color="error">Error colored text</Text>
 ```
 
 #### Heading Component
@@ -148,39 +216,40 @@ import { Heading } from "@/components/ui/text";
 
 ### Button Component
 
-Comprehensive button system with theme integration:
+Comprehensive button system with component token abstraction:
 
 ```tsx
 import { Button } from "@/components/ui/button";
 
-// Basic usage
+// Basic usage - uses component tokens internally
 <Button>Default Button</Button>
 
-// Variants
-<Button variant="solid">Solid Button</Button>
-<Button variant="outline">Outline Button</Button>
-<Button variant="ghost">Ghost Button</Button>
-<Button variant="tinted">Tinted Button</Button>
-<Button variant="link">Link Button</Button>
-<Button variant="modern">Modern Button</Button>
+// Variants (only outline variant has borders)
+<Button variant="solid">Solid Button (no border)</Button>
+<Button variant="outline">Outline Button (with border)</Button>
+<Button variant="ghost">Ghost Button (no border)</Button>
+<Button variant="tinted">Tinted Button (no border)</Button>
+<Button variant="link">Link Button (no border)</Button>
+<Button variant="modern">Modern Button (gradient, no border)</Button>
 
 // Sizes
 <Button size={1}>Extra Small</Button>
 <Button size={3}>Medium (Default)</Button>
 <Button size={6}>Extra Large</Button>
 
-// Colors (uses theme primary color)
+// Colors with automatic text contrast
 <Button>Uses Current Primary</Button>
 <Button data-primary-color="error">Error Style</Button>
 <Button data-primary-color="success">Success Style</Button>
+<Button data-primary-color="warning">Warning Style (auto dark text on bright bg)</Button>
 
-// States
+// States with smooth animations
 <Button disabled>Disabled Button</Button>
 ```
 
 ## Color System Architecture
 
-The color system uses a configuration-driven approach:
+The color system uses a configuration-driven approach with automatic contrast handling:
 
 ```tsx
 // All colors defined in theme-types.ts
@@ -190,21 +259,88 @@ export type ThemeGray = "sage" | "slate" | "mauve" | "olive" | "sand";
 // Arrays for UI components automatically derived
 export const THEME_COLORS: ThemeColor[] = [...];
 export const ERROR_COLORS: ThemeColor[] = ["red", "ruby", "crimson"];
+export const SUCCESS_COLORS: ThemeColor[] = ["green", "teal", "lime"];
+export const WARNING_COLORS: ThemeColor[] = ["amber", "yellow", "orange"];
 ```
 
 ### CSS Variable System
 
-Components use semantic CSS variables:
+Components use semantic CSS variables through the three-layer token system:
 
 ```css
-/* ✅ Good - semantic variables */
-color: var(--primary-11);
-background-color: var(--gray-3);
-border-color: var(--error-6);
+/* ✅ Reference Layer - Color mappings */
+[data-primary-color="yellow"] {
+  --primary-9: var(--yellow-9);
+  --text-on-solid: var(--yellow-12); /* Dark text for bright backgrounds */
+}
 
-/* ❌ Avoid - specific color variables */
-color: var(--blue-11);
-background-color: var(--slate-3);
+/* ✅ System Layer - UI abstractions */
+:root {
+  --ui-bg-solid: var(--primary-9);
+  --text-on-solid: var(--primary-1); /* Overridden per color */
+}
+
+/* ✅ Component Layer - Simplified */
+[data-variant="solid"] {
+  --button-bg: var(--ui-bg-solid);
+  --button-text: var(--text-on-solid);
+}
+
+/* ✅ Component CSS - Clean and minimal */
+.button-root {
+  background: var(--button-bg);
+  color: var(--button-text);
+}
+```
+
+### Token Benefits
+
+1. **No selector duplication** - Logic exists only in token files
+2. **Automatic contrast** - Text colors adapt to background brightness
+3. **Easy extensibility** - Add variants by modifying token files only
+4. **Performance optimized** - CSS variables with semantic abstractions
+5. **Maintainable** - Clean separation of concerns
+
+## File Structure
+
+```
+styles/
+├── tokens/
+│   ├── reference/
+│   │   └── colors/
+│   │       ├── blue-reference.css     # Color → semantic mappings
+│   │       ├── yellow-reference.css   # With contextual text tokens
+│   │       └── ...
+│   └── system/
+│       └── colors/
+│           └── system.css             # UI abstraction tokens
+│
+components/ui/
+├── button/
+│   ├── button.css                     # Clean component styles
+│   └── button-tokens.css              # Component token mappings
+└── text/
+    ├── text.css                       # Simplified text styles
+    └── text-tokens.css                # Text component tokens
+```
+
+## Performance Benefits
+
+- **Reduced CSS**: ~400 lines removed through token abstraction
+- **No duplication**: Variant logic exists only in token files
+- **Runtime efficiency**: CSS variables for instant theme switching
+- **Bundle optimization**: Semantic tokens reduce repetitive CSS
+
+## Migration Guide
+
+The token system is backward compatible, but new development should use the three-layer approach:
+
+```tsx
+// ❌ Old approach - direct color values
+<Button style={{ backgroundColor: 'var(--blue-9)', color: 'var(--blue-1)' }} />
+
+// ✅ New approach - semantic component tokens
+<Button data-primary-color="blue" variant="solid" />
 ```
 
 ## Getting Started
