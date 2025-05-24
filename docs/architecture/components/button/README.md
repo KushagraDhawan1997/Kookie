@@ -1,16 +1,36 @@
 # Button Component
 
-The Button component is a versatile UI element that showcases the power of Kookie's three-layer token system. It supports multiple variants, automatic text contrast, and works seamlessly with all 18 theme colors.
+The Button component is a versatile UI element that showcases the power of Kookie's comprehensive token system. It supports multiple variants, automatic text contrast, and works seamlessly with all 18 theme colors while using control tokens for consistent sizing, spacing, and roundness.
 
 ## Overview
 
-The Button component is built using the three-layer token architecture:
+The Button component is built using the three-layer token architecture combined with control system tokens:
 
 - **Layer 1**: Color reference tokens provide semantic color mappings and contextual text
 - **Layer 2**: System tokens abstract UI concepts (solid backgrounds, borders, etc.)
 - **Layer 3**: Component tokens map button properties to system tokens
+- **Control tokens**: Provide linear 1-6 mapping for heights, padding, and roundness
 
-This architecture eliminates code duplication and provides automatic color support for all variants.
+This architecture eliminates code duplication and provides automatic color support for all variants while maintaining consistent control element sizing.
+
+## Design Principles
+
+1. **Strong Visual Hierarchy**
+
+   - Solid variants use high-contrast colors (scale-12) for maximum visibility
+   - Automatic text contrast ensures accessibility across all color combinations
+   - Non-solid variants use darker text (scale-12) for better readability
+
+2. **Consistent Interaction Patterns**
+
+   - Hover states use scale-3 backgrounds for subtle variants (tinted, outline, ghost)
+   - Active states progress to scale-4 for subtle feedback
+   - Link variants use underline for hover state
+
+3. **Token-Based Consistency**
+   - All sizing uses control tokens for future flexibility
+   - Spacing follows the 1-24 linear spacing token system
+   - Roundness uses control radius tokens with theme factor multiplier
 
 ## Usage
 
@@ -32,6 +52,9 @@ import { Button } from "@/components/ui/button";
 // Semantic colors with automatic text contrast
 <Button data-primary-color="warning">Warning (auto dark text on bright bg)</Button>
 <Button data-primary-color="error">Error (auto light text on dark bg)</Button>
+
+// Custom size and roundness
+<Button size={4} roundness="lg">Large Button</Button>
 ```
 
 ## API
@@ -70,11 +93,18 @@ The button uses component tokens that automatically map to appropriate system to
   --button-border: var(--ui-border-interactive);
   --button-border-hover: var(--ui-border-strong);
 }
+
+[data-variant="tinted"][data-primary-color] {
+  --button-bg: var(--ui-bg-component); /* Step 3 */
+  --button-bg-hover: var(--ui-bg-component-hover); /* Step 4 */
+  --button-text: var(--text-high-contrast); /* Step 12 */
+  --button-border: transparent;
+}
 ```
 
 ### Simplified CSS
 
-The component CSS is dramatically simplified using component tokens:
+The component CSS is dramatically simplified using component tokens and control tokens:
 
 ```css
 /* Clean component styles using tokens */
@@ -86,6 +116,13 @@ The component CSS is dramatically simplified using component tokens:
 
 .button-root:hover {
   background: var(--button-bg-hover);
+}
+
+/* Size variants using control system tokens */
+.button-size-3 {
+  height: var(--control-height-3);
+  padding: 0 var(--control-padding-3);
+  border-radius: calc(var(--control-radius-3) * var(--theme-radius-factor, 1));
 }
 ```
 
@@ -135,26 +172,27 @@ The button automatically selects appropriate text colors based on background bri
 
 ## Size System
 
-Button sizes combine physical dimensions with carefully mapped typography:
+Button sizes use control tokens for consistent sizing across all interactive components:
 
-| Size | Height | Padding | Border Radius | Use Case                    |
-| ---- | ------ | ------- | ------------- | --------------------------- |
-| 1    | 16px   | 0 8px   | Small         | Micro UIs, icon buttons     |
-| 2    | 24px   | 0 12px  | Medium        | Compact UIs, tight spaces   |
-| 3    | 32px   | 0 16px  | Large         | Default size, most contexts |
-| 4    | 40px   | 0 20px  | Large         | Large CTAs, forms           |
-| 5    | 48px   | 0 24px  | Extra Large   | Hero sections, marketing    |
-| 6    | 64px   | 0 28px  | Extra Large   | Prominent hero/marketing    |
+| Size | Height Token         | Height | Padding Token         | Padding | Radius Token         | Use Case                    |
+| ---- | -------------------- | ------ | --------------------- | ------- | -------------------- | --------------------------- |
+| 1    | `--control-height-1` | 16px   | `--control-padding-1` | 0 8px   | `--control-radius-1` | Micro UIs, icon buttons     |
+| 2    | `--control-height-2` | 24px   | `--control-padding-2` | 0 12px  | `--control-radius-2` | Compact UIs, tight spaces   |
+| 3    | `--control-height-3` | 32px   | `--control-padding-3` | 0 16px  | `--control-radius-3` | Default size, most contexts |
+| 4    | `--control-height-4` | 40px   | `--control-padding-4` | 0 20px  | `--control-radius-4` | Large CTAs, forms           |
+| 5    | `--control-height-5` | 48px   | `--control-padding-5` | 0 24px  | `--control-radius-5` | Hero sections, marketing    |
+| 6    | `--control-height-6` | 56px   | `--control-padding-6` | 0 28px  | `--control-radius-6` | Prominent hero/marketing    |
 
-All sizes use token-based values and responsive radius calculations:
+### Control Token Mapping
 
 ```css
-.button-size-3 {
-  height: var(--size-8);
-  padding: 0 var(--size-4);
-  border-radius: calc(var(--radius-lg) * var(--theme-radius-factor, 1));
-}
+/* Control tokens provide linear 1-6 mapping */
+--control-height-3: var(--size-8); /* 32px */
+--control-padding-3: var(--space-7); /* 16px */
+--control-radius-3: var(--radius-lg); /* Tailwind lg radius */
 ```
+
+This system allows you to update button sizing by modifying control tokens without touching the button component.
 
 ## Variants
 
@@ -178,12 +216,33 @@ All sizes use token-based values and responsive radius calculations:
 - No border (transparent)
 - Pressed state uses filter for darkening effect
 
+#### Tinted Variant
+
+- Light backgrounds with step 3 (component background)
+- Dark text for better readability
+- Subtle hover states with slightly darker backgrounds
+- Perfect for secondary actions
+
 #### Outline Variant
 
 - Transparent background with border
 - Uses `--ui-border-interactive` (step 7)
 - High contrast text (`--text-high-contrast`)
 - Hover state adds subtle background tint
+
+#### Ghost Variant
+
+- No background or border
+- Uses high contrast text (step 12)
+- Matches tinted hover states for consistency
+- Ideal for toolbar-style interfaces
+
+#### Link Variant
+
+- Minimal styling (transparent background, no border)
+- Underline on hover
+- Zero padding and height for inline usage
+- Behaves like a text link
 
 #### Modern Variant
 
@@ -192,11 +251,45 @@ All sizes use token-based values and responsive radius calculations:
 - Border for definition
 - Filter effects for interaction states
 
-#### Link Variant
+## Roundness System
 
-- Minimal styling (transparent background, no border)
-- Underline on hover
-- Zero padding and height for inline usage
+The Button component supports dynamic roundness control through control radius tokens and theme factors:
+
+### Theme-Based Roundness
+
+```tsx
+// Use theme roundness (from ThemeProvider)
+<Button>Default Roundness</Button>
+
+// Override roundness locally
+<Button roundness="lg">Large Roundness</Button>
+<Button roundness="none">Square Button</Button>
+<Button roundness="full">Pill Button</Button>
+```
+
+### Implementation
+
+Roundness combines control radius tokens with theme factors:
+
+```css
+/* Control radius tokens provide base values */
+--control-radius-3: var(--radius-lg); /* Tailwind lg radius */
+
+/* Theme factors provide multipliers */
+[data-roundness="md"] {
+  --theme-radius-factor: 1;
+}
+[data-roundness="lg"] {
+  --theme-radius-factor: 1.25;
+}
+
+/* Final calculation */
+.button-size-3 {
+  border-radius: calc(var(--control-radius-3) * var(--theme-radius-factor, 1));
+}
+```
+
+This enables both global (theme) and local (component) roundness control using only CSS.
 
 ## Color System Integration
 
@@ -249,6 +342,7 @@ All sizes use token-based values and responsive radius calculations:
 - **Automatic Support**: New colors immediately work with all variants
 - **Type Safety**: TypeScript prevents invalid color combinations
 - **Maintainability**: Clear separation between tokens and component styles
+- **Control Token Flexibility**: Update sizing without touching component CSS
 
 ## Examples
 
@@ -284,6 +378,19 @@ All sizes use token-based values and responsive radius calculations:
   <Button data-primary-color="warning" variant="outline">
     Review
   </Button>
+</Flex>
+```
+
+### Size Demonstration
+
+```tsx
+<Flex gap={3} align="center">
+  <Button size={1}>Size 1</Button>
+  <Button size={2}>Size 2</Button>
+  <Button size={3}>Size 3</Button>
+  <Button size={4}>Size 4</Button>
+  <Button size={5}>Size 5</Button>
+  <Button size={6}>Size 6</Button>
 </Flex>
 ```
 
@@ -332,35 +439,33 @@ All sizes use token-based values and responsive radius calculations:
 </Flex>
 ```
 
-## Roundness System
+## Best Practices
 
-The Button component supports dynamic roundness control through the theme system:
+1. **Variant Selection**
 
-```tsx
-// Use theme roundness (from ThemeProvider)
-<Button>Default Roundness</Button>
+   - Use solid variant for primary actions
+   - Use tinted or outline for secondary actions
+   - Use ghost for toolbar-style interfaces
+   - Use link for inline text contexts
+   - Use modern for premium/marketing contexts
 
-// Override roundness locally
-<Button roundness="lg">Large Roundness</Button>
-<Button roundness="none">Square Button</Button>
-<Button roundness="full">Pill Button</Button>
-```
+2. **Size Guidelines**
 
-### Implementation
+   - Size 3 (32px) is the default for most contexts
+   - Sizes 1-2 for compact UIs and tight spaces
+   - Sizes 4-6 for marketing and hero sections
+   - Maintain consistent sizing within each context
 
-Roundness is handled via CSS variables and data attributes:
+3. **Color Usage**
 
-```css
-[data-roundness="md"] {
-  --theme-radius-factor: 1;
-}
+   - Prefer semantic colors (`primary`, `error`, `success`, `warning`)
+   - Let the system handle text contrast automatically
+   - Group related buttons with consistent variants
 
-.button-size-3 {
-  border-radius: calc(var(--radius-lg) * var(--theme-radius-factor, 1));
-}
-```
-
-This enables both global (theme) and local (component) roundness control using only CSS.
+4. **Roundness Consistency**
+   - Use theme roundness for global consistency
+   - Override locally only when necessary
+   - Consider the overall design language
 
 ## Advanced Usage
 
@@ -403,4 +508,4 @@ The token system is fully backward compatible:
 <Button data-primary-color="blue" variant="solid" />
 ```
 
-The new approach provides automatic contrast, theme consistency, and requires no manual color coordination.
+The new approach provides automatic contrast, theme consistency, and requires no manual color coordination while using control tokens for future-proof sizing.
