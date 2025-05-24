@@ -1,0 +1,35 @@
+/**
+ * Cyan Color Mappings
+ * 
+ * This color can be used for:
+ * - Primary theme color
+ */
+
+/* PRIMARY - Cyan */
+[data-primary-color="cyan"] {
+  --primary-1: var(--cyan-1);
+  --primary-2: var(--cyan-2);
+  --primary-3: var(--cyan-3);
+  --primary-4: var(--cyan-4);
+  --primary-5: var(--cyan-5);
+  --primary-6: var(--cyan-6);
+  --primary-7: var(--cyan-7);
+  --primary-8: var(--cyan-8);
+  --primary-9: var(--cyan-9);
+  --primary-10: var(--cyan-10);
+  --primary-11: var(--cyan-11);
+  --primary-12: var(--cyan-12);
+  --primary-a1: var(--cyan-a1);
+  --primary-a2: var(--cyan-a2);
+  --primary-a3: var(--cyan-a3);
+  --primary-a4: var(--cyan-a4);
+  --primary-a5: var(--cyan-a5);
+  --primary-a6: var(--cyan-a6);
+  --primary-a7: var(--cyan-a7);
+  --primary-a8: var(--cyan-a8);
+  --primary-a9: var(--cyan-a9);
+  --primary-a10: var(--cyan-a10);
+  --primary-a11: var(--cyan-a11);
+  --primary-a12: var(--cyan-a12);
+  --primary-foreground: var(--cyan-1);
+}

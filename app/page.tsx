@@ -42,20 +42,20 @@ export default function Page() {
         {/* BUTTON DEMO SECTION */}
         <Flex direction="column" gap={16}>
           {/* Variants Demo */}
-          <Flex direction="column" gap={4}>
+          <Flex direction="column" gap={4} align="start">
             <Text as="h2" size={6} weight="semibold">
               Button Variants
             </Text>
             <Text as="div" variant="muted">
               A comprehensive showcase of button variants.
             </Text>
-            <Grid gap={4} columns="repeat(auto-fill, minmax(120px, 1fr))">
-              <Button>Button</Button>
-              <Button variant="tinted">Button</Button>
-              <Button variant="outline">Button</Button>
-              <Button variant="ghost">Button</Button>
-              <Button variant="link">Button</Button>
-              <Button variant="modern">Button</Button>
+            <Grid gap={4} columns={6} justifyItems="start">
+              <Button variant="modern">Kookie</Button>
+              <Button variant="solid">Kookie</Button>
+              <Button variant="tinted">Kookie</Button>
+              <Button variant="outline">Kookie</Button>
+              <Button variant="ghost">Kookie</Button>
+              <Button variant="link">Kookie</Button>
             </Grid>
           </Flex>
 
@@ -70,87 +70,87 @@ export default function Page() {
             <Grid gap={8}>
               {/* Primary */}
               <Flex gap={4} wrap="wrap">
-                <Button>Button</Button>
-                <Button variant="tinted">Button</Button>
-                <Button variant="outline">Button</Button>
-                <Button variant="ghost">Button</Button>
-                <Button variant="link">Button</Button>
-                <Button variant="modern">Button</Button>
+                <Button variant="modern">Kookie</Button>
+                <Button>Kookie</Button>
+                <Button variant="tinted">Kookie</Button>
+                <Button variant="outline">Kookie</Button>
+                <Button variant="ghost">Kookie</Button>
+                <Button variant="link">Kookie</Button>
               </Flex>
               {/* Gray */}
               <Flex gap={4} wrap="wrap">
-                <Button color="gray">Button</Button>
+                <Button color="gray" variant="modern">
+                  Kookie
+                </Button>
+                <Button color="gray">Kookie</Button>
                 <Button color="gray" variant="tinted">
-                  Button
+                  Kookie
                 </Button>
                 <Button color="gray" variant="outline">
-                  Button
+                  Kookie
                 </Button>
                 <Button color="gray" variant="ghost">
-                  Button
+                  Kookie
                 </Button>
                 <Button color="gray" variant="link">
-                  Button
-                </Button>
-                <Button color="gray" variant="modern">
-                  Button
+                  Kookie
                 </Button>
               </Flex>
               {/* Error */}
               <Flex gap={4} wrap="wrap">
-                <Button color="error">Button</Button>
+                <Button color="error" variant="modern">
+                  Kookie
+                </Button>
+                <Button color="error">Kookie</Button>
                 <Button color="error" variant="tinted">
-                  Button
+                  Kookie
                 </Button>
                 <Button color="error" variant="outline">
-                  Button
+                  Kookie
                 </Button>
                 <Button color="error" variant="ghost">
-                  Button
+                  Kookie
                 </Button>
                 <Button color="error" variant="link">
-                  Button
-                </Button>
-                <Button color="error" variant="modern">
-                  Button
+                  Kookie
                 </Button>
               </Flex>
               {/* Success */}
               <Flex gap={4} wrap="wrap">
-                <Button color="success">Button</Button>
+                <Button color="success" variant="modern">
+                  Kookie
+                </Button>
+                <Button color="success">Kookie</Button>
                 <Button color="success" variant="tinted">
-                  Button
+                  Kookie
                 </Button>
                 <Button color="success" variant="outline">
-                  Button
+                  Kookie
                 </Button>
                 <Button color="success" variant="ghost">
-                  Button
+                  Kookie
                 </Button>
                 <Button color="success" variant="link">
-                  Button
-                </Button>
-                <Button color="success" variant="modern">
-                  Button
+                  Kookie
                 </Button>
               </Flex>
               {/* Warning */}
               <Flex gap={4} wrap="wrap">
-                <Button color="warning">Button</Button>
+                <Button color="warning" variant="modern">
+                  Kookie
+                </Button>
+                <Button color="warning">Kookie</Button>
                 <Button color="warning" variant="tinted">
-                  Button
+                  Kookie
                 </Button>
                 <Button color="warning" variant="outline">
-                  Button
+                  Kookie
                 </Button>
                 <Button color="warning" variant="ghost">
-                  Button
+                  Kookie
                 </Button>
                 <Button color="warning" variant="link">
-                  Button
-                </Button>
-                <Button color="warning" variant="modern">
-                  Button
+                  Kookie
                 </Button>
               </Flex>
             </Grid>
@@ -169,7 +169,7 @@ export default function Page() {
                 <Flex key={`size-col-${size}`} direction="column" align="center" gap={2}>
                   {["sm", "md", "lg", "xl"].map((roundness) => (
                     <Button key={`size${size}-roundness${roundness}`} size={size as any} roundness={roundness as any}>
-                      Button
+                      Kookie
                     </Button>
                   ))}
                 </Flex>
@@ -191,7 +191,7 @@ export default function Page() {
                   <Text size={2} weight="semibold" style={{ display: "flex", alignItems: "center" }}>{`Size ${size}`}</Text>
                   {["modern", "solid", "tinted", "outline", "ghost", "link"].map((variant) => (
                     <Button key={variant} size={size as any} variant={variant as any}>
-                      Button
+                      Kookie
                     </Button>
                   ))}
                 </React.Fragment>
@@ -208,12 +208,12 @@ export default function Page() {
               Hover over buttons to see their interactive states.
             </Text>
             <Flex gap={4} wrap="wrap">
-              <Button variant="modern">Button</Button>
-              <Button>Button</Button>
-              <Button variant="tinted">Button</Button>
-              <Button variant="outline">Button</Button>
-              <Button variant="ghost">Button</Button>
-              <Button variant="link">Button</Button>
+              <Button variant="modern">Kookie</Button>
+              <Button>Kookie</Button>
+              <Button variant="tinted">Kookie</Button>
+              <Button variant="outline">Kookie</Button>
+              <Button variant="ghost">Kookie</Button>
+              <Button variant="link">Kookie</Button>
             </Flex>
           </Flex>
         </Flex>

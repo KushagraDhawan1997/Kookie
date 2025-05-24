@@ -1,0 +1,65 @@
+/**
+ * Amber Color Mappings
+ * 
+ * This color can be used for:
+ * - Primary theme color
+ * - Warning states
+ */
+
+/* PRIMARY - Amber */
+[data-primary-color="amber"] {
+  --primary-1: var(--amber-1);
+  --primary-2: var(--amber-2);
+  --primary-3: var(--amber-3);
+  --primary-4: var(--amber-4);
+  --primary-5: var(--amber-5);
+  --primary-6: var(--amber-6);
+  --primary-7: var(--amber-7);
+  --primary-8: var(--amber-8);
+  --primary-9: var(--amber-9);
+  --primary-10: var(--amber-10);
+  --primary-11: var(--amber-11);
+  --primary-12: var(--amber-12);
+  --primary-a1: var(--amber-a1);
+  --primary-a2: var(--amber-a2);
+  --primary-a3: var(--amber-a3);
+  --primary-a4: var(--amber-a4);
+  --primary-a5: var(--amber-a5);
+  --primary-a6: var(--amber-a6);
+  --primary-a7: var(--amber-a7);
+  --primary-a8: var(--amber-a8);
+  --primary-a9: var(--amber-a9);
+  --primary-a10: var(--amber-a10);
+  --primary-a11: var(--amber-a11);
+  --primary-a12: var(--amber-a12);
+  --primary-foreground: var(--amber-12);
+}
+
+/* WARNING - Amber */
+[data-warning-color="amber"] {
+  --warning-1: var(--amber-1);
+  --warning-2: var(--amber-2);
+  --warning-3: var(--amber-3);
+  --warning-4: var(--amber-4);
+  --warning-5: var(--amber-5);
+  --warning-6: var(--amber-6);
+  --warning-7: var(--amber-7);
+  --warning-8: var(--amber-8);
+  --warning-9: var(--amber-9);
+  --warning-10: var(--amber-10);
+  --warning-11: var(--amber-11);
+  --warning-12: var(--amber-12);
+  --warning-a1: var(--amber-a1);
+  --warning-a2: var(--amber-a2);
+  --warning-a3: var(--amber-a3);
+  --warning-a4: var(--amber-a4);
+  --warning-a5: var(--amber-a5);
+  --warning-a6: var(--amber-a6);
+  --warning-a7: var(--amber-a7);
+  --warning-a8: var(--amber-a8);
+  --warning-a9: var(--amber-a9);
+  --warning-a10: var(--amber-a10);
+  --warning-a11: var(--amber-a11);
+  --warning-a12: var(--amber-a12);
+  --warning-foreground: var(--amber-12);
+}

@@ -1,0 +1,35 @@
+/**
+ * Pink Color Mappings
+ * 
+ * This color can be used for:
+ * - Primary theme color
+ */
+
+/* PRIMARY - Pink */
+[data-primary-color="pink"] {
+  --primary-1: var(--pink-1);
+  --primary-2: var(--pink-2);
+  --primary-3: var(--pink-3);
+  --primary-4: var(--pink-4);
+  --primary-5: var(--pink-5);
+  --primary-6: var(--pink-6);
+  --primary-7: var(--pink-7);
+  --primary-8: var(--pink-8);
+  --primary-9: var(--pink-9);
+  --primary-10: var(--pink-10);
+  --primary-11: var(--pink-11);
+  --primary-12: var(--pink-12);
+  --primary-a1: var(--pink-a1);
+  --primary-a2: var(--pink-a2);
+  --primary-a3: var(--pink-a3);
+  --primary-a4: var(--pink-a4);
+  --primary-a5: var(--pink-a5);
+  --primary-a6: var(--pink-a6);
+  --primary-a7: var(--pink-a7);
+  --primary-a8: var(--pink-a8);
+  --primary-a9: var(--pink-a9);
+  --primary-a10: var(--pink-a10);
+  --primary-a11: var(--pink-a11);
+  --primary-a12: var(--pink-a12);
+  --primary-foreground: var(--pink-1);
+}

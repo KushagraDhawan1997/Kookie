@@ -1,0 +1,65 @@
+/**
+ * Green Color Mappings
+ * 
+ * This color can be used for:
+ * - Primary theme color
+ * - Success states
+ */
+
+/* PRIMARY - Green */
+[data-primary-color="green"] {
+  --primary-1: var(--green-1);
+  --primary-2: var(--green-2);
+  --primary-3: var(--green-3);
+  --primary-4: var(--green-4);
+  --primary-5: var(--green-5);
+  --primary-6: var(--green-6);
+  --primary-7: var(--green-7);
+  --primary-8: var(--green-8);
+  --primary-9: var(--green-9);
+  --primary-10: var(--green-10);
+  --primary-11: var(--green-11);
+  --primary-12: var(--green-12);
+  --primary-a1: var(--green-a1);
+  --primary-a2: var(--green-a2);
+  --primary-a3: var(--green-a3);
+  --primary-a4: var(--green-a4);
+  --primary-a5: var(--green-a5);
+  --primary-a6: var(--green-a6);
+  --primary-a7: var(--green-a7);
+  --primary-a8: var(--green-a8);
+  --primary-a9: var(--green-a9);
+  --primary-a10: var(--green-a10);
+  --primary-a11: var(--green-a11);
+  --primary-a12: var(--green-a12);
+  --primary-foreground: var(--green-1);
+}
+
+/* SUCCESS - Green */
+[data-success-color="green"] {
+  --success-1: var(--green-1);
+  --success-2: var(--green-2);
+  --success-3: var(--green-3);
+  --success-4: var(--green-4);
+  --success-5: var(--green-5);
+  --success-6: var(--green-6);
+  --success-7: var(--green-7);
+  --success-8: var(--green-8);
+  --success-9: var(--green-9);
+  --success-10: var(--green-10);
+  --success-11: var(--green-11);
+  --success-12: var(--green-12);
+  --success-a1: var(--green-a1);
+  --success-a2: var(--green-a2);
+  --success-a3: var(--green-a3);
+  --success-a4: var(--green-a4);
+  --success-a5: var(--green-a5);
+  --success-a6: var(--green-a6);
+  --success-a7: var(--green-a7);
+  --success-a8: var(--green-a8);
+  --success-a9: var(--green-a9);
+  --success-a10: var(--green-a10);
+  --success-a11: var(--green-a11);
+  --success-a12: var(--green-a12);
+  --success-foreground: var(--green-1);
+}

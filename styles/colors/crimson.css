@@ -1,0 +1,65 @@
+/**
+ * Crimson Color Mappings
+ * 
+ * This color can be used for:
+ * - Primary theme color
+ * - Error states
+ */
+
+/* PRIMARY - Crimson */
+[data-primary-color="crimson"] {
+  --primary-1: var(--crimson-1);
+  --primary-2: var(--crimson-2);
+  --primary-3: var(--crimson-3);
+  --primary-4: var(--crimson-4);
+  --primary-5: var(--crimson-5);
+  --primary-6: var(--crimson-6);
+  --primary-7: var(--crimson-7);
+  --primary-8: var(--crimson-8);
+  --primary-9: var(--crimson-9);
+  --primary-10: var(--crimson-10);
+  --primary-11: var(--crimson-11);
+  --primary-12: var(--crimson-12);
+  --primary-a1: var(--crimson-a1);
+  --primary-a2: var(--crimson-a2);
+  --primary-a3: var(--crimson-a3);
+  --primary-a4: var(--crimson-a4);
+  --primary-a5: var(--crimson-a5);
+  --primary-a6: var(--crimson-a6);
+  --primary-a7: var(--crimson-a7);
+  --primary-a8: var(--crimson-a8);
+  --primary-a9: var(--crimson-a9);
+  --primary-a10: var(--crimson-a10);
+  --primary-a11: var(--crimson-a11);
+  --primary-a12: var(--crimson-a12);
+  --primary-foreground: var(--crimson-1);
+}
+
+/* ERROR - Crimson */
+[data-error-color="crimson"] {
+  --error-1: var(--crimson-1);
+  --error-2: var(--crimson-2);
+  --error-3: var(--crimson-3);
+  --error-4: var(--crimson-4);
+  --error-5: var(--crimson-5);
+  --error-6: var(--crimson-6);
+  --error-7: var(--crimson-7);
+  --error-8: var(--crimson-8);
+  --error-9: var(--crimson-9);
+  --error-10: var(--crimson-10);
+  --error-11: var(--crimson-11);
+  --error-12: var(--crimson-12);
+  --error-a1: var(--crimson-a1);
+  --error-a2: var(--crimson-a2);
+  --error-a3: var(--crimson-a3);
+  --error-a4: var(--crimson-a4);
+  --error-a5: var(--crimson-a5);
+  --error-a6: var(--crimson-a6);
+  --error-a7: var(--crimson-a7);
+  --error-a8: var(--crimson-a8);
+  --error-a9: var(--crimson-a9);
+  --error-a10: var(--crimson-a10);
+  --error-a11: var(--crimson-a11);
+  --error-a12: var(--crimson-a12);
+  --error-foreground: var(--crimson-1);
+}

@@ -1,0 +1,35 @@
+/**
+ * Iris Color Mappings
+ * 
+ * This color can be used for:
+ * - Primary theme color
+ */
+
+/* PRIMARY - Iris */
+[data-primary-color="iris"] {
+  --primary-1: var(--iris-1);
+  --primary-2: var(--iris-2);
+  --primary-3: var(--iris-3);
+  --primary-4: var(--iris-4);
+  --primary-5: var(--iris-5);
+  --primary-6: var(--iris-6);
+  --primary-7: var(--iris-7);
+  --primary-8: var(--iris-8);
+  --primary-9: var(--iris-9);
+  --primary-10: var(--iris-10);
+  --primary-11: var(--iris-11);
+  --primary-12: var(--iris-12);
+  --primary-a1: var(--iris-a1);
+  --primary-a2: var(--iris-a2);
+  --primary-a3: var(--iris-a3);
+  --primary-a4: var(--iris-a4);
+  --primary-a5: var(--iris-a5);
+  --primary-a6: var(--iris-a6);
+  --primary-a7: var(--iris-a7);
+  --primary-a8: var(--iris-a8);
+  --primary-a9: var(--iris-a9);
+  --primary-a10: var(--iris-a10);
+  --primary-a11: var(--iris-a11);
+  --primary-a12: var(--iris-a12);
+  --primary-foreground: var(--iris-1);
+}

@@ -1,0 +1,35 @@
+/**
+ * Purple Color Mappings
+ * 
+ * This color can be used for:
+ * - Primary theme color
+ */
+
+/* PRIMARY - Purple */
+[data-primary-color="purple"] {
+  --primary-1: var(--purple-1);
+  --primary-2: var(--purple-2);
+  --primary-3: var(--purple-3);
+  --primary-4: var(--purple-4);
+  --primary-5: var(--purple-5);
+  --primary-6: var(--purple-6);
+  --primary-7: var(--purple-7);
+  --primary-8: var(--purple-8);
+  --primary-9: var(--purple-9);
+  --primary-10: var(--purple-10);
+  --primary-11: var(--purple-11);
+  --primary-12: var(--purple-12);
+  --primary-a1: var(--purple-a1);
+  --primary-a2: var(--purple-a2);
+  --primary-a3: var(--purple-a3);
+  --primary-a4: var(--purple-a4);
+  --primary-a5: var(--purple-a5);
+  --primary-a6: var(--purple-a6);
+  --primary-a7: var(--purple-a7);
+  --primary-a8: var(--purple-a8);
+  --primary-a9: var(--purple-a9);
+  --primary-a10: var(--purple-a10);
+  --primary-a11: var(--purple-a11);
+  --primary-a12: var(--purple-a12);
+  --primary-foreground: var(--purple-1);
+}

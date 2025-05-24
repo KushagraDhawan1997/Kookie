@@ -1,0 +1,65 @@
+/**
+ * Lime Color Mappings
+ * 
+ * This color can be used for:
+ * - Primary theme color
+ * - Success states
+ */
+
+/* PRIMARY - Lime */
+[data-primary-color="lime"] {
+  --primary-1: var(--lime-1);
+  --primary-2: var(--lime-2);
+  --primary-3: var(--lime-3);
+  --primary-4: var(--lime-4);
+  --primary-5: var(--lime-5);
+  --primary-6: var(--lime-6);
+  --primary-7: var(--lime-7);
+  --primary-8: var(--lime-8);
+  --primary-9: var(--lime-9);
+  --primary-10: var(--lime-10);
+  --primary-11: var(--lime-11);
+  --primary-12: var(--lime-12);
+  --primary-a1: var(--lime-a1);
+  --primary-a2: var(--lime-a2);
+  --primary-a3: var(--lime-a3);
+  --primary-a4: var(--lime-a4);
+  --primary-a5: var(--lime-a5);
+  --primary-a6: var(--lime-a6);
+  --primary-a7: var(--lime-a7);
+  --primary-a8: var(--lime-a8);
+  --primary-a9: var(--lime-a9);
+  --primary-a10: var(--lime-a10);
+  --primary-a11: var(--lime-a11);
+  --primary-a12: var(--lime-a12);
+  --primary-foreground: var(--lime-12);
+}
+
+/* SUCCESS - Lime */
+[data-success-color="lime"] {
+  --success-1: var(--lime-1);
+  --success-2: var(--lime-2);
+  --success-3: var(--lime-3);
+  --success-4: var(--lime-4);
+  --success-5: var(--lime-5);
+  --success-6: var(--lime-6);
+  --success-7: var(--lime-7);
+  --success-8: var(--lime-8);
+  --success-9: var(--lime-9);
+  --success-10: var(--lime-10);
+  --success-11: var(--lime-11);
+  --success-12: var(--lime-12);
+  --success-a1: var(--lime-a1);
+  --success-a2: var(--lime-a2);
+  --success-a3: var(--lime-a3);
+  --success-a4: var(--lime-a4);
+  --success-a5: var(--lime-a5);
+  --success-a6: var(--lime-a6);
+  --success-a7: var(--lime-a7);
+  --success-a8: var(--lime-a8);
+  --success-a9: var(--lime-a9);
+  --success-a10: var(--lime-a10);
+  --success-a11: var(--lime-a11);
+  --success-a12: var(--lime-a12);
+  --success-foreground: var(--lime-12);
+}

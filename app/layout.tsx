@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
 import "@/styles/color.css";
 import { Provider as JotaiProvider } from "jotai";
+import { ThemePlayground } from "@/components/helpers";
 
 /**
  * Metadata for the application
@@ -45,7 +46,8 @@ export default function RootLayout({
         }}
       >
         <JotaiProvider>
-          <ThemeProvider primary="gray" gray="sage" error="red" success="green" warning="amber" roundness="md" size={2}>
+          <ThemeProvider primary="blue" gray="olive" error="red" success="lime" warning="yellow" roundness="md" size={6}>
+            <ThemePlayground />
             {children}
           </ThemeProvider>
         </JotaiProvider>

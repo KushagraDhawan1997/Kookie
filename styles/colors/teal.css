@@ -1,0 +1,65 @@
+/**
+ * Teal Color Mappings
+ * 
+ * This color can be used for:
+ * - Primary theme color
+ * - Success states
+ */
+
+/* PRIMARY - Teal */
+[data-primary-color="teal"] {
+  --primary-1: var(--teal-1);
+  --primary-2: var(--teal-2);
+  --primary-3: var(--teal-3);
+  --primary-4: var(--teal-4);
+  --primary-5: var(--teal-5);
+  --primary-6: var(--teal-6);
+  --primary-7: var(--teal-7);
+  --primary-8: var(--teal-8);
+  --primary-9: var(--teal-9);
+  --primary-10: var(--teal-10);
+  --primary-11: var(--teal-11);
+  --primary-12: var(--teal-12);
+  --primary-a1: var(--teal-a1);
+  --primary-a2: var(--teal-a2);
+  --primary-a3: var(--teal-a3);
+  --primary-a4: var(--teal-a4);
+  --primary-a5: var(--teal-a5);
+  --primary-a6: var(--teal-a6);
+  --primary-a7: var(--teal-a7);
+  --primary-a8: var(--teal-a8);
+  --primary-a9: var(--teal-a9);
+  --primary-a10: var(--teal-a10);
+  --primary-a11: var(--teal-a11);
+  --primary-a12: var(--teal-a12);
+  --primary-foreground: var(--teal-1);
+}
+
+/* SUCCESS - Teal */
+[data-success-color="teal"] {
+  --success-1: var(--teal-1);
+  --success-2: var(--teal-2);
+  --success-3: var(--teal-3);
+  --success-4: var(--teal-4);
+  --success-5: var(--teal-5);
+  --success-6: var(--teal-6);
+  --success-7: var(--teal-7);
+  --success-8: var(--teal-8);
+  --success-9: var(--teal-9);
+  --success-10: var(--teal-10);
+  --success-11: var(--teal-11);
+  --success-12: var(--teal-12);
+  --success-a1: var(--teal-a1);
+  --success-a2: var(--teal-a2);
+  --success-a3: var(--teal-a3);
+  --success-a4: var(--teal-a4);
+  --success-a5: var(--teal-a5);
+  --success-a6: var(--teal-a6);
+  --success-a7: var(--teal-a7);
+  --success-a8: var(--teal-a8);
+  --success-a9: var(--teal-a9);
+  --success-a10: var(--teal-a10);
+  --success-a11: var(--teal-a11);
+  --success-a12: var(--teal-a12);
+  --success-foreground: var(--teal-1);
+}

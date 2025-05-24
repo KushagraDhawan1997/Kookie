@@ -1,0 +1,65 @@
+/**
+ * Yellow Color Mappings
+ * 
+ * This color can be used for:
+ * - Primary theme color
+ * - Warning states
+ */
+
+/* PRIMARY - Yellow */
+[data-primary-color="yellow"] {
+  --primary-1: var(--yellow-1);
+  --primary-2: var(--yellow-2);
+  --primary-3: var(--yellow-3);
+  --primary-4: var(--yellow-4);
+  --primary-5: var(--yellow-5);
+  --primary-6: var(--yellow-6);
+  --primary-7: var(--yellow-7);
+  --primary-8: var(--yellow-8);
+  --primary-9: var(--yellow-9);
+  --primary-10: var(--yellow-10);
+  --primary-11: var(--yellow-11);
+  --primary-12: var(--yellow-12);
+  --primary-a1: var(--yellow-a1);
+  --primary-a2: var(--yellow-a2);
+  --primary-a3: var(--yellow-a3);
+  --primary-a4: var(--yellow-a4);
+  --primary-a5: var(--yellow-a5);
+  --primary-a6: var(--yellow-a6);
+  --primary-a7: var(--yellow-a7);
+  --primary-a8: var(--yellow-a8);
+  --primary-a9: var(--yellow-a9);
+  --primary-a10: var(--yellow-a10);
+  --primary-a11: var(--yellow-a11);
+  --primary-a12: var(--yellow-a12);
+  --primary-foreground: var(--yellow-12);
+}
+
+/* WARNING - Yellow */
+[data-warning-color="yellow"] {
+  --warning-1: var(--yellow-1);
+  --warning-2: var(--yellow-2);
+  --warning-3: var(--yellow-3);
+  --warning-4: var(--yellow-4);
+  --warning-5: var(--yellow-5);
+  --warning-6: var(--yellow-6);
+  --warning-7: var(--yellow-7);
+  --warning-8: var(--yellow-8);
+  --warning-9: var(--yellow-9);
+  --warning-10: var(--yellow-10);
+  --warning-11: var(--yellow-11);
+  --warning-12: var(--yellow-12);
+  --warning-a1: var(--yellow-a1);
+  --warning-a2: var(--yellow-a2);
+  --warning-a3: var(--yellow-a3);
+  --warning-a4: var(--yellow-a4);
+  --warning-a5: var(--yellow-a5);
+  --warning-a6: var(--yellow-a6);
+  --warning-a7: var(--yellow-a7);
+  --warning-a8: var(--yellow-a8);
+  --warning-a9: var(--yellow-a9);
+  --warning-a10: var(--yellow-a10);
+  --warning-a11: var(--yellow-a11);
+  --warning-a12: var(--yellow-a12);
+  --warning-foreground: var(--yellow-12);
+}

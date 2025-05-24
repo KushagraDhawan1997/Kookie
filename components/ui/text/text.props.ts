@@ -1,6 +1,6 @@
 import { PropDef, Responsive } from "../../helpers/component-props";
 import { MarginProps } from "../../shared/margin.props";
-import { SemanticColorKey, ThemeColor } from "../../providers/theme-types";
+import { SemanticColorKey, ThemeColor } from "@/components/providers/theme-types";
 
 /**
  * Available text size options using a numeric scale (1-12)

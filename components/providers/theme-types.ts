@@ -33,10 +33,34 @@ export type ThemeRoundness = "none" | "sm" | "md" | "lg" | "xl" | "full";
  * Available theme colors for primary, error, success, and warning states
  * @type {string[]}
  */
-export type ThemeColor = "blue" | "green" | "red" | "amber" | "purple" | "gray";
+export type ThemeColor = "blue" | "green" | "red" | "amber" | "purple" | "gray" | "yellow" | "orange" | "ruby" | "crimson" | "pink" | "violet" | "iris" | "indigo" | "cyan" | "teal" | "lime" | "sky";
 
 /**
  * Available gray scale variants
  * @type {string[]}
  */
-export type ThemeGray = "sage" | "slate";
+export type ThemeGray = "sage" | "slate" | "mauve" | "olive" | "sand";
+
+// Array representations extracted from the union types above
+export const THEME_COLORS: ThemeColor[] = ["blue", "green", "red", "amber", "purple", "gray", "yellow", "orange", "ruby", "crimson", "pink", "violet", "iris", "indigo", "cyan", "teal", "lime", "sky"];
+export const THEME_GRAYS: ThemeGray[] = ["sage", "slate", "mauve", "olive", "sand"];
+export const THEME_SIZES: ThemeSize[] = [1, 2, 3, 4, 5, 6];
+export const THEME_ROUNDNESS_OPTIONS: ThemeRoundness[] = ["none", "sm", "md", "lg", "xl", "full"];
+
+// Semantic color groupings (based on CSS file capabilities)
+export const ERROR_COLORS: ThemeColor[] = ["red", "ruby", "crimson"];
+export const SUCCESS_COLORS: ThemeColor[] = ["green", "teal", "lime"];
+export const WARNING_COLORS: ThemeColor[] = ["amber", "yellow", "orange"];
+
+// Theme defaults
+export const THEME_DEFAULTS = {
+  colors: {
+    primary: "blue" as ThemeColor,
+    gray: "slate" as ThemeGray,
+    error: "red" as ThemeColor,
+    success: "green" as ThemeColor,
+    warning: "amber" as ThemeColor,
+  },
+  size: 3 as ThemeSize,
+  roundness: "md" as ThemeRoundness,
+} as const;

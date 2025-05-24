@@ -1,0 +1,65 @@
+/**
+ * Ruby Color Mappings
+ * 
+ * This color can be used for:
+ * - Primary theme color
+ * - Error states
+ */
+
+/* PRIMARY - Ruby */
+[data-primary-color="ruby"] {
+  --primary-1: var(--ruby-1);
+  --primary-2: var(--ruby-2);
+  --primary-3: var(--ruby-3);
+  --primary-4: var(--ruby-4);
+  --primary-5: var(--ruby-5);
+  --primary-6: var(--ruby-6);
+  --primary-7: var(--ruby-7);
+  --primary-8: var(--ruby-8);
+  --primary-9: var(--ruby-9);
+  --primary-10: var(--ruby-10);
+  --primary-11: var(--ruby-11);
+  --primary-12: var(--ruby-12);
+  --primary-a1: var(--ruby-a1);
+  --primary-a2: var(--ruby-a2);
+  --primary-a3: var(--ruby-a3);
+  --primary-a4: var(--ruby-a4);
+  --primary-a5: var(--ruby-a5);
+  --primary-a6: var(--ruby-a6);
+  --primary-a7: var(--ruby-a7);
+  --primary-a8: var(--ruby-a8);
+  --primary-a9: var(--ruby-a9);
+  --primary-a10: var(--ruby-a10);
+  --primary-a11: var(--ruby-a11);
+  --primary-a12: var(--ruby-a12);
+  --primary-foreground: var(--ruby-1);
+}
+
+/* ERROR - Ruby */
+[data-error-color="ruby"] {
+  --error-1: var(--ruby-1);
+  --error-2: var(--ruby-2);
+  --error-3: var(--ruby-3);
+  --error-4: var(--ruby-4);
+  --error-5: var(--ruby-5);
+  --error-6: var(--ruby-6);
+  --error-7: var(--ruby-7);
+  --error-8: var(--ruby-8);
+  --error-9: var(--ruby-9);
+  --error-10: var(--ruby-10);
+  --error-11: var(--ruby-11);
+  --error-12: var(--ruby-12);
+  --error-a1: var(--ruby-a1);
+  --error-a2: var(--ruby-a2);
+  --error-a3: var(--ruby-a3);
+  --error-a4: var(--ruby-a4);
+  --error-a5: var(--ruby-a5);
+  --error-a6: var(--ruby-a6);
+  --error-a7: var(--ruby-a7);
+  --error-a8: var(--ruby-a8);
+  --error-a9: var(--ruby-a9);
+  --error-a10: var(--ruby-a10);
+  --error-a11: var(--ruby-a11);
+  --error-a12: var(--ruby-a12);
+  --error-foreground: var(--ruby-1);
+}

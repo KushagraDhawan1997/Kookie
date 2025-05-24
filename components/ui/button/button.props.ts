@@ -1,6 +1,6 @@
 import { PropDef } from "../../helpers/component-props";
 import { MarginProps } from "../../shared/margin.props";
-import { ThemeRoundness } from "../../providers/theme-types";
+import { ThemeRoundness } from "@/components/providers/theme-types";
 import { ButtonSize, ButtonVariant, ButtonColor } from "./button-types";
 
 /**

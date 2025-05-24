@@ -1,0 +1,35 @@
+/**
+ * Violet Color Mappings
+ * 
+ * This color can be used for:
+ * - Primary theme color
+ */
+
+/* PRIMARY - Violet */
+[data-primary-color="violet"] {
+  --primary-1: var(--violet-1);
+  --primary-2: var(--violet-2);
+  --primary-3: var(--violet-3);
+  --primary-4: var(--violet-4);
+  --primary-5: var(--violet-5);
+  --primary-6: var(--violet-6);
+  --primary-7: var(--violet-7);
+  --primary-8: var(--violet-8);
+  --primary-9: var(--violet-9);
+  --primary-10: var(--violet-10);
+  --primary-11: var(--violet-11);
+  --primary-12: var(--violet-12);
+  --primary-a1: var(--violet-a1);
+  --primary-a2: var(--violet-a2);
+  --primary-a3: var(--violet-a3);
+  --primary-a4: var(--violet-a4);
+  --primary-a5: var(--violet-a5);
+  --primary-a6: var(--violet-a6);
+  --primary-a7: var(--violet-a7);
+  --primary-a8: var(--violet-a8);
+  --primary-a9: var(--violet-a9);
+  --primary-a10: var(--violet-a10);
+  --primary-a11: var(--violet-a11);
+  --primary-a12: var(--violet-a12);
+  --primary-foreground: var(--violet-1);
+}

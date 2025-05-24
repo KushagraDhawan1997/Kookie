@@ -2,44 +2,47 @@
 
 import React, { useEffect } from "react";
 import { atom, useAtom } from "jotai";
-import { SemanticColorKey, ThemeSize, ThemeRoundness, ThemeColor, ThemeGray } from "./theme-types";
+import { SemanticColorKey, ThemeSize, ThemeRoundness, ThemeColor, ThemeGray, THEME_DEFAULTS } from "./theme-types";
 
 /**
  * Maps semantic colors to their default theme colors
  */
 type ColorDefaults = Record<SemanticColorKey, ThemeColor | ThemeGray>;
 
-const themeDefaults = {
-  colors: {
-    primary: "blue" as ThemeColor,
-    gray: "slate" as ThemeGray,
-    error: "red" as ThemeColor,
-    success: "green" as ThemeColor,
-    warning: "amber" as ThemeColor,
-  } satisfies ColorDefaults,
-  size: 3 as ThemeSize,
-  roundness: "md" as ThemeRoundness,
-} as const;
-
 /**
  * Jotai atom for storing the current primary color
  */
-export const colorAtom = atom<ThemeColor>(themeDefaults.colors.primary);
+export const colorAtom = atom<ThemeColor>(THEME_DEFAULTS.colors.primary);
 
 /**
  * Jotai atom for storing the current gray scale
  */
-export const grayAtom = atom<ThemeGray>(themeDefaults.colors.gray);
+export const grayAtom = atom<ThemeGray>(THEME_DEFAULTS.colors.gray);
+
+/**
+ * Jotai atom for storing the current error color
+ */
+export const errorAtom = atom<ThemeColor>(THEME_DEFAULTS.colors.error);
+
+/**
+ * Jotai atom for storing the current success color
+ */
+export const successAtom = atom<ThemeColor>(THEME_DEFAULTS.colors.success);
+
+/**
+ * Jotai atom for storing the current warning color
+ */
+export const warningAtom = atom<ThemeColor>(THEME_DEFAULTS.colors.warning);
 
 /**
  * Jotai atom for storing default size
  */
-export const sizeAtom = atom<ThemeSize>(themeDefaults.size);
+export const sizeAtom = atom<ThemeSize>(THEME_DEFAULTS.size);
 
 /**
  * Jotai atom for storing default roundness
  */
-export const roundnessAtom = atom<ThemeRoundness>("md");
+export const roundnessAtom = atom<ThemeRoundness>(THEME_DEFAULTS.roundness);
 
 /**
  * Props for the ThemeProvider component
@@ -88,16 +91,19 @@ export interface ThemeProviderProps {
  */
 export function ThemeProvider({
   children,
-  primary = themeDefaults.colors.primary,
-  gray = themeDefaults.colors.gray,
-  error = themeDefaults.colors.error,
-  success = themeDefaults.colors.success,
-  warning = themeDefaults.colors.warning,
-  size = themeDefaults.size,
-  roundness = themeDefaults.roundness,
+  primary = THEME_DEFAULTS.colors.primary,
+  gray = THEME_DEFAULTS.colors.gray,
+  error = THEME_DEFAULTS.colors.error,
+  success = THEME_DEFAULTS.colors.success,
+  warning = THEME_DEFAULTS.colors.warning,
+  size = THEME_DEFAULTS.size,
+  roundness = THEME_DEFAULTS.roundness,
 }: ThemeProviderProps) {
   const [currentColor, setColor] = useAtom(colorAtom);
   const [currentGray, setGray] = useAtom(grayAtom);
+  const [currentError, setError] = useAtom(errorAtom);
+  const [currentSuccess, setSuccess] = useAtom(successAtom);
+  const [currentWarning, setWarning] = useAtom(warningAtom);
   const [, setSize] = useAtom(sizeAtom);
   const [, setRoundness] = useAtom(roundnessAtom);
 
@@ -105,10 +111,13 @@ export function ThemeProvider({
   useEffect(() => {
     if (primary && primary !== currentColor) setColor(primary);
     if (gray && gray !== currentGray) setGray(gray);
+    if (error && error !== currentError) setError(error);
+    if (success && success !== currentSuccess) setSuccess(success);
+    if (warning && warning !== currentWarning) setWarning(warning);
     setSize(size);
     setRoundness(roundness);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [primary, gray, size, roundness]);
+  }, [primary, gray, error, success, warning, size, roundness]);
 
   // Set data attributes on document root
   useEffect(() => {
@@ -149,7 +158,10 @@ export function ThemeProvider({
 export function useTheme() {
   const [color, setColor] = useAtom(colorAtom);
   const [gray, setGray] = useAtom(grayAtom);
-  const [size] = useAtom(sizeAtom);
-  const [roundness] = useAtom(roundnessAtom);
-  return { color, setColor, gray, setGray, size, roundness };
+  const [error, setError] = useAtom(errorAtom);
+  const [success, setSuccess] = useAtom(successAtom);
+  const [warning, setWarning] = useAtom(warningAtom);
+  const [size, setSize] = useAtom(sizeAtom);
+  const [roundness, setRoundness] = useAtom(roundnessAtom);
+  return { color, setColor, gray, setGray, error, setError, success, setSuccess, warning, setWarning, size, setSize, roundness, setRoundness };
 }

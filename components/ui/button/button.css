@@ -79,22 +79,22 @@
 
 /* --- Modern: Primary (default) --- */
 [data-variant="modern"][data-primary-color] {
-  background: linear-gradient(to bottom right, var(--primary-9), var(--primary-11));
-  color: var(--primary-1);
-  border: 1px solid var(--primary-8);
+  background: linear-gradient(to bottom right, var(--primary-9) 0%, var(--primary-10) 50%);
+  color: var(--primary-foreground);
+  border: 1px solid var(--primary-10);
   box-shadow: var(--shadow-xl);
 }
 [data-variant="modern"][data-primary-color]:hover {
   box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--primary-a9);
 }
 [data-variant="modern"][data-primary-color]:active {
-  box-shadow: var(--shadow-md), inset 0 0 0 100px var(--primary-a11);
+  box-shadow: var(--shadow-md), inset 0 0 0 100px var(--primary-a10);
 }
 
 /* --- Modern: Gray --- */
 [data-variant="modern"][data-primary-color="gray"] {
-  background: linear-gradient(to bottom right, var(--gray-10), var(--gray-12));
-  color: var(--gray-1);
+  background: linear-gradient(to bottom right, var(--gray-11) 0%, var(--gray-12) 50%);
+  color: var(--gray-foreground);
   border: 1px solid var(--gray-8);
   box-shadow: var(--shadow-lg);
 }
@@ -102,13 +102,13 @@
   box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--gray-a9);
 }
 [data-variant="modern"][data-primary-color="gray"]:active {
-  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--gray-a11);
+  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--gray-a10);
 }
 
 /* --- Modern: Error --- */
 [data-variant="modern"][data-primary-color="error"] {
-  background: linear-gradient(to bottom right, var(--error-9), var(--error-11));
-  color: var(--error-1);
+  background: linear-gradient(to bottom right, var(--error-9) 0%, var(--error-10) 50%);
+  color: var(--error-foreground);
   border: 1px solid var(--error-10);
   box-shadow: var(--shadow-lg);
 }
@@ -116,13 +116,13 @@
   box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--error-a9);
 }
 [data-variant="modern"][data-primary-color="error"]:active {
-  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--error-a11);
+  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--error-a10);
 }
 
 /* --- Modern: Success --- */
 [data-variant="modern"][data-primary-color="success"] {
-  background: linear-gradient(to bottom right, var(--success-9), var(--success-11));
-  color: var(--success-1);
+  background: linear-gradient(to bottom right, var(--success-9) 0%, var(--success-10) 50%);
+  color: var(--success-foreground);
   border: 1px solid var(--success-10);
   box-shadow: var(--shadow-lg);
 }
@@ -130,13 +130,13 @@
   box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--success-a9);
 }
 [data-variant="modern"][data-primary-color="success"]:active {
-  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--success-a11);
+  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--success-a10);
 }
 
 /* --- Modern: Warning --- */
 [data-variant="modern"][data-primary-color="warning"] {
-  background: linear-gradient(to bottom right, var(--warning-9), var(--warning-10));
-  color: var(--warning-1);
+  background: linear-gradient(to bottom right, var(--warning-9) 0%, var(--warning-10) 50%);
+  color: var(--warning-foreground);
   border: 1px solid var(--warning-10);
   box-shadow: var(--shadow-lg);
 }
@@ -157,7 +157,7 @@
 /* --- Solid: Primary (default) --- */
 [data-variant="solid"][data-primary-color] {
   background-color: var(--primary-9);
-  color: var(--primary-1);
+  color: var(--primary-foreground);
 }
 [data-variant="solid"][data-primary-color]:hover {
   background-color: var(--primary-10);
@@ -169,7 +169,7 @@
 /* --- Solid: Gray --- */
 [data-variant="solid"][data-primary-color="gray"] {
   background-color: var(--gray-12);
-  color: var(--gray-1);
+  color: var(--gray-foreground);
 }
 [data-variant="solid"][data-primary-color="gray"]:hover {
   background-color: var(--gray-11);
@@ -181,7 +181,7 @@
 /* --- Solid: Error --- */
 [data-variant="solid"][data-primary-color="error"] {
   background-color: var(--error-9);
-  color: var(--error-1);
+  color: var(--error-foreground);
 }
 [data-variant="solid"][data-primary-color="error"]:hover {
   background-color: var(--error-10);
@@ -193,7 +193,7 @@
 /* --- Solid: Success --- */
 [data-variant="solid"][data-primary-color="success"] {
   background-color: var(--success-9);
-  color: var(--success-1);
+  color: var(--success-foreground);
 }
 [data-variant="solid"][data-primary-color="success"]:hover {
   background-color: var(--success-10);
@@ -205,7 +205,7 @@
 /* --- Solid: Warning --- */
 [data-variant="solid"][data-primary-color="warning"] {
   background-color: var(--warning-9);
-  color: var(--warning-1);
+  color: var(--warning-foreground);
 }
 [data-variant="solid"][data-primary-color="warning"]:hover {
   background-color: var(--warning-10);

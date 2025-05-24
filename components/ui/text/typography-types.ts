@@ -1,5 +1,4 @@
-import { SemanticColorKey } from "@/components/providers/theme-types";
-import { ThemeColor } from "@/components/providers/theme-types";
+import { SemanticColorKey, ThemeColor } from "../../providers/theme-types";
 import { MarginProps } from "@/components/shared/margin.props";
 
 /**

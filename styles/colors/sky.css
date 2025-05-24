@@ -1,0 +1,35 @@
+/**
+ * Sky Color Mappings
+ * 
+ * This color can be used for:
+ * - Primary theme color
+ */
+
+/* PRIMARY - Sky */
+[data-primary-color="sky"] {
+  --primary-1: var(--sky-1);
+  --primary-2: var(--sky-2);
+  --primary-3: var(--sky-3);
+  --primary-4: var(--sky-4);
+  --primary-5: var(--sky-5);
+  --primary-6: var(--sky-6);
+  --primary-7: var(--sky-7);
+  --primary-8: var(--sky-8);
+  --primary-9: var(--sky-9);
+  --primary-10: var(--sky-10);
+  --primary-11: var(--sky-11);
+  --primary-12: var(--sky-12);
+  --primary-a1: var(--sky-a1);
+  --primary-a2: var(--sky-a2);
+  --primary-a3: var(--sky-a3);
+  --primary-a4: var(--sky-a4);
+  --primary-a5: var(--sky-a5);
+  --primary-a6: var(--sky-a6);
+  --primary-a7: var(--sky-a7);
+  --primary-a8: var(--sky-a8);
+  --primary-a9: var(--sky-a9);
+  --primary-a10: var(--sky-a10);
+  --primary-a11: var(--sky-a11);
+  --primary-a12: var(--sky-a12);
+  --primary-foreground: var(--sky-12);
+}

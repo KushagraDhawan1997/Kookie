@@ -1,0 +1,35 @@
+/**
+ * Indigo Color Mappings
+ * 
+ * This color can be used for:
+ * - Primary theme color
+ */
+
+/* PRIMARY - Indigo */
+[data-primary-color="indigo"] {
+  --primary-1: var(--indigo-1);
+  --primary-2: var(--indigo-2);
+  --primary-3: var(--indigo-3);
+  --primary-4: var(--indigo-4);
+  --primary-5: var(--indigo-5);
+  --primary-6: var(--indigo-6);
+  --primary-7: var(--indigo-7);
+  --primary-8: var(--indigo-8);
+  --primary-9: var(--indigo-9);
+  --primary-10: var(--indigo-10);
+  --primary-11: var(--indigo-11);
+  --primary-12: var(--indigo-12);
+  --primary-a1: var(--indigo-a1);
+  --primary-a2: var(--indigo-a2);
+  --primary-a3: var(--indigo-a3);
+  --primary-a4: var(--indigo-a4);
+  --primary-a5: var(--indigo-a5);
+  --primary-a6: var(--indigo-a6);
+  --primary-a7: var(--indigo-a7);
+  --primary-a8: var(--indigo-a8);
+  --primary-a9: var(--indigo-a9);
+  --primary-a10: var(--indigo-a10);
+  --primary-a11: var(--indigo-a11);
+  --primary-a12: var(--indigo-a12);
+  --primary-foreground: var(--indigo-1);
+}

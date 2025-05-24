@@ -1,0 +1,65 @@
+/**
+ * Orange Color Mappings
+ * 
+ * This color can be used for:
+ * - Primary theme color
+ * - Warning states
+ */
+
+/* PRIMARY - Orange */
+[data-primary-color="orange"] {
+  --primary-1: var(--orange-1);
+  --primary-2: var(--orange-2);
+  --primary-3: var(--orange-3);
+  --primary-4: var(--orange-4);
+  --primary-5: var(--orange-5);
+  --primary-6: var(--orange-6);
+  --primary-7: var(--orange-7);
+  --primary-8: var(--orange-8);
+  --primary-9: var(--orange-9);
+  --primary-10: var(--orange-10);
+  --primary-11: var(--orange-11);
+  --primary-12: var(--orange-12);
+  --primary-a1: var(--orange-a1);
+  --primary-a2: var(--orange-a2);
+  --primary-a3: var(--orange-a3);
+  --primary-a4: var(--orange-a4);
+  --primary-a5: var(--orange-a5);
+  --primary-a6: var(--orange-a6);
+  --primary-a7: var(--orange-a7);
+  --primary-a8: var(--orange-a8);
+  --primary-a9: var(--orange-a9);
+  --primary-a10: var(--orange-a10);
+  --primary-a11: var(--orange-a11);
+  --primary-a12: var(--orange-a12);
+  --primary-foreground: var(--orange-12);
+}
+
+/* WARNING - Orange */
+[data-warning-color="orange"] {
+  --warning-1: var(--orange-1);
+  --warning-2: var(--orange-2);
+  --warning-3: var(--orange-3);
+  --warning-4: var(--orange-4);
+  --warning-5: var(--orange-5);
+  --warning-6: var(--orange-6);
+  --warning-7: var(--orange-7);
+  --warning-8: var(--orange-8);
+  --warning-9: var(--orange-9);
+  --warning-10: var(--orange-10);
+  --warning-11: var(--orange-11);
+  --warning-12: var(--orange-12);
+  --warning-a1: var(--orange-a1);
+  --warning-a2: var(--orange-a2);
+  --warning-a3: var(--orange-a3);
+  --warning-a4: var(--orange-a4);
+  --warning-a5: var(--orange-a5);
+  --warning-a6: var(--orange-a6);
+  --warning-a7: var(--orange-a7);
+  --warning-a8: var(--orange-a8);
+  --warning-a9: var(--orange-a9);
+  --warning-a10: var(--orange-a10);
+  --warning-a11: var(--orange-a11);
+  --warning-a12: var(--orange-a12);
+  --warning-foreground: var(--orange-12);
+}
