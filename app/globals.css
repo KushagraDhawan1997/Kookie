@@ -135,11 +135,16 @@
 @import "@radix-ui/colors/sand-dark.css";
 @import "@radix-ui/colors/sand-dark-alpha.css";
 
+/* Import component token files */
+@import "../components/ui/button/button-tokens.css";
+@import "../components/ui/text/text-tokens.css";
+
 /* Import token CSS files */
 @import "../styles/tokens/spacing.css";
 @import "../styles/tokens/dimensions.css";
 @import "../styles/typography.css";
-@import "../styles/color.css";
+@import "../styles/tokens/reference/colors/reference.css";
+@import "../styles/tokens/system/colors/system.css";
 @import "../styles/tokens/roundness.css";
 
 /* Import utility CSS files */
@@ -148,6 +153,7 @@
 @import "../styles/utils/grid-utils.css";
 
 /* Import component CSS files */
+@import "../components/ui/button/button.css";
 @import "../components/ui/text/text.css";
 @import "../components/ui/box/box.css";
 @import "../components/ui/flex/flex.css";

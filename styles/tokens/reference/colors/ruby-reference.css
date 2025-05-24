@@ -32,7 +32,9 @@
   --primary-a10: var(--ruby-a10);
   --primary-a11: var(--ruby-a11);
   --primary-a12: var(--ruby-a12);
-  --primary-foreground: var(--ruby-1);
+
+  /* Contextual text tokens for ruby primary */
+  --text-on-solid: var(--ruby-1); /* Light text on ruby solid background */
 }
 
 /* ERROR - Ruby */
@@ -61,5 +63,7 @@
   --error-a10: var(--ruby-a10);
   --error-a11: var(--ruby-a11);
   --error-a12: var(--ruby-a12);
-  --error-foreground: var(--ruby-1);
+
+  /* Contextual text tokens for ruby error */
+  --text-error-on-solid: var(--ruby-1); /* Light text on ruby error solid background */
 }

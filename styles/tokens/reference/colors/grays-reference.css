@@ -34,8 +34,6 @@
   --gray-a11: var(--sage-a11);
   --gray-a12: var(--sage-a12);
   --background: var(--sage-1);
-  --foreground: var(--sage-12);
-  --gray-foreground: var(--sage-1);
 }
 
 /* GRAY - Slate */
@@ -65,8 +63,6 @@
   --gray-a11: var(--slate-a11);
   --gray-a12: var(--slate-a12);
   --background: var(--slate-1);
-  --foreground: var(--slate-12);
-  --gray-foreground: var(--slate-1);
 }
 
 /* GRAY - Mauve */
@@ -96,8 +92,6 @@
   --gray-a11: var(--mauve-a11);
   --gray-a12: var(--mauve-a12);
   --background: var(--mauve-1);
-  --foreground: var(--mauve-12);
-  --gray-foreground: var(--mauve-1);
 }
 
 /* GRAY - Olive */
@@ -127,8 +121,6 @@
   --gray-a11: var(--olive-a11);
   --gray-a12: var(--olive-a12);
   --background: var(--olive-1);
-  --foreground: var(--olive-12);
-  --gray-foreground: var(--olive-1);
 }
 
 /* GRAY - Sand */
@@ -158,8 +150,6 @@
   --gray-a11: var(--sand-a11);
   --gray-a12: var(--sand-a12);
   --background: var(--sand-1);
-  --foreground: var(--sand-12);
-  --gray-foreground: var(--sand-1);
 }
 
 /* PRIMARY - Gray (uses currently selected gray) */
@@ -188,5 +178,7 @@
   --primary-a10: var(--gray-a10);
   --primary-a11: var(--gray-a11);
   --primary-a12: var(--gray-a12);
-  --primary-foreground: var(--gray-1);
+
+  /* Contextual text tokens for gray primary */
+  --text-on-solid: var(--gray-1); /* Light text on gray solid background */
 }

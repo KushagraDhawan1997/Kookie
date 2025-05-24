@@ -31,5 +31,7 @@
   --primary-a10: var(--iris-a10);
   --primary-a11: var(--iris-a11);
   --primary-a12: var(--iris-a12);
-  --primary-foreground: var(--iris-1);
+
+  /* Contextual text tokens for iris primary */
+  --text-on-solid: var(--iris-1); /* Light text on iris solid background */
 }

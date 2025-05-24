@@ -1,0 +1,154 @@
+/**
+ * Kookie System Color Tokens
+ * 
+ * System tokens provide semantic UI abstractions over reference tokens.
+ * These tokens map to specific steps in the Radix 12-step color scale
+ * and provide consistent semantic meaning across all components.
+ * 
+ * Radix Scale Reference:
+ * Steps 1-2: App backgrounds (subtle variations)
+ * Steps 3-5: Component backgrounds (tinted states)
+ * Steps 6-8: Borders (subtle to strong)
+ * Steps 9-10: Solid backgrounds
+ * Steps 11-12: Text (medium to high contrast)
+ */
+
+/* ========================================
+   BACKGROUND SYSTEM TOKENS
+   ======================================== */
+
+/* App-level backgrounds */
+:root {
+  --ui-bg-app: var(--primary-1); /* Step 1: App background */
+  --ui-bg-subtle: var(--primary-2); /* Step 2: Subtle background */
+}
+
+/* Component backgrounds (tinted variants) */
+:root {
+  --ui-bg-component: var(--primary-3); /* Step 3: Normal tinted state */
+  --ui-bg-component-hover: var(--primary-4); /* Step 4: Hover tinted state */
+  --ui-bg-component-pressed: var(--primary-5); /* Step 5: Pressed tinted state */
+}
+
+/* Solid backgrounds */
+:root {
+  --ui-bg-solid: var(--primary-9); /* Step 9: Primary solid */
+  --ui-bg-solid-hover: var(--primary-10); /* Step 10: Solid hover */
+  /* Note: Solid pressed uses filter: brightness(0.95) on step 9 */
+}
+
+/* ========================================
+   BORDER SYSTEM TOKENS
+   ======================================== */
+
+:root {
+  --ui-border-subtle: var(--primary-6); /* Step 6: Subtle borders */
+  --ui-border-interactive: var(--primary-7); /* Step 7: Interactive borders */
+  --ui-border-strong: var(--primary-8); /* Step 8: Strong borders & focus */
+}
+
+/* ========================================
+   TEXT SYSTEM TOKENS
+   ======================================== */
+
+/* Standard text contrast levels */
+:root {
+  --text-high-contrast: var(--primary-12); /* Step 12: Default text */
+  --text-medium-contrast: var(--primary-11); /* Step 11: Accent text */
+  --text-low-contrast: var(--primary-10); /* Step 10: Muted text */
+}
+
+/* Contextual text tokens - these vary per color and are defined in reference files */
+:root {
+  --text-on-solid: var(--primary-1); /* Default: light text on solid (overridden per color) */
+  --text-on-tinted: var(--primary-12); /* Dark text on light tinted backgrounds */
+  --text-on-app: var(--primary-12); /* Dark text on app backgrounds */
+}
+
+/* ========================================
+   SEMANTIC COLOR CONTEXTS
+   
+   These provide the same system tokens for 
+   different semantic color contexts
+   ======================================== */
+
+/* Warning Context */
+[data-warning-color] {
+  --ui-bg-warning-app: var(--warning-1);
+  --ui-bg-warning-subtle: var(--warning-2);
+  --ui-bg-warning-component: var(--warning-3);
+  --ui-bg-warning-component-hover: var(--warning-4);
+  --ui-bg-warning-component-pressed: var(--warning-5);
+  --ui-bg-warning-solid: var(--warning-9);
+  --ui-bg-warning-solid-hover: var(--warning-10);
+
+  --ui-border-warning-subtle: var(--warning-6);
+  --ui-border-warning-interactive: var(--warning-7);
+  --ui-border-warning-strong: var(--warning-8);
+
+  --text-warning-high-contrast: var(--warning-12);
+  --text-warning-medium-contrast: var(--warning-11);
+  --text-warning-low-contrast: var(--warning-10);
+  --text-warning-on-tinted: var(--warning-12);
+}
+
+/* Error Context */
+[data-error-color] {
+  --ui-bg-error-app: var(--error-1);
+  --ui-bg-error-subtle: var(--error-2);
+  --ui-bg-error-component: var(--error-3);
+  --ui-bg-error-component-hover: var(--error-4);
+  --ui-bg-error-component-pressed: var(--error-5);
+  --ui-bg-error-solid: var(--error-9);
+  --ui-bg-error-solid-hover: var(--error-10);
+
+  --ui-border-error-subtle: var(--error-6);
+  --ui-border-error-interactive: var(--error-7);
+  --ui-border-error-strong: var(--error-8);
+
+  --text-error-high-contrast: var(--error-12);
+  --text-error-medium-contrast: var(--error-11);
+  --text-error-low-contrast: var(--error-10);
+  --text-error-on-tinted: var(--error-12);
+}
+
+/* Success Context */
+[data-success-color] {
+  --ui-bg-success-app: var(--success-1);
+  --ui-bg-success-subtle: var(--success-2);
+  --ui-bg-success-component: var(--success-3);
+  --ui-bg-success-component-hover: var(--success-4);
+  --ui-bg-success-component-pressed: var(--success-5);
+  --ui-bg-success-solid: var(--success-9);
+  --ui-bg-success-solid-hover: var(--success-10);
+
+  --ui-border-success-subtle: var(--success-6);
+  --ui-border-success-interactive: var(--success-7);
+  --ui-border-success-strong: var(--success-8);
+
+  --text-success-high-contrast: var(--success-12);
+  --text-success-medium-contrast: var(--success-11);
+  --text-success-low-contrast: var(--success-10);
+  --text-success-on-tinted: var(--success-12);
+}
+
+/* Gray Context (always available) */
+:root {
+  --ui-bg-gray-app: var(--gray-1);
+  --ui-bg-gray-subtle: var(--gray-2);
+  --ui-bg-gray-component: var(--gray-3);
+  --ui-bg-gray-component-hover: var(--gray-4);
+  --ui-bg-gray-component-pressed: var(--gray-5);
+  --ui-bg-gray-solid: var(--gray-12); /* Gray uses step 12 for solid */
+  --ui-bg-gray-solid-hover: var(--gray-11);
+
+  --ui-border-gray-subtle: var(--gray-6);
+  --ui-border-gray-interactive: var(--gray-7);
+  --ui-border-gray-strong: var(--gray-8);
+
+  --text-gray-high-contrast: var(--gray-12);
+  --text-gray-medium-contrast: var(--gray-11);
+  --text-gray-low-contrast: var(--gray-10);
+  --text-gray-on-solid: var(--gray-1); /* Light text on dark gray solid */
+  --text-gray-on-tinted: var(--gray-12);
+}

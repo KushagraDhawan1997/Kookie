@@ -1,0 +1,266 @@
+/**
+ * Button Component Tokens
+ * 
+ * These tokens map button variants to appropriate system tokens,
+ * providing a clean abstraction for button styling that can be
+ * easily customized by consumers.
+ */
+
+/* ========================================
+   SOLID VARIANT TOKENS
+   ======================================== */
+
+[data-variant="solid"][data-primary-color] {
+  --button-bg: var(--ui-bg-solid);
+  --button-bg-hover: var(--ui-bg-solid-hover);
+  --button-text: var(--text-on-solid);
+  --button-border: transparent;
+}
+
+[data-variant="solid"][data-primary-color="gray"] {
+  --button-bg: var(--ui-bg-gray-solid);
+  --button-bg-hover: var(--ui-bg-gray-solid-hover);
+  --button-text: var(--text-gray-on-solid);
+  --button-border: transparent;
+}
+
+[data-variant="solid"][data-primary-color="error"] {
+  --button-bg: var(--ui-bg-error-solid);
+  --button-bg-hover: var(--ui-bg-error-solid-hover);
+  --button-text: var(--text-error-on-solid);
+  --button-border: transparent;
+}
+
+[data-variant="solid"][data-primary-color="success"] {
+  --button-bg: var(--ui-bg-success-solid);
+  --button-bg-hover: var(--ui-bg-success-solid-hover);
+  --button-text: var(--text-success-on-solid);
+  --button-border: transparent;
+}
+
+[data-variant="solid"][data-primary-color="warning"] {
+  --button-bg: var(--ui-bg-warning-solid);
+  --button-bg-hover: var(--ui-bg-warning-solid-hover);
+  --button-text: var(--text-warning-on-solid);
+  --button-border: transparent;
+}
+
+/* ========================================
+   TINTED VARIANT TOKENS
+   ======================================== */
+
+[data-variant="tinted"][data-primary-color] {
+  --button-bg: var(--ui-bg-component);
+  --button-bg-hover: var(--ui-bg-component-hover);
+  --button-bg-pressed: var(--ui-bg-component-pressed);
+  --button-text: var(--text-on-tinted);
+  --button-border: transparent;
+}
+
+[data-variant="tinted"][data-primary-color="gray"] {
+  --button-bg: var(--ui-bg-gray-component);
+  --button-bg-hover: var(--ui-bg-gray-component-hover);
+  --button-bg-pressed: var(--ui-bg-gray-component-pressed);
+  --button-text: var(--text-gray-on-tinted);
+  --button-border: transparent;
+}
+
+[data-variant="tinted"][data-primary-color="error"] {
+  --button-bg: var(--ui-bg-error-component);
+  --button-bg-hover: var(--ui-bg-error-component-hover);
+  --button-bg-pressed: var(--ui-bg-error-component-pressed);
+  --button-text: var(--text-error-on-tinted);
+  --button-border: transparent;
+}
+
+[data-variant="tinted"][data-primary-color="success"] {
+  --button-bg: var(--ui-bg-success-component);
+  --button-bg-hover: var(--ui-bg-success-component-hover);
+  --button-bg-pressed: var(--ui-bg-success-component-pressed);
+  --button-text: var(--text-success-on-tinted);
+  --button-border: transparent;
+}
+
+[data-variant="tinted"][data-primary-color="warning"] {
+  --button-bg: var(--ui-bg-warning-component);
+  --button-bg-hover: var(--ui-bg-warning-component-hover);
+  --button-bg-pressed: var(--ui-bg-warning-component-pressed);
+  --button-text: var(--text-warning-on-tinted);
+  --button-border: transparent;
+}
+
+/* ========================================
+   OUTLINE VARIANT TOKENS
+   ======================================== */
+
+[data-variant="outline"][data-primary-color] {
+  --button-bg: transparent;
+  --button-bg-hover: var(--ui-bg-component);
+  --button-bg-pressed: var(--ui-bg-component-hover);
+  --button-text: var(--text-high-contrast);
+  --button-border: var(--ui-border-interactive);
+  --button-border-hover: var(--ui-border-strong);
+}
+
+[data-variant="outline"][data-primary-color="gray"] {
+  --button-bg: transparent;
+  --button-bg-hover: var(--ui-bg-gray-component);
+  --button-bg-pressed: var(--ui-bg-gray-component-hover);
+  --button-text: var(--text-gray-high-contrast);
+  --button-border: var(--ui-border-gray-interactive);
+  --button-border-hover: var(--ui-border-gray-strong);
+}
+
+[data-variant="outline"][data-primary-color="error"] {
+  --button-bg: transparent;
+  --button-bg-hover: var(--ui-bg-error-component);
+  --button-bg-pressed: var(--ui-bg-error-component-hover);
+  --button-text: var(--text-error-high-contrast);
+  --button-border: var(--ui-border-error-interactive);
+  --button-border-hover: var(--ui-border-error-strong);
+}
+
+[data-variant="outline"][data-primary-color="success"] {
+  --button-bg: transparent;
+  --button-bg-hover: var(--ui-bg-success-component);
+  --button-bg-pressed: var(--ui-bg-success-component-hover);
+  --button-text: var(--text-success-high-contrast);
+  --button-border: var(--ui-border-success-interactive);
+  --button-border-hover: var(--ui-border-success-strong);
+}
+
+[data-variant="outline"][data-primary-color="warning"] {
+  --button-bg: transparent;
+  --button-bg-hover: var(--ui-bg-warning-component);
+  --button-bg-pressed: var(--ui-bg-warning-component-hover);
+  --button-text: var(--text-warning-high-contrast);
+  --button-border: var(--ui-border-warning-interactive);
+  --button-border-hover: var(--ui-border-warning-strong);
+}
+
+/* ========================================
+   GHOST VARIANT TOKENS
+   ======================================== */
+
+[data-variant="ghost"][data-primary-color] {
+  --button-bg: transparent;
+  --button-bg-hover: var(--ui-bg-component);
+  --button-bg-pressed: var(--ui-bg-component-hover);
+  --button-text: var(--text-high-contrast);
+  --button-border: transparent;
+}
+
+[data-variant="ghost"][data-primary-color="gray"] {
+  --button-bg: transparent;
+  --button-bg-hover: var(--ui-bg-gray-component);
+  --button-bg-pressed: var(--ui-bg-gray-component-hover);
+  --button-text: var(--text-gray-high-contrast);
+  --button-border: transparent;
+}
+
+[data-variant="ghost"][data-primary-color="error"] {
+  --button-bg: transparent;
+  --button-bg-hover: var(--ui-bg-error-component);
+  --button-bg-pressed: var(--ui-bg-error-component-hover);
+  --button-text: var(--text-error-high-contrast);
+  --button-border: transparent;
+}
+
+[data-variant="ghost"][data-primary-color="success"] {
+  --button-bg: transparent;
+  --button-bg-hover: var(--ui-bg-success-component);
+  --button-bg-pressed: var(--ui-bg-success-component-hover);
+  --button-text: var(--text-success-high-contrast);
+  --button-border: transparent;
+}
+
+[data-variant="ghost"][data-primary-color="warning"] {
+  --button-bg: transparent;
+  --button-bg-hover: var(--ui-bg-warning-component);
+  --button-bg-pressed: var(--ui-bg-warning-component-hover);
+  --button-text: var(--text-warning-high-contrast);
+  --button-border: transparent;
+}
+
+/* ========================================
+   LINK VARIANT TOKENS
+   ======================================== */
+
+[data-variant="link"][data-primary-color] {
+  --button-bg: transparent;
+  --button-bg-hover: transparent;
+  --button-text: var(--text-high-contrast);
+  --button-text-hover: var(--text-high-contrast);
+  --button-border: transparent;
+}
+
+[data-variant="link"][data-primary-color="gray"] {
+  --button-bg: transparent;
+  --button-bg-hover: transparent;
+  --button-text: var(--text-gray-high-contrast);
+  --button-text-hover: var(--text-gray-high-contrast);
+  --button-border: transparent;
+}
+
+[data-variant="link"][data-primary-color="error"] {
+  --button-bg: transparent;
+  --button-bg-hover: transparent;
+  --button-text: var(--text-error-high-contrast);
+  --button-text-hover: var(--text-error-high-contrast);
+  --button-border: transparent;
+}
+
+[data-variant="link"][data-primary-color="success"] {
+  --button-bg: transparent;
+  --button-bg-hover: transparent;
+  --button-text: var(--text-success-high-contrast);
+  --button-text-hover: var(--text-success-high-contrast);
+  --button-border: transparent;
+}
+
+[data-variant="link"][data-primary-color="warning"] {
+  --button-bg: transparent;
+  --button-bg-hover: transparent;
+  --button-text: var(--text-warning-high-contrast);
+  --button-text-hover: var(--text-warning-high-contrast);
+  --button-border: transparent;
+}
+
+/* ========================================
+   MODERN VARIANT TOKENS
+   ======================================== */
+
+[data-variant="modern"][data-primary-color] {
+  --button-bg: var(--ui-bg-solid);
+  --button-bg-secondary: var(--ui-bg-solid-hover);
+  --button-text: var(--text-on-solid);
+  --button-border: transparent;
+}
+
+[data-variant="modern"][data-primary-color="gray"] {
+  --button-bg: var(--ui-bg-gray-solid-hover);
+  --button-bg-secondary: var(--ui-bg-gray-solid);
+  --button-text: var(--text-gray-on-solid);
+  --button-border: transparent;
+}
+
+[data-variant="modern"][data-primary-color="error"] {
+  --button-bg: var(--ui-bg-error-solid);
+  --button-bg-secondary: var(--ui-bg-error-solid-hover);
+  --button-text: var(--text-error-on-solid);
+  --button-border: transparent;
+}
+
+[data-variant="modern"][data-primary-color="success"] {
+  --button-bg: var(--ui-bg-success-solid);
+  --button-bg-secondary: var(--ui-bg-success-solid-hover);
+  --button-text: var(--text-success-on-solid);
+  --button-border: transparent;
+}
+
+[data-variant="modern"][data-primary-color="warning"] {
+  --button-bg: var(--ui-bg-warning-solid);
+  --button-bg-secondary: var(--ui-bg-warning-solid-hover);
+  --button-text: var(--text-warning-on-solid);
+  --button-border: transparent;
+}

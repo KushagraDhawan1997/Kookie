@@ -31,5 +31,7 @@
   --primary-a10: var(--purple-a10);
   --primary-a11: var(--purple-a11);
   --primary-a12: var(--purple-a12);
-  --primary-foreground: var(--purple-1);
+
+  /* Contextual text tokens for purple primary */
+  --text-on-solid: var(--purple-1); /* Light text on purple solid background */
 }

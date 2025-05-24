@@ -24,29 +24,29 @@
  */
 
 /* Import Gray Colors (handles both gray semantic and gray-as-primary) */
-@import "./colors/grays.css";
+@import "./grays-reference.css";
 
 /* Import Error Colors */
-@import "./colors/red.css";
-@import "./colors/ruby.css";
-@import "./colors/crimson.css";
+@import "./red-reference.css";
+@import "./ruby-reference.css";
+@import "./crimson-reference.css";
 
 /* Import Success Colors */
-@import "./colors/green.css";
-@import "./colors/teal.css";
-@import "./colors/lime.css";
+@import "./green-reference.css";
+@import "./teal-reference.css";
+@import "./lime-reference.css";
 
 /* Import Warning Colors */
-@import "./colors/amber.css";
-@import "./colors/yellow.css";
-@import "./colors/orange.css";
+@import "./amber-reference.css";
+@import "./yellow-reference.css";
+@import "./orange-reference.css";
 
 /* Import Primary-Only Colors */
-@import "./colors/blue.css";
-@import "./colors/purple.css";
-@import "./colors/pink.css";
-@import "./colors/violet.css";
-@import "./colors/iris.css";
-@import "./colors/indigo.css";
-@import "./colors/cyan.css";
-@import "./colors/sky.css";
+@import "./blue-reference.css";
+@import "./purple-reference.css";
+@import "./pink-reference.css";
+@import "./violet-reference.css";
+@import "./iris-reference.css";
+@import "./indigo-reference.css";
+@import "./cyan-reference.css";
+@import "./sky-reference.css";

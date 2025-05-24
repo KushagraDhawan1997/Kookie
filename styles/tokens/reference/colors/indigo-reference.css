@@ -31,5 +31,7 @@
   --primary-a10: var(--indigo-a10);
   --primary-a11: var(--indigo-a11);
   --primary-a12: var(--indigo-a12);
-  --primary-foreground: var(--indigo-1);
+
+  /* Contextual text tokens for indigo primary */
+  --text-on-solid: var(--indigo-1); /* Light text on indigo solid background */
 }

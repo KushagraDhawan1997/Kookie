@@ -31,5 +31,7 @@
   --primary-a10: var(--sky-a10);
   --primary-a11: var(--sky-a11);
   --primary-a12: var(--sky-a12);
-  --primary-foreground: var(--sky-12);
+
+  /* Contextual text tokens for sky primary */
+  --text-on-solid: var(--sky-12); /* Dark text on sky solid background */
 }

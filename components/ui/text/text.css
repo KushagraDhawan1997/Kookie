@@ -1,26 +1,8 @@
 /* Text component styling using data attributes */
 
-/* Color variants based on data attributes */
-/* Semantic colors */
-[data-variant="default"] {
-  color: var(--gray-12);
-}
-[data-variant="muted"] {
-  color: var(--gray-10);
-}
-[data-variant="accent"] {
-  color: var(--gray-11);
-}
-
-/* If data-primary-color is present, use primary tokens */
-[data-primary-color][data-variant="default"] {
-  color: var(--primary-12);
-}
-[data-primary-color][data-variant="muted"] {
-  color: var(--primary-10);
-}
-[data-primary-color][data-variant="accent"] {
-  color: var(--primary-11);
+/* Color variants - simplified since token file handles the logic */
+.text-root {
+  color: var(--text-color);
 }
 
 /* Text size classes - refined for sophisticated UX */

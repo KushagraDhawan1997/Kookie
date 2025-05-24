@@ -2,28 +2,15 @@
  * Button Component Styles
  * 
  * Design system choices:
- * - Solid variant uses scale-12 for maximum emphasis
- * - Non-solid variants use scale-12 for text color
- * - Hover states use scale-3 backgrounds for consistency
- * - Active states use scale-4 for subtle feedback
- * - Border colors use scale-5, moving to scale-6 on hover
+ * - All variant and color logic is handled by button-tokens.css
+ * - This file only contains base styles and special cases
+ * - Component tokens (--button-bg, --button-text, etc.) are set by the token file
  *
  * Roundness system:
  * - Border-radius is calculated as: border-radius: calc(var(--radius-*) * var(--theme-radius-factor, 1));
  * - The roundness factor is set by the closest data-roundness attribute (theme or local).
  * - This allows for both global and per-button roundness control, using only CSS.
  */
-
-/*
-========================================
- Kookie Button Component Styles
-========================================
-
-- This file defines all button variants and color mappings for the Kookie design system.
-- Each variant (solid, tinted, outline, ghost, link, modern) is grouped and clearly commented.
-- Each color block within a variant is labeled for clarity.
-- All tokens are semantic and use Radix color variables.
-*/
 
 /* ----------------------------------------
    BASE BUTTON STYLES & SIZE VARIANTS
@@ -38,7 +25,19 @@
   outline: none;
   cursor: pointer;
   gap: var(--size-2);
-  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+
+  /* Use component tokens set by button-tokens.css */
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+.button-root:hover {
+  background-color: var(--button-bg-hover);
+}
+
+.button-root:active {
+  background-color: var(--button-bg-pressed);
 }
 
 /* Size variants using dimension tokens */
@@ -73,426 +72,49 @@
   border-radius: calc(var(--radius-2xl) * var(--theme-radius-factor, 1));
 }
 
-/* =========================
-   MODERN VARIANT (Gradient + Alpha Overlays)
-   ========================= */
+/* ========================================
+   VARIANT-SPECIFIC OVERRIDES
+   ======================================== */
 
-/* --- Modern: Primary (default) --- */
-[data-variant="modern"][data-primary-color] {
-  background: linear-gradient(to bottom right, var(--primary-9) 0%, var(--primary-10) 50%);
-  color: var(--primary-foreground);
-  border: 1px solid var(--primary-10);
+/* Outline variant needs border */
+[data-variant="outline"] {
+  border: 1px solid var(--button-border);
+}
+[data-variant="outline"]:hover {
+  border-color: var(--button-border-hover);
+}
+
+/* Modern variant with gradient */
+[data-variant="modern"] {
+  background: linear-gradient(to bottom right, var(--button-bg), var(--button-bg-secondary));
+  border: 1px solid var(--button-border);
   box-shadow: var(--shadow-xl);
 }
-[data-variant="modern"][data-primary-color]:hover {
-  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--primary-a9);
-}
-[data-variant="modern"][data-primary-color]:active {
-  box-shadow: var(--shadow-md), inset 0 0 0 100px var(--primary-a10);
-}
-
-/* --- Modern: Gray --- */
-[data-variant="modern"][data-primary-color="gray"] {
-  background: linear-gradient(to bottom right, var(--gray-11) 0%, var(--gray-12) 50%);
-  color: var(--gray-foreground);
-  border: 1px solid var(--gray-8);
+[data-variant="modern"]:hover {
+  background: linear-gradient(to bottom right, var(--button-bg), var(--button-bg-secondary));
   box-shadow: var(--shadow-lg);
+  filter: brightness(0.95);
 }
-[data-variant="modern"][data-primary-color="gray"]:hover {
-  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--gray-a9);
-}
-[data-variant="modern"][data-primary-color="gray"]:active {
-  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--gray-a10);
-}
-
-/* --- Modern: Error --- */
-[data-variant="modern"][data-primary-color="error"] {
-  background: linear-gradient(to bottom right, var(--error-9) 0%, var(--error-10) 50%);
-  color: var(--error-foreground);
-  border: 1px solid var(--error-10);
-  box-shadow: var(--shadow-lg);
-}
-[data-variant="modern"][data-primary-color="error"]:hover {
-  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--error-a9);
-}
-[data-variant="modern"][data-primary-color="error"]:active {
-  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--error-a10);
+[data-variant="modern"]:active {
+  background: linear-gradient(to bottom right, var(--button-bg), var(--button-bg-secondary));
+  box-shadow: var(--shadow-md);
+  filter: brightness(0.9);
 }
 
-/* --- Modern: Success --- */
-[data-variant="modern"][data-primary-color="success"] {
-  background: linear-gradient(to bottom right, var(--success-9) 0%, var(--success-10) 50%);
-  color: var(--success-foreground);
-  border: 1px solid var(--success-10);
-  box-shadow: var(--shadow-lg);
-}
-[data-variant="modern"][data-primary-color="success"]:hover {
-  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--success-a9);
-}
-[data-variant="modern"][data-primary-color="success"]:active {
-  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--success-a10);
+/* Solid variant gets filter for pressed state */
+[data-variant="solid"]:active {
+  background-color: var(--button-bg); /* Reset to normal bg */
+  filter: brightness(0.9);
 }
 
-/* --- Modern: Warning --- */
-[data-variant="modern"][data-primary-color="warning"] {
-  background: linear-gradient(to bottom right, var(--warning-9) 0%, var(--warning-10) 50%);
-  color: var(--warning-foreground);
-  border: 1px solid var(--warning-10);
-  box-shadow: var(--shadow-lg);
-}
-[data-variant="modern"][data-primary-color="warning"]:hover {
-  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--warning-a9);
-}
-[data-variant="modern"][data-primary-color="warning"]:active {
-  box-shadow: var(--shadow-lg), inset 0 0 0 100px var(--warning-a10);
-}
-
-/*
-========================================
- SOLID VARIANT
- - Maximum emphasis, filled background
-========================================
-*/
-
-/* --- Solid: Primary (default) --- */
-[data-variant="solid"][data-primary-color] {
-  background-color: var(--primary-9);
-  color: var(--primary-foreground);
-}
-[data-variant="solid"][data-primary-color]:hover {
-  background-color: var(--primary-10);
-}
-[data-variant="solid"][data-primary-color]:active {
-  background-color: var(--primary-11);
-}
-
-/* --- Solid: Gray --- */
-[data-variant="solid"][data-primary-color="gray"] {
-  background-color: var(--gray-12);
-  color: var(--gray-foreground);
-}
-[data-variant="solid"][data-primary-color="gray"]:hover {
-  background-color: var(--gray-11);
-}
-[data-variant="solid"][data-primary-color="gray"]:active {
-  background-color: var(--gray-10);
-}
-
-/* --- Solid: Error --- */
-[data-variant="solid"][data-primary-color="error"] {
-  background-color: var(--error-9);
-  color: var(--error-foreground);
-}
-[data-variant="solid"][data-primary-color="error"]:hover {
-  background-color: var(--error-10);
-}
-[data-variant="solid"][data-primary-color="error"]:active {
-  background-color: var(--error-11);
-}
-
-/* --- Solid: Success --- */
-[data-variant="solid"][data-primary-color="success"] {
-  background-color: var(--success-9);
-  color: var(--success-foreground);
-}
-[data-variant="solid"][data-primary-color="success"]:hover {
-  background-color: var(--success-10);
-}
-[data-variant="solid"][data-primary-color="success"]:active {
-  background-color: var(--success-11);
-}
-
-/* --- Solid: Warning --- */
-[data-variant="solid"][data-primary-color="warning"] {
-  background-color: var(--warning-9);
-  color: var(--warning-foreground);
-}
-[data-variant="solid"][data-primary-color="warning"]:hover {
-  background-color: var(--warning-10);
-}
-[data-variant="solid"][data-primary-color="warning"]:active {
-  background-color: var(--warning-11);
-}
-
-/*
-========================================
- TINTED VARIANT
- - Subtle background, strong text
-========================================
-*/
-
-/* --- Tinted: Primary (default) --- */
-[data-variant="tinted"][data-primary-color] {
-  background-color: var(--primary-3);
-  color: var(--primary-12);
-}
-[data-variant="tinted"][data-primary-color]:hover {
-  background-color: var(--primary-4);
-}
-[data-variant="tinted"][data-primary-color]:active {
-  background-color: var(--primary-5);
-}
-
-/* --- Tinted: Gray --- */
-[data-variant="tinted"][data-primary-color="gray"] {
-  background-color: var(--gray-3);
-  color: var(--gray-12);
-}
-[data-variant="tinted"][data-primary-color="gray"]:hover {
-  background-color: var(--gray-4);
-}
-[data-variant="tinted"][data-primary-color="gray"]:active {
-  background-color: var(--gray-5);
-}
-
-/* --- Tinted: Error --- */
-[data-variant="tinted"][data-primary-color="error"] {
-  background-color: var(--error-3);
-  color: var(--error-12);
-}
-[data-variant="tinted"][data-primary-color="error"]:hover {
-  background-color: var(--error-4);
-}
-[data-variant="tinted"][data-primary-color="error"]:active {
-  background-color: var(--error-5);
-}
-
-/* --- Tinted: Success --- */
-[data-variant="tinted"][data-primary-color="success"] {
-  background-color: var(--success-3);
-  color: var(--success-12);
-}
-[data-variant="tinted"][data-primary-color="success"]:hover {
-  background-color: var(--success-4);
-}
-[data-variant="tinted"][data-primary-color="success"]:active {
-  background-color: var(--success-5);
-}
-
-/* --- Tinted: Warning --- */
-[data-variant="tinted"][data-primary-color="warning"] {
-  background-color: var(--warning-3);
-  color: var(--warning-12);
-}
-[data-variant="tinted"][data-primary-color="warning"]:hover {
-  background-color: var(--warning-4);
-}
-[data-variant="tinted"][data-primary-color="warning"]:active {
-  background-color: var(--warning-5);
-}
-
-/*
-========================================
- OUTLINE VARIANT
- - Transparent background, colored border
-========================================
-*/
-
-/* --- Outline: Primary (default) --- */
-[data-variant="outline"][data-primary-color] {
-  border: 1px solid var(--primary-5);
-  color: var(--primary-12);
-  background-color: transparent;
-}
-[data-variant="outline"][data-primary-color]:hover {
-  background-color: var(--primary-3);
-  border-color: var(--primary-6);
-}
-[data-variant="outline"][data-primary-color]:active {
-  background-color: var(--primary-4);
-}
-
-/* --- Outline: Gray --- */
-[data-variant="outline"][data-primary-color="gray"] {
-  border: 1px solid var(--gray-5);
-  color: var(--gray-12);
-  background-color: transparent;
-}
-[data-variant="outline"][data-primary-color="gray"]:hover {
-  background-color: var(--gray-3);
-  border-color: var(--gray-6);
-}
-[data-variant="outline"][data-primary-color="gray"]:active {
-  background-color: var(--gray-4);
-}
-
-/* --- Outline: Error --- */
-[data-variant="outline"][data-primary-color="error"] {
-  border: 1px solid var(--error-5);
-  color: var(--error-12);
-  background-color: transparent;
-}
-[data-variant="outline"][data-primary-color="error"]:hover {
-  background-color: var(--error-3);
-  border-color: var(--error-6);
-}
-[data-variant="outline"][data-primary-color="error"]:active {
-  background-color: var(--error-4);
-}
-
-/* --- Outline: Success --- */
-[data-variant="outline"][data-primary-color="success"] {
-  border: 1px solid var(--success-5);
-  color: var(--success-12);
-  background-color: transparent;
-}
-[data-variant="outline"][data-primary-color="success"]:hover {
-  background-color: var(--success-3);
-  border-color: var(--success-6);
-}
-[data-variant="outline"][data-primary-color="success"]:active {
-  background-color: var(--success-4);
-}
-
-/* --- Outline: Warning --- */
-[data-variant="outline"][data-primary-color="warning"] {
-  border: 1px solid var(--warning-5);
-  color: var(--warning-12);
-  background-color: transparent;
-}
-[data-variant="outline"][data-primary-color="warning"]:hover {
-  background-color: var(--warning-3);
-  border-color: var(--warning-6);
-}
-[data-variant="outline"][data-primary-color="warning"]:active {
-  background-color: var(--warning-4);
-}
-
-/*
-========================================
- GHOST VARIANT
- - No background, colored text
-========================================
-*/
-
-/* --- Ghost: Primary (default) --- */
-[data-variant="ghost"][data-primary-color] {
-  color: var(--primary-12);
-  background-color: transparent;
-}
-[data-variant="ghost"][data-primary-color]:hover {
-  background-color: var(--primary-3);
-}
-[data-variant="ghost"][data-primary-color]:active {
-  background-color: var(--primary-4);
-}
-
-/* --- Ghost: Gray --- */
-[data-variant="ghost"][data-primary-color="gray"] {
-  color: var(--gray-12);
-  background-color: transparent;
-}
-[data-variant="ghost"][data-primary-color="gray"]:hover {
-  background-color: var(--gray-3);
-}
-[data-variant="ghost"][data-primary-color="gray"]:active {
-  background-color: var(--gray-4);
-}
-
-/* --- Ghost: Error --- */
-[data-variant="ghost"][data-primary-color="error"] {
-  color: var(--error-12);
-  background-color: transparent;
-}
-[data-variant="ghost"][data-primary-color="error"]:hover {
-  background-color: var(--error-3);
-}
-[data-variant="ghost"][data-primary-color="error"]:active {
-  background-color: var(--error-4);
-}
-
-/* --- Ghost: Success --- */
-[data-variant="ghost"][data-primary-color="success"] {
-  color: var(--success-12);
-  background-color: transparent;
-}
-[data-variant="ghost"][data-primary-color="success"]:hover {
-  background-color: var(--success-3);
-}
-[data-variant="ghost"][data-primary-color="success"]:active {
-  background-color: var(--success-4);
-}
-
-/* --- Ghost: Warning --- */
-[data-variant="ghost"][data-primary-color="warning"] {
-  color: var(--warning-12);
-  background-color: transparent;
-}
-[data-variant="ghost"][data-primary-color="warning"]:hover {
-  background-color: var(--warning-3);
-}
-[data-variant="ghost"][data-primary-color="warning"]:active {
-  background-color: var(--warning-4);
-}
-
-/*
-========================================
- LINK VARIANT
- - Inline, underlined on hover
-========================================
-*/
-
-/* --- Link: Primary (default) --- */
-[data-variant="link"][data-primary-color] {
+/* Link variant special styling */
+[data-variant="link"] {
   padding: 0;
   height: auto;
+  border: none;
+  background: transparent;
 }
-[data-variant="link"][data-primary-color]:hover {
-  color: var(--primary-12);
+[data-variant="link"]:hover {
+  background: transparent;
   text-decoration: underline;
-}
-[data-variant="link"][data-primary-color]:active {
-  color: var(--primary-12);
-}
-
-/* --- Link: Gray --- */
-[data-variant="link"][data-primary-color="gray"] {
-  color: var(--gray-12);
-  background-color: transparent;
-}
-[data-variant="link"][data-primary-color="gray"]:hover {
-  color: var(--gray-12);
-  text-decoration: underline;
-}
-[data-variant="link"][data-primary-color="gray"]:active {
-  color: var(--gray-12);
-}
-
-/* --- Link: Error --- */
-[data-variant="link"][data-primary-color="error"] {
-  color: var(--error-12);
-  background-color: transparent;
-}
-[data-variant="link"][data-primary-color="error"]:hover {
-  color: var(--error-12);
-  text-decoration: underline;
-}
-[data-variant="link"][data-primary-color="error"]:active {
-  color: var(--error-12);
-}
-
-/* --- Link: Success --- */
-[data-variant="link"][data-primary-color="success"] {
-  color: var(--success-12);
-  background-color: transparent;
-}
-[data-variant="link"][data-primary-color="success"]:hover {
-  color: var(--success-12);
-  text-decoration: underline;
-}
-[data-variant="link"][data-primary-color="success"]:active {
-  color: var(--success-12);
-}
-
-/* --- Link: Warning --- */
-[data-variant="link"][data-primary-color="warning"] {
-  color: var(--warning-12);
-  background-color: transparent;
-}
-[data-variant="link"][data-primary-color="warning"]:hover {
-  color: var(--warning-12);
-  text-decoration: underline;
-}
-[data-variant="link"][data-primary-color="warning"]:active {
-  color: var(--warning-12);
 }

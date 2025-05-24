@@ -31,5 +31,7 @@
   --primary-a10: var(--violet-a10);
   --primary-a11: var(--violet-a11);
   --primary-a12: var(--violet-a12);
-  --primary-foreground: var(--violet-1);
+
+  /* Contextual text tokens for violet primary */
+  --text-on-solid: var(--violet-1); /* Light text on violet solid background */
 }

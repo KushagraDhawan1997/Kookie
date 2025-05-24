@@ -32,7 +32,9 @@
   --primary-a10: var(--teal-a10);
   --primary-a11: var(--teal-a11);
   --primary-a12: var(--teal-a12);
-  --primary-foreground: var(--teal-1);
+
+  /* Contextual text tokens for teal primary */
+  --text-on-solid: var(--teal-1); /* Light text on teal solid background */
 }
 
 /* SUCCESS - Teal */
@@ -61,5 +63,7 @@
   --success-a10: var(--teal-a10);
   --success-a11: var(--teal-a11);
   --success-a12: var(--teal-a12);
-  --success-foreground: var(--teal-1);
+
+  /* Contextual text tokens for teal success */
+  --text-success-on-solid: var(--teal-1); /* Light text on teal success solid background */
 }

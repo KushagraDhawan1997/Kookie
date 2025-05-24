@@ -32,7 +32,9 @@
   --primary-a10: var(--amber-a10);
   --primary-a11: var(--amber-a11);
   --primary-a12: var(--amber-a12);
-  --primary-foreground: var(--amber-12);
+
+  /* Contextual text tokens for amber primary */
+  --text-on-solid: var(--amber-12); /* Dark text on amber solid background */
 }
 
 /* WARNING - Amber */
@@ -61,5 +63,7 @@
   --warning-a10: var(--amber-a10);
   --warning-a11: var(--amber-a11);
   --warning-a12: var(--amber-a12);
-  --warning-foreground: var(--amber-12);
+
+  /* Contextual text tokens for amber warning */
+  --text-warning-on-solid: var(--amber-12); /* Dark text on amber warning solid background */
 }

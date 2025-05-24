@@ -32,7 +32,9 @@
   --primary-a10: var(--lime-a10);
   --primary-a11: var(--lime-a11);
   --primary-a12: var(--lime-a12);
-  --primary-foreground: var(--lime-12);
+
+  /* Contextual text tokens for lime primary */
+  --text-on-solid: var(--lime-12); /* Dark text on lime solid background */
 }
 
 /* SUCCESS - Lime */
@@ -61,5 +63,7 @@
   --success-a10: var(--lime-a10);
   --success-a11: var(--lime-a11);
   --success-a12: var(--lime-a12);
-  --success-foreground: var(--lime-12);
+
+  /* Contextual text tokens for lime success */
+  --text-success-on-solid: var(--lime-12); /* Dark text on lime success solid background */
 }

@@ -32,7 +32,9 @@
   --primary-a10: var(--yellow-a10);
   --primary-a11: var(--yellow-a11);
   --primary-a12: var(--yellow-a12);
-  --primary-foreground: var(--yellow-12);
+
+  /* Contextual text tokens for yellow primary */
+  --text-on-solid: var(--yellow-12); /* Dark text on yellow solid background */
 }
 
 /* WARNING - Yellow */
@@ -61,5 +63,7 @@
   --warning-a10: var(--yellow-a10);
   --warning-a11: var(--yellow-a11);
   --warning-a12: var(--yellow-a12);
-  --warning-foreground: var(--yellow-12);
+
+  /* Contextual text tokens for yellow warning */
+  --text-warning-on-solid: var(--yellow-12); /* Dark text on yellow warning solid background */
 }

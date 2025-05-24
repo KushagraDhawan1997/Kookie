@@ -80,7 +80,7 @@ export function ThemePlayground({ className }: ThemePlaygroundProps) {
             </Text>
             <Flex wrap="wrap" gap="1">
               {THEME_COLORS.map((colorOption) => (
-                <Button key={colorOption} size={1} variant={color === colorOption ? "solid" : "ghost"} onClick={() => handlePrimaryColorChange(colorOption)} style={{ fontSize: "11px", minWidth: "auto", padding: "2px 6px" }}>
+                <Button key={colorOption} size={3} variant={color === colorOption ? "solid" : "ghost"} onClick={() => handlePrimaryColorChange(colorOption)} style={{ fontSize: "11px", minWidth: "auto", padding: "2px 6px" }}>
                   {colorOption}
                 </Button>
               ))}
@@ -94,7 +94,7 @@ export function ThemePlayground({ className }: ThemePlaygroundProps) {
             </Text>
             <Flex wrap="wrap" gap="1">
               {THEME_GRAYS.map((grayOption) => (
-                <Button key={grayOption} size={1} variant={gray === grayOption ? "solid" : "ghost"} onClick={() => handleGrayChange(grayOption)} style={{ fontSize: "11px", minWidth: "auto", padding: "2px 6px" }}>
+                <Button key={grayOption} size={3} variant={gray === grayOption ? "solid" : "ghost"} onClick={() => handleGrayChange(grayOption)} style={{ fontSize: "11px", minWidth: "auto", padding: "2px 6px" }}>
                   {grayOption}
                 </Button>
               ))}
@@ -108,7 +108,7 @@ export function ThemePlayground({ className }: ThemePlaygroundProps) {
             </Text>
             <Flex wrap="wrap" gap="1">
               {THEME_ROUNDNESS_OPTIONS.map((roundnessOption) => (
-                <Button key={roundnessOption} size={1} variant={roundness === roundnessOption ? "solid" : "ghost"} onClick={() => handleRoundnessChange(roundnessOption)} style={{ fontSize: "11px", minWidth: "auto", padding: "2px 6px" }}>
+                <Button key={roundnessOption} size={3} variant={roundness === roundnessOption ? "solid" : "ghost"} onClick={() => handleRoundnessChange(roundnessOption)} style={{ fontSize: "11px", minWidth: "auto", padding: "2px 6px" }}>
                   {roundnessOption}
                 </Button>
               ))}
@@ -122,7 +122,7 @@ export function ThemePlayground({ className }: ThemePlaygroundProps) {
             </Text>
             <Flex wrap="wrap" gap="1">
               {THEME_SIZES.map((sizeOption) => (
-                <Button key={sizeOption} size={1} variant={size === sizeOption ? "solid" : "ghost"} onClick={() => handleSizeChange(sizeOption)} style={{ fontSize: "11px", minWidth: "auto", padding: "2px 6px" }}>
+                <Button key={sizeOption} size={3} variant={size === sizeOption ? "solid" : "ghost"} onClick={() => handleSizeChange(sizeOption)} style={{ fontSize: "11px", minWidth: "auto", padding: "2px 6px" }}>
                   {sizeOption}
                 </Button>
               ))}
@@ -136,7 +136,7 @@ export function ThemePlayground({ className }: ThemePlaygroundProps) {
             </Text>
             <Flex wrap="wrap" gap="1">
               {ERROR_COLORS.map((colorOption) => (
-                <Button key={`error-${colorOption}`} size={1} variant={error === colorOption ? "solid" : "ghost"} onClick={() => handleErrorColorChange(colorOption)} style={{ fontSize: "11px", minWidth: "auto", padding: "2px 6px" }}>
+                <Button key={`error-${colorOption}`} size={3} variant={error === colorOption ? "solid" : "ghost"} onClick={() => handleErrorColorChange(colorOption)} style={{ fontSize: "11px", minWidth: "auto", padding: "2px 6px" }}>
                   {colorOption}
                 </Button>
               ))}
@@ -150,7 +150,7 @@ export function ThemePlayground({ className }: ThemePlaygroundProps) {
             </Text>
             <Flex wrap="wrap" gap="1">
               {SUCCESS_COLORS.map((colorOption) => (
-                <Button key={`success-${colorOption}`} size={1} variant={success === colorOption ? "solid" : "ghost"} onClick={() => handleSuccessColorChange(colorOption)} style={{ fontSize: "11px", minWidth: "auto", padding: "2px 6px" }}>
+                <Button key={`success-${colorOption}`} size={3} variant={success === colorOption ? "solid" : "ghost"} onClick={() => handleSuccessColorChange(colorOption)} style={{ fontSize: "11px", minWidth: "auto", padding: "2px 6px" }}>
                   {colorOption}
                 </Button>
               ))}
@@ -164,7 +164,7 @@ export function ThemePlayground({ className }: ThemePlaygroundProps) {
             </Text>
             <Flex wrap="wrap" gap="1">
               {WARNING_COLORS.map((colorOption) => (
-                <Button key={`warning-${colorOption}`} size={1} variant={warning === colorOption ? "solid" : "ghost"} onClick={() => handleWarningColorChange(colorOption)} style={{ fontSize: "11px", minWidth: "auto", padding: "2px 6px" }}>
+                <Button key={`warning-${colorOption}`} size={3} variant={warning === colorOption ? "solid" : "ghost"} onClick={() => handleWarningColorChange(colorOption)} style={{ fontSize: "11px", minWidth: "auto", padding: "2px 6px" }}>
                   {colorOption}
                 </Button>
               ))}

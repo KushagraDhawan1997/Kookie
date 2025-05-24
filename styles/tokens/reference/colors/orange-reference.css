@@ -32,7 +32,9 @@
   --primary-a10: var(--orange-a10);
   --primary-a11: var(--orange-a11);
   --primary-a12: var(--orange-a12);
-  --primary-foreground: var(--orange-12);
+
+  /* Contextual text tokens for orange primary */
+  --text-on-solid: var(--orange-1); /* Light text on orange solid background */
 }
 
 /* WARNING - Orange */
@@ -61,5 +63,7 @@
   --warning-a10: var(--orange-a10);
   --warning-a11: var(--orange-a11);
   --warning-a12: var(--orange-a12);
-  --warning-foreground: var(--orange-12);
+
+  /* Contextual text tokens for orange warning */
+  --text-warning-on-solid: var(--orange-1); /* Light text on orange warning solid background */
 }

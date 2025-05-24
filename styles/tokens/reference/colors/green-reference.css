@@ -32,7 +32,9 @@
   --primary-a10: var(--green-a10);
   --primary-a11: var(--green-a11);
   --primary-a12: var(--green-a12);
-  --primary-foreground: var(--green-1);
+
+  /* Contextual text tokens for green primary */
+  --text-on-solid: var(--green-1); /* Light text on green solid background */
 }
 
 /* SUCCESS - Green */
@@ -61,5 +63,7 @@
   --success-a10: var(--green-a10);
   --success-a11: var(--green-a11);
   --success-a12: var(--green-a12);
-  --success-foreground: var(--green-1);
+
+  /* Contextual text tokens for green success */
+  --text-success-on-solid: var(--green-1); /* Light text on green success solid background */
 }

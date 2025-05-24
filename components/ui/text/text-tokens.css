@@ -1,0 +1,86 @@
+/**
+ * Text Component Tokens
+ * 
+ * These tokens map text variants to appropriate system tokens,
+ * providing consistent text hierarchy across the design system.
+ */
+
+/* ========================================
+   DEFAULT CONTEXT (GRAY/NEUTRAL)
+   ======================================== */
+
+[data-variant="default"] {
+  --text-color: var(--text-gray-high-contrast);
+}
+
+[data-variant="muted"] {
+  --text-color: var(--text-gray-low-contrast);
+}
+
+[data-variant="accent"] {
+  --text-color: var(--text-gray-medium-contrast);
+}
+
+/* ========================================
+   PRIMARY COLOR CONTEXT
+   ======================================== */
+
+[data-primary-color][data-variant="default"] {
+  --text-color: var(--text-high-contrast);
+}
+
+[data-primary-color][data-variant="muted"] {
+  --text-color: var(--text-low-contrast);
+}
+
+[data-primary-color][data-variant="accent"] {
+  --text-color: var(--text-medium-contrast);
+}
+
+/* ========================================
+   ERROR COLOR CONTEXT
+   ======================================== */
+
+[data-error-color][data-variant="default"] {
+  --text-color: var(--text-error-high-contrast);
+}
+
+[data-error-color][data-variant="muted"] {
+  --text-color: var(--text-error-low-contrast);
+}
+
+[data-error-color][data-variant="accent"] {
+  --text-color: var(--text-error-medium-contrast);
+}
+
+/* ========================================
+   SUCCESS COLOR CONTEXT
+   ======================================== */
+
+[data-success-color][data-variant="default"] {
+  --text-color: var(--text-success-high-contrast);
+}
+
+[data-success-color][data-variant="muted"] {
+  --text-color: var(--text-success-low-contrast);
+}
+
+[data-success-color][data-variant="accent"] {
+  --text-color: var(--text-success-medium-contrast);
+}
+
+/* ========================================
+   WARNING COLOR CONTEXT
+   ======================================== */
+
+[data-warning-color][data-variant="default"] {
+  --text-color: var(--text-warning-high-contrast);
+}
+
+[data-warning-color][data-variant="muted"] {
+  --text-color: var(--text-warning-low-contrast);
+}
+
+[data-warning-color][data-variant="accent"] {
+  --text-color: var(--text-warning-medium-contrast);
+}

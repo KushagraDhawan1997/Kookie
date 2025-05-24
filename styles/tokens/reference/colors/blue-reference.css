@@ -31,5 +31,7 @@
   --primary-a10: var(--blue-a10);
   --primary-a11: var(--blue-a11);
   --primary-a12: var(--blue-a12);
-  --primary-foreground: var(--blue-1);
+
+  /* Contextual text tokens for blue primary */
+  --text-on-solid: var(--blue-1); /* Light text on blue solid background */
 }

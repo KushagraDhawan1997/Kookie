@@ -31,5 +31,7 @@
   --primary-a10: var(--pink-a10);
   --primary-a11: var(--pink-a11);
   --primary-a12: var(--pink-a12);
-  --primary-foreground: var(--pink-1);
+
+  /* Contextual text tokens for pink primary */
+  --text-on-solid: var(--pink-1); /* Light text on pink solid background */
 }

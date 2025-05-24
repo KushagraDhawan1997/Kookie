@@ -32,7 +32,9 @@
   --primary-a10: var(--red-a10);
   --primary-a11: var(--red-a11);
   --primary-a12: var(--red-a12);
-  --primary-foreground: var(--red-1);
+
+  /* Contextual text tokens for red primary */
+  --text-on-solid: var(--red-1); /* Light text on red solid background */
 }
 
 /* ERROR - Red */
@@ -61,5 +63,7 @@
   --error-a10: var(--red-a10);
   --error-a11: var(--red-a11);
   --error-a12: var(--red-a12);
-  --error-foreground: var(--red-1);
+
+  /* Contextual text tokens for red error */
+  --text-error-on-solid: var(--red-1); /* Light text on red error solid background */
 }

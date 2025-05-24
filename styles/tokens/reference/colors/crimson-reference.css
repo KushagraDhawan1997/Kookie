@@ -32,7 +32,9 @@
   --primary-a10: var(--crimson-a10);
   --primary-a11: var(--crimson-a11);
   --primary-a12: var(--crimson-a12);
-  --primary-foreground: var(--crimson-1);
+
+  /* Contextual text tokens for crimson primary */
+  --text-on-solid: var(--crimson-1); /* Light text on crimson solid background */
 }
 
 /* ERROR - Crimson */
@@ -61,5 +63,7 @@
   --error-a10: var(--crimson-a10);
   --error-a11: var(--crimson-a11);
   --error-a12: var(--crimson-a12);
-  --error-foreground: var(--crimson-1);
+
+  /* Contextual text tokens for crimson error */
+  --text-error-on-solid: var(--crimson-1); /* Light text on crimson error solid background */
 }

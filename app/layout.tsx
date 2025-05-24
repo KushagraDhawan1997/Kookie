@@ -3,7 +3,8 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
-import "@/styles/color.css";
+import "@/styles/tokens/reference/colors/reference.css";
+import "@/styles/tokens/system/colors/system.css";
 import { Provider as JotaiProvider } from "jotai";
 import { ThemePlayground } from "@/components/helpers";
 
