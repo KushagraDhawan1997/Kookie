@@ -1,32 +1,36 @@
 # Kookie UI Documentation
 
-Welcome to the comprehensive documentation for Kookie UI, a high-performance component library built on a sophisticated three-layer token system architecture.
+Welcome to the comprehensive documentation for Kookie UI, a high-performance component library built on a comprehensive token system architecture featuring linearized spacing/dimension tokens and a sophisticated three-layer color system.
 
 ## Overview
 
-Kookie UI is designed around the principle of **quality over quantity**, focusing on a small set of well-designed, highly flexible components rather than attempting to cover every possible use case. The library is built on Radix UI primitives and features a revolutionary three-layer token system that eliminates code duplication while providing automatic text contrast and seamless theme support.
+Kookie UI is designed around the principle of **quality over quantity**, focusing on a small set of well-designed, highly flexible components rather than attempting to cover every possible use case. The library is built on Radix UI primitives and features a comprehensive token system that includes linearized spacing and dimension tokens alongside a revolutionary three-layer color architecture that eliminates code duplication while providing automatic text contrast and seamless theme support.
 
 ## Key Features
 
-- **Three-Layer Token Architecture**: Reference → System → Component tokens for scalable design systems
+- **Comprehensive Token Architecture**: Spacing (1-24) + Dimension (1-24 + named) + Three-layer color system
+- **Linear Token Naming**: Predictable 1-24 convention for easy memorization and consistent scaling
+- **Generated Gap Utilities**: 72 utility classes for consistent layout spacing
 - **Automatic Text Contrast**: Smart text color selection based on background brightness
 - **18 Radix Colors**: Complete color palette with semantic role mapping
-- **Performance Optimized**: ~400 lines of CSS eliminated through token abstraction
+- **Performance Optimized**: ~400 lines of CSS eliminated, 63 total tokens with minimal overhead
 - **Type Safety**: Comprehensive TypeScript support with union types
-- **Zero Duplication**: Single source of truth for variant and color logic
+- **Zero Duplication**: Single source of truth for variant, color, and spacing logic
 
 ## Architecture Documentation
 
 ### Core System Architecture
 
 - **[Architecture Overview](./architecture/architecture.md)** - Complete architectural philosophy and decisions
-- **[Three-Layer Token System](./architecture/token-system.md)** - Comprehensive token architecture guide
+- **[Token System](./architecture/token-system.md)** - Comprehensive token architecture guide (spacing, dimensions, colors)
+- **[Spacing & Dimensions](./architecture/spacing-dimensions.md)** - Detailed spacing and dimension token documentation
 - **[Color System](./architecture/color-system.md)** - Color token system and automatic contrast handling
 
 ### Component Documentation
 
 - **[Button Component](./architecture/components/button/README.md)** - Complete button system with token integration
 - **[Typography Components](./architecture/components/text/README.md)** - Text and heading components with simplified styling
+- **[Layout Components](./architecture/components/layout/README.md)** - Box, Flex, and Grid with token-based spacing
 - **[Component Overview](./architecture/components/README.md)** - General component guidelines and patterns
 
 ## Quick Start
@@ -64,29 +68,95 @@ export default function App() {
 ### Component Usage Examples
 
 ```tsx
-import { Button, Text, Flex } from "@/components/ui";
+import { Button, Text, Flex, Box } from "@/components/ui";
 
-// Automatic text contrast based on color brightness
-<Flex gap={3}>
-  <Button data-primary-color="yellow" variant="solid">
-    Yellow (auto dark text)
-  </Button>
-  <Button data-primary-color="blue" variant="solid">
-    Blue (auto light text)
-  </Button>
-</Flex>
+// Layout with token-based spacing
+<Flex gap={7} direction="column">
+  <Box p={5} mb={3}>
+    Content with 12px padding and 8px bottom margin
+  </Box>
 
-// Semantic color usage
-<Flex direction="column" gap={2}>
-  <Text data-primary-color="primary">Primary branded text</Text>
-  <Text data-primary-color="error">Error message</Text>
-  <Text data-primary-color="success">Success confirmation</Text>
-</Flex>
+  {/* Automatic text contrast based on color brightness */}
+  <Flex gap={3}>
+    <Button data-primary-color="yellow" variant="solid">
+      Yellow (auto dark text)
+    </Button>
+    <Button data-primary-color="blue" variant="solid">
+      Blue (auto light text)
+    </Button>
+  </Flex>
+
+  {/* Semantic color usage */}
+  <Flex direction="column" gap={2}>
+    <Text data-primary-color="primary">Primary branded text</Text>
+    <Text data-primary-color="error">Error message</Text>
+    <Text data-primary-color="success">Success confirmation</Text>
+  </Flex>
+</Flex>;
 ```
 
-## Token System Overview
+## Comprehensive Token System
 
-### Three-Layer Architecture
+### Spacing and Dimension Tokens
+
+#### Spacing Tokens (Linear 1-24)
+
+Consistent spacing values with linear naming and non-linear values optimized for UI design:
+
+```css
+:root {
+  --space-1: 0.25rem; /* 4px - Micro spacing */
+  --space-7: 1rem; /* 16px - Default spacing */
+  --space-9: 1.5rem; /* 24px - Section spacing */
+  --space-11: 2rem; /* 32px - Component separation */
+  --space-15: 3rem; /* 48px - Major sections */
+  --space-24: 10rem; /* 160px - Maximum spacing */
+}
+```
+
+**Usage**: Padding, gaps in Flex/Grid layouts, margins (when gaps aren't suitable)
+
+#### Dimension Tokens
+
+**Linear tokens (1-24)**: Component-level sizing (4px to 320px)
+
+```css
+:root {
+  --size-4: 1rem; /* 16px - Small control height */
+  --size-8: 2rem; /* 32px - Default control height */
+  --size-10: 3rem; /* 48px - Large control height */
+  --size-24: 20rem; /* 320px - Medium modals */
+}
+```
+
+**Named tokens**: Layout-level sizing (320px to 1536px)
+
+```css
+:root {
+  --size-md: 28rem; /* 448px - Default modal width */
+  --size-lg: 32rem; /* 512px - Large modals */
+  --size-4xl: 56rem; /* 896px - Large content areas */
+  --size-8xl: 96rem; /* 1536px - Maximum layout width */
+}
+```
+
+#### Generated Gap Utilities
+
+72 automatically generated utility classes for consistent layout spacing:
+
+```css
+.gap-7 {
+  gap: var(--space-7);
+} /* 16px */
+.gap-x-5 {
+  column-gap: var(--space-5);
+} /* 12px column gap */
+.gap-y-9 {
+  row-gap: var(--space-9);
+} /* 24px row gap */
+```
+
+### Three-Layer Color Architecture
 
 **Layer 1: Reference Tokens** (`styles/tokens/reference/colors/`)
 
@@ -106,13 +176,31 @@ import { Button, Text, Flex } from "@/components/ui";
 - Map to appropriate system tokens
 - Clean component CSS abstractions
 
+### System Layout Tokens
+
+Semantic abstractions built on spacing and dimension tokens:
+
+```css
+:root {
+  /* Control heights using dimension tokens */
+  --control-height-3: var(--size-8); /* 32px - Medium controls */
+  --control-height-4: var(--size-10); /* 40px - Large controls */
+
+  /* Control padding using spacing tokens */
+  --control-padding-3: var(--space-7); /* 16px - Medium padding */
+  --control-padding-4: var(--space-8); /* 20px - Large padding */
+}
+```
+
 ### Benefits
 
+- **Linear Token Access**: Predictable O(1) token lookup with 1-24 naming
 - **No Selector Duplication**: Variant logic exists only in token files
 - **Automatic Contrast**: Text colors adapt to background brightness
 - **Easy Extensibility**: Add variants by modifying token files only
-- **Performance**: ~400 lines of CSS removed through abstraction
-- **Type Safety**: TypeScript prevents invalid color combinations
+- **Performance**: 63 total tokens (24 spacing + 39 dimension) with ~2KB overhead
+- **Memory Efficiency**: Generated utilities provide consistent spacing patterns
+- **Type Safety**: TypeScript prevents invalid token combinations
 
 ## Color System
 
@@ -142,6 +230,81 @@ import { Button, Text, Flex } from "@/components/ui";
   Blue (automatically gets light text)
 </Button>
 ```
+
+## Layout System
+
+### Token-Based Spacing
+
+Components accept numeric props that map directly to spacing and dimension tokens:
+
+```tsx
+import { Box, Flex, Grid } from "@/components/ui";
+
+// Box with spacing and sizing tokens
+<Box
+  p={7}              // padding: var(--space-7) /* 16px */
+  m={5}              // margin: var(--space-5) /* 12px */
+  width={12}         // width: var(--size-12) /* 64px */
+  height={8}         // height: var(--size-8) /* 32px */
+>
+  Content with token-based dimensions
+</Box>
+
+// Flex layout with gap tokens
+<Flex
+  gap={5}            // gap: var(--space-5) /* 12px */
+  direction="column"
+  p={7}              // padding: var(--space-7) /* 16px */
+>
+  <div>Item 1</div>
+  <div>Item 2 (12px gap from item 1)</div>
+  <div>Item 3 (12px gap from item 2)</div>
+</Flex>
+
+// Grid with responsive spacing
+<Grid
+  columns={3}
+  gap={3}            // gap: var(--space-3) /* 8px */
+  p={9}              // padding: var(--space-9) /* 24px */
+>
+  <Box>Grid item 1</Box>
+  <Box>Grid item 2</Box>
+  <Box>Grid item 3</Box>
+</Grid>
+```
+
+### Layout Containers
+
+```tsx
+// Modal-sized containers using named dimension tokens
+<Box width="md" p={7}>      {/* width: 448px, padding: 16px */}
+  Default modal content
+</Box>
+
+<Box width="4xl" p={11}>    {/* width: 896px, padding: 32px */}
+  Large content area
+</Box>
+
+<Box maxWidth="5xl" p={15}> {/* max-width: 1024px, padding: 48px */}
+  Desktop content container
+</Box>
+```
+
+### Margin System (When Gaps Aren't Suitable)
+
+```tsx
+// Margin props for special cases
+<Box
+  mx={7} // margin-left/right: var(--space-7) /* 16px */
+  my={5} // margin-top/bottom: var(--space-5) /* 12px */
+  mt={3} // margin-top: var(--space-3) /* 8px */
+  mb={9} // margin-bottom: var(--space-9) /* 24px */
+>
+  Content with specific margin needs
+</Box>
+```
+
+**Best Practice**: Prefer Flex/Grid gaps for spacing between siblings, use margins only for special cases.
 
 ## Performance Characteristics
 

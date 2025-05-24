@@ -10,43 +10,121 @@ Kookie UI is built around the principle of **quality over quantity**, focusing o
 
 1. **Component Composition**: Build complex UIs by composing simple, focused components
 2. **Prop-driven Configuration**: Components accept props for variants, sizes, and colors
-3. **Token-based Theming**: Three-layer token system for consistent and maintainable styling
+3. **Token-based Design System**: Comprehensive token system including spacing, dimensions, and colors
 4. **Accessibility First**: Built on Radix UI primitives for comprehensive accessibility
 5. **Performance Optimized**: CSS variables and semantic tokens for efficient theming
 6. **Type Safety**: Comprehensive TypeScript support with union types for variants
 
-## Three-Layer Token Architecture
+## Comprehensive Token Architecture
 
-The foundation of Kookie UI is a sophisticated three-layer token system that provides clean separation of concerns and eliminates code duplication.
+The foundation of Kookie UI is a comprehensive token system that includes spacing, dimensions, and a three-layer color architecture for clean separation of concerns and eliminates code duplication.
 
-### Layer 1: Semantic Reference Tokens
+### Spacing and Dimension Tokens
+
+#### Spacing Tokens (1-24)
+
+Linear naming convention with non-linear values optimized for UI design:
+
+```css
+:root {
+  --space-1: 0.25rem; /* 4px - Micro spacing */
+  --space-7: 1rem; /* 16px - Default spacing */
+  --space-9: 1.5rem; /* 24px - Section spacing */
+  --space-11: 2rem; /* 32px - Component separation */
+  --space-15: 3rem; /* 48px - Major sections */
+  --space-24: 10rem; /* 160px - Maximum spacing */
+}
+```
+
+**Usage**: Padding, gaps in Flex/Grid layouts, margins (when gaps aren't suitable)
+
+#### Dimension Tokens
+
+**Linear tokens (1-24)**: Component-level sizing (4px to 320px)
+
+```css
+:root {
+  --size-4: 1rem; /* 16px - Small control height */
+  --size-8: 2rem; /* 32px - Default control height */
+  --size-10: 3rem; /* 48px - Large control height */
+  --size-24: 20rem; /* 320px - Medium modals */
+}
+```
+
+**Named tokens**: Layout-level sizing (320px to 1536px)
+
+```css
+:root {
+  --size-md: 28rem; /* 448px - Default modal width */
+  --size-lg: 32rem; /* 512px - Large modals */
+  --size-4xl: 56rem; /* 896px - Large content areas */
+  --size-8xl: 96rem; /* 1536px - Maximum layout width */
+}
+```
+
+#### Gap Utilities
+
+Automatically generated utility classes for consistent layout spacing:
+
+```css
+.gap-7 {
+  gap: var(--space-7);
+} /* 16px */
+.gap-x-5 {
+  column-gap: var(--space-5);
+} /* 12px column gap */
+.gap-y-9 {
+  row-gap: var(--space-9);
+} /* 24px row gap */
+```
+
+### Three-Layer Color Token Architecture
+
+#### Layer 1: Semantic Reference Tokens
 
 - **Purpose**: Map semantic roles to actual color values
 - **Location**: `styles/tokens/reference/colors/`
 - **Responsibility**: Color selection and contextual text contrast
 - **Example**: `[data-primary-color="blue"]` maps `--primary-9` to `var(--blue-9)`
 
-### Layer 2: System Tokens
+#### Layer 2: System Tokens
 
 - **Purpose**: UI-focused abstractions following Radix 12-step scale
 - **Location**: `styles/tokens/system/colors/system.css`
 - **Responsibility**: Semantic UI meaning (backgrounds, borders, text)
 - **Example**: `--ui-bg-solid: var(--primary-9)` (Step 9: solid backgrounds)
 
-### Layer 3: Component Tokens
+#### Layer 3: Component Tokens
 
 - **Purpose**: Component-specific abstractions
 - **Location**: `components/ui/*/component-tokens.css`
 - **Responsibility**: Map component properties to system tokens
 - **Example**: `--button-bg: var(--ui-bg-solid)`
 
+### System Layout Tokens
+
+Semantic abstractions built on spacing and dimension tokens:
+
+```css
+:root {
+  /* Control heights using dimension tokens */
+  --control-height-3: var(--size-8); /* 32px - Medium controls */
+  --control-height-4: var(--size-10); /* 40px - Large controls */
+
+  /* Control padding using spacing tokens */
+  --control-padding-3: var(--space-7); /* 16px - Medium padding */
+  --control-padding-4: var(--space-8); /* 20px - Large padding */
+}
+```
+
 ### Benefits of This Architecture
 
-1. **No Selector Duplication**: Variant logic exists only in token files
-2. **Automatic Contrast**: Text colors adapt based on background brightness
-3. **Easy Extensibility**: Add variants by modifying token files only
-4. **Performance**: ~400 lines of CSS removed through abstraction
-5. **Maintainability**: Clean separation between tokens and component styles
+1. **Linear Token Access**: Predictable O(1) token lookup with 1-24 naming
+2. **No Selector Duplication**: Variant logic exists only in token files
+3. **Automatic Contrast**: Text colors adapt based on background brightness
+4. **Easy Extensibility**: Add variants by modifying token files only
+5. **Performance**: ~400 lines of CSS removed through abstraction
+6. **Memory Efficiency**: 63 total tokens (24 spacing + 39 dimension) with minimal overhead
 
 ## Component Architecture
 
