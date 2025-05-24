@@ -5,12 +5,13 @@
  * These tokens are used for consistent width, height, and other dimensional
  * properties throughout the component library.
  * 
- * The dimension scale includes both numerical values and semantic named values
- * for common UI element sizes.
+ * The dimension scale uses:
+ * - Linear 1-24 naming (4px to 320px) for component-level sizing
+ * - Named tokens (320px to 1536px) for layout-level sizing
  */
 
 :root {
-  /* Numerical scale (similar to spacing but for larger dimensions) */
+  /* Linear 1-24 dimension tokens (4px to 320px) */
   --size-1: 0.25rem; /* 4px */
   --size-2: 0.5rem; /* 8px */
   --size-3: 0.75rem; /* 12px */
@@ -19,22 +20,24 @@
   --size-6: 1.5rem; /* 24px */
   --size-7: 1.75rem; /* 28px */
   --size-8: 2rem; /* 32px */
-  --size-9: 2.25rem; /* 36px */
-  --size-10: 2.5rem; /* 40px */
-  --size-12: 3rem; /* 48px */
-  --size-14: 3.5rem; /* 56px */
-  --size-16: 4rem; /* 64px */
-  --size-20: 5rem; /* 80px */
-  --size-24: 6rem; /* 96px */
-  --size-32: 8rem; /* 128px */
-  --size-40: 10rem; /* 160px */
-  --size-48: 12rem; /* 192px */
-  --size-56: 14rem; /* 224px */
-  --size-64: 16rem; /* 256px */
-  --size-80: 20rem; /* 320px */
-  --size-96: 24rem; /* 384px */
+  --size-9: 2.5rem; /* 40px */
+  --size-10: 3rem; /* 48px */
+  --size-11: 3.5rem; /* 56px */
+  --size-12: 4rem; /* 64px */
+  --size-13: 5rem; /* 80px */
+  --size-14: 6rem; /* 96px */
+  --size-15: 7rem; /* 112px */
+  --size-16: 8rem; /* 128px */
+  --size-17: 9rem; /* 144px */
+  --size-18: 10rem; /* 160px */
+  --size-19: 12rem; /* 192px */
+  --size-20: 14rem; /* 224px */
+  --size-21: 16rem; /* 256px */
+  --size-22: 18rem; /* 288px */
+  --size-23: 19rem; /* 304px */
+  --size-24: 20rem; /* 320px */
 
-  /* Named tokens for common UI dimensions */
+  /* Named tokens for layout dimensions (320px to 1536px) */
   --size-xs: 20rem; /* 320px */
   --size-sm: 24rem; /* 384px */
   --size-md: 28rem; /* 448px */
@@ -46,6 +49,7 @@
   --size-5xl: 64rem; /* 1024px */
   --size-6xl: 72rem; /* 1152px */
   --size-7xl: 80rem; /* 1280px */
+  --size-8xl: 96rem; /* 1536px */
 
   /* Special size tokens */
   --size-full: 100%;

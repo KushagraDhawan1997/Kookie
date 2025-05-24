@@ -114,6 +114,10 @@ Semantic abstractions built on spacing and dimension tokens:
   /* Control padding using spacing tokens */
   --control-padding-3: var(--space-7); /* 16px - Medium padding */
   --control-padding-4: var(--space-8); /* 20px - Large padding */
+
+  /* Control roundness using Tailwind radius tokens */
+  --control-radius-3: var(--radius-lg); /* Medium roundness */
+  --control-radius-4: var(--radius-lg); /* Large roundness (same as medium) */
 }
 ```
 

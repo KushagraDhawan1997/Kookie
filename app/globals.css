@@ -140,12 +140,13 @@
 @import "../components/ui/text/text-tokens.css";
 
 /* Import token CSS files */
-@import "../styles/tokens/spacing.css";
-@import "../styles/tokens/dimensions.css";
+@import "../styles/tokens/reference/spacing/system.css";
+@import "../styles/tokens/reference/dimensions/system.css";
 @import "../styles/typography.css";
 @import "../styles/tokens/reference/colors/reference.css";
 @import "../styles/tokens/system/colors/system.css";
-@import "../styles/tokens/roundness.css";
+@import "../styles/tokens/reference/roundness/system.css";
+@import "../styles/tokens/system/layout/system.css";
 
 /* Import utility CSS files */
 @import "../styles/utils/gap-utils.css";

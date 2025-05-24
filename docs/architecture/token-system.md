@@ -179,6 +179,14 @@ Semantic layout tokens that map to reference tokens for common UI patterns like 
   --control-padding-4: var(--space-8); /* 20px - Large */
   --control-padding-5: var(--space-9); /* 24px - Extra large */
   --control-padding-6: var(--space-10); /* 28px - Largest */
+
+  /* Control roundness - for buttons, inputs, selects, etc. */
+  --control-radius-1: var(--radius-sm); /* Tailwind sm radius - Extra small */
+  --control-radius-2: var(--radius-md); /* Tailwind md radius - Small */
+  --control-radius-3: var(--radius-lg); /* Tailwind lg radius - Medium */
+  --control-radius-4: var(--radius-lg); /* Tailwind lg radius - Large (same as medium) */
+  --control-radius-5: var(--radius-xl); /* Tailwind xl radius - Extra large */
+  --control-radius-6: var(--radius-2xl); /* Tailwind 2xl radius - Largest */
 }
 ```
 

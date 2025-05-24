@@ -4,20 +4,11 @@
 .gap-1 {
   gap: var(--space-1);
 }
-.gap-1_5 {
-  gap: var(--space-1_5);
-}
 .gap-2 {
   gap: var(--space-2);
 }
-.gap-2_5 {
-  gap: var(--space-2_5);
-}
 .gap-3 {
   gap: var(--space-3);
-}
-.gap-3_5 {
-  gap: var(--space-3_5);
 }
 .gap-4 {
   gap: var(--space-4);
@@ -46,17 +37,38 @@
 .gap-12 {
   gap: var(--space-12);
 }
+.gap-13 {
+  gap: var(--space-13);
+}
 .gap-14 {
   gap: var(--space-14);
+}
+.gap-15 {
+  gap: var(--space-15);
 }
 .gap-16 {
   gap: var(--space-16);
 }
+.gap-17 {
+  gap: var(--space-17);
+}
 .gap-18 {
   gap: var(--space-18);
 }
+.gap-19 {
+  gap: var(--space-19);
+}
 .gap-20 {
   gap: var(--space-20);
+}
+.gap-21 {
+  gap: var(--space-21);
+}
+.gap-22 {
+  gap: var(--space-22);
+}
+.gap-23 {
+  gap: var(--space-23);
 }
 .gap-24 {
   gap: var(--space-24);
@@ -66,20 +78,11 @@
 .gap-x-1 {
   column-gap: var(--space-1);
 }
-.gap-x-1_5 {
-  column-gap: var(--space-1_5);
-}
 .gap-x-2 {
   column-gap: var(--space-2);
 }
-.gap-x-2_5 {
-  column-gap: var(--space-2_5);
-}
 .gap-x-3 {
   column-gap: var(--space-3);
-}
-.gap-x-3_5 {
-  column-gap: var(--space-3_5);
 }
 .gap-x-4 {
   column-gap: var(--space-4);
@@ -108,17 +111,38 @@
 .gap-x-12 {
   column-gap: var(--space-12);
 }
+.gap-x-13 {
+  column-gap: var(--space-13);
+}
 .gap-x-14 {
   column-gap: var(--space-14);
+}
+.gap-x-15 {
+  column-gap: var(--space-15);
 }
 .gap-x-16 {
   column-gap: var(--space-16);
 }
+.gap-x-17 {
+  column-gap: var(--space-17);
+}
 .gap-x-18 {
   column-gap: var(--space-18);
 }
+.gap-x-19 {
+  column-gap: var(--space-19);
+}
 .gap-x-20 {
   column-gap: var(--space-20);
+}
+.gap-x-21 {
+  column-gap: var(--space-21);
+}
+.gap-x-22 {
+  column-gap: var(--space-22);
+}
+.gap-x-23 {
+  column-gap: var(--space-23);
 }
 .gap-x-24 {
   column-gap: var(--space-24);
@@ -128,20 +152,11 @@
 .gap-y-1 {
   row-gap: var(--space-1);
 }
-.gap-y-1_5 {
-  row-gap: var(--space-1_5);
-}
 .gap-y-2 {
   row-gap: var(--space-2);
 }
-.gap-y-2_5 {
-  row-gap: var(--space-2_5);
-}
 .gap-y-3 {
   row-gap: var(--space-3);
-}
-.gap-y-3_5 {
-  row-gap: var(--space-3_5);
 }
 .gap-y-4 {
   row-gap: var(--space-4);
@@ -170,17 +185,38 @@
 .gap-y-12 {
   row-gap: var(--space-12);
 }
+.gap-y-13 {
+  row-gap: var(--space-13);
+}
 .gap-y-14 {
   row-gap: var(--space-14);
+}
+.gap-y-15 {
+  row-gap: var(--space-15);
 }
 .gap-y-16 {
   row-gap: var(--space-16);
 }
+.gap-y-17 {
+  row-gap: var(--space-17);
+}
 .gap-y-18 {
   row-gap: var(--space-18);
 }
+.gap-y-19 {
+  row-gap: var(--space-19);
+}
 .gap-y-20 {
   row-gap: var(--space-20);
+}
+.gap-y-21 {
+  row-gap: var(--space-21);
+}
+.gap-y-22 {
+  row-gap: var(--space-22);
+}
+.gap-y-23 {
+  row-gap: var(--space-23);
 }
 .gap-y-24 {
   row-gap: var(--space-24);

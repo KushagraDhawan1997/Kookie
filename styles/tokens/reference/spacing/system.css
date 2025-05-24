@@ -1,0 +1,38 @@
+/**
+ * Kookie Spacing Token System
+ * 
+ * This file defines the application's spacing token system using CSS variables.
+ * These tokens are used for consistent spacing (padding, margin, gap, etc.)
+ * throughout the component library.
+ * 
+ * The spacing scale follows a linear 1-24 naming convention with non-linear
+ * values that relate to typical spacing needs in UI design.
+ */
+
+:root {
+  /* Linear 1-24 spacing tokens */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.375rem; /* 6px */
+  --space-3: 0.5rem; /* 8px */
+  --space-4: 0.625rem; /* 10px */
+  --space-5: 0.75rem; /* 12px */
+  --space-6: 0.875rem; /* 14px */
+  --space-7: 1rem; /* 16px */
+  --space-8: 1.25rem; /* 20px */
+  --space-9: 1.5rem; /* 24px */
+  --space-10: 1.75rem; /* 28px */
+  --space-11: 2rem; /* 32px */
+  --space-12: 2.25rem; /* 36px */
+  --space-13: 2.5rem; /* 40px */
+  --space-14: 2.75rem; /* 44px */
+  --space-15: 3rem; /* 48px */
+  --space-16: 3.5rem; /* 56px */
+  --space-17: 4rem; /* 64px */
+  --space-18: 4.5rem; /* 72px */
+  --space-19: 5rem; /* 80px */
+  --space-20: 6rem; /* 96px */
+  --space-21: 7rem; /* 112px */
+  --space-22: 8rem; /* 128px */
+  --space-23: 9rem; /* 144px */
+  --space-24: 10rem; /* 160px */
+}

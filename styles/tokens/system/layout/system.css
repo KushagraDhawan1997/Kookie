@@ -1,0 +1,35 @@
+/**
+ * Layout System Tokens
+ * 
+ * This file defines reusable layout tokens for consistent sizing across
+ * interactive components like buttons, inputs, selects, etc.
+ * 
+ * These system tokens map to reference tokens but provide semantic names
+ * that can be shared across multiple component types.
+ */
+
+:root {
+  /* Control heights - for buttons, inputs, selects, etc. */
+  --control-height-1: var(--size-4); /* 16px - Extra small */
+  --control-height-2: var(--size-6); /* 24px - Small */
+  --control-height-3: var(--size-8); /* 32px - Medium */
+  --control-height-4: var(--size-10); /* 40px - Large */
+  --control-height-5: var(--size-11); /* 48px - Extra large */
+  --control-height-6: var(--size-12); /* 56px - Largest */
+
+  /* Control padding - for buttons, inputs, selects, etc. */
+  --control-padding-1: var(--space-3); /* 8px - Extra small */
+  --control-padding-2: var(--space-5); /* 12px - Small */
+  --control-padding-3: var(--space-7); /* 16px - Medium */
+  --control-padding-4: var(--space-8); /* 20px - Large */
+  --control-padding-5: var(--space-9); /* 24px - Extra large */
+  --control-padding-6: var(--space-10); /* 28px - Largest */
+
+  /* Control roundness - for buttons, inputs, selects, etc. */
+  --control-radius-1: var(--radius-sm); /* Tailwind sm radius - Extra small */
+  --control-radius-2: var(--radius-md); /* Tailwind md radius - Small */
+  --control-radius-3: var(--radius-lg); /* Tailwind lg radius - Medium */
+  --control-radius-4: var(--radius-lg); /* Tailwind lg radius - Large (same as medium for now) */
+  --control-radius-5: var(--radius-xl); /* Tailwind xl radius - Extra large */
+  --control-radius-6: var(--radius-2xl); /* Tailwind 2xl radius - Largest */
+}

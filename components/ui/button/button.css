@@ -7,7 +7,7 @@
  * - Component tokens (--button-bg, --button-text, etc.) are set by the token file
  *
  * Roundness system:
- * - Border-radius is calculated as: border-radius: calc(var(--radius-*) * var(--theme-radius-factor, 1));
+ * - Border-radius uses control roundness tokens that provide linear 1-6 mapping
  * - The roundness factor is set by the closest data-roundness attribute (theme or local).
  * - This allows for both global and per-button roundness control, using only CSS.
  */
@@ -40,36 +40,36 @@
   background-color: var(--button-bg-pressed);
 }
 
-/* Size variants using dimension tokens */
+/* Size variants using control system tokens */
 .button-size-1 {
-  height: var(--size-4); /* Smallest */
-  padding: 0 var(--size-2);
-  border-radius: calc(var(--radius-sm) * var(--theme-radius-factor, 1));
+  height: var(--control-height-1); /* Smallest */
+  padding: 0 var(--control-padding-1);
+  border-radius: calc(var(--control-radius-1) * var(--theme-radius-factor, 1));
 }
 .button-size-2 {
-  height: var(--size-6);
-  padding: 0 var(--size-3);
-  border-radius: calc(var(--radius-md) * var(--theme-radius-factor, 1));
+  height: var(--control-height-2);
+  padding: 0 var(--control-padding-2);
+  border-radius: calc(var(--control-radius-2) * var(--theme-radius-factor, 1));
 }
 .button-size-3 {
-  height: var(--size-8);
-  padding: 0 var(--size-4);
-  border-radius: calc(var(--radius-lg) * var(--theme-radius-factor, 1));
+  height: var(--control-height-3);
+  padding: 0 var(--control-padding-3);
+  border-radius: calc(var(--control-radius-3) * var(--theme-radius-factor, 1));
 }
 .button-size-4 {
-  height: var(--size-10);
-  padding: 0 var(--size-5);
-  border-radius: calc(var(--radius-lg) * var(--theme-radius-factor, 1));
+  height: var(--control-height-4);
+  padding: 0 var(--control-padding-4);
+  border-radius: calc(var(--control-radius-4) * var(--theme-radius-factor, 1));
 }
 .button-size-5 {
-  height: var(--size-12);
-  padding: 0 var(--size-6);
-  border-radius: calc(var(--radius-xl) * var(--theme-radius-factor, 1));
+  height: var(--control-height-5);
+  padding: 0 var(--control-padding-5);
+  border-radius: calc(var(--control-radius-5) * var(--theme-radius-factor, 1));
 }
 .button-size-6 {
-  height: var(--size-16); /* Largest */
-  padding: 0 var(--size-7);
-  border-radius: calc(var(--radius-2xl) * var(--theme-radius-factor, 1));
+  height: var(--control-height-6); /* Largest */
+  padding: 0 var(--control-padding-6);
+  border-radius: calc(var(--control-radius-6) * var(--theme-radius-factor, 1));
 }
 
 /* ========================================

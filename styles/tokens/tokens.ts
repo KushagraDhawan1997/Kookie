@@ -3,24 +3,34 @@
  *
  * This file defines TypeScript types for the token-based design system.
  * It provides type safety for components that accept token values.
+ *
+ * Token Architecture:
+ * - Reference tokens: Basic values (colors, spacing, dimensions, roundness)
+ * - System tokens: Semantic mappings for component use (layout controls, etc.)
  */
 
-// Spacing token types based on our spacing scale
-export type SpaceToken = 1 | 1.5 | 2 | 2.5 | 3 | 3.5 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 14 | 16 | 18 | 20 | 24;
+// Linear 1-24 spacing token types
+export type SpaceToken = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24;
 
-// Dimension token types combining numeric and semantic scales
-export type NumericDimensionToken = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 12 | 14 | 16 | 20 | 24 | 32 | 40 | 48 | 56 | 64 | 80 | 96;
+// Linear 1-24 dimension token types (4px to 320px)
+export type NumericDimensionToken = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24;
 
-export type NamedDimensionToken = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "full" | "half" | "fit" | "min" | "max" | "screen" | "screen-h";
+// Named dimension tokens for layout (320px to 1536px)
+export type NamedDimensionToken = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl";
 
-export type DimensionToken = NumericDimensionToken | NamedDimensionToken;
+// Special dimension tokens for utility cases
+export type SpecialDimensionToken = "full" | "half" | "fit" | "min" | "max" | "screen" | "screen-h";
+
+// Combined dimension token type
+export type DimensionToken = NumericDimensionToken | NamedDimensionToken | SpecialDimensionToken;
+
+// Control layout token types for components like buttons, inputs, etc.
+export type ControlSizeToken = 1 | 2 | 3 | 4 | 5 | 6;
 
 // Helper functions to convert token values to CSS variable references
 export function getSpaceTokenValue(token: SpaceToken | string): string {
-  if (typeof token === "number" || /^[0-9.]+$/.test(token as string)) {
-    // Replace decimal points with underscores in variable name
-    const varName = String(token).replace(".", "_");
-    return `var(--space-${varName})`;
+  if (typeof token === "number" || /^[0-9]+$/.test(token as string)) {
+    return `var(--space-${token})`;
   }
   // It's a CSS string value, return as is
   return token as string;
@@ -42,6 +52,7 @@ export function getDimensionTokenValue(token: DimensionToken | string): string {
         token === "5xl" ||
         token === "6xl" ||
         token === "7xl" ||
+        token === "8xl" ||
         token === "full" ||
         token === "half" ||
         token === "fit" ||
@@ -61,4 +72,12 @@ export function getDimensionTokenValue(token: DimensionToken | string): string {
 
   // It's a CSS string value, return as is
   return token as string;
+}
+
+export function getControlHeightTokenValue(token: ControlSizeToken): string {
+  return `var(--control-height-${token})`;
+}
+
+export function getControlPaddingTokenValue(token: ControlSizeToken): string {
+  return `var(--control-padding-${token})`;
 }

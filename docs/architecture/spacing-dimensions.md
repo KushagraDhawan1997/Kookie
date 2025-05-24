@@ -239,6 +239,17 @@ Built on top of dimension and spacing tokens, these provide semantic abstraction
 --control-padding-6: var(--space-10); /* 28px - Largest */
 ```
 
+### Control Roundness
+
+```css
+--control-radius-1: var(--radius-sm); /* Tailwind sm radius - Extra small */
+--control-radius-2: var(--radius-md); /* Tailwind md radius - Small */
+--control-radius-3: var(--radius-lg); /* Tailwind lg radius - Medium */
+--control-radius-4: var(--radius-lg); /* Tailwind lg radius - Large (same as medium) */
+--control-radius-5: var(--radius-xl); /* Tailwind xl radius - Extra large */
+--control-radius-6: var(--radius-2xl); /* Tailwind 2xl radius - Largest */
+```
+
 ## Best Practices
 
 ### Layout Spacing Philosophy

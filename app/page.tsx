@@ -7,6 +7,8 @@ import { Grid } from "@/components/ui/grid";
 import { TypographySize } from "@/components/ui/text/typography-types";
 import { Heading } from "@/components/ui/text/heading";
 import { Button } from "@/components/ui/button/button";
+import { ButtonSize, ButtonVariant } from "@/components/ui/button/button-types";
+import { ThemeRoundness } from "@/components/providers/theme-types";
 import React from "react";
 
 /**
@@ -18,18 +20,18 @@ import React from "react";
  * @returns {JSX.Element} Design system demo page
  */
 export default function Page() {
-  // Spacing tokens to demonstrate
-  const spacingTokens = [1, 2, 3, 4, 5, 6, 8, 10, 12];
+  // Spacing tokens to demonstrate (linear 1-24)
+  const spacingTokens = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   // Dimension tokens to demonstrate
-  const namedSizeTokens = ["xs", "sm", "md", "lg", "xl", "2xl"];
-  const numericSizeTokens = [4, 8, 16, 24, 32, 48, 64];
+  const numericSizeTokens = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const namedSizeTokens = ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "8xl"];
 
   // Typography tokens to demonstrate
   const typographyTokens = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as TypographySize[];
 
   return (
-    <Box p={5} width="full" maxWidth="4xl" mx="auto" my={24}>
+    <Box width="full" maxWidth="2xl" mx="auto" my={24}>
       <Flex direction="column" gap={24}>
         {/* Header */}
         <Flex direction="column" gap={2}>
@@ -168,7 +170,7 @@ export default function Page() {
               {[1, 2, 3, 4, 5, 6].map((size) => (
                 <Flex key={`size-col-${size}`} direction="column" align="center" gap={2}>
                   {["sm", "md", "lg", "xl"].map((roundness) => (
-                    <Button key={`size${size}-roundness${roundness}`} size={size as any} roundness={roundness as any}>
+                    <Button key={`size${size}-roundness${roundness}`} size={size as ButtonSize} roundness={roundness as ThemeRoundness}>
                       Kookie
                     </Button>
                   ))}
@@ -190,7 +192,7 @@ export default function Page() {
                 <React.Fragment key={size}>
                   <Text size={2} weight="semibold" style={{ display: "flex", alignItems: "center" }}>{`Size ${size}`}</Text>
                   {["modern", "solid", "tinted", "outline", "ghost", "link"].map((variant) => (
-                    <Button key={variant} size={size as any} variant={variant as any}>
+                    <Button key={variant} size={size as ButtonSize} variant={variant as ButtonVariant}>
                       Kookie
                     </Button>
                   ))}
@@ -292,27 +294,28 @@ export default function Page() {
           <Flex direction="column" gap={6}>
             <Flex direction="column" gap={4}>
               <Text as="h3" size={5 as TypographySize} weight="medium">
-                Named Size Tokens
-              </Text>
-              <Flex direction="column" gap={4}>
-                {namedSizeTokens.map((token) => (
-                  <Flex key={token} align="center" gap={4}>
-                    <Box width="20" style={{ flexShrink: 0 }}>
-                      <Text weight="semibold">{token}:</Text>
-                    </Box>
-                    <Box style={{ width: `var(--size-${token})`, maxWidth: "100%", height: "24px" }} />
-                    <Text as="div" size={2 as TypographySize} variant="muted">{`--size-${token}`}</Text>
-                  </Flex>
-                ))}
-              </Flex>
-            </Flex>
-            <Flex direction="column" gap={4}>
-              <Text as="h3" size={5 as TypographySize} weight="medium">
                 Numeric Size Tokens
               </Text>
               <Divider />
               <Grid gap={4} columns="repeat(auto-fill, minmax(200px, 1fr))">
                 {numericSizeTokens.map((token) => (
+                  <Box key={token} p={3}>
+                    <Flex direction="column" gap={2}>
+                      <Text weight="semibold">Size {token}</Text>
+                      <Box style={{ width: `var(--size-${token})`, maxWidth: "100%", height: "24px" }} />
+                      <Text as="div" size={2 as TypographySize} variant="muted">{`--size-${token}`}</Text>
+                    </Flex>
+                  </Box>
+                ))}
+              </Grid>
+            </Flex>
+            <Flex direction="column" gap={4}>
+              <Text as="h3" size={5 as TypographySize} weight="medium">
+                Named Size Tokens
+              </Text>
+              <Divider />
+              <Grid gap={4} columns="repeat(auto-fill, minmax(200px, 1fr))">
+                {namedSizeTokens.map((token) => (
                   <Box key={token} p={3}>
                     <Flex direction="column" gap={2}>
                       <Text weight="semibold">Size {token}</Text>
